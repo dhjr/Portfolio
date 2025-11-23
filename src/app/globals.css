@@ -11,6 +11,7 @@
   --font-rubik: var(--font-rubik);
   --font-inter: var(--font-inter);
   --font-josefin: var(--font-josefin);
+  --font-bree: var(--font-bree);
 }
 
 @media (prefers-color-scheme: dark) {
