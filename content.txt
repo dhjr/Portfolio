@@ -1,0 +1,61 @@
+1. Clear Hero Section (First Impression)
+
+This is what visitors see immediately.
+    Your name
+    What you do (e.g., Web Developer, Student Engineer, Designer)
+    One-line summary of your strengths
+    A good photo (optional but useful)
+    A clear call-to-action: View Projects, Contact Me
+
+
+2. Projects Section (Most Important Part)
+
+    Show 3–6 solid projects.
+    For each project, include:
+
+        Title
+        Short description (what problem it solves)
+        Tech stack used
+        Your specific role
+        Screenshots or demos
+        GitHub link
+        Live website link (if possible)
+        Make this section clean and highlight your best work first.
+
+
+3. Skills Section
+
+    Grouped skills work better:   
+    Programming languages
+    Frameworks / libraries
+    Databases
+    Tools (Git, Docker, etc.)
+    Cloud / DevOps (optional)
+    Use only what you actually know well.
+
+
+5. Experience Section (If you have any)
+This can include:
+    Internships
+    Freelance work
+    College projects
+    Hackathons
+    Workshops / achievements
+
+Use short bullet points instead of long paragraphs.
+
+
+6. Contact Section
+
+Make it easy for someone to reach you:
+    Simple form
+    Email link  
+    LinkedIn    
+    GitHub
+
+Optional: resume download button
+
+
+8. Extras (Optional but Adds Value)
+Dark/light mode
+Small animations or micro-interactions
