@@ -49,15 +49,20 @@ export const cinzel = Cinzel({
 
 export const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
+  weight: ["400"], // Specify available weight
+
   variable: "--font-instrumentserif",
 });
 
 export const gruppo = Gruppo({
   subsets: ["latin"],
+  weight: ["400"], // Specify available weight
+
   variable: "--font-gruppo",
 });
 
 export const forum = Forum({
   subsets: ["latin"],
+  weight: ["400"], // Specify available weight
   variable: "--font-forum",
 });
