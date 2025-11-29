@@ -34,8 +34,8 @@ export default function Home() {
       </div>
 
       <Projects />
-      <Contact />
       <Skills />
+      <Contact />
     </>
   );
 }
