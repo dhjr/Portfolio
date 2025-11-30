@@ -1,3 +1,10 @@
+import Header from "@/components/sectionHeader";
+
 export default function contact() {
-  return <p>Contact section</p>;
+  return (
+    <>
+      <Header name="Contact" />
+      <p>Contact section</p>
+    </>
+  );
 }
