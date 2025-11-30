@@ -5,16 +5,18 @@
   --foreground: #171717;
 
   /* Font variables */
-  --font-rubik: var(--font-rubik);
-  --font-inter: var(--font-inter);
-  --font-josefin: var(--font-josefin);
-  --font-bree: var(--font-bree);
   --font-ebgaramond: var(--font-ebgaramond);
+  --font-josefin: var(--font-josefin);
   --font-cormorant: var(--font-cormorant);
+  --font-cormorantupright: var(--font-cormorantupright);
   --font-cinzel: var(--font-cinzel);
   --font-instrumentserif: var(--font-instrumentserif);
   --font-gruppo: var(--font-gruppo);
   --font-forum: var(--font-forum);
+  --font-leaguegothic: var(--font-leaguegothic);
+  --font-newamsterdam: var(--font-newamsterdam);
+  --font-trunculenta: var(--font-trunculenta);
+  --font-boldonse: var(--font-boldonse);
 }
 
 @theme inline {
@@ -22,16 +24,18 @@
   --color-foreground: var(--foreground);
 
   /* Re-declare fonts for theme if needed */
-  --font-rubik: var(--font-rubik);
-  --font-inter: var(--font-inter);
-  --font-josefin: var(--font-josefin);
-  --font-bree: var(--font-bree);
   --font-ebgaramond: var(--font-ebgaramond);
+  --font-josefin: var(--font-josefin);
   --font-cormorant: var(--font-cormorant);
+  --font-cormorantupright: var(--font-cormorantupright);
   --font-cinzel: var(--font-cinzel);
   --font-instrumentserif: var(--font-instrumentserif);
   --font-gruppo: var(--font-gruppo);
   --font-forum: var(--font-forum);
+  --font-leaguegothic: var(--font-leaguegothic);
+  --font-newamsterdam: var(--font-newamsterdam);
+  --font-trunculenta: var(--font-trunculenta);
+  --font-boldonse: var(--font-boldonse);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -45,6 +49,6 @@ body {
   background: var(--background);
   color: var(--foreground);
 
-  /* Set default font-family here, pick your preferred fallback stack */
-  font-family: var(--font-rubik), Arial, Helvetica, sans-serif;
+  /* Default font — choose any of your imported ones */
+  font-family: var(--font-josefin), Arial, Helvetica, sans-serif;
 }

@@ -59,6 +59,7 @@ export default function NameReveal() {
         gsap.to(el, {
           scale: 1,
           y: 0,
+
           duration: 0.25,
           ease: "power2.out",
         });

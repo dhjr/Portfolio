@@ -1,15 +1,18 @@
+// src/app/layout.js
 import "./globals.css";
 import {
-  inter,
-  rubik,
-  josefin,
-  bree,
   ebGaramond,
+  josefin,
   cormorant,
+  cormorantUpright,
   cinzel,
   instrumentSerif,
   gruppo,
   forum,
+  leagueGothic,
+  newAmsterdam,
+  trunculenta,
+  boldonse,
 } from "./fonts";
 
 export const metadata = {
@@ -22,9 +25,19 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       className={`
-        ${rubik.variable} ${inter.variable} ${josefin.variable} ${bree.variable}
-        ${ebGaramond.variable} ${cormorant.variable} ${cinzel.variable}
-        ${instrumentSerif.variable} ${gruppo.variable} ${forum.variable}
+        ${ebGaramond.variable}
+        ${josefin.variable}
+        ${cormorant.variable}
+        ${cormorantUpright.variable}
+        ${cinzel.variable}
+        ${instrumentSerif.variable}
+        ${gruppo.variable}
+        ${forum.variable}
+        ${leagueGothic.variable}
+        ${newAmsterdam.variable}
+        ${trunculenta.variable}
+        ${boldonse.variable}
+
       `}
     >
       <body className="antialiased">{children}</body>

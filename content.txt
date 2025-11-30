@@ -61,6 +61,3 @@ Dark/light mode
 Small animations or micro-interactions
 
 
-unique elements
-
-dvd icon moving around animated
