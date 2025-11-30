@@ -34,6 +34,8 @@ export const cormorant = Cormorant({
 
 export const cormorantUpright = Cormorant_Upright({
   subsets: ["latin"],
+  weight: "400",
+
   variable: "--font-cormorantupright",
   display: "swap",
 });
@@ -47,6 +49,8 @@ export const cinzel = Cinzel({
 export const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   variable: "--font-instrumentserif",
+  weight: "400",
+
   display: "swap",
 });
 
@@ -59,6 +63,8 @@ export const gruppo = Gruppo({
 
 export const forum = Forum({
   subsets: ["latin"],
+  weight: "400",
+
   variable: "--font-forum",
   display: "swap",
 });
@@ -86,5 +92,7 @@ export const trunculenta = Truculenta({
 export const boldonse = Boldonse({
   subsets: ["latin"],
   variable: "--font-boldonse",
+  weight: "400",
+
   display: "swap",
 });
