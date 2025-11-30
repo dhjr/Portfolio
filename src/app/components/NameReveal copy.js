@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef, useEffect } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 
 export default function NameReveal() {
@@ -13,7 +13,6 @@ export default function NameReveal() {
 
     const tl = gsap.timeline();
 
-    // Initial reveal animation
     tl.fromTo(
       letters,
       { opacity: 0, y: 40, scale: 0.8, filter: "blur(8px)" },
@@ -40,41 +39,6 @@ export default function NameReveal() {
     );
   }, []);
 
-  // GSAP Hover Effect on each letter
-  useEffect(() => {
-    nameRef.current.forEach((el) => {
-      if (!el) return;
-
-      const hoverIn = () => {
-        gsap.to(el, {
-          scale: 1.25,
-          y: -8,
-          filter: "blur(0px)",
-          duration: 0.25,
-          ease: "power2.out",
-        });
-      };
-
-      const hoverOut = () => {
-        gsap.to(el, {
-          scale: 1,
-          y: 0,
-          duration: 0.25,
-          ease: "power2.out",
-        });
-      };
-
-      el.addEventListener("mouseenter", hoverIn);
-      el.addEventListener("mouseleave", hoverOut);
-
-      // cleanup
-      return () => {
-        el.removeEventListener("mouseenter", hoverIn);
-        el.removeEventListener("mouseleave", hoverOut);
-      };
-    });
-  }, []);
-
   const name = "Dhananjay".split("");
 
   return (
@@ -83,10 +47,9 @@ export default function NameReveal() {
         <span
           key={i}
           ref={(el) => (nameRef.current[i] = el)}
-          className="font-rubik tracking-widest font-bold text-7xl bg-linear-to-b 
-            text-transparent from-[#00d19d] to-[#005e48] bg-clip-text 
-            inline-block opacity-0 blur-sm cursor-pointer"
+          className="font-rubik tracking-widest font-bold text-7xl bg-linear-to-b text-transparent from-[#00d19d] to-[#005e48] bg-clip-text inline-block opacity-0 blur-sm"
         >
+          {letter}
           {letter}
         </span>
       ))}
