@@ -30,12 +30,13 @@ export default function Home() {
             </p> */}
 
             <NameReveal />
-            <img
+            {/* <img
               src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Grinning%20Cat.png"
               alt="Grinning Cat"
               className="size-20"
-            />
+            /> */}
           </div>
+         
           <p>Full Stack Developer</p>
         </div>
       </div>
