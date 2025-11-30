@@ -4,6 +4,7 @@ import Image from "next/image";
 import Projects from "./projects/page";
 import Contact from "./contact/page";
 import Skills from "./skills/page";
+import Education from "./education/page";
 import NameReveal from "@/components/NameReveal";
 
 export default function Home() {
@@ -36,13 +37,14 @@ export default function Home() {
               className="size-20"
             /> */}
           </div>
-         
+
           <p>Full Stack Developer</p>
         </div>
       </div>
 
       <Projects />
       <Skills />
+      <Education />
       <Contact />
     </>
   );

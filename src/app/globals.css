@@ -5,18 +5,18 @@
   --foreground: #171717;
 
   /* Font variables */
-  --font-ebgaramond: var(--font-ebgaramond);
-  --font-josefin: var(--font-josefin);
-  --font-cormorant: var(--font-cormorant);
-  --font-cormorantupright: var(--font-cormorantupright);
-  --font-cinzel: var(--font-cinzel);
-  --font-instrumentserif: var(--font-instrumentserif);
-  --font-gruppo: var(--font-gruppo);
-  --font-forum: var(--font-forum);
-  --font-leaguegothic: var(--font-leaguegothic);
-  --font-newamsterdam: var(--font-newamsterdam);
-  --font-trunculenta: var(--font-trunculenta);
-  --font-boldonse: var(--font-boldonse);
+  --font-1ebgaramond: var(--font-ebgaramond);
+  --font-1josefin: var(--font-josefin);
+  --font-1cormorant: var(--font-cormorant);
+  --font-1cormorantupright: var(--font-cormorantupright);
+  --font-1cinzel: var(--font-cinzel);
+  --font-1instrumentserif: var(--font-instrumentserif);
+  --font-1gruppo: var(--font-gruppo);
+  --font-1forum: var(--font-forum);
+  --font-1leaguegothic: var(--font-leaguegothic);
+  --font-1newamsterdam: var(--font-newamsterdam);
+  --font-1trunculenta: var(--font-trunculenta);
+  --font-1boldonse: var(--font-boldonse);
 }
 
 @theme inline {
@@ -24,18 +24,18 @@
   --color-foreground: var(--foreground);
 
   /* Re-declare fonts for theme if needed */
-  --font-ebgaramond: var(--font-ebgaramond);
-  --font-josefin: var(--font-josefin);
-  --font-cormorant: var(--font-cormorant);
-  --font-cormorantupright: var(--font-cormorantupright);
-  --font-cinzel: var(--font-cinzel);
-  --font-instrumentserif: var(--font-instrumentserif);
-  --font-gruppo: var(--font-gruppo);
-  --font-forum: var(--font-forum);
-  --font-leaguegothic: var(--font-leaguegothic);
-  --font-newamsterdam: var(--font-newamsterdam);
-  --font-trunculenta: var(--font-trunculenta);
-  --font-boldonse: var(--font-boldonse);
+  --font-1ebgaramond: var(--font-ebgaramond);
+  --font-1josefin: var(--font-josefin);
+  --font-1cormorant: var(--font-cormorant);
+  --font-1cormorantupright: var(--font-cormorantupright);
+  --font-1cinzel: var(--font-cinzel);
+  --font-1instrumentserif: var(--font-instrumentserif);
+  --font-1gruppo: var(--font-gruppo);
+  --font-1forum: var(--font-forum);
+  --font-1leaguegothic: var(--font-leaguegothic);
+  --font-1newamsterdam: var(--font-newamsterdam);
+  --font-1trunculenta: var(--font-trunculenta);
+  --font-1boldonse: var(--font-boldonse);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -52,3 +52,46 @@ body {
   /* Default font — choose any of your imported ones */
   font-family: var(--font-josefin), Arial, Helvetica, sans-serif;
 }
+
+/* Neon glow text utility */
+.neon-green {
+  text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #00ffcc,
+    0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px #00ffcc;
+}
+
+.neon-pink {
+  text-shadow: 0 0 5px #ff2ea8, 0 0 10px #ff2ea8, 0 0 15px #ff2ea8,
+    0 0 25px #ff2ea8, 0 0 35px #ff2ea8;
+}
+
+.neon-blue {
+  text-shadow: 0 0 5px #00b7ff, 0 0 10px #00b7ff, 0 0 20px #00b7ff,
+    0 0 30px #00b7ff, 0 0 40px #00b7ff;
+}
+
+@keyframes neon-flicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 5px #00b7ff, 0 0 10px #00b7ff, 0 0 20px #00b7ff,
+      0 0 30px #00b7ff, 0 0 40px #00b7ff;
+  }
+  20%,
+  22%,
+  24%,
+  55% {
+    opacity: 0.8;
+    text-shadow: 0 0 3px #00b7ff, 0 0 6px #00b7ff, 0 0 10px #00b7ff,
+      0 0 15px #00b7ff, 0 0 20px #00b7ff;
+  }
+}
+.neon-blue-flicker {
+  animation: neon-flicker 2s infinite;
+}
+

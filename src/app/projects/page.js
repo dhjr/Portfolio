@@ -1,11 +1,13 @@
 import Card from "../components/card";
+import Header from "@/components/sectionHeader";
 
 export default function projects() {
   return (
     <>
-      <div className=" text-4xl m-5 animate-pulse font-bold ">
+      {/* <div className=" text-4xl m-5 shadow-md shadow-blue-400 border-2 border-red-300 text-shadow-lg text-shadow-red-600/50 rounded-xl w-fit p-1 font-1trunculenta ">
         Projects
-      </div>
+        </div> */}
+      <Header name="Projects" />;
       <div className="flex flex-row justify-evenly">
         <Card
           heading="Mentora"
