@@ -59,3 +59,8 @@ Optional: resume download button
 8. Extras (Optional but Adds Value)
 Dark/light mode
 Small animations or micro-interactions
+
+
+unique elements
+
+dvd icon moving around animated
