@@ -1,4 +1,6 @@
-export default function Card({ heading, description, tags }) {
+import { Github } from "lucide-react";
+
+export default function Card({ heading, description, tags, ghLink }) {
   return (
     <div
       className="
@@ -10,7 +12,7 @@ export default function Card({ heading, description, tags }) {
       <h1 className="text-3xl font-ebgaramond">{heading}</h1>
       <p className="font-forum">{description}</p>
 
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 my-4">
         {tags &&
           tags.map((tag, idx) => (
             <p
@@ -21,6 +23,15 @@ export default function Card({ heading, description, tags }) {
             </p>
           ))}
       </div>
+      <a
+        href="https://github.com"
+        target="__blank"
+        className="w-full flex justify-center items-center"
+      >
+        <button className="border rounded-2xl border-white p-1 my-2 hover:bg-black transition-colors duration-75">
+          <Github />
+        </button>
+      </a>
     </div>
   );
 }

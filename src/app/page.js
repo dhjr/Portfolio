@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       {/* <div className="bg-red-900 w-100 absolute z-0 h-80 top-60 rounded-4xl"></div> */}
-      <div className=" w-full flex flex-row justify-evenly items-center">
+      <div className=" w-full h-dvh flex flex-row justify-evenly items-center">
         <Image
           className=" z-10"
           width={size}
@@ -24,22 +24,16 @@ export default function Home() {
         <div className="flex flex-col justify-center items-start">
           <p className="text-5xl font-josefin ">Hey, I'm</p>
           <div className="flex flex-row items-center">
-            {/* <p
-              className={`font-rubik mr-5 font-bold text-7xl leading-20 bg-linear-to-b text-transparent from-[#00d19d] to-[#005e48] bg-clip-text`}
-            >
-              Dhananjay
-            </p> */}
-
             <NameReveal />
-            {/* <img
-              src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Grinning%20Cat.png"
-              alt="Grinning Cat"
-              className="size-20"
-            /> */}
           </div>
 
           <p>Full Stack Developer</p>
+          <button className="border-2 my-5 rounded-2xl p-2 hover:bg-white hover:text-black transition-colors duration-300">
+            Lets Connect!
+          </button>
         </div>
+
+        {/* <Image src={"/bottom.jpg"} width={size} height={size} /> */}
       </div>
 
       <Projects />

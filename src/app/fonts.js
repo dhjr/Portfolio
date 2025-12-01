@@ -93,6 +93,5 @@ export const boldonse = Boldonse({
   subsets: ["latin"],
   variable: "--font-boldonse",
   weight: "400",
-
   display: "swap",
 });

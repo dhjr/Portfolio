@@ -1,5 +1,6 @@
 import Card from "../components/card";
 import Header from "@/components/sectionHeader";
+import { Github } from "lucide-react";
 
 export default function projects() {
   return (
@@ -14,7 +15,6 @@ export default function projects() {
           description="Mentora.ai is a web-based extension used to assess your knowledge in realtime, while watching youtube videos.Avoid tutorial hell."
           tags={["html", "css", "javascript", "express.js", "chrome extension"]}
         />
-
         <Card
           heading="Mentora"
           description="Mentora.ai is a web-based extension used to assess your knowledge in realtime, while watching youtube videos.Avoid tutorial hell."
