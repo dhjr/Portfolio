@@ -23,10 +23,10 @@ export default function Timeline() {
     },
     {
       title: "Machine Learning Intern",
-      company: "IIIT Kottayam",
+      company: "Indian Institute of Information Technology, Kottayam",
       status: "May - Aug 2025",
       description:
-        "Will be developing a 2D CNN-based architecture for classifying multiple classes of cardiac arrhythmia from ECG data. Will implement Grad-CAM for model explainability, highlighting decision regions and improving interpretability. Focus on model optimization and evaluation to achieve reliable classification performance.",
+        "Developed a 2D CNN-based architecture for classifying multiple classes of cardiac arrhythmia from ECG data. Implemented Grad-CAM for model explainability, highlighting decision regions and improving interpretability. Focus on model optimization and evaluation to achieve reliable classification performance.",
     },
     {
       title: "Hackathon Winner",
@@ -45,7 +45,7 @@ export default function Timeline() {
   ];
 
   return (
-    <div className="bg-[#1a0b0b] min-h-screen p-10 text-white font-sans">
+    <div className="w-[80%] my-10 bg-blue-950/20 rounded-4xl mx-auto min-h-screen p-10 text-white font-sans">
       <div className="max-w-6xl mx-auto relative flex flex-col gap-24">
         {/* Vertical line */}
         <div className="absolute top-0 bottom-0 left-[0.6rem] w-1 bg-rose-600"></div>
@@ -57,12 +57,14 @@ export default function Timeline() {
 
             {/* Content */}
             <div className="max-w-xl">
-              <h3 className="text-2xl text-rose-600 font-semibold">
+              <h3 className="text-2xl text-rose-600 font-semibold font-1trunculenta">
                 {item.title}
               </h3>
-              <p className="font-bold text-white">{item.company}</p>
+              <p className="text-xs font-1forum text-gray-500">
+                {item.company}
+              </p>
               <p className="italic text-gray-400 mb-4">{item.status}</p>
-              <p className="text-gray-300 leading-relaxed">
+              <p className=" text-gray-300 leading-relaxed">
                 {item.description}
               </p>
             </div>
