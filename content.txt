@@ -61,3 +61,10 @@ Dark/light mode
 Small animations or micro-interactions
 
 
+
+
+footer
+small descriptive text
+dark/light mode toggle
+links to all your socials
+copyright

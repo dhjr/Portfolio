@@ -5,7 +5,7 @@ import Projects from "./projects/page";
 import Contact from "./contact/page";
 import Skills from "./skills/page";
 import Education from "./education/page";
-import Footer from "./components/footer";
+import Footer from "@/components/footer";
 import NameReveal from "@/components/NameReveal";
 
 export default function Home() {

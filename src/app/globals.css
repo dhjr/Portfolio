@@ -94,4 +94,120 @@ body {
 .neon-blue-flicker {
   animation: neon-flicker 2s infinite;
 }
+/* components/GlowingTriangle.css */
+.triangle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0a0a0a;
+  padding: 2rem;
+}
 
+.triangle-wrapper {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+.triangle-svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* Glowing edges animation */
+.triangle-edges {
+  animation: edgeGlow 3s infinite ease-in-out;
+  filter: url(#glow);
+}
+
+/* Keyframe for the glowing edges */
+@keyframes edgeGlow {
+  0%, 100% {
+    stroke-width: 2;
+    stroke-opacity: 0.7;
+    filter: drop-shadow(0 0 5px rgba(76, 201, 240, 0.5));
+  }
+  50% {
+    stroke-width: 3;
+    stroke-opacity: 1;
+    filter: drop-shadow(0 0 15px rgba(76, 201, 240, 0.9)) 
+            drop-shadow(0 0 25px rgba(67, 97, 238, 0.7));
+  }
+}
+
+/* Text styling - NO GLOW */
+.text-vertex {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.text-label {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.8rem 1.8rem;
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* No glow effects on text */
+  box-shadow: none;
+  animation: none;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect on text (optional) */
+.text-label:hover {
+  transform: scale(1.05);
+  background: rgba(30, 30, 30, 0.95);
+}
+
+/* Position the text at triangle vertices */
+.top-vertex {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left-vertex {
+  bottom: 20px;
+  left: 20px;
+}
+
+.right-vertex {
+  bottom: 20px;
+  right: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .triangle-wrapper {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .text-label {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .triangle-wrapper {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .text-label {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
