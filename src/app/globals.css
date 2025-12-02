@@ -47,6 +47,7 @@ body {
 
   aspect-ratio: 1;
   width: calc(150% * var(--size));
+  /* max-width: 500px; */
 
   background: linear-gradient(259.53deg, #0a3fff 6.53%, #f55f0a 95.34%);
   filter: blur(10vw);
@@ -133,5 +134,5 @@ body {
   position: fixed;
 
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
 }

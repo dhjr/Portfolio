@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
+import { Copy } from "lucide-react";
 import Projects from "./projects/page";
 import Contact from "./contact/page";
 import Skills from "./skills/page";
@@ -10,9 +12,8 @@ import NameReveal from "@/components/NameReveal";
 import HeroImage from "@/components/heroImage";
 import { StarsBackground } from "@/components/stars";
 import Button from "./components/macButton";
-import { Copy } from "lucide-react";
 import Popup from "./components/popup";
-import { useState } from "react";
+import GlowComp from "./components/glowComponent";
 
 export default function Home() {
   // const size = 420;
@@ -31,11 +32,11 @@ export default function Home() {
   };
   return (
     <>
-      <div className=" w-full h-dvh flex flex-row justify-evenly items-center">
+      <section className="relative w-full h-dvh flex flex-row justify-evenly items-center overflow-hidden">
         <HeroImage />
-
+        <GlowComp />
         <div className="flex flex-col justify-center items-start">
-          <p className="text-5xl font-josefin ">Hey, I'm</p>
+          <p className="text-5xl font-1spaceGrotesk ">Hey, I'm</p>
           <div className="flex flex-row items-center">
             <NameReveal />
           </div>
@@ -48,16 +49,23 @@ export default function Home() {
           </Link>
           <button
             onClick={handleMailClick}
-            className=" flex flex-row  cursor-pointer gap-2 my-2 hover:scale-104 duration-150 p-2 rounded-sm "
+            className=" flex flex-row justify-center items-center cursor-pointer gap-2 my-2 hover:scale-104 duration-150 p-2 rounded-sm "
           >
-            <p className="font-1spacegrotesk text-lg ">something@gmail.com</p>
+            <p className="font-1spaceGrotesk text-lg ">something@gmail.com</p>
             <Copy />
           </button>
         </div>
-        <div className="-z-10 absolute object-cover w-full h-full ">
+
+        <div className="-z-20 absolute object-cover w-full h-full ">
           <StarsBackground />
         </div>
-      </div>
+
+        <img
+          src="crystal.png"
+          className="absolute  size-20 bottom-0 animate-bounce "
+          alt=""
+        />
+      </section>
 
       <Projects />
       <Skills />
