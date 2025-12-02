@@ -14,14 +14,16 @@ export default function HeroImage({ size }) {
   };
 
   return (
-    <Image
-      ref={imgRef}
-      className="opacity-0 bg-amber-300/80 z-10 object-cover shadow-lg shadow-white/20 border border-white hover:-rotate-6 transition-transform duration-300 rounded-full"
-      width={420}
-      height={420}
-      src="/profileBW.png"
-      alt="profile"
-      onLoadingComplete={handleLoad}
-    />
+    <div>
+      <Image
+        ref={imgRef}
+        className="opacity-0 bg-radial from-amber-500 to-amber-300 z-10 object-cover shadow-lg shadow-white/20 border border-white hover:-rotate-6 transition-transform duration-300 rounded-full"
+        width={420}
+        height={420}
+        src="/profileBW.png"
+        alt="profile"
+        onLoadingComplete={handleLoad}
+      />
+    </div>
   );
 }

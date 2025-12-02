@@ -9,14 +9,25 @@ import Footer from "@/components/footer";
 import NameReveal from "@/components/NameReveal";
 import HeroImage from "@/components/heroImage";
 import { StarsBackground } from "@/components/stars";
-import GlowComp from "./components/glowComponent";
 import Button from "./components/macButton";
 import { Copy } from "lucide-react";
+import Popup from "./components/popup";
+import { useState } from "react";
 
 export default function Home() {
   // const size = 420;
+  const [popup, setPopup] = useState(false);
+  let timer = null;
   const handleMailClick = () => {
-    console.log("mail copied");
+    setPopup(true);
+
+    if (timer) clearTimeout(timer);
+
+    timer = setTimeout(() => {
+      setPopup(false);
+
+      timer = null;
+    }, 3000);
   };
   return (
     <>
@@ -28,14 +39,14 @@ export default function Home() {
           <div className="flex flex-row items-center">
             <NameReveal />
           </div>
-
+          <Popup message={"Mail successfully copied!"} showPopup={popup} />
           <p>Full Stack Developer</p>
           <Link href={"#footer"}>
             <Button text={"Let's Connect!"} />
           </Link>
           <button
             onClick={handleMailClick}
-            className=" flex flex-row  gap-2 my-2 hover:scale-104 duration-150 p-2 rounded-sm "
+            className=" flex flex-row cursor-pointer gap-2 my-2 hover:scale-104 duration-150 p-2 rounded-sm "
           >
             mail@123 <Copy />
           </button>
