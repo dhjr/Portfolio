@@ -3,25 +3,52 @@ import { Github, Linkedin, Twitter, Mail, Youtube } from "lucide-react";
 export default function footer() {
   return (
     <>
-      <section className="relative w-full h-100 bg-zinc-700/50">
-        <div className="w-[90%] mx-auto  h-[0.5px]  bg-zinc-500"></div>
-        <h3 className="font-1boldonse m-5">Dhananjay R</h3>
-        <div className="w-50 flex flex-row  ">
-          <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
-            <Github />
-          </button>
-          <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
-            <Linkedin />
-          </button>
-          <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
-            <Twitter />
-          </button>
-          <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
-            <Mail />
-          </button>
-          <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
-            <Youtube />
-          </button>
+      <section className="relative w-full h-100">
+        <div className="w-[90%] mx-auto h-[0.5px]  bg-zinc-500"></div>
+        <div className="h-full flex flex-row justify-between">
+          <div className="flex flex-col justify-center items-center">
+            <h3 className="font-1boldonse m-5 opacity-20">Dhananjay R</h3>
+
+            <h2 className="text-6xl text-white/20 font-1boldonse font-extrabold">
+              DR.
+            </h2>
+          </div>
+
+          <div className="h-full flex flex-col justify-center items-center gap-5">
+            <p className="hover:text-xl transition-normal duration-150">
+              About
+            </p>
+            <p className="hover:text-xl transition-normal duration-150">
+              Projects
+            </p>
+            <p className="hover:text-xl transition-normal duration-150">
+              Education
+            </p>
+            <p className="hover:text-xl transition-normal duration-150">
+              Contact
+            </p>
+          </div>
+
+          <div className="flex flex-col justify-center items-center">
+            <h2 className="font-1boldonse">Socials</h2>
+            <div className="w-50 flex flex-row  justify-center items-center">
+              <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
+                <Github />
+              </button>
+              <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
+                <Linkedin />
+              </button>
+              <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
+                <Twitter />
+              </button>
+              <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
+                <Mail />
+              </button>
+              <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
+                <Youtube />
+              </button>
+            </div>
+          </div>
         </div>
         <div className="absolute bottom-2 w-full text-center">
           <div className="w-[90%] mx-auto  h-[0.5px]  bg-zinc-500"></div>
