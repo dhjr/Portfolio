@@ -84,7 +84,7 @@ export default function NameReveal() {
         <span
           key={i}
           ref={(el) => (nameRef.current[i] = el)}
-          className="font-rubik tracking-widest font-bold text-7xl bg-linear-to-b 
+          className="font-1cormorantupright h-20 tracking-widest font-bold text-7xl bg-linear-to-b 
             text-transparent from-[#00d19d] to-[#005e48] bg-clip-text 
             inline-block opacity-0 blur-sm cursor-pointer"
         >

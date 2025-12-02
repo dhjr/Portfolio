@@ -1,9 +1,7 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-
   /* Font variables */
   --font-1ebgaramond: var(--font-ebgaramond);
   --font-1josefin: var(--font-josefin);
@@ -19,10 +17,12 @@
   --font-1boldonse: var(--font-boldonse);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+body {
+  background-color: black;
+  color: white;
+}
 
+@theme inline {
   /* Re-declare fonts for theme if needed */
   --font-1ebgaramond: var(--font-ebgaramond);
   --font-1josefin: var(--font-josefin);
@@ -38,176 +38,98 @@
   --font-1boldonse: var(--font-boldonse);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+.ball {
+  --delay: 0s;
+  --size: 0.4;
+  --speed: 20s;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
+  aspect-ratio: 1;
+  width: calc(150% * var(--size));
 
-  /* Default font — choose any of your imported ones */
-  font-family: var(--font-josefin), Arial, Helvetica, sans-serif;
-}
+  background: linear-gradient(259.53deg, #0a3fff 6.53%, #f55f0a 95.34%);
+  filter: blur(10vw);
 
-/* Neon glow text utility */
-.neon-green {
-  text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #00ffcc,
-    0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px #00ffcc;
-}
+  border-radius: 50%;
 
-.neon-pink {
-  text-shadow: 0 0 5px #ff2ea8, 0 0 10px #ff2ea8, 0 0 15px #ff2ea8,
-    0 0 25px #ff2ea8, 0 0 35px #ff2ea8;
-}
-
-.neon-blue {
-  text-shadow: 0 0 5px #00b7ff, 0 0 10px #00b7ff, 0 0 20px #00b7ff,
-    0 0 30px #00b7ff, 0 0 40px #00b7ff;
-}
-
-@keyframes neon-flicker {
-  0%,
-  19%,
-  21%,
-  23%,
-  25%,
-  54%,
-  56%,
-  100% {
-    opacity: 1;
-    text-shadow: 0 0 5px #00b7ff, 0 0 10px #00b7ff, 0 0 20px #00b7ff,
-      0 0 30px #00b7ff, 0 0 40px #00b7ff;
-  }
-  20%,
-  22%,
-  24%,
-  55% {
-    opacity: 0.8;
-    text-shadow: 0 0 3px #00b7ff, 0 0 6px #00b7ff, 0 0 10px #00b7ff,
-      0 0 15px #00b7ff, 0 0 20px #00b7ff;
-  }
-}
-.neon-blue-flicker {
-  animation: neon-flicker 2s infinite;
-}
-/* components/GlowingTriangle.css */
-.triangle-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #0a0a0a;
-  padding: 2rem;
-}
-
-.triangle-wrapper {
-  position: relative;
-  width: 400px;
-  height: 400px;
-}
-
-.triangle-svg {
   position: absolute;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
+
+  animation: loop var(--speed) infinite linear;
+  animation-delay: var(--delay);
+  transform-origin: 50% 50%;
+
+  opacity: 0.6;
 }
 
-/* Glowing edges animation */
-.triangle-edges {
-  animation: edgeGlow 3s infinite ease-in-out;
-  filter: url(#glow);
-}
-
-/* Keyframe for the glowing edges */
-@keyframes edgeGlow {
-  0%, 100% {
-    stroke-width: 2;
-    stroke-opacity: 0.7;
-    filter: drop-shadow(0 0 5px rgba(76, 201, 240, 0.5));
+@keyframes loop {
+  0% {
+    transform: translate3D(0%, 51%, 0) rotate(0deg);
+  }
+  5% {
+    transform: translate3D(8%, 31%, 0) rotate(18deg);
+  }
+  10% {
+    transform: translate3D(22%, 13%, 0) rotate(36deg);
+  }
+  15% {
+    transform: translate3D(40%, 2%, 0) rotate(54deg);
+  }
+  20% {
+    transform: translate3D(46%, 21%, 0) rotate(72deg);
+  }
+  25% {
+    transform: translate3D(50%, 47%, 0) rotate(90deg);
+  }
+  30% {
+    transform: translate3D(53%, 80%, 0) rotate(108deg);
+  }
+  35% {
+    transform: translate3D(59%, 98%, 0) rotate(125deg);
+  }
+  40% {
+    transform: translate3D(84%, 89%, 0) rotate(144deg);
+  }
+  45% {
+    transform: translate3D(92%, 68%, 0) rotate(162deg);
   }
   50% {
-    stroke-width: 3;
-    stroke-opacity: 1;
-    filter: drop-shadow(0 0 15px rgba(76, 201, 240, 0.9)) 
-            drop-shadow(0 0 25px rgba(67, 97, 238, 0.7));
+    transform: translate3D(99%, 47%, 0) rotate(180deg);
+  }
+  55% {
+    transform: translate3D(97%, 21%, 0) rotate(198deg);
+  }
+  60% {
+    transform: translate3D(80%, 7%, 0) rotate(216deg);
+  }
+  65% {
+    transform: translate3D(68%, 25%, 0) rotate(234deg);
+  }
+  70% {
+    transform: translate3D(59%, 41%, 0) rotate(251deg);
+  }
+  75% {
+    transform: translate3D(50%, 63%, 0) rotate(270deg);
+  }
+  80% {
+    transform: translate3D(38%, 78%, 0) rotate(288deg);
+  }
+  85% {
+    transform: translate3D(21%, 92%, 0) rotate(306deg);
+  }
+  90% {
+    transform: translate3D(3%, 79%, 0) rotate(324deg);
+  }
+  100% {
+    transform: translate3D(0%, 51%, 0) rotate(360deg);
   }
 }
 
-/* Text styling - NO GLOW */
-.text-vertex {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-}
+.glow-container {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: fixed;
 
-.text-label {
-  color: white;
-  font-size: 1.3rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 0.8rem 1.8rem;
-  background: rgba(20, 20, 20, 0.9);
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  /* No glow effects on text */
-  box-shadow: none;
-  animation: none;
-  transition: transform 0.3s ease;
-}
-
-/* Hover effect on text (optional) */
-.text-label:hover {
-  transform: scale(1.05);
-  background: rgba(30, 30, 30, 0.95);
-}
-
-/* Position the text at triangle vertices */
-.top-vertex {
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.left-vertex {
-  bottom: 20px;
-  left: 20px;
-}
-
-.right-vertex {
-  bottom: 20px;
-  right: 20px;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .triangle-wrapper {
-    width: 300px;
-    height: 300px;
-  }
-  
-  .text-label {
-    font-size: 1.1rem;
-    padding: 0.6rem 1.4rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .triangle-wrapper {
-    width: 250px;
-    height: 250px;
-  }
-  
-  .text-label {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-  }
+  width: 100%;
+  min-height: 100vh;
 }

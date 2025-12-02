@@ -16,7 +16,7 @@ export default function HeroImage({ size }) {
   return (
     <Image
       ref={imgRef}
-      className="opacity-0 bg-amber-300/80 z-10 object-cover shadow-lg shadow-white/20 border border-white hover:rotate-6 transition-transform duration-200 rounded-4xl"
+      className="opacity-0 bg-amber-300/80 z-10 object-cover shadow-lg shadow-white/20 border border-white hover:-rotate-6 transition-transform duration-300 rounded-full"
       width={420}
       height={420}
       src="/profileBW.png"
