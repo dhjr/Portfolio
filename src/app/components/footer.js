@@ -32,21 +32,33 @@ export default function footer() {
           <div className="flex flex-col justify-center items-center">
             <h2 className="font-1boldonse">Socials</h2>
             <div className="w-50 flex flex-row  justify-center items-center">
-              <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
-                <Github />
-              </button>
-              <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
-                <Linkedin />
-              </button>
-              <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
-                <Twitter />
-              </button>
+              <a href="https://github.com/dhjr" target="_blank">
+                <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
+                  <Github />
+                </button>
+              </a>
+
+              <a href="https://www.linkedin.com/in/dhananjayr/" target="_blank">
+                <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
+                  <Linkedin />
+                </button>
+              </a>
+
+              <a href="https://x.com/dhananjayr_" target="_blank">
+                <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
+                  <Twitter />
+                </button>
+              </a>
+
               <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
                 <Mail />
               </button>
-              <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
-                <Youtube />
-              </button>
+
+              <a href="https://www.youtube.com/@letthedevscook" target="_blank">
+                <button className="rounded-2xl p-2 hover:bg-zinc-600 transition-colors duration-100">
+                  <Youtube />
+                </button>
+              </a>
             </div>
           </div>
         </div>
