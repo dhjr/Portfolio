@@ -16,11 +16,11 @@ export default function Home() {
       {/* <div className="bg-red-900 w-100 absolute z-0 h-80 top-60 rounded-4xl"></div> */}
       <div className=" w-full h-dvh flex flex-row justify-evenly items-center">
         <Image
-          className=" z-10"
+          className="bg-amber-300/80 z-10 object-cover shadow-lg shadow-white/20 border border-white hover:rotate-6  transition-transform duration-200 rounded-4xl"
           width={size}
           height={size}
           alt=" "
-          src={"/profileBgRemoved.png"}
+          src={"/profileBW.png"}
         ></Image>
         <div className="flex flex-col justify-center items-start">
           <p className="text-5xl font-josefin ">Hey, I'm</p>
