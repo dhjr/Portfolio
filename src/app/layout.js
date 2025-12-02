@@ -13,6 +13,7 @@ import {
   newAmsterdam,
   trunculenta,
   boldonse,
+  spacegrotesk,
 } from "./fonts";
 
 export const metadata = {
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
         ${newAmsterdam.variable}
         ${trunculenta.variable}
         ${boldonse.variable}
+        ${spacegrotesk.variable}
 
       `}
     >

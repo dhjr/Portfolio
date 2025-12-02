@@ -12,6 +12,8 @@ import {
   New_Amsterdam,
   Truculenta,
   Boldonse,
+  spaceGrotesk,
+  Space_Grotesk,
 } from "next/font/google";
 
 export const ebGaramond = EB_Garamond({
@@ -93,5 +95,11 @@ export const boldonse = Boldonse({
   subsets: ["latin"],
   variable: "--font-boldonse",
   weight: "400",
+  display: "swap",
+});
+
+export const spacegrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-spacegrotesk",
   display: "swap",
 });

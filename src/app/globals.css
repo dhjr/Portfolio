@@ -15,6 +15,7 @@
   --font-1newamsterdam: var(--font-newamsterdam);
   --font-1trunculenta: var(--font-trunculenta);
   --font-1boldonse: var(--font-boldonse);
+  --font-1spaceGrotesk: var(--font-spacegrotesk);
 }
 
 body {
@@ -36,6 +37,7 @@ body {
   --font-1newamsterdam: var(--font-newamsterdam);
   --font-1trunculenta: var(--font-trunculenta);
   --font-1boldonse: var(--font-boldonse);
+  --font-1spaceGrotesk: var(--font-spacegrotesk);
 }
 
 .ball {

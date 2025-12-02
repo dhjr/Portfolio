@@ -40,15 +40,18 @@ export default function Home() {
             <NameReveal />
           </div>
           <Popup message={"Mail successfully copied!"} showPopup={popup} />
-          <p>Full Stack Developer</p>
+          <p className="my-2 font-1spaceGrotesk font-semibold">
+            Full Stack Developer
+          </p>
           <Link href={"#footer"}>
             <Button text={"Let's Connect!"} />
           </Link>
           <button
             onClick={handleMailClick}
-            className=" flex flex-row cursor-pointer gap-2 my-2 hover:scale-104 duration-150 p-2 rounded-sm "
+            className=" flex flex-row  cursor-pointer gap-2 my-2 hover:scale-104 duration-150 p-2 rounded-sm "
           >
-            mail@123 <Copy />
+            <p className="font-1spacegrotesk text-lg ">something@gmail.com</p>
+            <Copy />
           </button>
         </div>
         <div className="-z-10 absolute object-cover w-full h-full ">

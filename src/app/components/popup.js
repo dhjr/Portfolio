@@ -13,7 +13,7 @@ export default function Popup({ message, showPopup }) {
         }
       `}
     >
-      <p className="font-1trunculenta text-lg">{message}</p>
+      <p className="font-1spacegrotesk text-lg">{message}</p>
     </div>
   );
 }
