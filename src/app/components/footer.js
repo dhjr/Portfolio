@@ -3,7 +3,7 @@ import { Github, Linkedin, Twitter, Mail, Youtube } from "lucide-react";
 export default function footer() {
   return (
     <>
-      <section className="relative w-full h-100">
+      <section id="footer" className="relative w-full h-100">
         <div className="w-[90%] mx-auto h-[0.5px]  bg-zinc-500"></div>
         <div className="h-full flex flex-row justify-between">
           <div className="flex flex-col justify-center items-center">
