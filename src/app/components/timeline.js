@@ -161,7 +161,7 @@ export default function Timeline() {
               "
               >
                 <div className="flex flex-wrap justify-between items-start gap-2 mb-2">
-                  <h3 className="text-xl font-bold text-gray-100">
+                  <h3 className="text-xl font-1spaceGrotesk font-bold text-gray-100">
                     {item.title}
                   </h3>
                   <span className="px-3 py-1 text-xs font-mono text-emerald-400 bg-emerald-500/10 rounded-full border border-emerald-500/20">
