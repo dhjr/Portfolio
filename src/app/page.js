@@ -13,8 +13,6 @@ import HeroImage from "@/components/heroImage";
 import { StarsBackground } from "@/components/stars";
 import Button from "./components/macButton";
 import Popup from "./components/popup";
-// import GlowComp from "./components/glowComponent";
-import Aurora from "./components/Aurora";
 
 export default function Home() {
   // const size = 420;

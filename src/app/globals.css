@@ -18,6 +18,9 @@
   --font-1spaceGrotesk: var(--font-spacegrotesk);
 }
 
+html {
+  scroll-behavior: smooth;
+}
 body {
   background-color: rgb(11, 11, 11);
 
