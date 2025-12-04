@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ChevronDown, Copy } from "lucide-react";
 
 // Components
-import Projects from "./projects/page";
+import Projects from "./projects/page"; // Ensure these export default function Projects() {...}
 import Contact from "./contact/page";
 import Skills from "./skills/page";
 import Education from "./education/page";
@@ -15,8 +15,11 @@ import HeroImage from "@/components/heroImage";
 import { StarsBackground } from "@/components/stars";
 import Button from "./components/macButton";
 import Popup from "./components/popup";
+import useScrollSpy from "@/hooks/useScrollSpy";
 
 export default function Home() {
+  useScrollSpy();
+
   const [popup, setPopup] = useState(false);
   const textRef = useRef();
   let timer = null;
@@ -34,41 +37,37 @@ export default function Home() {
 
   return (
     <main className=" selection:bg-emerald-500/30 w-full">
-      {/* FIX APPLIED: Changed 'min-h-[100dvh]' to 'h-[100dvh]'.
-         This forces the section to be exactly the height of the mobile viewport,
-         preventing it from pushing content down or creating an accidental scrollbar.
-      */}
-      <section className="relative w-full h-[100dvh] flex flex-col-reverse md:flex-row justify-center md:justify-around items-center overflow-hidden py-0 pb-48 md:pb-0 gap-4 md:gap-0">
-        {/* 1. STARS BACKGROUND */}
+      {/* 1. HERO SECTION (id="hero") */}
+      <section
+        id="hero"
+        className="relative w-full h-[100dvh] flex flex-col-reverse md:flex-row justify-center md:justify-around items-center overflow-hidden py-0 pb-48 md:pb-0 gap-4 md:gap-0"
+      >
         <div className="absolute inset-0 -z-20 w-full h-full">
           <StarsBackground />
         </div>
 
-        {/* 2. POPUP */}
         <div className="fixed bottom-5 right-5 z-[100] pointer-events-none">
           <div className="pointer-events-auto">
             <Popup message={"Mail successfully copied!"} showPopup={popup} />
           </div>
         </div>
 
-        {/* 3. LEFT COLUMN: TEXT & CONTENT */}
+        {/* LEFT COLUMN */}
         <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left z-10 w-full md:w-auto px-4 md:px-0">
           <p className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-1spaceGrotesk text-white mb-2">
             Hey, I'm
           </p>
-
           <div className="w-full max-w-[95vw] flex justify-center md:justify-start">
             <NameReveal />
           </div>
-
           <div className="mt-4 mb-6 px-4 py-1.5 md:py-2 bg-zinc-900/50 border border-zinc-800 rounded-full backdrop-blur-md">
             <p className="font-1spaceGrotesk text-xs sm:text-sm md:text-xl text-emerald-400">
               &lt; Full_Stack_Developer /&gt;
             </p>
           </div>
-
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
-            <Link href={"#footer"}>
+            {/* LINK UPDATE: Pointing to #contact */}
+            <Link href="#contact">
               <Button text={"Let's Connect!"} />
             </Link>
 
@@ -90,24 +89,41 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 4. RIGHT COLUMN: HERO IMAGE */}
+        {/* RIGHT COLUMN */}
         <div className="relative z-10 scale-[0.65] sm:scale-90 md:scale-100 mb-[-40px] md:mb-0">
           <HeroImage />
         </div>
 
-        {/* 5. SCROLL INDICATOR */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce pointer-events-none opacity-50 z-20">
+        {/* SCROLL INDICATOR (Clicking this scrolls to projects) */}
+        <Link
+          href="#projects"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-50 z-20 hover:opacity-100 transition-opacity"
+        >
           <span className="text-[10px] font-1spaceGrotesk uppercase tracking-widest text-zinc-500">
             Scroll Down
           </span>
           <ChevronDown className="text-emerald-500" size={24} />
-        </div>
+        </Link>
       </section>
 
-      <Projects />
-      <Skills />
-      <Education />
-      <Contact />
+      {/* 2. OTHER SECTIONS (Wrapped with IDs) */}
+
+      <section id="projects">
+        <Projects />
+      </section>
+
+      <section id="skills">
+        <Skills />
+      </section>
+
+      <section id="education">
+        <Education />
+      </section>
+
+      <section id="contact">
+        <Contact />
+      </section>
+
       <Footer />
     </main>
   );
