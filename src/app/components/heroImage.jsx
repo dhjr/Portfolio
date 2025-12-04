@@ -158,8 +158,8 @@ export default function HeroImage() {
           <div className="absolute inset-0 bg-zinc-900"></div>
 
           {/* Layer B: The "Halo" Backlight (Separates head from background) */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,_rgba(16,185,129,0.15),_transparent_70%)]"></div>
-
+          {/* Change to rgba(139,92,246,...) */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,_rgba(139,92,246,0.2),_transparent_70%)]"></div>
           {/* Layer C: Noise Texture (Removes the 'plastic' feel) */}
           <div
             className="absolute inset-0 opacity-20 mix-blend-overlay"
