@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import Link from "next/link";
-import { Copy } from "lucide-react";
+import { ChevronDown, Copy } from "lucide-react";
 import Projects from "./projects/page";
 import Contact from "./contact/page";
 import Skills from "./skills/page";
@@ -67,11 +67,9 @@ export default function Home() {
         <p className="text-center absolute bottom-12 text-lg font-1spaceGrotesk text-zinc-500">
           Swipe down
         </p>
-        <img
-          src="crystal.png"
-          className="absolute  size-10 bottom-0 animate-bounce "
-          alt=""
-        />
+        <div className="absolute  size-10 bottom-0 animate-bounce ">
+          <ChevronDown />
+        </div>
       </section>
 
       <Projects />
