@@ -1,5 +1,6 @@
 // src/app/layout.js
 import "./globals.css";
+import { ReactLenis } from "lenis/react"; // <--- NEW IMPORT PATH
 import {
   ebGaramond,
   josefin,
@@ -43,7 +44,12 @@ export default function RootLayout({ children }) {
       `}
     >
       <body className="antialiased ">
-        {children}
+        <ReactLenis
+          root
+          options={{ lerp: 0.1, duration: 1.5, smoothTouch: true }}
+        >
+          {children}
+        </ReactLenis>
       </body>
     </html>
   );
