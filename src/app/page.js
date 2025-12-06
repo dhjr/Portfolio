@@ -79,7 +79,7 @@ export default function Home() {
                 ref={textRef}
                 className="font-1spaceGrotesk text-sm md:text-lg text-zinc-300 group-hover:text-white truncate max-w-[200px] sm:max-w-none"
               >
-                something@gmail.com
+                dhjr.dev@gmail.com
               </p>
               <Copy
                 size={16}

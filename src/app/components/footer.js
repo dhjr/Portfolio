@@ -275,12 +275,15 @@ export default function Footer() {
             <div>
               <span className="text-zinc-600 text-xs font-mono uppercase tracking-widest">
                 Have an idea?
+                <span className="animate-ping absolute inline-flex rounded-full bg-emerald-400 opacity-75"></span>
               </span>
+
               <a
-                href="mailto:hello@dhananjay.com"
+                href="mailto:dhjr.dev@gmail.com"
                 className="block text-xl text-white font-bold mt-2 hover:text-emerald-400 transition-colors"
+                title="Click to send me an email"
               >
-                hello@dr.dev
+                Let's do it &nbsp;📧
               </a>
             </div>
 

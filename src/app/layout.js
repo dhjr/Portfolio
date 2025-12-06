@@ -46,7 +46,7 @@ export default function RootLayout({ children }) {
       <body className="antialiased ">
         <ReactLenis
           root
-          options={{ lerp: 0.1, duration: 1.5, smoothTouch: true }}
+          options={{ lerp: 0.1, duration: 0.35, smoothTouch: true }}
         >
           {children}
         </ReactLenis>

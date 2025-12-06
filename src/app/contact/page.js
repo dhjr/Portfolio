@@ -82,7 +82,7 @@ export default function Contact() {
                   </label>
                   <div className="flex items-center gap-3 text-zinc-300 group-hover:text-white transition-colors">
                     <Mail size={18} />
-                    <span className="text-lg">hello@dhananjay.dev</span>
+                    <span className="text-lg">dhjr.dev@gmail.com</span>
                   </div>
                 </div>
               </div>
