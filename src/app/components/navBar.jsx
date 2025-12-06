@@ -101,21 +101,27 @@ export default function Navbar() {
       </div>
 
       {/* --- MOBILE: HEADER + OVERLAY --- */}
-      {/* The Header */}
-      <div
-        className={`
-        fixed top-0 left-0 right-0 z-50 md:hidden 
-        flex justify-between items-center px-6 py-4
-        transition-all duration-300
+      <div className="fixed top-0 left-0 right-0 z-50 md:hidden flex justify-between items-center px-6 py-4">
+        {/* 1. THE BACKGROUND LAYER (Absolute & Behind) */}
+        {/* We move all the blur/gradient logic here. 
+        It sits at -z-10 so it's strictly BEHIND the logo/buttons. */}
+        <div
+          className={`
+        absolute inset-0 -z-10 
+        transition-all duration-500 ease-in-out
         ${
           scrolled
-            ? "bg-zinc-950/90 backdrop-blur-lg border-b border-zinc-800"
-            : "bg-transparent"
+            ? "opacity-100 bg-gradient-to-b from-zinc-950 via-zinc-950/80 to-transparent "
+            : "opacity-0"
         }
       `}
-      >
+        ></div>
+
+        {/* 2. THE CONTENT (Logo & Button) */}
+        {/* These stay sharp because they are not inside the blurred div */}
+
         {/* Logo / Name */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 relative z-10">
           <div className="w-8 h-8 bg-zinc-900 rounded-lg flex items-center justify-center border border-zinc-800">
             <Terminal size={16} className="text-emerald-500" />
           </div>
@@ -127,12 +133,11 @@ export default function Navbar() {
         {/* Hamburger Button */}
         <button
           onClick={() => setIsMobileMenuOpen(true)}
-          className="p-2 text-zinc-300 hover:text-white hover:bg-zinc-800 rounded-lg transition-colors"
+          className="relative z-10 p-2 text-zinc-300 hover:text-white hover:bg-zinc-800 rounded-lg transition-colors"
         >
           <Menu size={24} />
         </button>
       </div>
-
       {/* The Fullscreen Overlay (Mobile Menu) */}
       <div
         className={`
