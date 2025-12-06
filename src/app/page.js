@@ -73,7 +73,7 @@ export default function Home() {
 
             <button
               onClick={handleMailClick}
-              className="group flex flex-row items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-emerald-500/50 transition-all duration-200 active:scale-95 w-full sm:w-auto justify-center"
+              className="group flex flex-row items-center gap-2 px-5 py-2.5 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-emerald-500/50 transition-all duration-200 active:scale-95  justify-center"
             >
               <p
                 ref={textRef}

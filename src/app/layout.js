@@ -1,5 +1,6 @@
 // src/app/layout.js
 import "./globals.css";
+import Navbar from "@/components/navBar";
 import { ReactLenis } from "lenis/react"; // <--- NEW IMPORT PATH
 import {
   ebGaramond,
@@ -48,6 +49,7 @@ export default function RootLayout({ children }) {
           root
           options={{ lerp: 0.1, duration: 0.35, smoothTouch: true }}
         >
+          <Navbar />
           {children}
         </ReactLenis>
       </body>
