@@ -198,7 +198,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-stone-950 border-t border-zinc-800">
+    <footer className="relative z-10 w-full bg-stone-950 border-t border-zinc-800">
       <div className="max-w-7xl mx-auto">
         {/* MAIN GRID */}
         <div className="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-zinc-800">

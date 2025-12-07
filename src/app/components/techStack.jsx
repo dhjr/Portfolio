@@ -297,7 +297,7 @@ export default function TechElements() {
           <h2 className="text-5xl font-bold text-white font-1boldonse tracking-tight">
             Stack<span className="text-emerald-500">.</span>
           </h2>
-          <div className="hidden md:block h-px flex-1 bg-gradient-to-r from-zinc-800 to-transparent mb-4"></div>
+          <div className="hidden md:block h-px flex-1 bg-linear-to-r from-zinc-800 to-transparent mb-4"></div>
           <p className="text-zinc-500 font-mono text-xs mb-2">
             // SYSTEM_COMPOSITION_V1.0
           </p>
