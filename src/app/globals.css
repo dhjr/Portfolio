@@ -140,3 +140,15 @@ body {
   width: 100%;
   min-height: 100dvh;
 }
+@keyframes drift-spin {
+  0% {
+    transform: translateX(-20vw) rotate(0deg);
+  }
+  100% {
+    transform: translateX(120vw) rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: drift-spin 18s linear infinite;
+}

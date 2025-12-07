@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ChevronDown, Copy } from "lucide-react";
 
 // Components
-import Projects from "./projects/page"; // Ensure these export default function Projects() {...}
+import Projects from "./projects/page";
 import Contact from "./contact/page";
 import Skills from "./skills/page";
 import Education from "./education/page";
@@ -46,7 +46,7 @@ export default function Home() {
           <StarsBackground />
         </div>
 
-        <div className="fixed bottom-5 right-5 z-[100] pointer-events-none">
+        <div className="fixed bottom-5 right-5 z-100 pointer-events-none">
           <div className="pointer-events-auto">
             <Popup message={"Mail successfully copied!"} showPopup={popup} />
           </div>
@@ -54,6 +54,7 @@ export default function Home() {
 
         {/* LEFT COLUMN */}
         <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left z-10 w-full md:w-auto px-4 md:px-0">
+          <img src="walle.png" className="absolute w-20 spin-slow" alt="" />
           <p className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-1spaceGrotesk text-white mb-2">
             Hey, I'm
           </p>
