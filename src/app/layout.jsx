@@ -28,6 +28,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`
         ${ebGaramond.variable}
         ${josefin.variable}
@@ -45,7 +46,7 @@ export default function RootLayout({ children }) {
 
       `}
     >
-      <body className="antialiased bg-zinc-950 z-10">
+      <body className="antialiased z-10">
         <ReactLenis
           root
           options={{ lerp: 0.1, duration: 0.35, smoothTouch: true }}
