@@ -161,31 +161,16 @@ body {
 
 .button-border-draw {
   position: relative;
+  border-radius: 0.5rem;
   overflow: hidden;
-  border: 2px solid transparent;
-  border-radius: 0.5rem; /* same as rounded-lg */
-  transition: color 0.3s ease;
-}
-
-.button-border-draw::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  border: 2px solid #10b981; /* emerald-500 */
-  box-sizing: border-box;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s ease;
-  pointer-events: none;
-  z-index: 10;
-  background: transparent;
-}
-
-.button-border-draw:hover::before {
-  transform: scaleX(1);
+  background: conic-gradient(#10b981 0% 0%, transparent 0% 100%) top/0% 2px
+      no-repeat,
+    conic-gradient(#10b981 0% 0%, transparent 0% 100%) right/2px 0% no-repeat,
+    conic-gradient(#10b981 0% 0%, transparent 0% 100%) bottom/0% 2px no-repeat,
+    conic-gradient(#10b981 0% 0%, transparent 0% 100%) left/2px 0% no-repeat;
+  transition: background-size 1s linear;
 }
 
 .button-border-draw:hover {
-  color: white;
+  background-size: 100% 2px, 2px 100%, 100% 2px, 2px 100%;
 }
