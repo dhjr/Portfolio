@@ -140,6 +140,13 @@ body {
   width: 100%;
   min-height: 100dvh;
 }
+
+@keyframes spin-reverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
 @keyframes drift-spin {
   0% {
     transform: translateX(-20vw) rotate(0deg);

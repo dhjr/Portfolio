@@ -17,7 +17,7 @@
 //     <div>
 //       <Image
 //         ref={imgRef}
-//         className="opacity-0 bg-radial from-amber-500 to-amber-300 z-10 object-cover shadow-lg shadow-white/20 border border-white hover:-rotate-6 transition-transform duration-300 rounded-full"
+//         className="opacity-0 bg-radial from-amber-500 to-amber-300 z-10 object-cover shadow-lg shadow-white/20 border border-white hover:-e-6 transition-transform duration-300 rounded-full"
 //         width={420}
 //         height={420}
 //         src="/profileBW.png"
@@ -233,7 +233,7 @@ export default function HeroImage() {
 
         {/* --- OBJECT 1: THE RADAR BLIP (Pulsing Dot) --- */}
         {/* Looks like an active signal being tracked */}
-        <div className="absolute inset-5 animate-[spin_12s_linear_infinite]">
+        <div className="absolute inset-5 animate-[spin_reverse_12s_linear_infinite]">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1">
             <div className="w-2 h-2 bg-emerald-400 rounded-full shadow-[0_0_10px_#34d399] relative">
               {/* The Ping Animation creates a ripple effect */}
@@ -245,21 +245,13 @@ export default function HeroImage() {
         {/* --- OBJECT 2: THE DATA ARC (Curved Shield) --- */}
         {/* A 90-degree arc that rotates slowly on the outer track */}
         <div className="absolute inset-0 animate-[spin_20s_linear_infinite]">
-          <div className="absolute top-0 left-0 w-1/2 h-1/2 border-t-[3px] border-l-[1px] border-zinc-600 rounded-tl-full opacity-60"></div>
-        </div>
-
-        {/* --- OBJECT 3: THE SATELLITE NODE (Hollow Ring) --- */}
-        {/* A tiny ring with a white core, orbiting in reverse */}
-        <div className="absolute inset-2 animate-[spin_18s_linear_infinite_reverse]">
-          <div className="absolute top-1/2 right-0 translate-x-1/2 w-5 h-5 border border-zinc-500 bg-zinc-950/80 rounded-full flex items-center justify-center shadow-lg">
-            <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-          </div>
+          <div className="absolute top-0 left-0 w-1/2 h-1/2 border-t-[3px] border-emerald-600 rounded-tl-full opacity-60"></div>
         </div>
 
         {/* --- OBJECT 4: THE NANO CHIP (Rectangular) --- */}
         {/* A small glass rectangle orbiting close to the center */}
         <div className="absolute inset-8 animate-[spin_25s_linear_infinite]">
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-4 border border-emerald-500/30 bg-emerald-500/10 rounded-[2px] backdrop-blur-sm"></div>
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-4 border border-emerald-500/30 bg-emerald-500/70 rounded-[2px] backdrop-blur-sm"></div>
         </div>
 
         {/* 4. THE CORE (Image Container) */}
