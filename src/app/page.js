@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import { ChevronDown, Copy } from "lucide-react";
-
+import Image from "next/image";
 // Components
 import Projects from "./projects/page";
 import Contact from "./contact/page";
@@ -40,7 +40,7 @@ export default function Home() {
       {/* 1. HERO SECTION (id="hero") */}
       <section
         id="hero"
-        className="relative w-full h-[100dvh] flex flex-col-reverse md:flex-row justify-center md:justify-around items-center overflow-hidden py-0 pb-48 md:pb-0 gap-4 md:gap-0"
+        className="sticky top-0 -z-10 relative w-full h-dvh flex flex-col-reverse md:flex-row justify-center md:justify-around items-center overflow-hidden py-0 pb-48 md:pb-0 gap-4 md:gap-0"
       >
         <div className="absolute inset-0 -z-20 w-full h-full">
           <StarsBackground />
@@ -54,7 +54,13 @@ export default function Home() {
 
         {/* LEFT COLUMN */}
         <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left z-10 w-full md:w-auto px-4 md:px-0">
-          <img src="walle.png" className="absolute w-20 spin-slow" alt="" />
+          <Image
+            src="/walle.png"
+            className="absolute w-20 spin-slow"
+            width={80}
+            height={20}
+            alt="Wall-E"
+          />
           <p className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-1spaceGrotesk text-white mb-2">
             Hey, I'm
           </p>

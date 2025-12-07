@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
 
       `}
     >
-      <body className="antialiased ">
+      <body className="antialiased bg-zinc-950">
         <ReactLenis
           root
           options={{ lerp: 0.1, duration: 0.35, smoothTouch: true }}

@@ -3,7 +3,7 @@ import Timeline from "@/components/timeline";
 
 export default function education() {
   return (
-    <div className="min-h-dvh">
+    <div className="min-h-dvh bg-zinc-950">
       <Header name="Education" />
       <Timeline />
     </div>
