@@ -18,15 +18,42 @@
   --font-1spaceGrotesk: var(--font-spacegrotesk);
 }
 
-html {
-  scroll-behavior: smooth;
-}
-body {
-  background-color: rgb(11, 11, 11);
-  color: white;
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* --- LIGHT MODE COLORS (The "Lab/Blueprint" Look) --- */
+    --background: 250 250 250; /* Light Grey (Zinc-50) */
+    --foreground: 24 24 27; /* Almost Black (Zinc-900) */
+
+    --card: 255 255 255; /* Pure White */
+    --card-foreground: 24 24 27;
+
+    --border: 228 228 231; /* Light Grey Border (Zinc-200) */
+
+    --muted: 244 244 245; /* Subtle grey for secondary items */
+    --muted-foreground: 113 113 122;
+  }
+
+  .dark {
+    /* --- DARK MODE COLORS (The "System/Engineering" Look) --- */
+    --background: 9 9 11; /* Deep Void (Zinc-950) */
+    --foreground: 250 250 250; /* Almost White */
+
+    --card: 24 24 27; /* Zinc-900 */
+    --card-foreground: 250 250 250;
+
+    --border: 39 39 42; /* Dark Grey Border (Zinc-800) */
+
+    --muted: 39 39 42;
+    --muted-foreground: 161 161 170;
+  }
 }
 
-@theme inline {
+/* Tell Tailwind v4 to map these variables to utility classes.
+   Now you can use 'bg-background', 'text-card-foreground', etc.
+*/
+@theme {
   /* Re-declare fonts for theme if needed */
   --font-1ebgaramond: var(--font-ebgaramond);
   --font-1josefin: var(--font-josefin);
@@ -41,6 +68,25 @@ body {
   --font-1trunculenta: var(--font-trunculenta);
   --font-1boldonse: var(--font-boldonse);
   --font-1spaceGrotesk: var(--font-spacegrotesk);
+
+  --color-background: rgb(var(--background));
+  --color-foreground: rgb(var(--foreground));
+
+  --color-card: rgb(var(--card));
+  --color-card-foreground: rgb(var(--card-foreground));
+
+  --color-border: rgb(var(--border));
+
+  --color-muted: rgb(var(--muted));
+  --color-muted-foreground: rgb(var(--muted-foreground));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: rgb(11, 11, 11);
+  color: white;
 }
 
 .ball {

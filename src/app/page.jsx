@@ -16,6 +16,7 @@ import { StarsBackground } from "@/components/stars";
 import Button from "./components/macButton";
 import Popup from "./components/popup";
 import useScrollSpy from "@/hooks/useScrollSpy";
+import ThemeToggle from "./components/ThemeToggle";
 
 export default function Home() {
   useScrollSpy();
@@ -37,6 +38,8 @@ export default function Home() {
 
   return (
     <main className=" selection:bg-emerald-500/30 w-full">
+      <ThemeToggle />
+
       {/* 1. HERO SECTION (id="hero") */}
       <section
         id="hero"
