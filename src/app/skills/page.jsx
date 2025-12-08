@@ -1,10 +1,9 @@
-import Header from "@/components/sectionHeader";
-import TechStack from "@/components/techStack";
+import Header from "@/components/SectionHeader";
+import TechStack from "@/components/TechStack";
 
 export default function skills() {
   return (
     <>
-      
       <TechStack />
     </>
   );

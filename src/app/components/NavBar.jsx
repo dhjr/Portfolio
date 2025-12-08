@@ -74,17 +74,22 @@ export default function Navbar() {
     <>
       {/* --- DESKTOP NAVBAR --- */}
       <div
-        className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center gap-4 transition-all duration-300`}
+        className={`
+    fixed top-6 left-1/2 -translate-x-1/2 
+    z-[999] pointer-events-auto
+    hidden md:flex items-center gap-4 
+    transition-all duration-300
+  `}
       >
         <div
           className={`
             flex items-center gap-1 px-2 py-2 rounded-full
             border border-border shadow-lg
-            transition-all duration-300
+            transition-all duration-300 pointer-events-auto
             ${
               scrolled
-                ? "bg-background/80 backdrop-blur-xl scale-90 shadow-black/10"
-                : "bg-background/50 backdrop-blur-md"
+                ? "bg-background backdrop-blur-xl scale-90 shadow-black/10"
+                : "bg-background/80 backdrop-blur-md"
             }
           `}
         >
@@ -107,7 +112,7 @@ export default function Navbar() {
                     ${
                       isActive
                         ? "text-foreground font-bold"
-                        : "text-muted-foreground group-hover:text-foreground"
+                        : "text-foreground group-hover:text-foreground"
                     }
                   `}
                 >
@@ -124,7 +129,7 @@ export default function Navbar() {
       </div>
 
       {/* --- MOBILE NAVBAR --- */}
-      <div className="fixed top-0 left-0 right-0 z-50 md:hidden flex justify-between items-center px-6 py-4">
+      <div className="fixed top-0 left-0 right-0 z-[999] md:hidden flex justify-between items-center px-6 py-4">
         {/* Background Layer */}
         <div
           className={`
@@ -149,7 +154,7 @@ export default function Navbar() {
         </div>
 
         {/* Right Controls */}
-        <div className="relative z-10 flex items-center gap-3">
+        <div className="relative flex items-center gap-3 pointer-events-auto">
           <ThemeToggle />
           <button
             onClick={() => setIsMobileMenuOpen(true)}
@@ -165,11 +170,12 @@ export default function Navbar() {
         className={`
           fixed inset-0 z-[60] bg-background/95 backdrop-blur-2xl flex flex-col justify-center items-center gap-8
           transition-all duration-500 ease-in-out
-          ${
-            isMobileMenuOpen
-              ? "opacity-100 visible"
-              : "opacity-0 invisible pointer-events-none"
-          }
+        ${
+          isMobileMenuOpen
+            ? "opacity-100 visible pointer-events-auto"
+            : "opacity-0 hidden pointer-events-none"
+        }
+ 
         `}
       >
         <button

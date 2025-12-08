@@ -1,5 +1,5 @@
-import Header from "@/components/sectionHeader";
-import Timeline from "@/components/timeline";
+import Header from "@/components/SectionHeader";
+import Timeline from "@/components/Timeline";
 
 export default function education() {
   return (

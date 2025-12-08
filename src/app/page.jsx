@@ -10,14 +10,13 @@ import Projects from "./projects/page";
 import Contact from "./contact/page";
 import Skills from "./skills/page";
 import Education from "./education/page";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import NameReveal from "@/components/NameReveal";
-import HeroImage from "@/components/heroImage";
-import { StarsBackground } from "@/components/stars";
-import Button from "./components/macButton";
-import Popup from "./components/popup";
+import HeroImage from "@/components/HeroImage";
+import { StarsBackground } from "@/components/Stars";
+import Button from "./components/MacButton";
+import Popup from "./components/Popup";
 import useScrollSpy from "@/hooks/useScrollSpy";
-import ThemeToggle from "./components/ThemeToggle";
 
 export default function Home() {
   useScrollSpy();
@@ -51,7 +50,7 @@ export default function Home() {
         <div className="absolute inset-0 -z-20 w-full h-full">
           <StarsBackground />
         </div>
-        <ThemeToggle />
+
         {/* POPUP */}
         <div className="fixed bottom-5 right-5 z-[100] pointer-events-none">
           <div className="pointer-events-auto">

@@ -9,7 +9,7 @@ import {
   CheckCircle,
   AlertCircle,
 } from "lucide-react";
-import Header from "@/components/sectionHeader";
+import Header from "@/components/SectionHeader";
 
 export default function Contact() {
   const formRef = useRef();
