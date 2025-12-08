@@ -1,6 +1,6 @@
 const Button = ({ text }) => {
   return (
-    <button className="my-2 group relative w-auto cursor-pointer overflow-hidden rounded-full border border-gray-200 bg-white px-5 py-2 text-center font-medium text-gray-900 shadow-sm transition-all duration-500 hover:shadow-md dark:border-gray-800 dark:bg-gray-950 dark:text-white dark:hover:border-gray-700">
+    <button className="my-2 group relative w-auto cursor-pointer overflow-hidden rounded-full   bg-white px-5 py-2 text-center font-medium text-gray-900 shadow-sm transition-all duration-500 hover:shadow-md  dark:bg-gray-950 dark:text-white ">
       <div className="flex items-center gap-3">
         <div className="h-2 w-2 rounded-full bg-gray-900 transition-all duration-500 group-hover:scale-[100.8] dark:bg-white" />
         <span className="font-1spaceGrotesk inline-block transition-all duration-500 group-hover:translate-x-12 group-hover:opacity-0">

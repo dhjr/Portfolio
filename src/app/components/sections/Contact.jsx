@@ -62,13 +62,13 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative w-full min-h-screen py-24 px-4 overflow-hidden bg-zinc-50 dark:bg-stone-950 transition-colors duration-300"
+      className="relative w-full min py-12 px-4 overflow-hidden bg-zinc-50 dark:bg-stone-950 transition-colors duration-300"
     >
       {/* Background Decor */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[120px] pointer-events-none bg-emerald-500/10 dark:bg-emerald-900/20" />
 
       <div className="max-w-5xl mx-auto relative z-10">
-        <div className="mb-16">
+        <div className="mb-10">
           <Header name="Contact" />
         </div>
 
