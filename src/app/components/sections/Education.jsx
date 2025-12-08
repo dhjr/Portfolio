@@ -1,19 +1,18 @@
 import Header from "@/components/customComponents/SectionHeader";
-import Timeline from "@/components/customComponents/Timeline";
 
-export default function education() {
+export default function Education() {
   const timelineItems = [
     {
       title: "Higher Secondary Education (Class 12)",
       company: "Silver Hills Public School, Kozhikode, Kerala, India",
-      status: "2011-2023 | Percentage: 96.4%",
+      status: "2011-2023 | 96.4%",
       description:
         "Completed higher secondary education with outstanding academic performance, building a strong foundation for further studies in computer science and engineering.",
     },
     {
       title: "B.Tech, Computer Science & Engineering",
       company: "Rajiv Gandhi Institute of Technology, Kottayam, Kerala, India",
-      status: "Sept 2023 – Present | CGPA: 8.0/10",
+      status: "Sept 2023 – Present | CGPA: 8.0",
       description:
         "Currently pursuing Bachelor of Technology in Computer Science & Engineering. Actively involved in projects, hackathons, and extracurricular activities related to software development and web technologies.",
     },
@@ -29,7 +28,7 @@ export default function education() {
       company: "Indian Institute of Information Technology, Kottayam",
       status: "May - Aug 2025",
       description:
-        "Developed a 2D CNN-based architecture for classifying multiple classes of cardiac arrhythmia from ECG data. Implemented Grad-CAM for model explainability, highlighting decision regions and improving interpretability. Focus on model optimization and evaluation to achieve reliable classification performance.",
+        "Developed a 2D CNN-based architecture for classifying multiple classes of cardiac arrhythmia from ECG data. Implemented Grad-CAM for model explainability, highlighting decision regions and improving interpretability.",
     },
     {
       title: "Hackathon Winner",
@@ -48,8 +47,9 @@ export default function education() {
   ];
 
   return (
-    <div className="min-h-dvh relative z-10 bg-zinc-950">
+    <div className="min-h-dvh relative z-10 bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300">
       <Header name="Education" />
+
       <div className="w-full max-w-4xl mx-auto py-20 px-4">
         <div className="flex flex-col">
           {timelineItems.map((item, idx) => (
@@ -58,51 +58,74 @@ export default function education() {
               <div className="flex flex-col items-center mr-4 w-6 shrink-0 relative">
                 {/* Vertical Line */}
                 <div
-                  className={`w-[2px] bg-gradient-to-b from-transparent via-emerald-500/50 to-transparent flex-grow 
-                  ${idx === 0 ? "mt-8" : ""} 
-                  ${idx === timelineItems.length - 1 ? "mb-auto h-8" : ""}
+                  className={`
+                    w-[2px] flex-grow 
+                    bg-gradient-to-b from-transparent via-emerald-500/50 to-transparent
+                    ${idx === 0 ? "mt-8" : ""} 
+                    ${idx === timelineItems.length - 1 ? "mb-auto h-8" : ""}
                 `}
                 ></div>
 
                 {/* THE DOT */}
-                {/* Position: top-6 (1.5rem / 24px) */}
-                {/* Height: h-4 (1rem / 16px) */}
-                {/* Geometric Center: 24px + 8px = 32px from top */}
-                <div className="absolute top-6 w-4 h-4 rounded-full border-2 border-emerald-500 bg-stone-950 shadow-[0_0_12px_rgba(16,185,129,0.4)] z-10 group-hover:scale-125 group-hover:bg-emerald-500 transition-all duration-300"></div>
+                <div
+                  className="
+                  absolute top-6 w-4 h-4 rounded-full border-2 border-emerald-500 
+                  shadow-[0_0_12px_rgba(16,185,129,0.4)] z-10 
+                  transition-all duration-300
+                  group-hover:scale-125 group-hover:bg-emerald-500
+                  
+                  /* Light: White bg */
+                  bg-white
+                  
+                  /* Dark: Dark bg */
+                  dark:bg-zinc-950
+                "
+                ></div>
               </div>
 
               {/* --- COLUMN 2: THE CONTENT --- */}
-              {/* items-start is CRITICAL here. It prevents the dash from moving if the card gets taller. */}
               <div className="pb-12 flex items-start flex-1 gap-4">
                 {/* THE DASH */}
-                {/* mt-8 (2rem / 32px) places the line exactly at the Geometric Center of the dot */}
                 <div className="hidden md:block w-8 h-[1px] bg-emerald-500/30 mt-8 shrink-0"></div>
 
-                {/* The Glass Card */}
+                {/* The Card */}
                 <div
                   className="
-                relative w-full p-6 rounded-xl 
-                bg-zinc-900/30 backdrop-blur-sm 
-                border border-zinc-800 hover:border-emerald-500/30 
-                transition-all duration-300
-                group-hover:translate-x-1
-              "
+                    relative w-full p-6 rounded-xl 
+                    backdrop-blur-sm transition-all duration-300
+                    group-hover:translate-x-1 border
+                    
+                    /* Light Mode */
+                    bg-white border-zinc-200 hover:border-emerald-500/30 hover:shadow-lg
+                    
+                    /* Dark Mode */
+                    dark:bg-zinc-900/30 dark:border-zinc-800 dark:hover:border-emerald-500/30
+                  "
                 >
                   <div className="flex flex-wrap justify-between items-start gap-2 mb-2">
-                    <h3 className="text-xl font-1spaceGrotesk font-bold text-gray-100">
+                    <h3 className="text-xl font-1spaceGrotesk font-bold text-zinc-800 dark:text-zinc-100 transition-colors">
                       {item.title}
                     </h3>
-                    <span className="px-3 py-1 text-xs font-mono text-emerald-400 bg-emerald-500/10 rounded-full border border-emerald-500/20">
-                      {item.year}
+
+                    {/* Status Badge */}
+                    <span
+                      className="
+                      px-3 py-1 text-xs font-mono rounded-full border 
+                      transition-colors
+                      
+                      text-emerald-600 bg-emerald-100 border-emerald-200
+                      dark:text-emerald-400 dark:bg-emerald-500/10 dark:border-emerald-500/20
+                    "
+                    >
+                      {item.status}
                     </span>
                   </div>
 
-                  <div className="text-sm text-zinc-400 mb-4 font-mono">
-                    {item.company} •{" "}
-                    <span className="text-zinc-500">{item.score}</span>
+                  <div className="text-sm mb-4 font-mono text-zinc-500 dark:text-zinc-400 transition-colors">
+                    {item.company}
                   </div>
 
-                  <p className="text-gray-300 leading-relaxed text-sm">
+                  <p className="leading-relaxed text-sm text-zinc-600 dark:text-zinc-300 transition-colors">
                     {item.description}
                   </p>
                 </div>
