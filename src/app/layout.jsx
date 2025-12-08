@@ -47,10 +47,10 @@ export default function RootLayout({ children }) {
       `}
     >
       <body className="antialiased z-10">
-        <ReactLenis
+        {/* <ReactLenis
           root
           options={{ lerp: 0.1, duration: 0.35, smoothTouch: true }}
-        >
+        > */}
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
@@ -60,7 +60,7 @@ export default function RootLayout({ children }) {
             <Navbar />
             {children}
           </ThemeProvider>
-        </ReactLenis>
+        {/* </ReactLenis> */}
       </body>
     </html>
   );

@@ -1,9 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@variant dark (&:where(.dark, .dark *));
 
 @layer base {
   :root {
-    /* --- FONTS --- */
+    /* --- FONTS (Kept Intact) --- */
     --font-1ebgaramond: var(--font-ebgaramond);
     --font-1josefin: var(--font-josefin);
     --font-1cormorant: var(--font-cormorant);
@@ -17,49 +18,9 @@
     --font-1trunculenta: var(--font-trunculenta);
     --font-1boldonse: var(--font-boldonse);
     --font-1spaceGrotesk: var(--font-spacegrotesk);
-
-    /* --- LIGHT MODE COLORS (Default) --- */
-    /* Zinc-50 Background, Zinc-900 Text */
-    --background: 255 255 255;
-    --foreground: 24 24 27;
-
-    /* Zinc-50 Card, Black Text */
-    --card: 255 255 255;
-    --card-foreground: 24 24 27;
-
-    /* Zinc-200 Border */
-    --border: 228 228 231;
-
-    /* Zinc-100 Muted */
-    --muted: 244 244 245;
-    --muted-foreground: 113 113 122;
   }
 
-  .dark {
-    /* --- DARK MODE COLORS --- */
-    /* Zinc-950 Background, Zinc-50 Text */
-    --background: 9 9 11;
-    --foreground: 250 250 250;
-
-    /* Zinc-900 Card, White Text */
-    --card: 24 24 27;
-    --card-foreground: 250 250 250;
-
-    /* Zinc-800 Border */
-    --border: 39 39 42;
-
-    /* Zinc-800 Muted */
-    --muted: 39 39 42;
-    --muted-foreground: 161 161 170;
-  }
-
-  /* --- CRITICAL FIX --- */
-  /* Instead of hardcoding black, we use the variables defined above. */
-  body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    overflow-x: hidden; /* Good practice to prevent side scrolling */
-  }
+  /* REMOVED: All Color Variables and .dark block */
 }
 
 /* --- TAILWIND V4 THEME MAPPING --- */
@@ -79,17 +40,7 @@
   --font-1boldonse: var(--font-boldonse);
   --font-1spaceGrotesk: var(--font-spacegrotesk);
 
-  /* Map Colors */
-  --color-background: rgb(var(--background));
-  --color-foreground: rgb(var(--foreground));
-
-  --color-card: rgb(var(--card));
-  --color-card-foreground: rgb(var(--card-foreground));
-
-  --color-border: rgb(var(--border));
-
-  --color-muted: rgb(var(--muted));
-  --color-muted-foreground: rgb(var(--muted-foreground));
+  /* REMOVED: Color Mappings */
 
   /* Map Custom Animations */
   --animate-spin-slow: drift-spin 18s linear infinite;

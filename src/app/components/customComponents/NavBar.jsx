@@ -27,22 +27,18 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // --- LOGIC 1: SCROLL SPY (Fixed for Sticky Hero) ---
+  // --- LOGIC 1: SCROLL SPY ---
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      // A. Special Check: Are we at the top?
-      // If yes, force "hero" active, regardless of intersection
       if (window.scrollY < 100) {
         setActiveSection("hero");
         return;
       }
 
-      // B. Standard Spy for other sections
-      // We look for sections excluding hero to avoid sticky confusion
       const sections = document.querySelectorAll("section:not(#hero)");
-      const scrollPosition = window.scrollY + window.innerHeight / 3; // Trigger when section hits top 1/3 of screen
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
 
       sections.forEach((section) => {
         const top = section.offsetTop;
@@ -58,12 +54,9 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // --- LOGIC 2: CLICK HANDLER (The Fix) ---
+  // --- LOGIC 2: CLICK HANDLER ---
   const handleLinkClick = (e, href) => {
-    // Always close mobile menu
     setIsMobileMenuOpen(false);
-
-    // FIX: If clicking Home, prevent default anchor jump and force scroll to top
     if (href === "#hero") {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -75,22 +68,26 @@ export default function Navbar() {
       {/* --- DESKTOP NAVBAR --- */}
       <div
         className={`
-    fixed top-6 left-1/2 -translate-x-1/2 
-    z-[999] pointer-events-auto
-    hidden md:flex items-center gap-4 
-    transition-all duration-300
-  `}
+          fixed top-6 left-1/2 -translate-x-1/2 
+          z-[999] pointer-events-auto
+          hidden md:flex items-center gap-4 
+          transition-all duration-300
+        `}
       >
         <div
           className={`
             flex items-center gap-1 px-2 py-2 rounded-full
-            border border-border shadow-lg
+            border dark:shadow-lg 
             transition-all duration-300 pointer-events-auto
-            ${
-              scrolled
-                ? "bg-background backdrop-blur-xl scale-90 shadow-black/10"
-                : "bg-background/80 backdrop-blur-md"
-            }
+            
+            /* Light Mode Colors */
+            bg-white border-zinc-200 shadow-lg shadow-zinc-900/40
+            
+            /* Dark Mode Colors */
+            dark:bg-zinc-900/70 dark:border-zinc-800 dark:shadow-black/50
+
+            /* Blur & Scale effects */
+            ${scrolled ? "backdrop-blur-xl scale-90" : "backdrop-blur-md"}
           `}
         >
           {navLinks.map((link) => {
@@ -99,20 +96,28 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                // ATTACH CLICK HANDLER HERE
                 onClick={(e) => handleLinkClick(e, link.href)}
                 className="relative px-4 py-2 rounded-full group transition-all duration-300"
               >
+                {/* Active Indicator Pill */}
                 {isActive && (
-                  <div className="absolute inset-0 bg-muted rounded-full border border-border shadow-sm transition-all duration-300 -z-10"></div>
+                  <div
+                    className="
+                    absolute inset-0 rounded-full border shadow-sm transition-all duration-300 -z-10
+                    bg-zinc-100 border-zinc-200
+                    dark:bg-zinc-800 dark:border-zinc-700
+                  "
+                  ></div>
                 )}
+
+                {/* Text Styles */}
                 <span
                   className={`
                     font-mono text-xs uppercase tracking-widest transition-colors duration-300
                     ${
                       isActive
-                        ? "text-foreground font-bold"
-                        : "text-foreground group-hover:text-foreground"
+                        ? "text-zinc-900 font-bold dark:text-white"
+                        : "text-zinc-500 group-hover:text-zinc-900 dark:text-zinc-400 dark:group-hover:text-zinc-200"
                     }
                   `}
                 >
@@ -135,22 +140,27 @@ export default function Navbar() {
           className={`
             absolute inset-0 -z-10 
             transition-all duration-500 ease-in-out
+            bg-white dark:bg-zinc-950/80
+             dark:border-zinc-800
             ${
               scrolled
-                ? "opacity-100 bg-background/90 backdrop-blur-xl border-b border-border"
-                : "opacity-0"
+                ? "opacity-100 "
+                : "opacity-0 backdrop-blur-none border-transparent"
             }
           `}
         ></div>
 
         {/* Logo */}
         <div className="flex items-center gap-2 relative z-10">
-          <div className="w-8 h-8 bg-muted rounded-lg flex items-center justify-center border border-border">
+          <div
+            className="
+            w-8 h-8 rounded-lg flex items-center justify-center border 
+            bg-zinc-100 border-zinc-200
+            dark:bg-zinc-900 dark:border-zinc-800
+          "
+          >
             <Terminal size={16} className="text-emerald-500" />
           </div>
-          <span className="text-foreground font-1spaceGrotesk font-bold tracking-tight">
-            DR.
-          </span>
         </div>
 
         {/* Right Controls */}
@@ -158,7 +168,11 @@ export default function Navbar() {
           <ThemeToggle />
           <button
             onClick={() => setIsMobileMenuOpen(true)}
-            className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
+            className="
+              p-2 rounded-lg transition-colors
+              text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900
+              dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100
+            "
           >
             <Menu size={24} />
           </button>
@@ -168,25 +182,30 @@ export default function Navbar() {
       {/* --- MOBILE OVERLAY MENU --- */}
       <div
         className={`
-          fixed inset-0 z-[60] bg-background/95 backdrop-blur-2xl flex flex-col justify-center items-center gap-8
+       
+          fixed inset-0 z-[1000] backdrop-blur-2xl flex flex-col justify-center items-center gap-8
           transition-all duration-500 ease-in-out
+          bg-linear-to-b from-black to-transparent 
         ${
           isMobileMenuOpen
             ? "opacity-100 visible pointer-events-auto"
             : "opacity-0 hidden pointer-events-none"
         }
- 
         `}
       >
         <button
           onClick={() => setIsMobileMenuOpen(false)}
-          className="absolute top-6 right-6 p-2 text-muted-foreground hover:text-foreground bg-muted rounded-full border border-border"
+          className="
+            absolute top-6 right-6 p-2 rounded-full border
+            text-zinc-500 bg-zinc-100 border-zinc-200 hover:text-zinc-900
+            dark:text-zinc-400 dark:bg-zinc-900 dark:border-zinc-800 dark:hover:text-white
+          "
         >
           <X size={24} />
         </button>
 
         <div className="flex flex-col items-center gap-6 w-full px-8">
-          <p className="text-muted-foreground font-mono text-xs uppercase tracking-[0.3em] mb-4">
+          <p className="font-mono text-xs uppercase tracking-[0.3em] mb-4 text-zinc-400 dark:text-zinc-600">
             // NAVIGATION
           </p>
 
@@ -194,19 +213,25 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              // ATTACH CLICK HANDLER HERE TOO
               onClick={(e) => handleLinkClick(e, link.href)}
               className="
                    group flex items-center gap-4 w-full p-4 rounded-xl 
-                   bg-muted/50 border border-border 
-                   hover:bg-muted hover:border-emerald-500/50
-                   transition-all duration-300
+                   transition-all duration-300 border
+                   
+                   bg-zinc-50 border-zinc-200 hover:bg-white hover:border-emerald-500/50 hover:shadow-lg
+                   dark:bg-zinc-900/50 dark:border-zinc-800 dark:hover:bg-zinc-900
                  "
             >
-              <div className="p-3 bg-background rounded-lg text-muted-foreground group-hover:text-emerald-500 transition-colors border border-border">
+              <div
+                className="
+                p-3 rounded-lg transition-colors border
+                text-zinc-500 border-zinc-200 group-hover:text-emerald-500
+                dark:text-zinc-400 dark:border-zinc-800
+              "
+              >
                 <link.icon size={20} />
               </div>
-              <span className="text-2xl font-1spaceGrotesk text-foreground font-bold tracking-wide">
+              <span className="text-2xl font-1spaceGrotesk font-bold tracking-wide text-zinc-800 dark:text-zinc-100">
                 {link.name}
               </span>
             </Link>
