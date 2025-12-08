@@ -231,15 +231,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <div className="flex items-center gap-2 relative z-10">
-          <div
-            className="
-            w-8 h-8 rounded-lg flex items-center justify-center border 
-            bg-zinc-100 border-zinc-200
-            dark:bg-zinc-900 dark:border-zinc-800
-          "
-          >
-            <Terminal size={16} className="text-emerald-500" />
-          </div>
+          <span className="text-white text-2xl font-1boldonse">DR.</span>
         </div>
 
         {/* Right Controls */}

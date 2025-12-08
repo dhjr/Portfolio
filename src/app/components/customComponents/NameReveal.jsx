@@ -209,7 +209,7 @@ export default function NameReveal() {
           key={i}
           ref={(el) => (nameRef.current[i] = el)}
           className="
-            font-1spaceGrotesk md:h-26 font-bold tracking-tight cursor-default
+            font-1spaceGrotesk h-14 md:h-26 font-bold tracking-tight cursor-default
             text-5xl sm:text-6xl md:text-7xl lg:text-8xl 
             bg-gradient-to-b from-white via-emerald-100 to-emerald-600 bg-clip-text text-transparent
             hover:select-none
@@ -227,7 +227,7 @@ export default function NameReveal() {
         className="
           font-1spaceGrotesk font-bold text-emerald-500
           text-5xl sm:text-6xl md:text-7xl lg:text-8xl
-          ml-1 md:ml-2 -mb-1 md:-mb-2
+          ml-1 md:ml-2 pb-1 md:-mb-2
           opacity-100 /* Cursor stays visible immediately */
         "
       >
