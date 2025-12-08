@@ -8,6 +8,11 @@ import {
   Loader2,
   CheckCircle,
   AlertCircle,
+  Github,
+  Linkedin,
+  Twitter,
+  Instagram,
+  Youtube,
 } from "lucide-react";
 import Header from "@/components/customComponents/SectionHeader";
 
@@ -15,11 +20,26 @@ export default function Contact() {
   const formRef = useRef();
   const [status, setStatus] = useState("idle"); // 'idle' | 'sending' | 'success' | 'error'
 
+  const socialLinks = [
+    { icon: Github, href: "https://github.com/dhjr", label: "Github" },
+    {
+      icon: Linkedin,
+      href: "https://linkedin.com/in/dhananjayr",
+      label: "LinkedIn",
+    },
+    { icon: Twitter, href: "https://x.com/dhananjayr_", label: "Twitter" },
+    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+    {
+      icon: Youtube,
+      href: "https://youtube.com/@letthedevscook",
+      label: "YouTube",
+    },
+  ];
+
   const sendEmail = (e) => {
     e.preventDefault();
     setStatus("sending");
 
-    // DIRECT SEND VIA EMAILJS
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
@@ -29,15 +49,11 @@ export default function Contact() {
       )
       .then(
         (result) => {
-          console.log("Success:", result.text);
           setStatus("success");
-          e.target.reset(); // Clear the form
-
-          // Reset status after 5 seconds
+          e.target.reset();
           setTimeout(() => setStatus("idle"), 5000);
         },
         (error) => {
-          console.log("Error:", error.text);
           setStatus("error");
         }
       );
@@ -82,13 +98,11 @@ export default function Contact() {
             dark:bg-zinc-900/50 dark:border-zinc-800
           "
           >
-            {/* Dot Grid Pattern - Adaptive Color */}
+            {/* Dot Grid Pattern */}
             <div
               className="
                 absolute inset-0 
-                /* Opacity: 10% for Light, 15% for Dark */
                 opacity-10 dark:opacity-[0.15] 
-                /* Color: Black dots for Light, White dots for Dark */
                 text-zinc-900 dark:text-zinc-100
               "
               style={{
@@ -101,21 +115,54 @@ export default function Contact() {
             <div className="relative z-10 space-y-8">
               <div>
                 <h3 className="text-2xl font-bold font-1boldonse tracking-wide mb-2 text-zinc-900 dark:text-white transition-colors">
-                  Let's Collaborate
+                  Let's Connect
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
                   Got an idea? Let's compile it into reality.
                 </p>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-8">
+                {/* MAIL SECTION */}
                 <div className="group cursor-pointer">
-                  <label className="text-xs font-mono text-emerald-600 dark:text-emerald-500 mb-1 block uppercase tracking-wider">
+                  <label className="text-xs font-mono text-emerald-600 dark:text-emerald-500 mb-2 block uppercase tracking-wider">
                     // MAIL_TO
                   </label>
-                  <div className="flex items-center gap-3 transition-colors text-zinc-700 group-hover:text-zinc-900 dark:text-zinc-300 dark:group-hover:text-white">
+                  <a
+                    href="mailto:dhjr.dev@gmail.com"
+                    className="flex items-center gap-3 transition-colors text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white"
+                  >
                     <Mail size={18} />
                     <span className="text-lg">dhjr.dev@gmail.com</span>
+                  </a>
+                </div>
+
+                {/* SOCIALS SECTION */}
+                <div>
+                  <label className="text-xs font-mono text-emerald-600 dark:text-emerald-500 mb-3 block uppercase tracking-wider">
+                    // SOCIAL_NETWORKS
+                  </label>
+                  <div className="flex flex-wrap gap-3">
+                    {socialLinks.map((social) => (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={social.label}
+                        className="
+                          p-3 rounded-lg border transition-all duration-300 group
+                          
+                          /* Light Mode */
+                          bg-white border-zinc-200 text-zinc-600 hover:text-emerald-600 hover:border-emerald-500 hover:shadow-md
+                          
+                          /* Dark Mode */
+                          dark:bg-zinc-800/50 dark:border-zinc-700 dark:text-zinc-400 dark:hover:text-white dark:hover:border-emerald-500/50 dark:hover:bg-zinc-800
+                        "
+                      >
+                        <social.icon size={20} />
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -153,14 +200,8 @@ export default function Contact() {
                   placeholder="John Doe"
                   className="
                     w-full bg-transparent border-b py-3 transition-all focus:outline-none 
-                    
-                    /* Light Mode */
-                    border-zinc-300 text-zinc-900 placeholder:text-zinc-400
-                    focus:border-emerald-500
-                    
-                    /* Dark Mode */
-                    dark:border-zinc-800 dark:text-white dark:placeholder:text-zinc-700/50
-                    dark:focus:border-emerald-500
+                    border-zinc-300 text-zinc-900 placeholder:text-zinc-400 focus:border-emerald-500
+                    dark:border-zinc-800 dark:text-white dark:placeholder:text-zinc-700/50 dark:focus:border-emerald-500
                   "
                 />
               </div>
@@ -177,12 +218,8 @@ export default function Contact() {
                   placeholder="john@example.com"
                   className="
                     w-full bg-transparent border-b py-3 transition-all focus:outline-none 
-                    
-                    border-zinc-300 text-zinc-900 placeholder:text-zinc-400
-                    focus:border-emerald-500
-                    
-                    dark:border-zinc-800 dark:text-white dark:placeholder:text-zinc-700/50
-                    dark:focus:border-emerald-500
+                    border-zinc-300 text-zinc-900 placeholder:text-zinc-400 focus:border-emerald-500
+                    dark:border-zinc-800 dark:text-white dark:placeholder:text-zinc-700/50 dark:focus:border-emerald-500
                   "
                 />
               </div>
@@ -199,12 +236,8 @@ export default function Contact() {
                   placeholder="Tell me about your project..."
                   className="
                     w-full bg-transparent border-b py-3 transition-all focus:outline-none resize-none
-                    
-                    border-zinc-300 text-zinc-900 placeholder:text-zinc-400
-                    focus:border-emerald-500
-                    
-                    dark:border-zinc-800 dark:text-white dark:placeholder:text-zinc-700/50
-                    dark:focus:border-emerald-500
+                    border-zinc-300 text-zinc-900 placeholder:text-zinc-400 focus:border-emerald-500
+                    dark:border-zinc-800 dark:text-white dark:placeholder:text-zinc-700/50 dark:focus:border-emerald-500
                   "
                 />
               </div>
