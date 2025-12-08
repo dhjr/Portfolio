@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import {
   Menu,
@@ -11,14 +11,14 @@ import {
   BookOpen,
   Mail,
   Terminal,
-  Briefcase, // <--- Import Briefcase Icon
+  Briefcase,
 } from "lucide-react";
 import ThemeToggle from "@/components/customComponents/ThemeToggle";
 
 const navLinks = [
   { name: "Home", href: "#hero", icon: Home },
   { name: "Projects", href: "#projects", icon: Folder },
-  { name: "Experience", href: "#experience", icon: Briefcase }, // <--- Added Experience Section
+  { name: "Experience", href: "#experience", icon: Briefcase },
   { name: "Skills", href: "#skills", icon: Cpu },
   { name: "Education", href: "#education", icon: BookOpen },
   { name: "Contact", href: "#contact", icon: Mail },
@@ -29,41 +29,118 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // --- LOGIC 1: SCROLL SPY ---
+  // --- IMPROVED SCROLL SPY LOGIC ---
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      if (window.scrollY < 100) {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+
+      // Special case for hero section
+      if (scrollY < windowHeight * 0.5) {
         setActiveSection("hero");
         return;
       }
 
-      const sections = document.querySelectorAll("section:not(#hero)");
-      const scrollPosition = window.scrollY + window.innerHeight / 3;
+      let currentSection = "hero";
+      let maxVisibility = 0;
 
-      sections.forEach((section) => {
-        const top = section.offsetTop;
-        const height = section.offsetHeight;
+      for (const link of navLinks) {
+        const id = link.href.substring(1);
+        if (id === "hero") continue; // Skip hero as we handled it above
 
-        if (scrollPosition >= top && scrollPosition < top + height) {
-          setActiveSection(section.getAttribute("id"));
+        const element = document.getElementById(id);
+        if (!element) continue;
+
+        const rect = element.getBoundingClientRect();
+        const sectionTop = rect.top + scrollY;
+        const sectionHeight = rect.height;
+
+        // Calculate how much of the section is visible
+        const visibleTop = Math.max(rect.top, 0);
+        const visibleBottom = Math.min(rect.bottom, windowHeight);
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        const visibilityRatio =
+          visibleHeight / Math.min(sectionHeight, windowHeight);
+
+        // Method 1: If section is majority visible, use it immediately
+        if (visibilityRatio > 0.5) {
+          currentSection = id;
+          break;
         }
-      });
+
+        // Method 2: Track the most visible section
+        if (visibilityRatio > maxVisibility) {
+          maxVisibility = visibilityRatio;
+          currentSection = id;
+        }
+
+        // Method 3: Check if we're within section boundaries (with buffer)
+        const buffer = 100; // pixels buffer
+        if (
+          scrollY + buffer >= sectionTop &&
+          scrollY - buffer < sectionTop + sectionHeight
+        ) {
+          currentSection = id;
+        }
+      }
+
+      setActiveSection(currentSection);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    // Throttle scroll for better performance
+    let ticking = false;
+    const throttledScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", throttledScroll);
+    window.addEventListener("resize", throttledScroll);
+    handleScroll(); // Initial check
+
+    return () => {
+      window.removeEventListener("scroll", throttledScroll);
+      window.removeEventListener("resize", throttledScroll);
+    };
   }, []);
 
-  // --- LOGIC 2: CLICK HANDLER ---
-  const handleLinkClick = (e, href) => {
+  // --- IMPROVED CLICK HANDLER ---
+  const handleLinkClick = useCallback((e, href) => {
     setIsMobileMenuOpen(false);
+    const id = href.substring(1);
+
     if (href === "#hero") {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
+      setActiveSection("hero");
+      return;
     }
-  };
+
+    e.preventDefault();
+    const element = document.getElementById(id);
+
+    if (element) {
+      const offset = 80; // Adjust based on navbar height
+      const elementPosition =
+        element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
+      // Update active section immediately for better UX
+      setActiveSection(id);
+    }
+  }, []);
 
   return (
     <>
@@ -142,11 +219,11 @@ export default function Navbar() {
           className={`
             absolute inset-0 -z-10 
             transition-all duration-500 ease-in-out
-            bg-white dark:bg-zinc-950/80
-             dark:border-zinc-800
+            bg-white/80 dark:bg-zinc-950/80
+            border-b backdrop-blur-md
             ${
               scrolled
-                ? "opacity-100 "
+                ? "opacity-100 border-zinc-200 dark:border-zinc-800"
                 : "opacity-0 backdrop-blur-none border-transparent"
             }
           `}
@@ -175,6 +252,7 @@ export default function Navbar() {
               text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900
               dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100
             "
+            aria-label="Open menu"
           >
             <Menu size={24} />
           </button>
@@ -184,15 +262,13 @@ export default function Navbar() {
       {/* --- MOBILE OVERLAY MENU --- */}
       <div
         className={`
-       
-          fixed inset-0 z-[1000] backdrop-blur-2xl flex flex-col justify-center items-center gap-8
+          fixed inset-0 z-[1000] flex flex-col justify-center items-center gap-8
           transition-all duration-500 ease-in-out
-          bg-linear-to-b from-black to-transparent 
-        ${
-          isMobileMenuOpen
-            ? "opacity-100 visible pointer-events-auto"
-            : "opacity-0 hidden pointer-events-none"
-        }
+          ${
+            isMobileMenuOpen
+              ? "opacity-100 visible pointer-events-auto backdrop-blur-xl bg-white/95 dark:bg-zinc-950/95"
+              : "opacity-0 invisible pointer-events-none backdrop-blur-none"
+          }
         `}
       >
         <button
@@ -201,7 +277,9 @@ export default function Navbar() {
             absolute top-6 right-6 p-2 rounded-full border
             text-zinc-500 bg-zinc-100 border-zinc-200 hover:text-zinc-900
             dark:text-zinc-400 dark:bg-zinc-900 dark:border-zinc-800 dark:hover:text-white
+            transition-colors duration-300
           "
+          aria-label="Close menu"
         >
           <X size={24} />
         </button>
@@ -211,33 +289,41 @@ export default function Navbar() {
             // NAVIGATION
           </p>
 
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              onClick={(e) => handleLinkClick(e, link.href)}
-              className="
-                   group flex items-center gap-4 w-full p-4 rounded-xl 
-                   transition-all duration-300 border
-                   
-                   bg-zinc-50 border-zinc-200 hover:bg-white hover:border-emerald-500/50 hover:shadow-lg
-                   dark:bg-zinc-900/50 dark:border-zinc-800 dark:hover:bg-zinc-900
-                 "
-            >
-              <div
-                className="
-                p-3 rounded-lg transition-colors border
-                text-zinc-500 border-zinc-200 group-hover:text-emerald-500
-                dark:text-zinc-400 dark:border-zinc-800
-              "
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.substring(1);
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleLinkClick(e, link.href)}
+                className={`
+                  group flex items-center gap-4 w-full p-4 rounded-xl 
+                  transition-all duration-300 border
+                  ${
+                    isActive
+                      ? "bg-emerald-50 border-emerald-200 dark:bg-emerald-900/20 dark:border-emerald-800"
+                      : "bg-zinc-50 border-zinc-200 hover:bg-white hover:border-emerald-500/50 hover:shadow-lg dark:bg-zinc-900/50 dark:border-zinc-800 dark:hover:bg-zinc-900"
+                  }
+                `}
               >
-                <link.icon size={20} />
-              </div>
-              <span className="text-2xl font-1spaceGrotesk font-bold tracking-wide text-zinc-800 dark:text-zinc-100">
-                {link.name}
-              </span>
-            </Link>
-          ))}
+                <div
+                  className={`
+                    p-3 rounded-lg transition-colors border
+                    ${
+                      isActive
+                        ? "text-emerald-600 border-emerald-200 bg-emerald-100 dark:text-emerald-400 dark:border-emerald-800 dark:bg-emerald-900/30"
+                        : "text-zinc-500 border-zinc-200 group-hover:text-emerald-500 dark:text-zinc-400 dark:border-zinc-800"
+                    }
+                  `}
+                >
+                  <link.icon size={20} />
+                </div>
+                <span className="text-2xl font-bold tracking-wide text-zinc-800 dark:text-zinc-100">
+                  {link.name}
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </>

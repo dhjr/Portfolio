@@ -157,7 +157,10 @@ const categories = [
 
 export default function Skills() {
   return (
-    <section className="py-24 px-4 min-h-screen flex flex-col justify-center relative overflow-hidden bg-zinc-50 dark:bg-stone-950 transition-colors duration-300">
+    <section
+      id="skills"
+      className="py-24 px-4 min-h-screen flex flex-col justify-center relative overflow-hidden bg-zinc-50 dark:bg-stone-950 transition-colors duration-300"
+    >
       {/* Background Grid - Now responsive to mode */}
       <div
         className="

@@ -166,7 +166,7 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="relative z-10 bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300 py-24"
+      className="relative z-10 w-full min-h-dvh bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300 py-24"
     >
       <Header name="Education" />
 
