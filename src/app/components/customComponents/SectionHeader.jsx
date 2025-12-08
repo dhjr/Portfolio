@@ -13,7 +13,7 @@ export default function SectionHeader({ name }) {
         border shadow-sm
         
         /* Light Mode: White box with Grey Border & subtle shadow */
-        bg-white/80 border-zinc-200 shadow-zinc-200/50
+        bg-white/80 border-zinc-200 
         
         /* Dark Mode: Dark Glass with Glow */
         dark:bg-zinc-900/50 dark:border-zinc-700/50 dark:shadow-[0_0_15px_rgba(0,0,0,0.5)]

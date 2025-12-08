@@ -84,7 +84,13 @@ export default function Contact() {
           >
             {/* Dot Grid Pattern - Adaptive Color */}
             <div
-              className="absolute inset-0 opacity-[0.05] dark:opacity-10"
+              className="
+                absolute inset-0 
+                /* Opacity: 10% for Light, 15% for Dark */
+                opacity-10 dark:opacity-[0.15] 
+                /* Color: Black dots for Light, White dots for Dark */
+                text-zinc-900 dark:text-zinc-100
+              "
               style={{
                 backgroundImage:
                   "radial-gradient(currentColor 1px, transparent 1px)",
