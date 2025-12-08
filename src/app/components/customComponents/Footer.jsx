@@ -2,6 +2,7 @@ import {
   Github,
   Linkedin,
   Twitter,
+  Instagram, // <--- Imported Instagram
   Mail,
   Youtube,
   ArrowUp,
@@ -16,7 +17,6 @@ export default function Footer() {
     <footer className="relative z-10 w-full bg-zinc-50 dark:bg-stone-950 border-t border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
         {/* MAIN GRID */}
-        {/* Added divide-zinc-200 for light mode dividers */}
         <div className="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-zinc-200 dark:divide-zinc-800 transition-colors duration-300">
           {/* Column 1: Brand & Status */}
           <div className="p-10 flex flex-col justify-between h-full min-h-[200px]">
@@ -43,19 +43,21 @@ export default function Footer() {
               Sitemap
             </span>
             <nav className="flex flex-col gap-3">
-              {["Projects", "Education", "About", "Contact"].map((link) => (
-                <a
-                  key={link}
-                  href={`#${link}`}
-                  className="
+              {["Projects", "Experience", "Skills", "Education", "Contact"].map(
+                (link) => (
+                  <a
+                    key={link}
+                    href={`#${link.toLowerCase()}`}
+                    className="
                     text-zinc-600 hover:text-zinc-900 hover:translate-x-2 
                     dark:text-zinc-300 dark:hover:text-white 
                     transition-all duration-200 w-fit
                   "
-                >
-                  {link}
-                </a>
-              ))}
+                  >
+                    {link}
+                  </a>
+                )
+              )}
             </nav>
           </div>
 
@@ -66,13 +68,22 @@ export default function Footer() {
             </span>
             <div className="flex flex-col gap-3">
               {[
-                { label: "Github", Icon: Github, url: "https://github.com" },
+                {
+                  label: "Github",
+                  Icon: Github,
+                  url: "https://github.com/dhjr",
+                },
                 {
                   label: "LinkedIn",
                   Icon: Linkedin,
-                  url: "https://linkedin.com",
+                  url: "https://linkedin.com/in/dhananjayr",
                 },
                 { label: "Twitter", Icon: Twitter, url: "https://x.com" },
+                {
+                  label: "Instagram",
+                  Icon: Instagram,
+                  url: "https://www.instagram.com/dhananjayr_/",
+                }, // <--- Added Here
                 { label: "YouTube", Icon: Youtube, url: "https://youtube.com" },
               ].map((social) => (
                 <a

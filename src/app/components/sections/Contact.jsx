@@ -28,7 +28,11 @@ export default function Contact() {
       label: "LinkedIn",
     },
     { icon: Twitter, href: "https://x.com/dhananjayr_", label: "Twitter" },
-    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/dhananjayr_/",
+      label: "Instagram",
+    },
     {
       icon: Youtube,
       href: "https://youtube.com/@letthedevscook",
