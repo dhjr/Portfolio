@@ -6,16 +6,16 @@ import { ChevronDown, Copy } from "lucide-react";
 import Image from "next/image";
 
 // Components
-import Projects from "./projects/page";
-import Contact from "./contact/page";
-import Skills from "./skills/page";
-import Education from "./education/page";
-import Footer from "@/components/Footer";
-import NameReveal from "@/components/NameReveal";
-import HeroImage from "@/components/HeroImage";
-import { StarsBackground } from "@/components/Stars";
-import Button from "./components/MacButton";
-import Popup from "./components/Popup";
+import Projects from "@/components/sections/Projects";
+import Contact from "@/components/sections/Contact";
+import Skills from "@/components/sections/Skills";
+import Education from "@/components/sections/Education";
+import Footer from "@/components/customComponents/Footer";
+import NameReveal from "@/components/customComponents/NameReveal";
+import HeroImage from "@/components/customComponents/HeroImage";
+import { StarsBackground } from "@/components/customComponents/Stars";
+import Button from "@/components/customComponents/MacButton";
+import Popup from "@/components/customComponents/Popup";
 import useScrollSpy from "@/hooks/useScrollSpy";
 
 export default function Home() {

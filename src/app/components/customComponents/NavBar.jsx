@@ -12,7 +12,7 @@ import {
   Mail,
   Terminal,
 } from "lucide-react";
-import ThemeToggle from "@/components/ThemeToggle";
+import ThemeToggle from "@/components/customComponents/ThemeToggle";
 
 const navLinks = [
   { name: "Home", href: "#hero", icon: Home },

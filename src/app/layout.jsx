@@ -1,8 +1,8 @@
 // src/app/layout.js
 import "./globals.css";
-import Navbar from "@/components/NavBar";
+import Navbar from "@/components/customComponents/NavBar";
 import { ReactLenis } from "lenis/react"; // <--- NEW IMPORT PATH
-import ThemeProvider from "@/components/ThemeProvider";
+import ThemeProvider from "@/components/customComponents/ThemeProvider";
 import {
   ebGaramond,
   josefin,

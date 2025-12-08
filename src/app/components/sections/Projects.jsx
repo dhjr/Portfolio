@@ -1,7 +1,7 @@
 "use client";
 
-import ProjectCard from "@/components/Card"; // Ensure path matches your file structure
-import Header from "@/components/SectionHeader";
+import ProjectCard from "@/components/customComponents/Card"; // Ensure path matches your file structure
+import Header from "@/components/customComponents/SectionHeader";
 
 export default function Projects() {
   const projectsData = [
