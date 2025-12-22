@@ -41,19 +41,6 @@
 //       title: "Content Creator",
 //       company: "Let the Devs Cook YouTube Channel",
 //       status: "Current",
-//       description:
-//         "Create computer science content with an emphasis on front-end web development for the YouTube channel, sharing knowledge and tutorials with the developer community.",
-//     },
-//   ];
-
-//   return (
-//     <div className="min-h-dvh relative z-10 bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300">
-//       <Header name="Education" />
-
-//       <div className="w-full max-w-4xl mx-auto py-20 px-4">
-//         <div className="flex flex-col">
-//           {timelineItems.map((item, idx) => (
-//             <div key={idx} className="flex group relative">
 //               {/* --- COLUMN 1: THE RAIL --- */}
 //               <div className="flex flex-col items-center mr-4 w-6 shrink-0 relative">
 //                 {/* Vertical Line */}
@@ -166,11 +153,10 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="relative z-10 w-full min-h-dvh  transition-colors duration-300 py-24"
+      className="relative z-10 w-full min-h-dvh transition-colors duration-300 py-24 bg-white dark:bg-zinc-950"
     >
-      <Header name="Education" />
-
       <div className="w-full max-w-4xl mx-auto pt-16 px-4">
+        <Header name="Education" />
         <div className="flex flex-col">
           {educationData.map((item, idx) => (
             <div key={idx} className="flex group relative">

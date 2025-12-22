@@ -43,7 +43,7 @@ export default function Projects() {
       // EXPLICIT COLORS:
       // Light: Zinc-50 (Paper-like)
       // Dark: Zinc-950 (Deep Space)
-      className="relative min-h-dvh duration-300 overflow-hidden "
+      className="py-16 md:py-24 relative bg-white dark:bg-zinc-950 transition-colors duration-300 overflow-hidden"
     >
 
 
@@ -51,7 +51,7 @@ export default function Projects() {
       {/* CONTENT LAYER */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 py-24">
         <div className="mb-16">
-          <Header name="Selected_Works" />
+          <Header name="Projects" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full auto-rows-fr">

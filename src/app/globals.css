@@ -175,3 +175,18 @@ html {
 .button-border-draw:hover {
   background-size: 100% 2px, 2px 100%, 100% 2px, 2px 100%;
 }
+
+@keyframes grid-pan {
+  0% {
+    /* Using background-position: 0px 0px; */
+    background-position: 0px 0px;
+  }
+  100% {
+    /* Match backgroundSize from BackgroundWrapper to ensure seamless loop */
+    background-position: 40px 40px;
+  }
+}
+
+.animate-grid-pan {
+  animation: grid-pan 20s linear infinite;
+}

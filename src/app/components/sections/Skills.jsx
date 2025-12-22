@@ -9,6 +9,7 @@ import {
   FaHtml5,
   FaCss3Alt,
 } from "react-icons/fa6";
+import Header from "@/components/customComponents/SectionHeader";
 import {
   SiNextdotjs,
   SiTailwindcss,
@@ -70,16 +71,11 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="py-16 px-4 relative  transition-colors duration-300"
+      className="py-16 px-4 relative transition-colors duration-300 bg-zinc-50 dark:bg-zinc-950"
     >
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10">
         {/* Header */}
-        <div className="mb-12 flex items-center gap-4">
-          <h2 className="text-5xl font-1bricolage font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-            Stack<span className="text-emerald-500">.</span>
-          </h2>
-          <div className="h-1px flex-1 bg-zinc-200 dark:bg-zinc-800/50"></div>
-        </div>
+        <Header name="Stack" />
 
         {/* 4-Column Layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -94,7 +90,7 @@ export default function Skills() {
               </div>
 
               {/* Internal 2-Column Grid of SQUARES */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-5">
                 {category.items.map((tech) => (
                   <div
                     key={tech.name}
@@ -109,7 +105,7 @@ export default function Skills() {
                     {/* Glassmorphic Icon Container */}
                     <div className="p-3 rounded-xl bg-zinc-100/50 dark:bg-zinc-800/40 transition-colors group-hover:bg-white dark:group-hover:bg-zinc-700/30">
                       <tech.icon
-                        className={`text-2xl md:text-3xl ${tech.color} transition-all duration-500`}
+                        className={`text-3xl md:text-4xl ${tech.color} transition-all duration-500`}
                       />
                     </div>
 

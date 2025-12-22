@@ -1,40 +1,114 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 
-export default function BackgroundWrapper({ children }) {
+export default function BackgroundWrapper() {
+  const canvasRef = useRef(null);
+  const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
+  const gridSize = 40;
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      // Get relative coordinates in case the canvas isn't at 0,0 (though it is here)
+      const rect = canvasRef.current.getBoundingClientRect();
+      setMousePos({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    let animationFrameId;
+    let time = 0;
+
+    const render = () => {
+      // time += 0.5; // Animation removed
+      const offsetX = 0;
+      const offsetY = 0;
+
+      // Handle Resize
+      if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      // Clear Canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Detect Dark Mode (Simple class check on html/body)
+      const isDarkMode = document.documentElement.classList.contains("dark");
+      
+      // Settings based on theme
+      const strokeColor = isDarkMode ? "rgba(30, 41, 59, 0.5)" : "rgba(226, 232, 240, 1)"; // slate-800/50 : slate-200
+      const highlightColor = isDarkMode ? "rgba(16, 185, 129, 0.2)" : "rgba(16, 185, 129, 0.2)"; // Emerald with opacity
+
+      ctx.strokeStyle = strokeColor;
+      ctx.lineWidth = 1;
+
+      // Draw Vertical Lines
+      // Start from -gridSize to cover the incoming edge during animation
+      for (let x = -gridSize + (offsetX % gridSize); x < canvas.width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+
+      // Draw Horizontal Lines
+      for (let y = -gridSize + (offsetY % gridSize); y < canvas.height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+
+      // Draw Highlighted Cell
+      // We need to calculate which cell corresponds to the mouse position
+      // considering the current animation offset.
+      if (mousePos.x >= 0 && mousePos.y >= 0) {
+        // The grid lines move by 'offsetX'.
+        // So the "start" of a cell shifts.
+        // Cell Index = floor((Coordinate - Offset) / GridSize)
+        
+        const cellX = Math.floor((mousePos.x - offsetX) / gridSize);
+        const cellY = Math.floor((mousePos.y - offsetY) / gridSize);
+
+        // Position to draw the rect
+        const drawX = cellX * gridSize + offsetX;
+        const drawY = cellY * gridSize + offsetY;
+
+        ctx.fillStyle = highlightColor;
+        ctx.fillRect(drawX, drawY, gridSize, gridSize);
+      }
+      
+      // Vignette / Mask Effect manually drawn or assume CSS mask handles it?
+      // Since this is a canvas, the CSS mask on the parent <div> works on the canvas element too!
+      // So we don't need to draw the radial fade here.
+
+      animationFrameId = requestAnimationFrame(render);
+    };
+
+    render();
+
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [mousePos]); // Re-bind if mousePos logic changes (optimized by ref usually but this is clean)
+
   return (
-    <div className="relative min-h-dvh w-full overflow-hidden bg-white dark:bg-[#020617] transition-colors duration-700">
-      {/* Layer 1: The Base Grid with Radial Mask */}
-      <div
-        className="absolute inset-0 z-0 opacity-[0.15] dark:opacity-[0.3]"
-        style={{
-          backgroundImage: `radial-gradient(#888 1px, transparent 1px)`,
-          backgroundSize: "24px 24px",
-          maskImage: "radial-gradient(ellipse 80% 50% at 50% 0%, black, transparent)",
-          WebkitMaskImage: "radial-gradient(ellipse 80% 50% at 50% 0%, black, transparent)",
-        }}
-      />
-
-      {/* Layer 2: Enhanced Mesh Gradients */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Top Center Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-blue-500/10 dark:bg-emerald-500/10 blur-[120px] rounded-full" />
-        
-        {/* Left Side Glow */}
-        <div className="absolute top-[20%] -left-[10%] w-[600px] h-[600px] bg-emerald-500/5 dark:bg-emerald-500/10 blur-[100px] rounded-full" />
-        
-        {/* Right Side Glow */}
-        <div className="absolute bottom-[10%] -right-[10%] w-[600px] h-[600px] bg-blue-500/5 dark:bg-blue-600/10 blur-[100px] rounded-full" />
-      </div>
-
-      {/* Layer 3: Noise Texture (Optional but adds high-end feel) */}
-      <div className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none brightness-100 contrast-150" 
-           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3	%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}>
-      </div>
-
-      {/* Content Layer */}
-      <div className="relative z-10">{children}</div>
+    <div className="absolute inset-0 -z-10 w-full h-full bg-white dark:bg-zinc-950 transition-colors duration-500 overflow-hidden">
+        <canvas
+            ref={canvasRef}
+            className="block w-full h-full"
+            style={{
+                maskImage: "radial-gradient(ellipse at center, black 60%, transparent 100%)",
+                WebkitMaskImage: "radial-gradient(ellipse at center, black 60%, transparent 100%)",
+            }}
+        />
     </div>
   );
 }

@@ -7,11 +7,12 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative z-10 transition-colors duration-300 pb-24"
+      className="py-20 relative bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300"
     >
-      <Header name="Experience" />
-
       <div className="max-w-6xl mx-auto px-4 mt-16">
+        <div className="mb-12">
+          <Header name="Experience" />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(180px,auto)]">
           {/* --- CARD 1: INTERNSHIP (Large) --- */}
           <div className="md:col-span-2 relative group overflow-hidden rounded-3xl bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 p-8 transition-all hover:shadow-lg dark:hover:shadow-emerald-900/20">

@@ -2,7 +2,7 @@
 import "./globals.css";
 import Navbar from "@/components/customComponents/NavBar";
 import { ReactLenis } from "lenis/react"; // <--- NEW IMPORT PATH
-import BackgroundWrapper from "./components/customComponents/BackgroundWrapper";
+
 import ThemeProvider from "@/components/customComponents/ThemeProvider";
 import {
   ebGaramond,
@@ -61,10 +61,8 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
-            <BackgroundWrapper>
             <Navbar />
             {children}
-        </BackgroundWrapper>
           </ThemeProvider>
       </body>
     </html>
