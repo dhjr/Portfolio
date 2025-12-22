@@ -21,19 +21,20 @@ export default function BackgroundWrapper() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
+  // Store twinkling tiles
+  const sparklesRef = useRef([]);
+
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     let animationFrameId;
-    let time = 0;
 
     const render = () => {
-      // time += 0.5; // Animation removed
-      const offsetX = 0;
-      const offsetY = 0;
-
       // Handle Resize
-      if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
+      if (
+        canvas.width !== window.innerWidth ||
+        canvas.height !== window.innerHeight
+      ) {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
       }
@@ -41,55 +42,92 @@ export default function BackgroundWrapper() {
       // Clear Canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Detect Dark Mode (Simple class check on html/body)
+      // Detect Dark Mode
       const isDarkMode = document.documentElement.classList.contains("dark");
-      
-      // Settings based on theme
-      const strokeColor = isDarkMode ? "rgba(30, 41, 59, 0.5)" : "rgba(226, 232, 240, 1)"; // slate-800/50 : slate-200
-      const highlightColor = isDarkMode ? "rgba(16, 185, 129, 0.2)" : "rgba(16, 185, 129, 0.2)"; // Emerald with opacity
+      const strokeColor = isDarkMode
+        ? "rgba(30, 41, 59, 0.5)"
+        : "rgba(226, 232, 240, 1)";
+      const highlightColor = isDarkMode
+        ? "rgba(16, 185, 129, 0.2)"
+        : "rgba(16, 185, 129, 0.2)";
+      // Subtle sparkle color: slightly lower max opacity
+      const sparkleBaseColor = isDarkMode
+        ? "148, 163, 184" // Slate-400 (Grayish)
+        : "100, 116, 139"; // Slate-500 (Darker Gray)
 
       ctx.strokeStyle = strokeColor;
       ctx.lineWidth = 1;
 
-      // Draw Vertical Lines
-      // Start from -gridSize to cover the incoming edge during animation
-      for (let x = -gridSize + (offsetX % gridSize); x < canvas.width; x += gridSize) {
+      // Draw Grid Lines
+      for (let x = 0; x < canvas.width; x += gridSize) {
         ctx.beginPath();
         ctx.moveTo(x, 0);
         ctx.lineTo(x, canvas.height);
         ctx.stroke();
       }
-
-      // Draw Horizontal Lines
-      for (let y = -gridSize + (offsetY % gridSize); y < canvas.height; y += gridSize) {
+      for (let y = 0; y < canvas.height; y += gridSize) {
         ctx.beginPath();
         ctx.moveTo(0, y);
         ctx.lineTo(canvas.width, y);
         ctx.stroke();
       }
 
-      // Draw Highlighted Cell
-      // We need to calculate which cell corresponds to the mouse position
-      // considering the current animation offset.
-      if (mousePos.x >= 0 && mousePos.y >= 0) {
-        // The grid lines move by 'offsetX'.
-        // So the "start" of a cell shifts.
-        // Cell Index = floor((Coordinate - Offset) / GridSize)
+      // --- SPAWN SPARKLES ---
+      // Chance to spawn a new sparkle (approx once every 4 frames)
+      if (Math.random() < 0.25) {
+        const col = Math.floor(Math.random() * (canvas.width / gridSize));
+        const row = Math.floor(Math.random() * (canvas.height / gridSize));
         
-        const cellX = Math.floor((mousePos.x - offsetX) / gridSize);
-        const cellY = Math.floor((mousePos.y - offsetY) / gridSize);
+        // Add if not already active
+        const exists = sparklesRef.current.some(s => s.col === col && s.row === row);
+        if (!exists) {
+            sparklesRef.current.push({
+                col, 
+                row, 
+                opacity: 0, 
+                phase: 0, // 0 to PI
+                speed: 0.02 + Math.random() * 0.03 // Random speed
+            });
+        }
+      }
 
-        // Position to draw the rect
-        const drawX = cellX * gridSize + offsetX;
-        const drawY = cellY * gridSize + offsetY;
+      // --- UPDATE & DRAW SPARKLES ---
+      // Filter out completed sparkles in proper way to mutate or replace arrays
+      // We will mutate and filter in-place or rebuild
+      const activeSparkles = [];
+      
+      for (let sparkle of sparklesRef.current) {
+        // Increment phase (0 -> PI)
+        sparkle.phase += sparkle.speed;
+        
+        // Calculate smooth opacity using Sine
+        // sin(0) = 0, sin(PI/2) = 1, sin(PI) = 0
+        sparkle.opacity = Math.sin(sparkle.phase) * 0.15; // Max opacity 0.05 (Subtle)
+
+        if (sparkle.phase < Math.PI) {
+           // Draw Tile
+           const drawX = sparkle.col * gridSize;
+           const drawY = sparkle.row * gridSize;
+           
+           ctx.fillStyle = `rgba(${sparkleBaseColor}, ${sparkle.opacity})`;
+           ctx.fillRect(drawX, drawY, gridSize, gridSize);
+           
+           activeSparkles.push(sparkle);
+        }
+      }
+      sparklesRef.current = activeSparkles;
+
+
+      // Draw Mouse Highlight
+      if (mousePos.x >= 0 && mousePos.y >= 0) {
+        const cellX = Math.floor(mousePos.x / gridSize);
+        const cellY = Math.floor(mousePos.y / gridSize);
+        const drawX = cellX * gridSize;
+        const drawY = cellY * gridSize;
 
         ctx.fillStyle = highlightColor;
         ctx.fillRect(drawX, drawY, gridSize, gridSize);
       }
-      
-      // Vignette / Mask Effect manually drawn or assume CSS mask handles it?
-      // Since this is a canvas, the CSS mask on the parent <div> works on the canvas element too!
-      // So we don't need to draw the radial fade here.
 
       animationFrameId = requestAnimationFrame(render);
     };
@@ -97,7 +135,7 @@ export default function BackgroundWrapper() {
     render();
 
     return () => cancelAnimationFrame(animationFrameId);
-  }, [mousePos]); // Re-bind if mousePos logic changes (optimized by ref usually but this is clean)
+  }, [mousePos]);
 
   return (
     <div className="absolute inset-0 -z-10 w-full h-full bg-white dark:bg-zinc-950 transition-colors duration-500 overflow-hidden">
