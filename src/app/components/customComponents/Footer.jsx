@@ -121,7 +121,7 @@ export default function Footer() {
               <a
                 href="mailto:dhjr.dev@gmail.com"
                 className="
-                  block text-xl font-bold mt-2 transition-colors
+                  block font-1spaceGrotesk text-xl font-bold mt-2 transition-colors
                   text-zinc-900 hover:text-emerald-600
                   dark:text-white dark:hover:text-emerald-400
                 "

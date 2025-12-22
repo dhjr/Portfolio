@@ -43,13 +43,11 @@ export default function Projects() {
       // EXPLICIT COLORS:
       // Light: Zinc-50 (Paper-like)
       // Dark: Zinc-950 (Deep Space)
-      className="relative min-h-screen bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300 overflow-hidden"
+      className="relative min-h-dvh duration-300 overflow-hidden "
     >
-      {/* BACKGROUND: Clean and plain as requested */}
 
-      {/* VIGNETTE: Adds subtle depth to the corners */}
-      <div className="absolute inset-0 bg-zinc-50 dark:bg-zinc-950 [mask-image:radial-gradient(ellipse_at_center,transparent_40%,black_100%)] pointer-events-none transition-colors duration-300"></div>
 
+      
       {/* CONTENT LAYER */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 py-24">
         <div className="mb-16">
@@ -62,6 +60,7 @@ export default function Projects() {
           ))}
         </div>
       </div>
+
     </section>
   );
 }

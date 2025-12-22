@@ -7,7 +7,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative z-10 bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300 pb-24"
+      className="relative z-10 transition-colors duration-300 pb-24"
     >
       <Header name="Experience" />
 

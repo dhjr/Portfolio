@@ -2,6 +2,7 @@
 import "./globals.css";
 import Navbar from "@/components/customComponents/NavBar";
 import { ReactLenis } from "lenis/react"; // <--- NEW IMPORT PATH
+import BackgroundWrapper from "./components/customComponents/BackgroundWrapper";
 import ThemeProvider from "@/components/customComponents/ThemeProvider";
 import {
   ebGaramond,
@@ -53,15 +54,18 @@ export default function RootLayout({ children }) {
           root
           options={{ lerp: 0.1, duration: 0.35, smoothTouch: true }}
         > */}
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          {children}
-        </ThemeProvider>
+        
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <BackgroundWrapper>
+            <Navbar />
+            {children}
+        </BackgroundWrapper>
+          </ThemeProvider>
       </body>
     </html>
   );

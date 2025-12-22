@@ -36,12 +36,12 @@ export default function ThemeToggle() {
       >
         {/* Dark Mode Icon (Moon) - Front Side */}
         <div className="absolute inset-0 [backface-visibility:hidden] flex items-center justify-center">
-          <Moon size={20} className="text-blue-400 fill-blue-400/10" />
+          <Moon size={20} className="text-white/50 " />
         </div>
 
         {/* Light Mode Icon (Sun) - Back Side (Flipped) */}
         <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] flex items-center justify-center">
-          <Sun size={20} className="text-amber-500 fill-amber-500/20" />
+          <Sun size={20} className="text-black/50" />
         </div>
       </div>
 
