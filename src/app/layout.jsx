@@ -17,6 +17,7 @@ import {
   trunculenta,
   boldonse,
   spacegrotesk,
+  bricolage,
 } from "./fonts";
 
 export const metadata = {
@@ -43,6 +44,7 @@ export default function RootLayout({ children }) {
         ${trunculenta.variable}
         ${boldonse.variable}
         ${spacegrotesk.variable}
+        ${bricolage.variable}
 
       `}
     >

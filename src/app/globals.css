@@ -18,6 +18,7 @@
     --font-1trunculenta: var(--font-trunculenta);
     --font-1boldonse: var(--font-boldonse);
     --font-1spaceGrotesk: var(--font-spacegrotesk);
+    --font-1bricolage: var(--font-bricolage);
   }
 
   /* REMOVED: All Color Variables and .dark block */
@@ -39,7 +40,7 @@
   --font-1trunculenta: var(--font-trunculenta);
   --font-1boldonse: var(--font-boldonse);
   --font-1spaceGrotesk: var(--font-spacegrotesk);
-
+  --font-1bricolage: var(--font-bricolage);
 }
 
 /* --- YOUR CUSTOM CSS --- */
@@ -158,8 +159,6 @@ html {
     transform: translateX(120vw) rotate(360deg);
   }
 }
-
-
 
 .button-border-draw {
   position: relative;
