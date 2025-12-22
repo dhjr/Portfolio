@@ -217,16 +217,22 @@ export default function Navbar() {
         <div
           className={`
             absolute inset-0 -z-10 
-            transition-all duration-500 ease-in-out bg-linear-to-b from-black to-transparent
+            transition-all duration-500 ease-in-out bg-linear-to-b from-black/70 to-transparent
           
             ${scrolled ? "opacity-100" : "opacity-0"}
           `}
-        ></div>
+        >
+          
+        </div>
 
         {/* Logo */}
-        <div className="flex items-center gap-2 relative z-10">
-          <span className="text-white text-2xl font-1boldonse">DR.</span>
-        </div>
+        <Link
+          href="#hero"
+          onClick={(e) => handleLinkClick(e, "#hero")}
+          className="flex items-center gap-2 relative z-10"
+        >
+          <span className="text-zinc-800 dark:text-white  text-2xl font-1boldonse">DR.</span>
+        </Link>
 
         {/* Right Controls */}
         <div className="relative flex items-center gap-3 pointer-events-auto">
