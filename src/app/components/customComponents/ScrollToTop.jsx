@@ -1,0 +1,65 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { ArrowUp } from "lucide-react";
+
+export default function ScrollToTop() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      // Show button when page is scrolled down 500px
+      if (window.scrollY > 500) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    const duration = 1500; // Duration in ms
+    const start = window.scrollY;
+    const startTime = performance.now();
+
+    const animateScroll = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Ease Out Quartic function for smooth deceleration
+      const ease = 1 - Math.pow(1 - progress, 4);
+
+      window.scrollTo(0, start * (1 - ease));
+
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
+
+    requestAnimationFrame(animateScroll);
+  };
+
+  return (
+    <button
+      onClick={scrollToTop}
+      className={`
+        fixed bottom-8 right-8 z-[1000] 
+        hidden md:flex items-center justify-center
+        p-3 rounded-full shadow-lg cursor-pointer
+        transition-all duration-300 ease-in-out
+        bg-white border border-zinc-200 text-zinc-600
+        dark:bg-zinc-900 dark:border-zinc-800 dark:text-zinc-400
+        hover:bg-emerald-500 hover:text-white hover:border-emerald-500
+        dark:hover:bg-emerald-600 dark:hover:text-white dark:hover:border-emerald-600
+        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"}
+      `}
+      aria-label="Scroll to top"
+    >
+      <ArrowUp size={20} />
+    </button>
+  );
+}

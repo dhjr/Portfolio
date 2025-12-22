@@ -84,7 +84,7 @@ export default function Skills() {
               {/* Category Label */}
               <div className="flex items-center gap-2 mb-6">
                 <div className="w-1 h-4 bg-emerald-500 rounded-full"></div>
-                <h3 className="text-[11px] font-mono uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500">
+                <h3 className="text-sm font-1bricolage uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500">
                   {category.name}
                 </h3>
               </div>
@@ -94,10 +94,10 @@ export default function Skills() {
                 {category.items.map((tech) => (
                   <div
                     key={tech.name}
-                    className="group relative aspect-square flex flex-col items-center justify-center gap-3 p-2 
+                    className="group relative aspect-square flex flex-col items-center justify-center gap-3 p-4 
                                rounded-2xl transition-all duration-300
-                               bg-white/40 dark:bg-white/[0.02] 
-                               border border-zinc-200/50 dark:border-white/[0.05]
+                               bg-white/40 dark:bg-white/2 
+                               border border-zinc-200/50 dark:border-white/5
                                backdrop-blur-md shadow-sm
                                hover:shadow-md hover:border-emerald-500/30 dark:hover:border-emerald-500/30
                                hover:-translate-y-1"
@@ -105,11 +105,11 @@ export default function Skills() {
                     {/* Glassmorphic Icon Container */}
                     <div className="p-3 rounded-xl bg-zinc-100/50 dark:bg-zinc-800/40 transition-colors group-hover:bg-white dark:group-hover:bg-zinc-700/30">
                       <tech.icon
-                        className={`text-3xl md:text-4xl ${tech.color} transition-all duration-500`}
+                        className={`text-7xl md:text-5xl ${tech.color} transition-all duration-500`}
                       />
                     </div>
 
-                    <span className="text-[10px] font-semibold text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-200 transition-colors text-center px-1">
+                    <span className="text-sm font-1spaceGrotesk font-semibold text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-200 transition-colors text-center px-1">
                       {tech.name}
                     </span>
                   </div>

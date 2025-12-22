@@ -167,7 +167,7 @@ export default function Projects() {
                   <span className="font-mono text-xs text-emerald-500 bg-emerald-100/50 dark:bg-emerald-500/10 px-2 py-1 rounded-md">
                     {project.id}
                   </span>
-                  <h3 className="text-3xl font-bold text-zinc-800 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  <h3 className="text-3xl font-1bricolage font-bold text-zinc-800 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                     {project.heading}
                   </h3>
                 </div>

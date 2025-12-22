@@ -1,6 +1,7 @@
 // src/app/layout.js
 import "./globals.css";
 import Navbar from "@/components/customComponents/NavBar";
+import ScrollToTop from "@/components/customComponents/ScrollToTop";
 import { ReactLenis } from "lenis/react"; // <--- NEW IMPORT PATH
 
 import ThemeProvider from "@/components/customComponents/ThemeProvider";
@@ -62,6 +63,7 @@ export default function RootLayout({ children }) {
             disableTransitionOnChange
           >
             <Navbar />
+            <ScrollToTop />
             {children}
           </ThemeProvider>
       </body>
