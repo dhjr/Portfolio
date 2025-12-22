@@ -40,10 +40,6 @@
   --font-1boldonse: var(--font-boldonse);
   --font-1spaceGrotesk: var(--font-spacegrotesk);
 
-  /* REMOVED: Color Mappings */
-
-  /* Map Custom Animations */
-  --animate-spin-slow: drift-spin 18s linear infinite;
 }
 
 /* --- YOUR CUSTOM CSS --- */
@@ -163,9 +159,7 @@ html {
   }
 }
 
-.spin-slow {
-  animation: drift-spin 18s linear infinite;
-}
+
 
 .button-border-draw {
   position: relative;

@@ -51,16 +51,15 @@ export default function RootLayout({ children }) {
           root
           options={{ lerp: 0.1, duration: 0.35, smoothTouch: true }}
         > */}
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Navbar />
-            {children}
-          </ThemeProvider>
-        {/* </ReactLenis> */}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

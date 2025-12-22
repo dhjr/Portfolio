@@ -10,20 +10,43 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    if (!theme) setTheme("dark");
+  }, [theme, setTheme]);
 
-  if (!mounted) return null;
+  if (!mounted) return <div className="w-9 h-9" />;
+
+  const isDark = theme === "dark";
 
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="
-       m-2 p-2 rounded-full transition-colors duration-300
-        bg-zinc-200 text-zinc-800 hover:bg-zinc-300
-        dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700
-      "
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="relative flex items-center justify-center w-9 h-9 rounded-xl 
+                 bg-zinc-200 dark:bg-zinc-900 
+                 border border-zinc-200 dark:border-zinc-800
+                 shadow-[0_2px_4px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_12px_rgba(0,0,0,0.5)]
+                 transition-all duration-300 hover:scale-110 active:scale-90
+                 group overflow-hidden [perspective:1000px]"
+      aria-label="Toggle Theme"
     >
-      {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+      {/* Icon Container with 3D Flip Animation */}
+      <div
+        className={`relative w-5 h-5 transition-all duration-500 [transform-style:preserve-3d] ${
+          !isDark ? "[transform:rotateY(180deg)]" : ""
+        }`}
+      >
+        {/* Dark Mode Icon (Moon) - Front Side */}
+        <div className="absolute inset-0 [backface-visibility:hidden] flex items-center justify-center">
+          <Moon size={20} className="text-blue-400 fill-blue-400/10" />
+        </div>
+
+        {/* Light Mode Icon (Sun) - Back Side (Flipped) */}
+        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] flex items-center justify-center">
+          <Sun size={20} className="text-amber-500 fill-amber-500/20" />
+        </div>
+      </div>
+
+      {/* Subtle material hover overlay */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity bg-zinc-400 dark:bg-zinc-500" />
     </button>
   );
 }

@@ -10,7 +10,6 @@ import {
   Cpu,
   BookOpen,
   Mail,
-  Terminal,
   Briefcase,
 } from "lucide-react";
 import ThemeToggle from "@/components/customComponents/ThemeToggle";
@@ -213,19 +212,14 @@ export default function Navbar() {
       </div>
 
       {/* --- MOBILE NAVBAR --- */}
-      <div className="fixed top-0 left-0 right-0 z-[999] md:hidden flex justify-between items-center px-6 py-4">
+      <div className="fixed top-0 left-0 right-0 z-999 md:hidden flex justify-between items-center px-6 py-4">
         {/* Background Layer */}
         <div
           className={`
             absolute inset-0 -z-10 
-            transition-all duration-500 ease-in-out
-            bg-white/80 dark:bg-zinc-950/80
-            border-b backdrop-blur-md
-            ${
-              scrolled
-                ? "opacity-100 border-zinc-200 dark:border-zinc-800"
-                : "opacity-0 backdrop-blur-none border-transparent"
-            }
+            transition-all duration-500 ease-in-out bg-linear-to-b from-black to-transparent
+          
+            ${scrolled ? "opacity-100" : "opacity-0"}
           `}
         ></div>
 

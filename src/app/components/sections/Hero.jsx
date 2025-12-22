@@ -27,7 +27,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="sticky top-0 z-0 w-full h-dvh flex flex-col-reverse md:flex-row justify-center md:justify-around items-center overflow-hidden py-0 pb-48 md:pb-0 gap-4 md:gap-0 bg-zinc-950"
+      className="sticky top-0 z-0 w-full h-dvh flex flex-col-reverse md:flex-row justify-center md:justify-around items-center overflow-hidden pt-24 md:pt-0 pb-48 md:pb-0 gap-4 md:gap-0 bg-zinc-950"
     >
       {/* BACKGROUND: Stars always visible */}
       <div className="absolute inset-0 -z-20 w-full h-full">
@@ -43,13 +43,7 @@ export default function Hero() {
 
       {/* LEFT COLUMN */}
       <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left z-10 w-full md:w-auto px-4 md:px-0">
-        <Image
-          src="/walle.png"
-          className="absolute w-20 spin-slow"
-          width={80}
-          height={20}
-          alt="Wall-E"
-        />
+
 
         {/* Hardcoded 'text-white' to force dark mode look */}
         <p className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-1spaceGrotesk text-white mb-2">

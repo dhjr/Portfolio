@@ -13,7 +13,7 @@ export default function Projects() {
       tags: ["JavaScript", "Express.js", "Chrome API"],
       ghLink: "#",
       demoLink: "#",
-      image: "/projects/mentora.png",
+      image: "/baja.webp",
     },
     {
       id: "02",
@@ -23,7 +23,7 @@ export default function Projects() {
       tags: ["Next.js", "Tailwind", "Supabase"],
       ghLink: "#",
       demoLink: "#",
-      image: "/projects/finance.png",
+      image: "/baja.webp",
     },
     {
       id: "03",
@@ -33,7 +33,7 @@ export default function Projects() {
       tags: ["React", "GSAP", "Node.js"],
       ghLink: "#",
       demoLink: null,
-      image: "/projects/ieee.png",
+      image: "/baja.webp",
     },
   ];
 
