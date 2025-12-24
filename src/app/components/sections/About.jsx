@@ -40,19 +40,19 @@ export default function About() {
                     <span className="p-2 rounded-lg bg-emerald-100 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400">
                         <RefreshCw size={20} />
                     </span>
-                    <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300">Unlearn & Relearn</span>
+                    <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300 font-1spaceGrotesk">Unlearn & Relearn</span>
                 </div>
                  <div className="flex items-center gap-3">
                     <span className="p-2 rounded-lg bg-purple-100 text-purple-600 dark:bg-purple-500/10 dark:text-purple-400">
                         <BookOpen size={20} />
                     </span>
-                    <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300">Lifelong Learning</span>
+                    <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300 font-1spaceGrotesk">Lifelong Learning</span>
                 </div>
                  <div className="flex items-center gap-3">
                     <span className="p-2 rounded-lg bg-blue-100 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400">
                         <Zap size={20} />
                     </span>
-                    <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300">Exploring new tech..</span>
+                    <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300 font-1spaceGrotesk">Exploring new tech..</span>
                 </div>
             </div>
 

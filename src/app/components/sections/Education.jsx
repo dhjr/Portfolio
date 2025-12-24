@@ -164,8 +164,8 @@ export default function Education() {
               <div className="flex flex-col items-center mr-4 w-6 shrink-0 relative">
                 <div
                   className={`
-                    w-[2px] flex-grow 
-                    bg-gradient-to-b from-transparent via-emerald-500/50 to-transparent
+                    w-[2px] grow 
+                    bg-linear-to-b from-transparent via-emerald-500/50 to-transparent
                     ${idx === 0 ? "mt-8" : ""} 
                     ${idx === educationData.length - 1 ? "mb-auto h-8" : ""}
                 `}
@@ -184,7 +184,7 @@ export default function Education() {
 
               {/* --- CARD CONTENT --- */}
               <div className="pb-12 flex items-start flex-1 gap-4">
-                <div className="hidden md:block w-8 h-[1px] bg-emerald-500/30 mt-8 shrink-0"></div>
+                <div className="hidden md:block w-8 h-px bg-emerald-500/30 mt-8 shrink-0"></div>
 
                 <div
                   className="
@@ -216,7 +216,7 @@ export default function Education() {
                     {item.institution} • {item.score}
                   </div>
 
-                  <p className="leading-relaxed text-sm text-zinc-600 dark:text-zinc-300 transition-colors">
+                  <p className="leading-relaxed text-sm text-zinc-600 dark:text-zinc-300 transition-colors font-1spaceGrotesk">
                     {item.description}
                   </p>
                 </div>

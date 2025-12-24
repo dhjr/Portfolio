@@ -67,7 +67,7 @@ export default function Footer() {
                     key={link}
                     href={`#${link.toLowerCase()}`}
                     className="
-                    text-zinc-600 hover:text-zinc-900 hover:translate-x-2 
+                    text-zinc-600 font-1spaceGrotesk hover:text-zinc-900 hover:translate-x-2 
                     dark:text-zinc-300 dark:hover:text-white 
                     transition-all duration-200 w-fit
                   "
@@ -141,7 +141,7 @@ export default function Footer() {
                   "
                   >
                     <social.Icon size={18} />
-                    <span className="text-sm group-hover:underline decoration-emerald-500/50 underline-offset-4">
+                    <span className="text-sm font-1spaceGrotesk group-hover:underline decoration-emerald-500/50 underline-offset-4">
                       {social.label}
                     </span>
                   </a>

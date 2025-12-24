@@ -59,7 +59,7 @@ export default function Hero() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
-          <Link href="#contact">
+          <Link href="#contact" className="hidden sm:block">
             <Button text={"Let's Connect!"} />
           </Link>
 
@@ -67,7 +67,7 @@ export default function Hero() {
           <button
             onClick={handleMailClick}
             className="
-                group flex flex-row items-center gap-2 px-5 py-2.5 rounded-lg justify-center
+                group flex flex-row items-center gap-2 px-5 py-2.5 rounded-lg justify-center w-fit sm:w-auto
                 backdrop-blur-2xl transition-all duration-200 active:scale-95 shadow-md shadow-zinc-200/50 dark:shadow-black/70
                 bg-white/90 dark:bg-white/5 border border-zinc-300 dark:border-white/10 hover:border-emerald-500 dark:hover:border-emerald-500
               "
@@ -83,14 +83,13 @@ export default function Hero() {
               className="text-zinc-500 group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors shrink-0"
             />
           </button>
-        </div>
-        <div className="mt-3 md:mt-4 w-fit md:w-auto">
+
           <a
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="
-                group flex items-center justify-center gap-2 px-5 py-2.5 w-auto rounded-lg
+                group flex items-center justify-center gap-2 px-5 py-2.5 w-fit sm:w-auto rounded-lg
                 backdrop-blur-2xl transition-all duration-200 active:scale-95 shadow-md shadow-zinc-200/50 dark:shadow-black/70
                 bg-white/90 dark:bg-white/5 border border-zinc-300 dark:border-white/10 hover:border-emerald-500 dark:hover:border-emerald-500
               "
@@ -116,7 +115,7 @@ export default function Hero() {
         href="#projects"
         className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce opacity-50 z-20 hover:opacity-100 transition-opacity"
       >
-        <span className="text-[4px] sm:text-xs font-thin font-1spaceGrotesk uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+        <span className="text-xs sm:text-sm font-thin font-1spaceGrotesk uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
           Scroll Down
         </span>
         <ChevronDown className="text-emerald-500" size={24} />
