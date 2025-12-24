@@ -38,7 +38,7 @@ export default function Experience() {
                   IIIT Kottayam • May - Aug 2025
                 </p>
 
-                <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-lg">
+                <p className="font-1spaceGrotesk text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-lg">
                   Developed a 2D CNN-based architecture for classifying cardiac
                   arrhythmia from ECG data. Implemented Grad-CAM for model
                   explainability to highlight decision regions.
@@ -64,7 +64,7 @@ export default function Experience() {
                   <h4 className="font-bold text-zinc-900 dark:text-white">
                     Winner - Useless Projects
                   </h4>
-                  <p className="text-xs text-zinc-500 mt-1">
+                  <p className="font-1spaceGrotesk text-xs text-zinc-500 mt-1">
                     Built a Phaser.js game. Won for creativity.
                   </p>
                 </li>
@@ -72,7 +72,7 @@ export default function Experience() {
                   <h4 className="font-bold text-zinc-900 dark:text-white">
                     Code-RECET 2.0
                   </h4>
-                  <p className="text-xs text-zinc-500 mt-1">
+                  <p className="font-1spaceGrotesk text-xs text-zinc-500 mt-1">
                     Real-time data processing solution.
                   </p>
                 </li>
@@ -104,7 +104,7 @@ export default function Experience() {
                   <p className="text-sm font-mono text-zinc-500 mb-3">
                     Webmaster • Current
                   </p>
-                  <p className="text-sm text-zinc-600 dark:text-zinc-300 mb-4">
+                  <p className="font-1spaceGrotesk text-sm text-zinc-600 dark:text-zinc-300 mb-4">
                     Lead the web team, overseeing design & deployment.
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -126,7 +126,7 @@ export default function Experience() {
                   <p className="text-sm font-mono text-zinc-500 mb-3">
                     Lead Developer • 2024
                   </p>
-                  <p className="text-sm text-zinc-600 dark:text-zinc-300">
+                  <p className="font-1spaceGrotesk text-sm text-zinc-600 dark:text-zinc-300">
                     Designed and built the official website for the college's
                     main techno-cultural fest.
                   </p>
@@ -151,13 +151,13 @@ export default function Experience() {
                 <h4 className="font-bold text-zinc-900 dark:text-white">
                   SAE A-Baja RIT
                 </h4>
-                <p className="text-xs text-zinc-500">Event Volunteer</p>
+                <p className="font-1spaceGrotesk text-xs text-zinc-500">Event Volunteer</p>
               </div>
               <div>
                 <h4 className="font-bold text-zinc-900 dark:text-white">
                   Tinkerhub
                 </h4>
-                <p className="text-xs text-zinc-500">Community Volunteer</p>
+                <p className="font-1spaceGrotesk text-xs text-zinc-500">Community Volunteer</p>
               </div>
             </div>
           </div>

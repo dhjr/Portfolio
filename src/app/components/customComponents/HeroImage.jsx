@@ -1,27 +1,30 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 
 export default function HeroImage() {
   const containerRef = useRef(null);
 
-  useEffect(() => {
-    gsap.fromTo(
-      containerRef.current,
-      { scale: 0.8, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 1.5, ease: "power3.out" }
-    );
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.fromTo(
+        containerRef.current,
+        { scale: 0.8, autoAlpha: 0 },
+        { scale: 1, autoAlpha: 1, duration: 1.5, ease: "power3.out" }
+      );
+    });
+    return () => ctx.revert();
   }, []);
 
   return (
     <div
       ref={containerRef}
-      className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] flex items-center justify-center"
+      className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] flex items-center justify-center opacity-0 invisible"
     >
       {/* WRAPPER FOR UNIFIED FLOATING */}
-      <div className="relative w-full h-full flex items-center justify-center animate-[float_6s_ease-in-out_infinite]">
+      <div className="relative w-full h-full flex items-center justify-center md:animate-[float_6s_ease-in-out_infinite]">
         {/* 1. OUTER RING (Zinc, Slow Reverse Spin) */}
         <div className="absolute inset-0 rounded-full border border-zinc-800/60 border-t-zinc-500/30 animate-[spin_25s_linear_infinite_reverse]"></div>
 

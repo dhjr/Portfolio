@@ -1,4 +1,4 @@
-import { ChevronDown, Copy } from "lucide-react";
+import { ChevronDown, Copy, FileText } from "lucide-react";
 import NameReveal from "@/components/customComponents/NameReveal";
 import HeroImage from "@/components/customComponents/HeroImage";
 import BackgroundWrapper from "@/components/customComponents/BackgroundWrapper";
@@ -38,7 +38,7 @@ export default function Hero() {
       </div>
 
       {/* LEFT COLUMN */}
-      <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left z-10 w-full md:w-auto px-4 md:px-0">
+      <div className="mt-5 flex flex-col justify-center items-center md:items-start text-center md:text-left z-10 w-full md:w-auto px-4 md:px-0">
 
 
         {/* Updated for Light/Dark Mode */}
@@ -69,7 +69,7 @@ export default function Hero() {
             className="
                 group flex flex-row items-center gap-2 px-5 py-2.5 rounded-lg justify-center
                 backdrop-blur-2xl transition-all duration-200 active:scale-95 shadow-md shadow-zinc-200/50 dark:shadow-black/70
-                bg-white/40 dark:bg-white/5 border border-zinc-200 dark:border-white/10 hover:border-emerald-500 dark:hover:border-emerald-500
+                bg-white/90 dark:bg-white/5 border border-zinc-300 dark:border-white/10 hover:border-emerald-500 dark:hover:border-emerald-500
               "
           >
             <p
@@ -84,10 +84,30 @@ export default function Hero() {
             />
           </button>
         </div>
+        <div className="mt-3 md:mt-4 w-full md:w-auto">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+                group flex items-center justify-center gap-2 px-5 py-2.5 w-full md:w-auto rounded-lg
+                backdrop-blur-2xl transition-all duration-200 active:scale-95 shadow-md shadow-zinc-200/50 dark:shadow-black/70
+                bg-white/90 dark:bg-white/5 border border-zinc-300 dark:border-white/10 hover:border-emerald-500 dark:hover:border-emerald-500
+              "
+          >
+            <p className="font-1spaceGrotesk text-sm md:text-lg text-zinc-600 dark:text-zinc-300 group-hover:text-black dark:group-hover:text-white transition-colors">
+              View Resume
+            </p>
+            <FileText
+              size={16}
+              className="text-zinc-500 group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors shrink-0"
+            />
+          </a>
+        </div>
       </div>
 
       {/* RIGHT COLUMN */}
-      <div className="relative z-10 scale-[0.65] sm:scale-90 md:scale-100 mb-[-40px] md:mb-0">
+      <div className="relative z-10 scale-[0.8] sm:scale-90 md:scale-100 mb-[-40px] md:mb-0">
         <HeroImage />
       </div>
 

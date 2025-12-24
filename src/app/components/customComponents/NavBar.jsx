@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect,useRef,                 useCallback } from "react";
 import Link from "next/link";
 import {
   Menu,
@@ -28,6 +28,18 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Disable body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
   // --- IMPROVED SCROLL SPY LOGIC ---
   useEffect(() => {
     const handleScroll = () => {
@@ -36,56 +48,48 @@ export default function Navbar() {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
 
+      // Special case: Bottom of page -> Contact
+      if (window.innerHeight + scrollY >= document.body.offsetHeight - 20) {
+        setActiveSection("contact");
+        return;
+      }
+
       // Special case for hero section
       if (scrollY < windowHeight * 0.5) {
         setActiveSection("hero");
         return;
       }
 
-      let currentSection = "hero";
+      let currentSection = null;
       let maxVisibility = 0;
 
       for (const link of navLinks) {
         const id = link.href.substring(1);
-        if (id === "hero") continue; // Skip hero as we handled it above
+        if (id === "hero") continue;
 
         const element = document.getElementById(id);
         if (!element) continue;
 
         const rect = element.getBoundingClientRect();
-        const sectionTop = rect.top + scrollY;
         const sectionHeight = rect.height;
 
-        // Calculate how much of the section is visible
+        // Calculate visibility
         const visibleTop = Math.max(rect.top, 0);
         const visibleBottom = Math.min(rect.bottom, windowHeight);
         const visibleHeight = Math.max(0, visibleBottom - visibleTop);
         const visibilityRatio =
           visibleHeight / Math.min(sectionHeight, windowHeight);
 
-        // Method 1: If section is majority visible, use it immediately
-        if (visibilityRatio > 0.5) {
-          currentSection = id;
-          break;
-        }
-
-        // Method 2: Track the most visible section
+        // Track the most visible section
         if (visibilityRatio > maxVisibility) {
           maxVisibility = visibilityRatio;
           currentSection = id;
         }
-
-        // Method 3: Check if we're within section boundaries (with buffer)
-        const buffer = 100; // pixels buffer
-        if (
-          scrollY + buffer >= sectionTop &&
-          scrollY - buffer < sectionTop + sectionHeight
-        ) {
-          currentSection = id;
-        }
       }
 
-      setActiveSection(currentSection);
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
     };
 
     // Throttle scroll for better performance
@@ -109,6 +113,38 @@ export default function Navbar() {
       window.removeEventListener("resize", throttledScroll);
     };
   }, []);
+
+  // --- MOBILE INDICATOR LOGIC ---
+  const itemRefs = useRef([]);
+  const indicatorRef = useRef(null);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const activeIndex = navLinks.findIndex(
+      (link) => link.href.substring(1) === activeSection
+    );
+    const activeEl = itemRefs.current[activeIndex];
+    const indicator = indicatorRef.current;
+
+    if (activeEl && indicator) {
+      // Find the text element (2nd child) to center the dot relative to the TEXT, not the whole block
+      const textEl = activeEl.children[1]; 
+      
+      let top;
+      if (textEl) {
+        // Calculate center of the text element
+        // textEl.offsetTop is relative to activeEl (which is relative)
+        top = activeEl.offsetTop + textEl.offsetTop + textEl.offsetHeight / 2;
+      } else {
+        // Fallback to center of container if text not found
+        top = activeEl.offsetTop + activeEl.offsetHeight / 2;
+      }
+
+      indicator.style.transform = `translateY(-50%)`;
+      indicator.style.top = `${top}px`;
+    }
+  }, [activeSection, isMobileMenuOpen]);
 
   // --- IMPROVED CLICK HANDLER ---
   const handleLinkClick = useCallback((e, href) => {
@@ -252,72 +288,83 @@ export default function Navbar() {
       </div>
 
       {/* --- MOBILE OVERLAY MENU --- */}
-      <div
-        className={`
-          fixed inset-0 z-[1000] flex flex-col justify-center items-center gap-8
-          transition-all duration-500 ease-in-out
-          ${
-            isMobileMenuOpen
-              ? "opacity-100 visible pointer-events-auto backdrop-blur-xl bg-white/95 dark:bg-zinc-950/95"
-              : "opacity-0 invisible pointer-events-none backdrop-blur-none"
-          }
-        `}
-      >
-        <button
-          onClick={() => setIsMobileMenuOpen(false)}
-          className="
-            absolute top-6 right-6 p-2 rounded-full border
-            text-zinc-500 bg-zinc-100 border-zinc-200 hover:text-zinc-900
-            dark:text-zinc-400 dark:bg-zinc-900 dark:border-zinc-800 dark:hover:text-white
-            transition-colors duration-300
-          "
-          aria-label="Close menu"
-        >
-          <X size={24} />
-        </button>
+{/* --- MOBILE OVERLAY MENU --- */}
+<div
+  className={`
+    fixed inset-0 z-[1000] flex flex-col
+    transition-all duration-500 ease-in-out
+    ${
+      isMobileMenuOpen
+        ? "opacity-100 visible pointer-events-auto backdrop-blur-3xl bg-white/95 dark:bg-zinc-950/98"
+        : "opacity-0 invisible pointer-events-none"
+    }
+  `}
+>
+  {/* Close Button - More accessible padding */}
+  <div className="flex justify-end p-6">
+    <button
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="p-3 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 active:scale-95 transition-transform"
+    >
+      <X size={24} />
+    </button>
+  </div>
 
-        <div className="flex flex-col items-center gap-6 w-full px-8">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] mb-4 text-zinc-400 dark:text-zinc-600">
-            // NAVIGATION
-          </p>
-
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.href.substring(1);
-            return (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleLinkClick(e, link.href)}
-                className={`
-                  group flex items-center gap-4 w-full p-4 rounded-xl 
-                  transition-all duration-300 border
-                  ${
-                    isActive
-                      ? "bg-emerald-50 border-emerald-200 dark:bg-emerald-900/20 dark:border-emerald-800"
-                      : "bg-zinc-50 border-zinc-200 hover:bg-white hover:border-emerald-500/50 hover:shadow-lg dark:bg-zinc-900/50 dark:border-zinc-800 dark:hover:bg-zinc-900"
-                  }
-                `}
-              >
-                <div
-                  className={`
-                    p-3 rounded-lg transition-colors border
-                    ${
-                      isActive
-                        ? "text-emerald-600 border-emerald-200 bg-emerald-100 dark:text-emerald-400 dark:border-emerald-800 dark:bg-emerald-900/30"
-                        : "text-zinc-500 border-zinc-200 group-hover:text-emerald-500 dark:text-zinc-400 dark:border-zinc-800"
-                    }
-                  `}
-                >
-                  <link.icon size={20} />
-                </div>
-                <span className="text-2xl font-bold tracking-wide text-zinc-800 dark:text-zinc-100">
-                  {link.name}
-                </span>
-              </Link>
-            );
-          })}
-        </div>
+  {/* Main Content Area - Scrollable for short screens */}
+  <div className="relative flex-1 overflow-y-auto custom-scrollbar flex flex-col justify-center px-6 sm:px-12 pb-12">
+    
+    <div className="relative flex flex-col items-start gap-6 sm:gap-8">
+      {/* The Vertical Timeline Line */}
+      <div className="absolute -left-2 sm:-left-6 top-0 bottom-0 w-[1px] bg-zinc-200 dark:bg-zinc-800">
+        {/* Animated Glowing Node */}
+        {/* Animated Glowing Node */}
+        <div
+          ref={indicatorRef}
+          className="absolute w-3 h-3 -left-[5.5px] bg-emerald-500 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.5)] transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]"
+          style={{ top: "0px" }} // Initial fallback
+        />
       </div>
+
+      {navLinks.map((link, index) => {
+        const isActive = activeSection === link.href.substring(1);
+        return (
+          <Link
+            key={link.name}
+            href={link.href}
+            ref={(el) => (itemRefs.current[index] = el)}
+            onClick={(e) => handleLinkClick(e, link.href)}
+            className="group relative flex flex-col w-full"
+          >
+            {/* Index Number */}
+            <span className={`
+              font-mono text-[10px] sm:text-xs mb-1 transition-colors duration-300
+              ${isActive ? "text-emerald-500" : "text-zinc-400 dark:text-zinc-600"}
+            `}>
+              0{index + 1} 
+            </span>
+
+            {/* Large Typography Stack - Uses Clamp for Responsiveness */}
+            <span className={`
+              text-[10vw] sm:text-5xl font-black tracking-tighter leading-none transition-all duration-300
+              ${isActive 
+                ? "text-zinc-900 dark:text-white translate-x-2 sm:translate-x-4" 
+                : "text-zinc-300 dark:text-zinc-800 group-hover:text-zinc-400 dark:group-hover:text-zinc-700"}
+            `}>
+              {link.name}
+            </span>
+
+            {/* Subtle indicator for active section on small screens */}
+            {isActive && (
+              <div className="mt-1 h-0.5 w-8 bg-emerald-500 rounded-full sm:hidden" />
+            )}
+          </Link>
+        );
+      })}
+    </div>
+
+
+  </div>
+</div>
     </>
   );
 }

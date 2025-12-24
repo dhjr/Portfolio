@@ -190,7 +190,7 @@ export default function Contact() {
           </div>
 
           {/* --- RIGHT PANEL (FORM) --- */}
-          <div className="lg:col-span-3 p-10 bg-transparent">
+          <div className="lg:col-span-3 px-10 pb-10 md:py-10 bg-transparent">
             <form ref={formRef} onSubmit={sendEmail} className="space-y-10">
               {/* NAME INPUT */}
               <div className="group relative">
@@ -267,7 +267,7 @@ export default function Contact() {
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   {status === "idle" && (
                     <>
-                      Transmit_Data <ArrowUpRight size={16} />
+                      Send mail <ArrowUpRight size={16} />
                     </>
                   )}
                   {status === "sending" && (

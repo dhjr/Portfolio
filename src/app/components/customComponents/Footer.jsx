@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   Github,
   Linkedin,
@@ -13,6 +14,13 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <footer className="relative z-10 w-full bg-zinc-50 dark:bg-stone-950 border-t border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
@@ -26,13 +34,17 @@ export default function Footer() {
               </h2>
               <p className="text-zinc-500 text-sm mt-2">Full Stack Developer</p>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            <div className="mt-8 flex flex-col gap-1">
+              <span className="text-[10px] font-mono text-zinc-400 dark:text-zinc-600 uppercase tracking-widest">
+                Local Time // Kozhikode, IN
               </span>
-              <span className="text-xs font-mono text-emerald-600 dark:text-emerald-500">
-                OPEN TO WORK
+              <span className="text-sm font-mono font-medium tabular-nums text-zinc-600 dark:text-zinc-400">
+                {time.toLocaleTimeString("en-US", {
+                  hour12: true,
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  second: "2-digit",
+                })}
               </span>
             </div>
           </div>
