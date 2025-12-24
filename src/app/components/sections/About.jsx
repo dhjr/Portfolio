@@ -1,7 +1,7 @@
 "use client";
 
 import Header from "@/components/customComponents/SectionHeader";
-import { User, Code, Heart, Sparkles } from "lucide-react";
+import { User, RefreshCw, BookOpen, Zap } from "lucide-react";
 
 export default function About() {
   return (
@@ -16,8 +16,8 @@ export default function About() {
 
         <div className="relative group rounded-3xl bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 p-8 md:p-12 overflow-hidden hover:shadow-lg dark:hover:shadow-emerald-900/10 transition-all duration-500">
             {/* Background Decorations */}
-             <div className="absolute top-0 right-0 p-12 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-              <User size={200} />
+             <div className="absolute -top-10 -right-10 md:top-0 md:right-0 p-8 md:p-12 opacity-5 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none">
+              <User size={120} className="md:w-[200px] md:h-[200px]" />
             </div>
             
           <div className="relative z-10 flex flex-col gap-8">
@@ -38,21 +38,21 @@ export default function About() {
              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-zinc-100 dark:border-zinc-800">
                 <div className="flex items-center gap-3">
                     <span className="p-2 rounded-lg bg-emerald-100 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400">
-                        <Code size={20} />
+                        <RefreshCw size={20} />
                     </span>
-                    <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300">Clean Code</span>
+                    <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300">Unlearn & Relearn</span>
                 </div>
                  <div className="flex items-center gap-3">
                     <span className="p-2 rounded-lg bg-purple-100 text-purple-600 dark:bg-purple-500/10 dark:text-purple-400">
-                        <Sparkles size={20} />
+                        <BookOpen size={20} />
                     </span>
-                    <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300">Modern UI</span>
+                    <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300">Lifelong Learning</span>
                 </div>
                  <div className="flex items-center gap-3">
-                    <span className="p-2 rounded-lg bg-red-100 text-red-600 dark:bg-red-500/10 dark:text-red-400">
-                        <Heart size={20} />
+                    <span className="p-2 rounded-lg bg-blue-100 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400">
+                        <Zap size={20} />
                     </span>
-                    <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300">Passionate</span>
+                    <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300">Exploring new tech..</span>
                 </div>
             </div>
 

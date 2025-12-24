@@ -312,10 +312,10 @@ export default function Navbar() {
     </button>
   </div>
 
-  {/* Main Content Area - Scrollable for short screens */}
-  <div className="relative flex-1 overflow-y-auto custom-scrollbar flex flex-col justify-center px-6 sm:px-12 pb-12">
+  {/* Main Content Area - Preventing overflow for short screens */}
+  <div className="relative flex-1 overflow-hidden flex flex-col justify-center px-6 sm:px-12 pb-8">
     
-    <div className="relative flex flex-col items-start gap-6 sm:gap-8">
+    <div className="relative flex flex-col items-start gap-4 sm:gap-8">
       {/* The Vertical Timeline Line */}
       <div className="absolute -left-2 sm:-left-6 top-0 bottom-0 w-[1px] bg-zinc-200 dark:bg-zinc-800">
         {/* Animated Glowing Node */}
@@ -345,9 +345,9 @@ export default function Navbar() {
               0{index + 1} 
             </span>
 
-            {/* Large Typography Stack - Uses Clamp for Responsiveness */}
+            {/* Large Typography Stack - Reduced for better mobile fit */}
             <span className={`
-              text-[10vw] sm:text-5xl font-black tracking-tighter leading-none transition-all duration-300
+              text-[8vw] sm:text-5xl font-black tracking-tighter leading-none transition-all duration-300
               ${isActive 
                 ? "text-zinc-900 dark:text-white translate-x-2 sm:translate-x-4" 
                 : "text-zinc-300 dark:text-zinc-800 group-hover:text-zinc-400 dark:group-hover:text-zinc-700"}
