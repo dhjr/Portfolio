@@ -137,7 +137,7 @@ export default function Contact() {
                     className="flex items-center gap-3 transition-colors text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white"
                   >
                     <Mail size={18} />
-                    <span className="text-lg">dhjr.dev@gmail.com</span>
+                    <span className="font-1spaceGrotesk text-lg">dhjr.dev@gmail.com</span>
                   </a>
                 </div>
 

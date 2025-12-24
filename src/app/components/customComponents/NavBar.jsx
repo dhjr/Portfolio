@@ -159,7 +159,7 @@ export default function Navbar() {
             transition-all duration-300 pointer-events-auto
             
             /* Light Mode Colors */
-            bg-white border-zinc-200 shadow-lg shadow-zinc-900/40
+            bg-white/70 border-zinc-200/50 shadow-lg shadow-zinc-200/40
             
             /* Dark Mode Colors */
             dark:bg-zinc-900/70 dark:border-zinc-800 dark:shadow-black/50

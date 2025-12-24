@@ -152,6 +152,8 @@ export default function NameReveal() {
         duration: 0.8,
         ease: "power1.inOut",
       });
+
+
     }, containerRef);
 
     return () => ctx.revert();
@@ -161,39 +163,23 @@ export default function NameReveal() {
   useEffect(() => {
     const letters = nameRef.current;
 
-    letters.forEach((el) => {
-      if (!el) return;
-
-      const hoverIn = () => {
-        gsap.to(el, {
-          y: -10,
-          scale: 1.1,
-          color: "#10b981",
-          textShadow: "0 0 15px rgba(16,185,129,0.5)",
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      };
-
-      const hoverOut = () => {
-        gsap.to(el, {
-          y: 0,
-          scale: 1,
-          color: "transparent",
-          textShadow: "none",
-          duration: 0.3,
-          ease: "power2.in",
-        });
-      };
-
-      el.addEventListener("mouseenter", hoverIn);
-      el.addEventListener("mouseleave", hoverOut);
-
-      return () => {
-        el.removeEventListener("mouseenter", hoverIn);
-        el.removeEventListener("mouseleave", hoverOut);
-      };
-    });
+      // 3. Periodic Wave Animation
+      // Plays every few seconds automatically
+      const periodicTl = gsap.timeline({ repeat: -1, repeatDelay: 3, delay: 2 });
+      
+      periodicTl.to(letters, {
+        y: -5,
+        color: "#34d399",
+        textShadow: "0 0 8px rgba(52, 211, 153, 0.3)", // Reduced intensity
+        scale: 1.05,
+        duration: 0.4,
+        ease: "power2.out",
+        stagger: {
+          each: 0.1,
+          yoyo: true, // Go back to start value
+          repeat: 1,  // Run once forward, once backward per letter
+        },
+      });
   }, []);
 
   const name = "Dhananjay".split("");
@@ -211,7 +197,7 @@ export default function NameReveal() {
           className="
             font-1spaceGrotesk h-14 md:h-26 font-bold tracking-tight cursor-default
             text-5xl sm:text-6xl md:text-7xl lg:text-8xl 
-            bg-gradient-to-b from-white via-emerald-100 to-emerald-600 bg-clip-text text-transparent
+            bg-linear-to-b from-zinc-700 via-emerald-600 to-emerald-800 dark:from-white dark:via-emerald-100 dark:to-emerald-600 bg-clip-text text-transparent
             hover:select-none
             opacity-0 translate-y-10  /* <--- THE FIX: Hidden by default in CSS */
           "

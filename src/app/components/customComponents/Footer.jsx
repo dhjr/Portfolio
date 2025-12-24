@@ -17,7 +17,7 @@ export default function Footer() {
     <footer className="relative z-10 w-full bg-zinc-50 dark:bg-stone-950 border-t border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
         {/* MAIN GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-zinc-200 dark:divide-zinc-800 transition-colors duration-300">
+        <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-200 dark:divide-zinc-800 transition-colors duration-300">
           {/* Column 1: Brand & Status */}
           <div className="p-10 flex flex-col justify-between h-full min-h-[200px]">
             <div>
@@ -85,63 +85,42 @@ export default function Footer() {
                   url: "https://www.instagram.com/dhananjayr_/",
                 }, // <--- Added Here
                 { label: "YouTube", Icon: Youtube, url: "https://youtube.com" },
-              ].map((social) => (
-                <a
-                  key={social.label}
-                  href={social.url}
-                  target="_blank"
-                  className="
+              ].map((social) => {
+                const isYouTube = social.label === "YouTube";
+                return isYouTube ? (
+                  // ANIMATED BORDER BUTTON FOR YOUTUBE
+                  <a
+                    key={social.label}
+                    href={social.url}
+                    target="_blank"
+                    className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] mt-2 group focus:outline-none hover:scale-105 transition-transform duration-300"
+                  >
+                    <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#ef4444_0%,transparent_50%,#ef4444_100%)] opacity-70" />
+                    <span className="inline-flex h-full w-full items-center justify-center gap-2 rounded-full bg-white dark:bg-zinc-900 px-4 text-sm font-bold text-red-600 dark:text-red-500 backdrop-blur-3xl transition-colors hover:bg-red-50 dark:hover:bg-zinc-800">
+                      <social.Icon size={20} className="fill-red-100 dark:fill-red-900/20" />
+                      Watch on YouTube
+                    </span>
+                  </a>
+                ) : (
+                  // STANDARD LINK FOR OTHERS
+                  <a
+                    key={social.label}
+                    href={social.url}
+                    target="_blank"
+                    className="
                     flex items-center gap-3 transition-colors group
                     text-zinc-500 hover:text-emerald-600
-                    dark:text-zinc-400 dark:hover:text-emerald-400
+                    dark:text-zinc-400 dark:hover:text-emerald-400 w-fit
                   "
-                >
-                  <social.Icon size={18} />
-                  <span className="text-sm group-hover:underline decoration-emerald-500/50 underline-offset-4">
-                    {social.label}
-                  </span>
-                </a>
-              ))}
+                  >
+                    <social.Icon size={18} />
+                    <span className="text-sm group-hover:underline decoration-emerald-500/50 underline-offset-4">
+                      {social.label}
+                    </span>
+                  </a>
+                );
+              })}
             </div>
-          </div>
-
-          {/* Column 4: Action */}
-          <div
-            className="
-            p-10 flex flex-col justify-between 
-            bg-zinc-100 dark:bg-zinc-900/20 
-            transition-colors duration-300
-          "
-          >
-            <div>
-              <span className="text-zinc-400 dark:text-zinc-600 text-xs font-mono uppercase tracking-widest relative">
-                Have an idea?
-              </span>
-
-              <a
-                href="mailto:dhjr.dev@gmail.com"
-                className="
-                  block font-1spaceGrotesk text-xl font-bold mt-2 transition-colors
-                  text-zinc-900 hover:text-emerald-600
-                  dark:text-white dark:hover:text-emerald-400
-                "
-                title="Click to send me an email"
-              >
-                Let's do it &nbsp;📧
-              </a>
-            </div>
-
-            <button
-              onClick={scrollToTop}
-              className="
-                self-end p-4 rounded-full transition-colors border shadow-sm
-                bg-white border-zinc-200 text-zinc-900 hover:bg-emerald-500 hover:text-white hover:border-emerald-500
-                dark:bg-zinc-800 dark:border-zinc-700 dark:text-white dark:hover:bg-emerald-600
-              "
-              aria-label="Scroll to top"
-            >
-              <ArrowUp size={20} />
-            </button>
           </div>
         </div>
 

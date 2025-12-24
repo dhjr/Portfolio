@@ -7,9 +7,9 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="py-20 relative bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300"
+      className="py-12 relative bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300"
     >
-      <div className="max-w-6xl mx-auto px-4 mt-16">
+      <div className="max-w-6xl mx-auto px-4">
         <div className="mb-12">
           <Header name="Experience" />
         </div>

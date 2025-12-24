@@ -86,7 +86,8 @@ export default function BackgroundWrapper() {
                 row, 
                 opacity: 0, 
                 phase: 0, // 0 to PI
-                speed: 0.02 + Math.random() * 0.03 // Random speed
+                speed: 0.02 + Math.random() * 0.03, // Random speed
+                maxOpacity: Math.random() * 0.15 // Random max opacity
             });
         }
       }
@@ -102,7 +103,7 @@ export default function BackgroundWrapper() {
         
         // Calculate smooth opacity using Sine
         // sin(0) = 0, sin(PI/2) = 1, sin(PI) = 0
-        sparkle.opacity = Math.sin(sparkle.phase) * 0.15; // Max opacity 0.05 (Subtle)
+        sparkle.opacity = Math.sin(sparkle.phase) * sparkle.maxOpacity;
 
         if (sparkle.phase < Math.PI) {
            // Draw Tile

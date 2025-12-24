@@ -134,13 +134,13 @@ export default function Projects() {
       // EXPLICIT COLORS:
       // Light: Zinc-50 (Paper-like)
       // Dark: Zinc-950 (Deep Space)
-      className="py-16 md:py-24 relative bg-white dark:bg-zinc-950 transition-colors duration-300 overflow-hidden"
+      className="py-12 md:py-20 relative bg-white dark:bg-zinc-950 transition-colors duration-300 overflow-hidden"
     >
 
 
       
       {/* CONTENT LAYER */}
-      <div className="relative z-10 container mx-auto px-6 md:px-12 py-24">
+      <div className="relative z-10 container mx-auto px-6 md:px-12">
         <div className="mb-16">
           <Header name="Projects" />
         </div>
@@ -149,54 +149,53 @@ export default function Projects() {
           {projectsData.map((project, index) => (
             <div
               key={index}
-              className="group py-12 border-b border-zinc-200 dark:border-zinc-800/50 last:border-0 flex flex-col lg:flex-row gap-8 lg:items-center transition-all duration-300 hover:bg-zinc-50/50 dark:hover:bg-white/2 px-4 -mx-4 rounded-3xl"
+              className="group py-12 border-b border-zinc-200 dark:border-zinc-800/50 last:border-0 flex flex-col lg:flex-row gap-8 lg:items-center transition-all duration-300 hover:bg-zinc-50 dark:hover:bg-white/2 px-6 -mx-6 rounded-3xl hover:shadow-sm"
             >
               {/* IMAGE THUMBNAIL */}
-              <div className="relative w-full lg:w-64 aspect-video rounded-xl overflow-hidden shrink-0 border border-zinc-200 dark:border-zinc-800/50">
+              <div className="relative w-full lg:w-[28rem] aspect-video rounded-2xl overflow-hidden shrink-0 border border-zinc-200 dark:border-zinc-800 shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:border-emerald-500/30">
                 <Image 
                   src={project.image} 
                   alt={project.heading}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-emerald-500/10 transition-colors duration-500"></div>
               </div>
 
               {/* ID & Title */}
               <div className="flex-1 space-y-4">
                 <div className="flex items-center gap-4">
-                  <span className="font-mono text-xs text-emerald-500 bg-emerald-100/50 dark:bg-emerald-500/10 px-2 py-1 rounded-md">
-                    {project.id}
-                  </span>
-                  <h3 className="text-3xl font-1bricolage font-bold text-zinc-800 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  <h3 className="text-3xl lg:text-4xl font-1bricolage font-bold text-zinc-800 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                     {project.heading}
                   </h3>
                 </div>
-                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl">
+                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl font-1spaceGrotesk text-lg">
                   {project.description}
                 </p>
               </div>
 
               {/* Tags & Action */}
               <div className="flex flex-col gap-6 lg:items-end shrink-0">
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 lg:justify-end max-w-md">
                   {project.tags.map((tag, i) => (
                     <span
                       key={i}
-                      className="text-xs font-mono px-2 py-1 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-500"
+                      className="text-xs font-mono font-medium px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700/50 bg-white dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 group-hover:border-emerald-500/30 transition-colors"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
                 
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-4">
                   <a
                     href={project.ghLink}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-600 dark:hover:text-white transition-all duration-300 group/btn"
                   >
-                    <Github size={18} />
+                    <Github size={18} className="group-hover/btn:scale-110 transition-transform" />
                     <span>Source</span>
                   </a>
                   {project.demoLink && (
@@ -204,9 +203,9 @@ export default function Projects() {
                       href={project.demoLink}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                      className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-emerald-100/50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-800/50 hover:bg-emerald-500 hover:text-white hover:border-emerald-500 dark:hover:bg-emerald-500 dark:hover:text-white transition-all duration-300 group/btn"
                     >
-                      <ExternalLink size={18} />
+                      <ExternalLink size={18} className="group-hover/btn:scale-110 transition-transform" />
                       <span>Live Demo</span>
                     </a>
                   )}
