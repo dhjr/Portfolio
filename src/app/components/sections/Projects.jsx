@@ -3,8 +3,26 @@
 import { Github, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Header from "@/components/customComponents/SectionHeader";
+import { useState, useRef } from "react";
 
 export default function Projects() {
+  const buttonWrapperRef = useRef(null);
+  const [showAll, setShowAll] = useState(false);
+
+  const toggleProjects = () => {
+    if (showAll) {
+      // We are collapsing (showing less)
+      setShowAll(false);
+      // Wait for re-render then scroll
+      setTimeout(() => {
+        buttonWrapperRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 100);
+    } else {
+      // We are expanding
+      setShowAll(true);
+    }
+  };
+
   const projectsData = [
     {
       id: "01",
@@ -128,6 +146,8 @@ export default function Projects() {
     },
   ];
 
+  const visibleProjects = showAll ? projectsData : projectsData.slice(0, 5);
+
   return (
     <section
       id="projects"
@@ -145,8 +165,9 @@ export default function Projects() {
           <Header name="Projects" />
         </div>
 
+
         <div className="flex flex-col w-full">
-          {projectsData.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <div
               key={index}
               className="group py-12 border-b border-zinc-200 dark:border-zinc-800/50 last:border-0 flex flex-col lg:flex-row gap-8 lg:items-center transition-all duration-300 hover:bg-zinc-50 dark:hover:bg-white/2 px-6 -mx-6 rounded-3xl hover:shadow-sm"
@@ -213,6 +234,28 @@ export default function Projects() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* --- VIEW MORE BUTTON --- */}
+        <div 
+            className="mt-16 flex justify-center"
+            ref={buttonWrapperRef}
+        >
+            <button
+                onClick={toggleProjects}
+                className="
+                    px-8 py-3 rounded-full 
+                    bg-white dark:bg-zinc-900 
+                    border border-zinc-300 dark:border-zinc-700 
+                    text-zinc-700 dark:text-zinc-300 
+                    font-bold uppercase tracking-wider text-sm
+                    hover:bg-emerald-500 hover:text-white hover:border-emerald-500
+                    dark:hover:bg-emerald-600 dark:hover:text-white dark:hover:border-emerald-600
+                    transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1
+                "
+            >
+                {showAll ? "Show Less" : "View More"}
+            </button>
         </div>
       </div>
 

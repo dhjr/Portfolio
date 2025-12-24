@@ -1,5 +1,4 @@
 import { ChevronDown, Copy } from "lucide-react";
-import Image from "next/image";
 import NameReveal from "@/components/customComponents/NameReveal";
 import HeroImage from "@/components/customComponents/HeroImage";
 import BackgroundWrapper from "@/components/customComponents/BackgroundWrapper";
@@ -27,7 +26,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full h-dvh flex flex-col-reverse md:flex-row justify-center md:justify-around items-center overflow-hidden pt-24 md:pt-0 pb-48 md:pb-0 gap-4 md:gap-0"
+      className="relative w-full h-dvh flex flex-col-reverse md:flex-row justify-center md:justify-around items-center overflow-hidden md:pt-0 pb-20 md:pb-0 md:gap-0"
     >
       <BackgroundWrapper />
 
@@ -43,16 +42,16 @@ export default function Hero() {
 
 
         {/* Updated for Light/Dark Mode */}
-        <p className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-1spaceGrotesk text-zinc-900 dark:text-white mb-2">
+        <p className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-1spaceGrotesk text-zinc-900 dark:text-white">
           Hey, I'm
         </p>
 
-        <div className="w-full max-w-[95vw] flex justify-center md:justify-start">
+        <div className="w-full max-w-[95vw] flex justify-center md:justify-start pl-5 md:pl-0">
           <NameReveal />
         </div>
 
         {/* Updated Badge for Light/Dark Mode */}
-        <div className="mt-4 mb-6 px-4 py-1.5 md:py-2 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-full shadow-sm">
+        <div className="mb-5 md:mt-4 md:mb-6 px-4 py-1.5 md:py-2 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-full shadow-sm">
           <p className="font-1spaceGrotesk text-xs sm:text-sm md:text-xl text-emerald-600 dark:text-emerald-400">
             &lt; Full_Stack_Developer /&gt;
           </p>
@@ -95,9 +94,9 @@ export default function Hero() {
       {/* SCROLL INDICATOR */}
       <Link
         href="#projects"
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-50 z-20 hover:opacity-100 transition-opacity"
+        className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce opacity-50 z-20 hover:opacity-100 transition-opacity"
       >
-        <span className="text-[10px] font-1spaceGrotesk uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+        <span className="text-[4px] sm:text-xs font-thin font-1spaceGrotesk uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
           Scroll Down
         </span>
         <ChevronDown className="text-emerald-500" size={24} />

@@ -72,9 +72,9 @@ export default function Contact() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[120px] pointer-events-none bg-emerald-500/10 dark:bg-emerald-900/20" />
 
       <div className="max-w-5xl mx-auto relative z-10">
-        <div className="mb-10">
+        {/* <div className="mb-10">
           <Header name="Contact" />
-        </div>
+        </div> */}
 
         {/* MAIN CARD CONTAINER */}
         <div
@@ -130,7 +130,7 @@ export default function Contact() {
                 {/* MAIL SECTION */}
                 <div className="group cursor-pointer">
                   <label className="text-xs font-mono text-emerald-600 dark:text-emerald-500 mb-2 block uppercase tracking-wider">
-                    // MAIL_TO
+                     MAIL_TO
                   </label>
                   <a
                     href="mailto:dhjr.dev@gmail.com"
@@ -144,7 +144,7 @@ export default function Contact() {
                 {/* SOCIALS SECTION */}
                 <div>
                   <label className="text-xs font-mono text-emerald-600 dark:text-emerald-500 mb-3 block uppercase tracking-wider">
-                    // SOCIAL_NETWORKS
+                     SOCIAL_NETWORKS
                   </label>
                   <div className="flex flex-wrap gap-3">
                     {socialLinks.map((social) => (
@@ -195,7 +195,7 @@ export default function Contact() {
               {/* NAME INPUT */}
               <div className="group relative">
                 <label className="text-xs font-mono mb-2 block transition-colors text-zinc-500 group-focus-within:text-emerald-600 dark:group-focus-within:text-emerald-500">
-                  // ENTER_NAME <span className="text-rose-500">*</span>
+                   ENTER_NAME <span className="text-rose-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -213,7 +213,7 @@ export default function Contact() {
               {/* EMAIL INPUT */}
               <div className="group relative">
                 <label className="text-xs font-mono mb-2 block transition-colors text-zinc-500 group-focus-within:text-emerald-600 dark:group-focus-within:text-emerald-500">
-                  // ENTER_EMAIL <span className="text-rose-500">*</span>
+                   ENTER_EMAIL <span className="text-rose-500">*</span>
                 </label>
                 <input
                   type="email"
@@ -231,7 +231,7 @@ export default function Contact() {
               {/* MESSAGE INPUT */}
               <div className="group relative">
                 <label className="text-xs font-mono mb-2 block transition-colors text-zinc-500 group-focus-within:text-emerald-600 dark:group-focus-within:text-emerald-500">
-                  // EXECUTE_MESSAGE <span className="text-rose-500">*</span>
+                   EXECUTE_MESSAGE <span className="text-rose-500">*</span>
                 </label>
                 <textarea
                   name="message"
