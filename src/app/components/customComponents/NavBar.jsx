@@ -11,11 +11,13 @@ import {
   BookOpen,
   Mail,
   Briefcase,
+  User,
 } from "lucide-react";
 import ThemeToggle from "@/components/customComponents/ThemeToggle";
 
 const navLinks = [
   { name: "Home", href: "#hero", icon: Home },
+  { name: "About", href: "#about", icon: User },
   { name: "Projects", href: "#projects", icon: Folder },
   { name: "Experience", href: "#experience", icon: Briefcase },
   { name: "Skills", href: "#skills", icon: Cpu },

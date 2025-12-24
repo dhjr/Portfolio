@@ -61,7 +61,7 @@ export default function Footer() {
               Sitemap
             </span>
             <nav className="flex flex-col gap-3">
-              {["Projects", "Experience", "Skills", "Education", "Contact"].map(
+              {["Projects", "About", "Experience", "Skills", "Education", "Contact"].map(
                 (link) => (
                   <a
                     key={link}
