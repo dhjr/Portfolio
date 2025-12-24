@@ -22,25 +22,7 @@ export default function ScrollToTop() {
   }, []);
 
   const scrollToTop = () => {
-    const duration = 1500; // Duration in ms
-    const start = window.scrollY;
-    const startTime = performance.now();
-
-    const animateScroll = (currentTime) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-
-      // Ease Out Quartic function for smooth deceleration
-      const ease = 1 - Math.pow(1 - progress, 4);
-
-      window.scrollTo(0, start * (1 - ease));
-
-      if (progress < 1) {
-        requestAnimationFrame(animateScroll);
-      }
-    };
-
-    requestAnimationFrame(animateScroll);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (

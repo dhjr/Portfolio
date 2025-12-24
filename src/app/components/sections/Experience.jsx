@@ -155,34 +155,43 @@ export default function Experience() {
               </span>
             </div>
 
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white flex items-center gap-2">
-                  <div className="relative w-6 h-6 rounded-full overflow-hidden bg-white shadow-sm border border-zinc-100 dark:border-zinc-800">
-                    <Image
-                      src="/baja.webp"
-                      alt="Baja"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  SAE A-Baja RIT
-                </h4>
-                <p className="font-1spaceGrotesk text-xs text-zinc-500">Event Volunteer</p>
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden bg-white shadow-sm border border-zinc-100 dark:border-zinc-800">
+                  <Image
+                    src="/baja.webp"
+                    alt="Baja"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
+                    SAE A-Baja RIT
+                  </h4>
+                  <p className="font-1spaceGrotesk text-xs text-zinc-500">
+                    Event Volunteer
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white flex items-center gap-2">
-                  <div className="relative w-6 h-6 rounded-full overflow-hidden bg-white shadow-sm border border-zinc-100 dark:border-zinc-800">
-                    <Image
-                      src="/tinkerhub.webp"
-                      alt="Tinkerhub"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  Tinkerhub
-                </h4>
-                <p className="font-1spaceGrotesk text-xs text-zinc-500">Community Volunteer</p>
+
+              <div className="flex items-center gap-4">
+                <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden bg-white shadow-sm border border-zinc-100 dark:border-zinc-800">
+                  <Image
+                    src="/tinkerhub.webp"
+                    alt="Tinkerhub"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
+                    Tinkerhub
+                  </h4>
+                  <p className="font-1spaceGrotesk text-xs text-zinc-500">
+                    Community Volunteer
+                  </p>
+                </div>
               </div>
             </div>
           </div>

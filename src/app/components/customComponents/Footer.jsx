@@ -15,9 +15,10 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState(null);
 
   useEffect(() => {
+    setTime(new Date());
     const timer = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
@@ -28,7 +29,7 @@ export default function Footer() {
         {/* MAIN GRID */}
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-200 dark:divide-zinc-800 transition-colors duration-300">
           {/* Column 1: Brand & Status */}
-          <div className="p-10 flex flex-col justify-between h-full min-h-[200px]">
+          <div className="p-6 md:p-10 flex flex-col justify-between h-full min-h-[200px]">
             <div>
               <h2 className="text-4xl font-bold font-1boldonse tracking-tighter text-zinc-900 dark:text-white transition-colors">
                 DR.
@@ -39,19 +40,23 @@ export default function Footer() {
               <span className="text-[10px] font-mono text-zinc-400 dark:text-zinc-600 uppercase tracking-widest">
                 Local Time // Kozhikode, IN
               </span>
-              <span className="text-sm font-mono font-medium tabular-nums text-zinc-600 dark:text-zinc-400">
-                {time.toLocaleTimeString("en-US", {
-                  hour12: true,
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  second: "2-digit",
-                })}
+              <span className="text-sm font-mono font-medium tabular-nums text-zinc-600 dark:text-zinc-400 min-h-[20px]">
+                {time ? (
+                  time.toLocaleTimeString("en-US", {
+                    hour12: true,
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit",
+                  })
+                ) : (
+                  <span className="opacity-0">00:00:00 AM</span>
+                )}
               </span>
             </div>
           </div>
 
           {/* Column 2: Sitemap */}
-          <div className="p-10 flex flex-col gap-4">
+          <div className="p-6 md:p-10 flex flex-col gap-4">
             <span className="text-zinc-400 dark:text-zinc-600 text-xs font-mono uppercase tracking-widest">
               Sitemap
             </span>
@@ -75,7 +80,7 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Socials (Stacked) */}
-          <div className="p-10 flex flex-col gap-4">
+          <div className="p-6 md:p-10 flex flex-col gap-4">
             <span className="text-zinc-400 dark:text-zinc-600 text-xs font-mono uppercase tracking-widest">
               Connect
             </span>
@@ -91,25 +96,25 @@ export default function Footer() {
                   Icon: Linkedin,
                   url: "https://linkedin.com/in/dhananjayr",
                 },
-                { label: "Twitter", Icon: Twitter, url: "https://x.com" },
+                { label: "Twitter", Icon: Twitter, url: "https://x.com/dhananjayr_" },
                 {
                   label: "Instagram",
                   Icon: Instagram,
                   url: "https://www.instagram.com/dhananjayr_/",
                 }, // <--- Added Here
-                { label: "YouTube", Icon: Youtube, url: "https://youtube.com" },
+                { label: "YouTube", Icon: Youtube, url: "https://www.youtube.com/@letthedevscook" },
               ].map((social) => {
                 const isYouTube = social.label === "YouTube";
                 return isYouTube ? (
                   // ANIMATED BORDER BUTTON FOR YOUTUBE
                   // CUSTOM BRANDED BUTTON FOR LTDC
+                  // CUSTOM BRANDED BUTTON FOR LTDC
                   <a
                     key={social.label}
                     href={social.url}
                     target="_blank"
-                    className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full p-[1px] mt-2 transition-transform duration-300 hover:scale-[1.02] focus:outline-none"
+                    className="group relative flex w-fit items-center justify-center overflow-hidden rounded-full p-[1px] mt-2 transition-transform duration-300 hover:scale-[1.02] focus:outline-none bg-linear-to-r from-amber-500 via-orange-500 to-red-500 h-14"
                   >
-                    <span className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#f59e0b_0%,#ef4444_50%,#f59e0b_100%)] opacity-100" />
                     <span className="inline-flex h-full w-full items-center justify-center gap-2 rounded-full bg-zinc-50 dark:bg-zinc-950 px-5 text-sm font-bold text-zinc-700 dark:text-zinc-200 backdrop-blur-3xl transition-all group-hover:bg-white dark:group-hover:bg-zinc-900 group-hover:text-amber-600 dark:group-hover:text-amber-500">
                       <Image
                         src="/ltdc.webp"
