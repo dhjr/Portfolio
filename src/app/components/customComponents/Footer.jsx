@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import {
   Github,
   Linkedin,
@@ -101,16 +102,25 @@ export default function Footer() {
                 const isYouTube = social.label === "YouTube";
                 return isYouTube ? (
                   // ANIMATED BORDER BUTTON FOR YOUTUBE
+                  // CUSTOM BRANDED BUTTON FOR LTDC
                   <a
                     key={social.label}
                     href={social.url}
                     target="_blank"
-                    className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] mt-2 group focus:outline-none hover:scale-105 transition-transform duration-300"
+                    className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full p-[1px] mt-2 transition-transform duration-300 hover:scale-[1.02] focus:outline-none"
                   >
-                    <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#ef4444_0%,transparent_50%,#ef4444_100%)] opacity-70" />
-                    <span className="inline-flex h-full w-full items-center justify-center gap-2 rounded-full bg-white dark:bg-zinc-900 px-4 text-sm font-bold text-red-600 dark:text-red-500 backdrop-blur-3xl transition-colors hover:bg-red-50 dark:hover:bg-zinc-800">
-                      <social.Icon size={20} className="fill-red-100 dark:fill-red-900/20" />
-                      Watch on YouTube
+                    <span className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#f59e0b_0%,#ef4444_50%,#f59e0b_100%)] opacity-100" />
+                    <span className="inline-flex h-full w-full items-center justify-center gap-2 rounded-full bg-zinc-50 dark:bg-zinc-950 px-5 text-sm font-bold text-zinc-700 dark:text-zinc-200 backdrop-blur-3xl transition-all group-hover:bg-white dark:group-hover:bg-zinc-900 group-hover:text-amber-600 dark:group-hover:text-amber-500">
+                      <Image
+                        src="/ltdc.webp"
+                        alt="LTDC Logo"
+                        width={26}
+                        height={26}
+                        className="rounded-full shadow-sm group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <span className="font-1spaceGrotesk tracking-wide">
+                        Let The Devs Cook
+                      </span>
                     </span>
                   </a>
                 ) : (

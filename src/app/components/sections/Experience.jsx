@@ -1,6 +1,7 @@
 "use client";
 
 import { Briefcase, Trophy, Users, Code2, Cpu, Globe } from "lucide-react";
+import Image from "next/image";
 import Header from "@/components/customComponents/SectionHeader";
 
 export default function Experience() {
@@ -31,7 +32,7 @@ export default function Experience() {
                   </span>
                 </div>
 
-                <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-1">
+                <h3 className="text-2xl font-bold font-1spaceGrotesk text-zinc-900 dark:text-white mb-1">
                   Machine Learning Intern
                 </h3>
                 <p className="font-mono text-zinc-500 dark:text-zinc-400 text-sm mb-6">
@@ -61,7 +62,7 @@ export default function Experience() {
 
               <ul className="space-y-6">
                 <li>
-                  <h4 className="font-bold text-zinc-900 dark:text-white">
+                  <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
                     Winner - Useless Projects
                   </h4>
                   <p className="font-1spaceGrotesk text-xs text-zinc-500 mt-1">
@@ -69,7 +70,7 @@ export default function Experience() {
                   </p>
                 </li>
                 <li className="pt-4 border-t border-zinc-200 dark:border-zinc-800">
-                  <h4 className="font-bold text-zinc-900 dark:text-white">
+                  <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
                     Code-RECET 2.0
                   </h4>
                   <p className="font-1spaceGrotesk text-xs text-zinc-500 mt-1">
@@ -98,7 +99,15 @@ export default function Experience() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
+                  <h3 className="text-xl font-bold font-1spaceGrotesk text-zinc-900 dark:text-white flex items-center gap-2">
+                    <div className="relative w-8 h-8 rounded-full overflow-hidden bg-white shadow-sm border border-zinc-100 dark:border-zinc-800">
+                      <Image
+                        src="/ieee.webp"
+                        alt="IEEE"
+                        fill
+                        className="object-cover p-1"
+                      />
+                    </div>
                     IEEE SB RIT
                   </h3>
                   <p className="text-sm font-mono text-zinc-500 mb-3">
@@ -120,7 +129,7 @@ export default function Experience() {
                 </div>
 
                 <div className="md:pl-8 md:border-l border-zinc-200 dark:border-zinc-800">
-                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
+                  <h3 className="text-xl font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
                     RITU Fest
                   </h3>
                   <p className="text-sm font-mono text-zinc-500 mb-3">
@@ -148,13 +157,29 @@ export default function Experience() {
 
             <div className="space-y-4">
               <div>
-                <h4 className="font-bold text-zinc-900 dark:text-white">
+                <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white flex items-center gap-2">
+                  <div className="relative w-6 h-6 rounded-full overflow-hidden bg-white shadow-sm border border-zinc-100 dark:border-zinc-800">
+                    <Image
+                      src="/baja.webp"
+                      alt="Baja"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   SAE A-Baja RIT
                 </h4>
                 <p className="font-1spaceGrotesk text-xs text-zinc-500">Event Volunteer</p>
               </div>
               <div>
-                <h4 className="font-bold text-zinc-900 dark:text-white">
+                <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white flex items-center gap-2">
+                  <div className="relative w-6 h-6 rounded-full overflow-hidden bg-white shadow-sm border border-zinc-100 dark:border-zinc-800">
+                    <Image
+                      src="/tinkerhub.webp"
+                      alt="Tinkerhub"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   Tinkerhub
                 </h4>
                 <p className="font-1spaceGrotesk text-xs text-zinc-500">Community Volunteer</p>
