@@ -250,7 +250,7 @@ export default function Navbar() {
       </div>
 
       {/* --- MOBILE NAVBAR --- */}
-      <div className="fixed top-0 left-0 right-0 z-999 md:hidden flex justify-between items-center px-6 py-4">
+      <div className="fixed top-0 left-0 right-0 z-[1010] md:hidden flex justify-between items-center px-6 py-4">
         {/* Background Layer */}
         <div
           className={`
@@ -276,15 +276,35 @@ export default function Navbar() {
         <div className="relative flex items-center gap-3 pointer-events-auto">
           <ThemeToggle />
           <button
-            onClick={() => setIsMobileMenuOpen(true)}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="
-              p-2 rounded-lg transition-colors
+              p-2 rounded-lg transition-colors relative h-10 w-10 flex items-center justify-center
               text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900
               dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100
             "
-            aria-label="Open menu"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
-            <Menu size={24} />
+            {/* Animated Hamburger Icon */}
+            <div className="relative flex flex-col justify-between w-5 h-4">
+              <span 
+                className={`
+                  w-full h-0.5 bg-current rounded-full transition-all duration-300 ease-in-out
+                  ${isMobileMenuOpen ? "rotate-45 translate-y-[7px]" : ""}
+                `}
+              />
+              <span 
+                className={`
+                  w-full h-0.5 bg-current rounded-full transition-all duration-300 ease-in-out
+                  ${isMobileMenuOpen ? "opacity-0" : ""}
+                `}
+              />
+              <span 
+                className={`
+                  w-full h-0.5 bg-current rounded-full transition-all duration-300 ease-in-out
+                  ${isMobileMenuOpen ? "-rotate-45 -translate-y-[7px]" : ""}
+                `}
+              />
+            </div>
           </button>
         </div>
       </div>
@@ -302,14 +322,9 @@ export default function Navbar() {
     }
   `}
 >
-  {/* Close Button - More accessible padding */}
-  <div className="flex justify-end p-6">
-    <button
-      onClick={() => setIsMobileMenuOpen(false)}
-      className="p-3 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 active:scale-95 transition-transform"
-    >
-      <X size={24} />
-    </button>
+  {/* Spacer for sticky icon visibility */}
+  <div className="flex justify-end p-6 pointer-events-none opacity-0">
+     <div className="p-3 w-10 h-10"></div>
   </div>
 
   {/* Main Content Area - Preventing overflow for short screens */}
@@ -347,7 +362,7 @@ export default function Navbar() {
 
             {/* Large Typography Stack - Reduced for better mobile fit */}
             <span className={`
-              text-[8vw] sm:text-5xl font-black tracking-tighter leading-none transition-all duration-300
+              text-[8vw] sm:text-5xl font-1bricolage font-black tracking-tighter leading-none transition-all duration-300
               ${isActive 
                 ? "text-zinc-900 dark:text-white translate-x-2 sm:translate-x-4" 
                 : "text-zinc-300 dark:text-zinc-800 group-hover:text-zinc-400 dark:group-hover:text-zinc-700"}
