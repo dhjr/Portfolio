@@ -79,7 +79,6 @@ export default function RootLayout({ children }) {
       lang="en"
       suppressHydrationWarning
       className={`
-
         ${boldonse.variable}
         ${spacegrotesk.variable}
         ${bricolage.variable}
@@ -87,10 +86,7 @@ export default function RootLayout({ children }) {
       `}
     >
       <body className="antialiased z-10">
-        {/* <ReactLenis
-          root
-          options={{ lerp: 0.1, duration: 0.35, smoothTouch: true }}
-        > */}
+
         
           <ThemeProvider
             attribute="class"

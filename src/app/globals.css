@@ -1,49 +1,21 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 @variant dark (&:where(.dark, .dark *));
 
 @layer base {
   :root {
-    /* --- FONTS (Kept Intact) --- */
-    --font-1ebgaramond: var(--font-ebgaramond);
-    --font-1josefin: var(--font-josefin);
-    --font-1cormorant: var(--font-cormorant);
-    --font-1cormorantupright: var(--font-cormorantupright);
-    --font-1cinzel: var(--font-cinzel);
-    --font-1instrumentserif: var(--font-instrumentserif);
-    --font-1gruppo: var(--font-gruppo);
-    --font-1forum: var(--font-forum);
-    --font-1leaguegothic: var(--font-leaguegothic);
-    --font-1newamsterdam: var(--font-newamsterdam);
-    --font-1trunculenta: var(--font-trunculenta);
     --font-1boldonse: var(--font-boldonse);
     --font-1spaceGrotesk: var(--font-spacegrotesk);
     --font-1bricolage: var(--font-bricolage);
   }
 
-  /* REMOVED: All Color Variables and .dark block */
 }
 
-/* --- TAILWIND V4 THEME MAPPING --- */
 @theme {
-  /* Map Fonts */
-  --font-1ebgaramond: var(--font-ebgaramond);
-  --font-1josefin: var(--font-josefin);
-  --font-1cormorant: var(--font-cormorant);
-  --font-1cormorantupright: var(--font-cormorantupright);
-  --font-1cinzel: var(--font-cinzel);
-  --font-1instrumentserif: var(--font-instrumentserif);
-  --font-1gruppo: var(--font-gruppo);
-  --font-1forum: var(--font-forum);
-  --font-1leaguegothic: var(--font-leaguegothic);
-  --font-1newamsterdam: var(--font-newamsterdam);
-  --font-1trunculenta: var(--font-trunculenta);
   --font-1boldonse: var(--font-boldonse);
   --font-1spaceGrotesk: var(--font-spacegrotesk);
   --font-1bricolage: var(--font-bricolage);
 }
 
-/* --- YOUR CUSTOM CSS --- */
 
 html {
   scroll-behavior: smooth;
