@@ -154,7 +154,7 @@ export default function Projects() {
       // EXPLICIT COLORS:
       // Light: Zinc-50 (Paper-like)
       // Dark: Zinc-950 (Deep Space)
-      className="py-12 md:py-20 relative bg-white dark:bg-zinc-950 transition-colors duration-300 overflow-hidden"
+      className="py-12 md:py-20 relative bg-transparent transition-colors duration-300 overflow-hidden"
     >
 
 
@@ -170,10 +170,10 @@ export default function Projects() {
           {visibleProjects.map((project, index) => (
             <div
               key={index}
-              className="group py-12 border-b border-zinc-200 dark:border-zinc-800/50 last:border-0 flex flex-col lg:flex-row gap-8 lg:items-center transition-all duration-300 hover:bg-zinc-50 dark:hover:bg-white/2 px-6 -mx-6 rounded-3xl hover:shadow-sm"
+              className="group py-12 border-b border-zinc-200 dark:border-zinc-800/50 last:border-0 flex flex-col lg:flex-row gap-8 lg:items-center transition-all duration-300 bg-white/80 dark:bg-zinc-900/40 backdrop-blur-sm hover:bg-zinc-50 dark:hover:bg-white/5 px-6 -mx-6 rounded-3xl hover:shadow-sm"
             >
               {/* IMAGE THUMBNAIL */}
-              <div className="relative w-full lg:w-[28rem] aspect-video rounded-2xl overflow-hidden shrink-0 border border-zinc-200 dark:border-zinc-800 shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:border-emerald-500/30">
+              <div className="relative w-full lg:w-md aspect-video rounded-2xl overflow-hidden shrink-0 border border-zinc-200 dark:border-zinc-800 shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:border-emerald-500/30">
                 <Image 
                   src={project.image} 
                   alt={project.heading}

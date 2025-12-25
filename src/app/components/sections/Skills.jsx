@@ -71,7 +71,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="py-16 px-4 relative transition-colors duration-300 bg-zinc-50 dark:bg-zinc-950"
+      className="py-16 px-4 relative transition-colors duration-300 bg-transparent"
     >
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Header */}

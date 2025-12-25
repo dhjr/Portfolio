@@ -7,7 +7,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-12 relative bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300"
+      className="py-12 relative bg-transparent transition-colors duration-300"
     >
       <div className="max-w-4xl mx-auto px-4">
         <div className="mb-12">

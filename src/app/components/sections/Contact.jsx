@@ -66,10 +66,8 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="w-full min-h-dvh py-24 px-4 relative bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300 overflow-hidden"
+      className="w-full min-h-dvh py-24 px-4 relative bg-transparent transition-colors duration-300 overflow-hidden"
     >
-      {/* Background Decor */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[120px] pointer-events-none bg-emerald-500/10 dark:bg-emerald-900/20" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* <div className="mb-10">
@@ -77,44 +75,27 @@ export default function Contact() {
         </div> */}
 
         {/* MAIN CARD CONTAINER */}
-        <div
-          className="
-          grid grid-cols-1 lg:grid-cols-5 
-          rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md border 
-          transition-colors duration-300
-          
-          /* Light Mode */
-          bg-white border-zinc-200 
-          
-          /* Dark Mode */
-          dark:bg-zinc-900/30 dark:border-zinc-800
-        "
-        >
+<div className="
+  grid grid-cols-1 lg:grid-cols-5 rounded-3xl overflow-hidden
+  border-t border-white/20 border-l border-white/10
+  shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff]
+  dark:shadow-[10px_10px_30px_#050505,-5px_-5px_30px_#1a1a1a] backdrop-blur-xs
+">
           {/* --- LEFT PANEL --- */}
           <div
             className="
             lg:col-span-2 p-10 flex flex-col justify-between relative border-r
             
             /* Light Mode */
-            bg-zinc-50/50 border-zinc-200
+            bg-white/40 border-zinc-200/50 backdrop-blur-xl
             
             /* Dark Mode */
-            dark:bg-zinc-900/50 dark:border-zinc-800
+            dark:bg-zinc-900/60 dark:border-zinc-800/50 dark:backdrop-blur-2xl
           "
           >
-            {/* Dot Grid Pattern */}
-            <div
-              className="
-                absolute inset-0 
-                opacity-10 dark:opacity-[0.15] 
-                text-zinc-900 dark:text-zinc-100
-              "
-              style={{
-                backgroundImage:
-                  "radial-gradient(currentColor 1px, transparent 1px)",
-                backgroundSize: "24px 24px",
-              }}
-            ></div>
+            {/* Glowing Orbs - Moving animation */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-600/20 dark:bg-purple-500/40 rounded-full blur-[100px] mix-blend-multiply dark:mix-blend-normal pointer-events-none animate-float" />
+            <div className="absolute -top-20 -right-20 w-64 h-64 bg-indigo-600/20 dark:bg-indigo-500/40 rounded-full blur-[100px] mix-blend-multiply dark:mix-blend-normal pointer-events-none animate-float-delayed" />
 
             <div className="relative z-10 space-y-8">
               <div>
@@ -180,7 +161,6 @@ export default function Contact() {
             "
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
               <span className="text-xs font-mono text-emerald-600 dark:text-emerald-500">

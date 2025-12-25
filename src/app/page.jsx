@@ -9,6 +9,7 @@ import Skills from "@/components/sections/Skills";
 import Education from "@/components/sections/Education";
 import Experience from "@/components/sections/Experience";
 import Footer from "@/components/customComponents/Footer";
+import MeshBackground from "@/components/customComponents/MeshBackground";
 
 export default function Home() {
   return (
@@ -16,6 +17,9 @@ export default function Home() {
       <Hero />
 
       <div className="relative z-10 transition-colors duration-300">
+        {/* Global Mesh Background for all sections below Hero */}
+        <MeshBackground />
+        
         <About />
         <Projects />
         <Experience />

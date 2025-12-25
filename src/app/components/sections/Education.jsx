@@ -153,7 +153,7 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="relative z-10 w-full min-h-dvh transition-colors duration-300 py-24 bg-white dark:bg-zinc-950"
+      className="relative z-10 w-full min-h-dvh transition-colors duration-300 py-24 bg-transparent"
     >
       <div className="w-full max-w-4xl mx-auto pt-16 px-4">
         <Header name="Education" />

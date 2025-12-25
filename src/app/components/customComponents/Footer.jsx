@@ -141,7 +141,7 @@ export default function Footer() {
                   "
                   >
                     <social.Icon size={18} />
-                    <span className="text-sm font-1spaceGrotesk group-hover:underline decoration-emerald-500/50 underline-offset-4">
+                    <span className="text-sm font-1spaceGrotesk           group-hover:underline decoration-emerald-500/50 underline-offset-4">
                       {social.label}
                     </span>
                   </a>

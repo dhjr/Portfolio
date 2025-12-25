@@ -8,7 +8,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="py-12 relative bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300"
+      className="py-12 relative bg-transparent transition-colors duration-300"
     >
       <div className="max-w-6xl mx-auto px-4">
         <div className="mb-12">
@@ -16,7 +16,7 @@ export default function Experience() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(180px,auto)]">
           {/* --- CARD 1: INTERNSHIP (Large) --- */}
-          <div className="md:col-span-2 relative group overflow-hidden rounded-3xl bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 p-8 transition-all hover:shadow-lg dark:hover:shadow-emerald-900/20">
+          <div className="md:col-span-2 relative group overflow-hidden rounded-3xl bg-white dark:bg-zinc-900/40 border border-emerald-500/20 dark:border-emerald-500/20 p-8 transition-all hover:shadow-lg dark:hover:shadow-emerald-900/20">
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
               <Cpu size={120} />
             </div>
@@ -49,7 +49,7 @@ export default function Experience() {
           </div>
 
           {/* --- CARD 2: HACKATHONS (Compact) --- */}
-          <div className="md:col-span-1 relative group rounded-3xl bg-zinc-50 dark:bg-zinc-900/20 border border-zinc-200 dark:border-zinc-800 p-8 flex flex-col justify-between hover:border-purple-500/50 transition-colors">
+          <div className="md:col-span-1 relative group rounded-3xl bg-zinc-50 dark:bg-zinc-900/20 border border-purple-500/20 dark:border-purple-500/20 p-8 flex flex-col justify-between hover:border-purple-500/50 transition-colors">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <span className="p-2 rounded-lg bg-purple-100 text-purple-600 dark:bg-purple-500/20 dark:text-purple-400">
@@ -82,7 +82,7 @@ export default function Experience() {
           </div>
 
           {/* --- CARD 3: LEADERSHIP / WEBMASTER (Large/Wide) --- */}
-          <div className="md:col-span-2 relative group rounded-3xl bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 p-8">
+          <div className="md:col-span-2 relative group rounded-3xl bg-white dark:bg-zinc-900/40 border border-blue-500/20 dark:border-blue-500/20 p-8">
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
               <Globe size={120} />
             </div>
@@ -145,7 +145,7 @@ export default function Experience() {
           </div>
 
           {/* --- CARD 4: VOLUNTEERING (Compact) --- */}
-          <div className="md:col-span-1 relative group rounded-3xl bg-gradient-to-br from-zinc-100 to-white dark:from-zinc-900/50 dark:to-zinc-900/20 border border-zinc-200 dark:border-zinc-800 p-8 flex flex-col justify-center">
+          <div className="md:col-span-1 relative group rounded-3xl bg-linear-to-br from-zinc-100 to-white dark:from-zinc-900/50 dark:to-zinc-900/20 border border-orange-500/20 dark:border-orange-500/20 p-8 flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-4">
               <span className="p-2 rounded-lg bg-orange-100 text-orange-600 dark:bg-orange-500/20 dark:text-orange-400">
                 <Users size={20} />

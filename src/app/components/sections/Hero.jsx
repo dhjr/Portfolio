@@ -31,7 +31,7 @@ export default function Hero() {
       <BackgroundWrapper />
 
       {/* POPUP */}
-      <div className="fixed bottom-5 right-5 z-[100] pointer-events-none">
+      <div className="fixed bottom-5 right-5 z-100 pointer-events-none">
         <div className="pointer-events-auto">
           <Popup message={"Mail successfully copied!"} showPopup={popup} />
         </div>
@@ -111,15 +111,14 @@ export default function Hero() {
       </div>
 
       {/* SCROLL INDICATOR */}
-      <Link
-        href="#projects"
-        className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce opacity-50 z-20 hover:opacity-100 transition-opacity"
+      <div
+        className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce opacity-50 z-20 select-none pointer-events-none"
       >
         <span className="text-xs sm:text-sm font-thin font-1spaceGrotesk uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
           Scroll Down
         </span>
         <ChevronDown className="text-emerald-500" size={24} />
-      </Link>
+      </div>
     </section>
   );
 }
