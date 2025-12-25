@@ -2,29 +2,75 @@
 import "./globals.css";
 import Navbar from "@/components/customComponents/NavBar";
 import ScrollToTop from "@/components/customComponents/ScrollToTop";
-import { ReactLenis } from "lenis/react"; // <--- NEW IMPORT PATH
 
 import ThemeProvider from "@/components/customComponents/ThemeProvider";
 import {
-  ebGaramond,
-  josefin,
-  cormorant,
-  cormorantUpright,
-  cinzel,
-  instrumentSerif,
-  gruppo,
-  forum,
-  leagueGothic,
-  newAmsterdam,
-  trunculenta,
   boldonse,
   spacegrotesk,
   bricolage,
 } from "./fonts";
 
+const siteUrl = "https://dhjr.vercel.app"; // Update this with your actual production URL
+
 export const metadata = {
-  title: "Dhananjay R",
-  description: "My portfolio website",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Dhananjay R | Full Stack Developer",
+    template: "%s | Dhananjay R",
+  },
+  description:
+    "Portfolio of Dhananjay R, an aspiring Full Stack Developer passionate about building accessible, pixel-perfect, and performant web applications.",
+  keywords: [
+    "Dhananjay R",
+    "Full Stack Developer",
+    "Web Developer",
+    "Portfolio",
+    "React Developer",
+    "Next.js Developer",
+    "JavaScript",
+    "Software Engineer",
+  ],
+  authors: [{ name: "Dhananjay R" }],
+  creator: "Dhananjay R",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    title: "Dhananjay R | Full Stack Developer",
+    description:
+      "Portfolio of Dhananjay R, an aspiring Full Stack Developer passionate about building accessible, pixel-perfect, and performant web applications.",
+    siteName: "Dhananjay R Portfolio",
+    images: [
+      {
+        url: "/profile1.png",
+        width: 1200,
+        height: 630,
+        alt: "Dhananjay R - Full Stack Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dhananjay R | Full Stack Developer",
+    description:
+      "Portfolio of Dhananjay R, an aspiring Full Stack Developer passionate about building accessible, pixel-perfect, and performant web applications.",
+    images: ["/profile1.png"],
+    creator: "@dhananjayr", // Update with actual twitter handle if known
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -33,17 +79,7 @@ export default function RootLayout({ children }) {
       lang="en"
       suppressHydrationWarning
       className={`
-        ${ebGaramond.variable}
-        ${josefin.variable}
-        ${cormorant.variable}
-        ${cormorantUpright.variable}
-        ${cinzel.variable}
-        ${instrumentSerif.variable}
-        ${gruppo.variable}
-        ${forum.variable}
-        ${leagueGothic.variable}
-        ${newAmsterdam.variable}
-        ${trunculenta.variable}
+
         ${boldonse.variable}
         ${spacegrotesk.variable}
         ${bricolage.variable}
@@ -62,6 +98,23 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "Person",
+                  name: "Dhananjay R",
+                  url: "https://dhjr.vercel.app",
+                  jobTitle: "Full Stack Developer",
+                  sameAs: [
+                    "https://github.com/dhjr", // Placeholders - user should update
+                    "https://linkedin.com/in/dhananjayr",
+                  ],
+                  description: "Aspiring Full Stack Developer passionate about building performant web applications.",
+                }),
+              }}
+            />
             <Navbar />
             <ScrollToTop />
             {children}

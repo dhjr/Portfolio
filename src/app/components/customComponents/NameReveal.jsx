@@ -185,7 +185,7 @@ export default function NameReveal() {
   const name = "Dhananjay".split("");
 
   return (
-    <div
+    <h1
       ref={containerRef}
       className="flex items-end justify-center md:justify-start overflow-hidden py-2"
     >
@@ -219,6 +219,6 @@ export default function NameReveal() {
       >
         _
       </span>
-    </div>
+    </h1>
   );
 }
