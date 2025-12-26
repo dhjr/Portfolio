@@ -2,6 +2,7 @@
 import "./globals.css";
 import Navbar from "@/components/customComponents/NavBar";
 import ScrollToTop from "@/components/customComponents/ScrollToTop";
+import { Analytics } from '@vercel/analytics/next';
 
 import ThemeProvider from "@/components/customComponents/ThemeProvider";
 import {
@@ -77,8 +78,12 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      suppressHydrationWarning
-      className={`${boldonse.variable}${spacegrotesk.variable}${bricolage.variable}`}
+      suppressHydrationWarning  
+      className={`
+      ${boldonse.variable}
+      ${spacegrotesk.variable}
+      ${bricolage.variable}
+      `}
     >
       <body className="antialiased z-10">
 
@@ -109,6 +114,7 @@ export default function RootLayout({ children }) {
             <Navbar />
             <ScrollToTop />
             {children}
+            <Analytics />
           </ThemeProvider>
       </body>
     </html>
