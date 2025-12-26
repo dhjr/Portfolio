@@ -73,49 +73,50 @@ export const metadata = {
     canonical: siteUrl,
   },
 };
-
 export default function RootLayout({ children }) {
+  // Define your JSON-LD data object outside for better readability
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Dhananjay R",
+    url: siteUrl,
+    jobTitle: "Full Stack Developer",
+    sameAs: [
+      "https://github.com/dhjr", 
+      "https://linkedin.com/in/dhananjayr", // Update with your actual URL
+    ],
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      "name": "Government Engineering College, Kottayam"
+    },
+    description: "Aspiring Full Stack Developer and Machine Learning enthusiast focusing on performant web applications.",
+  };
+
   return (
     <html
       lang="en"
       suppressHydrationWarning  
-      className={`
-      ${boldonse.variable}
-      ${spacegrotesk.variable}
-      ${bricolage.variable}
-      `}
+      className={`${boldonse.variable} ${spacegrotesk.variable} ${bricolage.variable}`}
     >
       <body className="antialiased z-10">
+        {/* 1. Place JSON-LD here, at the top of the body */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
 
-        
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify({
-                  "@context": "https://schema.org",
-                  "@type": "Person",
-                  name: "Dhananjay R",
-                  url: "https://dhjr.vercel.app",
-                  jobTitle: "Full Stack Developer",
-                  sameAs: [
-                    "https://github.com/dhjr", // Placeholders - user should update
-                    "https://linkedin.com/in/dhananjayr",
-                  ],
-                  description: "Aspiring Full Stack Developer passionate about building performant web applications.",
-                }),
-              }}
-            />
-            <Navbar />
-            <ScrollToTop />
-            {children}
-            <Analytics />
-          </ThemeProvider>
+        {/* 2. Then your Theme and UI providers */}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          <ScrollToTop />
+          {children}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );
