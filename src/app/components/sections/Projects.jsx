@@ -24,75 +24,76 @@ export default function Projects() {
   };
 
   const projectsData = [
-    {
+        {
       id: "01",
+      heading: "Victoria Film Official Website",
+      description:
+        "Portfolio site for Victoria(വിക്ടോറിയ). A KSFDC initiative and IEFFK winner feature film",
+      tags: ["Astro.js", "Swiper","MUX API","Tailwind"],
+      ghLink: null,
+      demoLink: "https://victoriafilm.in",
+      image: "/projects/victoria.png",
+    },
+    {
+      id: "02",
       heading: "Mentora.ai",
       description:
-        "A Chrome extension that fights 'tutorial hell' by assessing your knowledge in real-time.",
-      tags: ["JavaScript", "Express.js", "Chrome API"],
+        "A Chrome extension that fights 'tutorial hell' by assessing your knowledge in real-time.Made as part of the Code-RECET 2.0 Hackathon Hosted by TinkerHub CET",
+      tags: ["Youtube Transcript", "Express.js", "Chrome Extension"],
       ghLink: "https://github.com/dhjr/mentora.ai",
       demoLink: null,
       image: "/baja.webp",
     },
     {
-      id: "02",
-      heading: "COC Gem Calculator",
-      description:
-        "Top-ranked Clash of Clans tool with 500k+ visits. Calculates gem costs for time and resources.",
-      tags: ["Next.js", "SEO", "Calculator"],
-      ghLink: "https://github.com/dhjr/COC-gem-calculator",
-      demoLink: "https://dhjr.github.io/COC-gem-calculator/",
-      image: "/baja.webp",
-    },
-    {
       id: "03",
-      heading: "Pakkaran",
+      heading: "Goblin Ledger",
       description:
-        "A comprehensive project management tool designed for streamlined team collaboration.",
-      tags: ["React", "Node.js", "MongoDB"],
-      ghLink: "#",
-      demoLink: "https://pakkaran.vercel.app/",
-      image: "/baja.webp",
+        "Progressive Web App for calculating time required to obtain gems in Clash of Clans without any in-app-purchases.",
+      tags: ["PWA", "SEO", "Javascript"],
+      ghLink: "https://github.com/dhjr/goblin-ledger/",
+      demoLink: "https://dhjr.github.io/goblin-ledger/",
+      image: "/projects/coc2.png",
     },
     {
       id: "04",
-      heading: "Rage Roll",
+      heading: "Service Dashboard",
       description:
-        "Physics-based browser game built with Phaser.js. Winner of 'Useless Projects' Hackathon.",
-      tags: ["Phaser.js", "JavaScript", "Game Dev"],
-      ghLink: "#",
-      demoLink: "https://dhjr.github.io/Useless_project/",
-      image: "/baja.webp",
+        "A full-stack service provider application with features like user authentication, service listing, booking.",
+      tags: ["Next.js", "Express.js", "PostgreSQL"],
+      ghLink: "https://github.com/dhjr/pakkaran-app",
+      demoLink: "https://pakkaran-app.vercel.app/",
+      image: "/projects/serviceWorker.png",
     },
+  
     {
       id: "05",
       heading: "TripSync",
       description:
         "Collaborative travel planning application allowing groups to coordinate itineraries in real-time.",
-      tags: ["React", "Firebase", "Maps API"],
+      tags: ["Next.js", "Socket.io","Prisma ORM", "OpenStreetMap"],
       ghLink: "https://github.com/dhjr/groupMapper",
       demoLink: null,
       image: "/baja.webp",
     },
-    {
+  {
       id: "06",
-      heading: "Victoria Film",
+      heading: "Rage Roll",
       description:
-        "Portfolio and booking platform for a professional film production house.",
-      tags: ["Next.js", "Framer Motion", "Tailwind"],
+        "Physics-based browser game built with Phaser.js for the 'Useless Projects' hackathon hosted by Tinkerhub.",
+      tags: ["Phaser.js", "JavaScript", "Game Dev"],
       ghLink: "#",
-      demoLink: "https://victoriafilm.in",
-      image: "/baja.webp",
+      demoLink: "https://dhjr.github.io/Useless_project/",
+      image: "/projects/rageRoll.png",
     },
     {
       id: "07",
       heading: "Little House London",
       description:
-        "Elegant hospitality website for a boutique London residence, featuring booking integrations.",
-      tags: ["Web Design", "React", "UX/UI"],
+        "Website designed for a UK based client, who runs a miniature model business.Responsive and elegant design with focus on SEO and performance.",
+      tags: ["Astro.js", "React", "UX/UI"],
       ghLink: "#",
       demoLink: "https://littlehouselondon.netlify.app/",
-      image: "/baja.webp",
+      image: "/projects/lhl.png",
     },
     {
       id: "08",
@@ -102,7 +103,7 @@ export default function Projects() {
       tags: ["Browser Ext", "JavaScript", "Local Storage"],
       ghLink: "https://github.com/dhjr/quicksave",
       demoLink: null,
-      image: "/baja.webp",
+      image: "/projects/quicksave.png",
     },
     {
       id: "09",
@@ -111,8 +112,8 @@ export default function Projects() {
         "Official event platform for IEEE SB RIT's flagship tech fest. Managed registrations and updates.",
       tags: ["IEEE", "Webmaster", "Event Site"],
       ghLink: "#",
-      demoLink: "https://www.techfuse20.ieeesbirit.com",
-      image: "/baja.webp",
+      demoLink: "https://www.techfuse20.ieeesbrit.com",
+      image: "/projects/techfuse.png",
     },
     {
       id: "10",
@@ -122,7 +123,7 @@ export default function Projects() {
       tags: ["React", "Design", "Robotics"],
       ghLink: "#",
       demoLink: "https://www.roboignite.ieeesbrit.com",
-      image: "/baja.webp",
+      image: "/projects/roboignite.png",
     },
     {
       id: "11",
@@ -132,7 +133,7 @@ export default function Projects() {
       tags: ["IEEE", "Showcase", "Interactive"],
       ghLink: "#",
       demoLink: "https://rex.ieeesbrit.com/",
-      image: "/baja.webp",
+      image: "/projects/rex.png",
     },
     {
       id: "12",
@@ -142,7 +143,7 @@ export default function Projects() {
       tags: ["Lead Dev", "College Fest", "Scalability"],
       ghLink: "#",
       demoLink: "https://www.ritu25.live/",
-      image: "/baja.webp",
+      image: "/projects/ritu.png",
     },
   ];
 
