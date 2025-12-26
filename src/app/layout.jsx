@@ -78,12 +78,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`
-        ${boldonse.variable}
-        ${spacegrotesk.variable}
-        ${bricolage.variable}
-
-      `}
+      className={`${boldonse.variable}${spacegrotesk.variable}${bricolage.variable}`}
     >
       <body className="antialiased z-10">
 

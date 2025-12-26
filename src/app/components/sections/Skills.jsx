@@ -109,7 +109,7 @@ export default function Skills() {
                       />
                     </div>
 
-                    <span className="text-[10px] sm:text-sm font-1spaceGrotesk font-semibold text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-200 transition-colors text-center px-1 leading-tight">
+                    <span className="text-sm font-1spaceGrotesk font-semibold text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-200 transition-colors text-center px-1 leading-tight">
                       {tech.name}
                     </span>
                   </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Briefcase, Trophy, Users, Code2, Cpu, Globe } from "lucide-react";
+import { Briefcase, Trophy, Users, Code2, Cpu, Globe, FileText } from "lucide-react";
 import Image from "next/image";
 import Header from "@/components/customComponents/SectionHeader";
 
@@ -39,11 +39,19 @@ export default function Experience() {
                   IIIT Kottayam • May - Aug 2025
                 </p>
 
-                <p className="font-1spaceGrotesk text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-lg">
-                  Developed a 2D CNN-based architecture for classifying cardiac
-                  arrhythmia from ECG data. Implemented Grad-CAM for model
-                  explainability to highlight decision regions.
-                </p>
+             <p className="font-1spaceGrotesk text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-lg mb-6">
+  Architected a <span className="text-zinc-900 dark:text-zinc-100 font-medium">2D CNN-based model</span> to classify cardiac arrhythmia with high precision. Integrated <span className="text-emerald-500 font-medium">Grad-CAM</span> to visualize decision-making regions, enhancing model transparency for clinical use cases.
+</p>
+
+                <a 
+                  href="/IIIT_Report.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-medium text-sm hover:bg-emerald-100 dark:hover:bg-emerald-500/20 transition-colors w-fit"
+                >
+                  <FileText size={16} />
+                  <span>View Internship Report</span>
+                </a>
               </div>
             </div>
           </div>
@@ -74,8 +82,7 @@ export default function Experience() {
                     Code-RECET 2.0
                   </h4>
                   <p className="font-1spaceGrotesk text-xs text-zinc-500 mt-1">
-                    Real-time data processing solution.
-                  </p>
+AI-powered Chrome extension to bridge the gap between watching tutorials and active coding.</p>
                 </li>
               </ul>
             </div>
@@ -114,7 +121,7 @@ export default function Experience() {
                     Webmaster • Current
                   </p>
                   <p className="font-1spaceGrotesk text-sm text-zinc-600 dark:text-zinc-300 mb-4">
-                    Lead the web team, overseeing design & deployment.
+                    Lead the web team, overseeing the complete web development process, including design, development, and deployment of various websites.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {["Techfuse 2.0", "Roboignite", "ReX 5.0"].map((site) => (
@@ -133,10 +140,10 @@ export default function Experience() {
                     RITU Fest
                   </h3>
                   <p className="text-sm font-mono text-zinc-500 mb-3">
-                    Lead Developer • 2024
+                    Contributor• 2025
                   </p>
                   <p className="font-1spaceGrotesk text-sm text-zinc-600 dark:text-zinc-300">
-                    Designed and built the official website for the college's
+                    Contributed in the development of the official website for the college's
                     main techno-cultural fest.
                   </p>
                 </div>
@@ -166,12 +173,27 @@ export default function Experience() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
+                  <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white mb-2">
                     SAE A-Baja RIT
                   </h4>
-                  <p className="font-1spaceGrotesk text-xs text-zinc-500">
-                    Event Volunteer
-                  </p>
+                  <div className="flex flex-col gap-1.5 border-l-2 border-orange-200 dark:border-orange-500/20 pl-3">
+                    <div className="flex flex-col">
+                      <span className="text-[10px] uppercase tracking-wider font-bold text-orange-600 dark:text-orange-400">
+                        Module Lead
+                      </span>
+                      <span className="text-xs font-1spaceGrotesk text-zinc-700 dark:text-zinc-300">
+                        Adaptive Cruise Control (ACC)
+                      </span>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] uppercase tracking-wider font-bold text-zinc-500">
+                        Contributor
+                      </span>
+                      <span className="text-xs font-1spaceGrotesk text-zinc-600 dark:text-zinc-400">
+                        AEB, LKA & Computer Vision
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -186,7 +208,7 @@ export default function Experience() {
                 </div>
                 <div>
                   <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
-                    Tinkerhub
+                    Tinkerhub RIT
                   </h4>
                   <p className="font-1spaceGrotesk text-xs text-zinc-500">
                     Community Volunteer
