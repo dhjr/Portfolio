@@ -14,7 +14,7 @@ export default function About() {
           <Header name="About" />
         </div>
 
-        <div className="relative group rounded-3xl bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 p-8 md:p-12 overflow-hidden hover:shadow-lg dark:hover:shadow-emerald-900/10 transition-all duration-500">
+        <div className="relative group rounded-3xl bg-zinc-50/95 dark:bg-zinc-900/40 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 p-8 md:p-12 overflow-hidden shadow-md hover:shadow-lg dark:hover:shadow-emerald-900/10 transition-all duration-500">
           {/* Background Decoration */}
           <div className="absolute -top-10 -right-10 md:top-0 md:right-0 p-8 md:p-12 opacity-5 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none">
             <User size={120} className="md:w-[200px] md:h-[200px]" />

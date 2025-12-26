@@ -171,7 +171,7 @@ export default function Projects() {
           {visibleProjects.map((project, index) => (
             <div
               key={index}
-              className="group flex flex-col lg:flex-row gap-8 lg:items-center p-6 lg:p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 transition-all duration-300 shadow-sm hover:shadow-lg hover:border-emerald-500/30 hover:-translate-y-1"
+              className="group flex flex-col lg:flex-row gap-8 lg:items-center p-6 lg:p-8 rounded-3xl bg-zinc-50/95 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 transition-all duration-300 shadow-md hover:shadow-lg hover:border-emerald-500/30 hover:-translate-y-1"
             >
               {/* IMAGE THUMBNAIL */}
               <div className="relative w-full lg:w-md aspect-video rounded-2xl overflow-hidden shrink-0 border border-zinc-200 dark:border-zinc-800 shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:border-emerald-500/30 bg-zinc-100 dark:bg-zinc-800/50">

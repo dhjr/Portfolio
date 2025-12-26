@@ -6,7 +6,7 @@ export default function MeshBackground() {
   return (
     <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
       {/* Base Background */}
-      <div className="absolute inset-0 bg-white dark:bg-black transition-colors duration-500" />
+      <div className="absolute inset-0 bg-zinc-100 dark:bg-black transition-colors duration-500" />
 
       {/* Masked technical pattern container - Mask removed for uniform background */}
       <div className="absolute inset-0">

@@ -139,7 +139,7 @@ export default function BackgroundWrapper() {
   }, [mousePos]);
 
   return (
-    <div className="absolute inset-0 -z-10 w-full h-full bg-white dark:bg-black transition-colors duration-500 overflow-hidden">
+    <div className="absolute inset-0 -z-10 w-full h-full bg-zinc-100 dark:bg-black transition-colors duration-500 overflow-hidden">
         <canvas
             ref={canvasRef}
             className="block w-full h-full"

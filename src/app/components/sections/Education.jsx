@@ -43,7 +43,7 @@ export default function Education() {
               <div className="pb-12 flex items-start flex-1 gap-4">
                 <div className="hidden md:block w-8 h-px bg-zinc-200 dark:bg-zinc-800 mt-8 shrink-0"></div>
 
-                <div className="relative w-full p-6 rounded-xl border bg-white border-zinc-200 dark:bg-zinc-900/30 dark:border-zinc-800 transition-all duration-300 hover:border-emerald-500/30 hover:shadow-sm">
+                <div className="relative w-full p-6 rounded-xl border bg-zinc-50/95 border-zinc-100 dark:bg-zinc-900/40 dark:backdrop-blur-md dark:border-zinc-800 shadow-md transition-all duration-300 hover:border-emerald-500/30 hover:shadow-lg">
                   
                   <div className="flex flex-wrap justify-between items-start gap-2 mb-2">
                     <h3 className="text-xl font-bold text-zinc-800 dark:text-zinc-100 font-1spaceGrotesk">
