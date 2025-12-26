@@ -16,7 +16,23 @@ export default function Experience() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(180px,auto)]">
           {/* --- CARD 1: INTERNSHIP (Large) --- */}
-          <div className="md:col-span-2 relative group overflow-hidden rounded-3xl bg-white dark:bg-zinc-900/40 border border-emerald-500/20 dark:border-emerald-500/20 p-8 transition-all hover:shadow-lg dark:hover:shadow-emerald-900/20">
+          <div className="md:col-span-2 relative group rounded-3xl p-[1.5px] overflow-hidden">
+            {/* Masked Border Animation: Strictly restricted to the perimeter */}
+            <div 
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                padding: '1.5px',
+                borderRadius: 'inherit',
+                maskImage: 'linear-gradient(#fff, #fff), linear-gradient(#fff, #fff)',
+                maskClip: 'content-box, border-box',
+                maskComposite: 'exclude',
+                WebkitMaskComposite: 'destination-out',
+              }}
+            >
+              <div className="absolute -inset-[200%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0deg,transparent_60deg,#10b981_90deg,transparent_120deg,transparent_360deg)] will-change-transform opacity-100" />
+            </div>
+            
+            <div className="relative h-full bg-white/80 backdrop-blur-md dark:bg-zinc-900/90 rounded-[23px] p-8 shadow-sm transition-all hover:shadow-lg dark:hover:shadow-emerald-900/20">
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
               <Cpu size={120} />
             </div>
@@ -54,10 +70,26 @@ export default function Experience() {
                 </a>
               </div>
             </div>
+            </div>
           </div>
 
           {/* --- CARD 2: HACKATHONS (Compact) --- */}
-          <div className="md:col-span-1 relative group rounded-3xl bg-zinc-50 dark:bg-zinc-900/20 border border-purple-500/20 dark:border-purple-500/20 p-8 flex flex-col justify-between hover:border-purple-500/50 transition-colors">
+          <div className="md:col-span-1 relative group rounded-3xl p-[1.5px] overflow-hidden">
+             <div 
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  padding: '1.5px',
+                  borderRadius: 'inherit',
+                  maskImage: 'linear-gradient(#fff, #fff), linear-gradient(#fff, #fff)',
+                  maskClip: 'content-box, border-box',
+                  maskComposite: 'exclude',
+                  WebkitMaskComposite: 'destination-out',
+                }}
+              >
+                <div className="absolute -inset-[200%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0deg,transparent_60deg,#a855f7_90deg,transparent_120deg,transparent_360deg)] will-change-transform opacity-100" />
+              </div>
+             
+             <div className="relative h-full rounded-[23px] bg-zinc-50/80 backdrop-blur-md dark:bg-zinc-900/90 p-8 flex flex-col justify-between shadow-sm hover:shadow-lg transition-all">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <span className="p-2 rounded-lg bg-purple-100 text-purple-600 dark:bg-purple-500/20 dark:text-purple-400">
@@ -86,10 +118,26 @@ AI-powered Chrome extension to bridge the gap between watching tutorials and act
                 </li>
               </ul>
             </div>
+            </div>
           </div>
 
           {/* --- CARD 3: LEADERSHIP / WEBMASTER (Large/Wide) --- */}
-          <div className="md:col-span-2 relative group rounded-3xl bg-white dark:bg-zinc-900/40 border border-blue-500/20 dark:border-blue-500/20 p-8">
+          <div className="md:col-span-2 relative group rounded-3xl p-[1.5px] overflow-hidden">
+             <div 
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  padding: '1.5px',
+                  borderRadius: 'inherit',
+                  maskImage: 'linear-gradient(#fff, #fff), linear-gradient(#fff, #fff)',
+                  maskClip: 'content-box, border-box',
+                  maskComposite: 'exclude',
+                  WebkitMaskComposite: 'destination-out',
+                }}
+              >
+                <div className="absolute -inset-[200%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0deg,transparent_60deg,#3b82f6_90deg,transparent_120deg,transparent_360deg)] will-change-transform opacity-100" />
+              </div>
+             
+            <div className="relative h-full rounded-[23px] bg-white/80 backdrop-blur-md dark:bg-zinc-900/90 p-8 shadow-sm transition-all hover:shadow-lg">
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
               <Globe size={120} />
             </div>
@@ -149,10 +197,26 @@ AI-powered Chrome extension to bridge the gap between watching tutorials and act
                 </div>
               </div>
             </div>
+            </div>
           </div>
 
           {/* --- CARD 4: VOLUNTEERING (Compact) --- */}
-          <div className="md:col-span-1 relative group rounded-3xl bg-linear-to-br from-zinc-100 to-white dark:from-zinc-900/50 dark:to-zinc-900/20 border border-orange-500/20 dark:border-orange-500/20 p-8 flex flex-col justify-center">
+          <div className="md:col-span-1 relative group rounded-3xl p-[1.5px] overflow-hidden">
+             <div 
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  padding: '1.5px',
+                  borderRadius: 'inherit',
+                  maskImage: 'linear-gradient(#fff, #fff), linear-gradient(#fff, #fff)',
+                  maskClip: 'content-box, border-box',
+                  maskComposite: 'exclude',
+                  WebkitMaskComposite: 'destination-out',
+                }}
+              >
+                <div className="absolute -inset-[200%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0deg,transparent_60deg,#f97316_90deg,transparent_120deg,transparent_360deg)] will-change-transform opacity-100" />
+              </div>
+             
+            <div className="relative h-full rounded-[23px] bg-linear-to-br from-zinc-100/80 to-white/80 backdrop-blur-md dark:from-zinc-900/90 dark:to-zinc-900/50 p-8 flex flex-col justify-center shadow-sm transition-all hover:shadow-lg">
             <div className="flex items-center gap-3 mb-4">
               <span className="p-2 rounded-lg bg-orange-100 text-orange-600 dark:bg-orange-500/20 dark:text-orange-400">
                 <Users size={20} />
@@ -215,6 +279,7 @@ AI-powered Chrome extension to bridge the gap between watching tutorials and act
                   </p>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </div>
