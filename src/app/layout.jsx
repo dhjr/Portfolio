@@ -11,7 +11,7 @@ import {
   bricolage,
 } from "./fonts";
 
-const siteUrl = "https://dhjr.vercel.app"; // Update this with your actual production URL
+const siteUrl = "https://dhananjayr.com"; // Update this with your actual production URL
 
 export const metadata = {
   metadataBase: new URL(siteUrl),

@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = "https://dhjr.vercel.app";
+  const baseUrl = "https://dhananjayr.com";
 
   return [
     {
