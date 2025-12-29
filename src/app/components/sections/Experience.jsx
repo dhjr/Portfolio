@@ -89,7 +89,7 @@ export default function Experience() {
                 <div className="absolute -inset-[200%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0deg,transparent_60deg,#a855f7_90deg,transparent_120deg,transparent_360deg)] will-change-transform opacity-100" />
               </div>
              
-             <div className="relative h-full rounded-[23px] bg-zinc-100/95 backdrop-blur-md dark:bg-zinc-900/90 p-8 flex flex-col justify-between border border-zinc-100 dark:border-transparent">
+             <div className="relative h-full rounded-[23px] bg-zinc-100/95  dark:bg-zinc-900/90 p-8 flex flex-col justify-between border border-zinc-100 dark:border-transparent">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <span className="p-2 rounded-lg bg-purple-100 text-purple-600 dark:bg-purple-500/20 dark:text-purple-400">

@@ -25,34 +25,8 @@ export default function HeroImage() {
     >
       {/* WRAPPER FOR UNIFIED FLOATING */}
       <div className="relative w-full h-full flex items-center justify-center md:animate-[float_6s_ease-in-out_infinite]">
-        {/* 1. OUTER RING (Zinc, Slow Reverse Spin) */}
-        <div className="absolute inset-0 rounded-full border border-zinc-800/60 border-t-zinc-500/30 animate-[spin_25s_linear_infinite_reverse]"></div>
-
-        {/* 2. INNER RING (Emerald Accent, Faster Spin) */}
-        <div className="absolute inset-5 rounded-full border border-dashed border-emerald-500/20 animate-[spin_15s_linear_infinite]"></div>
-
-        {/* --- OBJECT 1: THE RADAR BLIP (Pulsing Dot) --- */}
-        {/* Looks like an active signal being tracked */}
-        <div className="absolute inset-5 animate-[spin_reverse_12s_linear_infinite]">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1">
-            <div className="w-2 h-2 bg-emerald-400 rounded-full shadow-[0_0_10px_#34d399] relative">
-              {/* The Ping Animation creates a ripple effect */}
-              <div className="absolute inset-0 bg-emerald-400 rounded-full animate-ping opacity-75"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* --- OBJECT 2: THE DATA ARC (Curved Shield) --- */}
-        {/* A 90-degree arc that rotates slowly on the outer track */}
-        <div className="absolute inset-0 animate-[spin_20s_linear_infinite]">
-          <div className="absolute top-0 left-0 w-1/2 h-1/2 border-t-[3px] border-emerald-600 rounded-tl-full opacity-60"></div>
-        </div>
-
-        {/* --- OBJECT 4: THE NANO CHIP (Rectangular) --- */}
-        {/* A small glass rectangle orbiting close to the center */}
-        <div className="absolute inset-8 animate-[spin_25s_linear_infinite]">
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-4 border border-emerald-500/30 bg-emerald-500/70 rounded-[2px] backdrop-blur-sm"></div>
-        </div>
+        {/* SIMPLE PULSING BORDER - Fixed Visibility */}
+        <div className="absolute w-[262px] h-[262px] md:w-[382px] md:h-[382px] rounded-full border-2 border-emerald-500/50 animate-[pulse-opacity_5s_ease-in-out_infinite] z-40 blur-[2px]"></div>
 
         {/* 4. THE CORE (Image Container) */}
         <div
@@ -60,9 +34,9 @@ export default function HeroImage() {
             relative 
             w-[260px] h-[260px] md:w-[380px] md:h-[380px] 
             rounded-full overflow-hidden 
-            border-[3px] border-zinc-800
             bg-zinc-900
             shadow-2xl
+            z-30
           "
         >
           {/* Background Layers */}
@@ -96,6 +70,14 @@ export default function HeroImage() {
           }
           50% {
             transform: translateY(-15px);
+          }
+        }
+        @keyframes pulse-opacity {
+          0%, 100% {
+            opacity: 0.15;
+          }
+          50% {
+            opacity: 0.8;
           }
         }
       `}</style>
