@@ -102,7 +102,7 @@ export default function Contact() {
                 <h3 className="text-2xl font-bold font-1boldonse tracking-wide mb-2 text-zinc-900 dark:text-white transition-colors">
                   Let's Connect
                 </h3>
-                <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+                <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400 font-1spaceGrotesk">
                   Got an idea? Let's compile it into reality.
                 </p>
               </div>

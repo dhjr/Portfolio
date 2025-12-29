@@ -66,7 +66,7 @@ export default function Experience() {
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-medium text-sm hover:bg-emerald-100 dark:hover:bg-emerald-500/20 transition-colors w-fit"
                 >
                   <FileText size={16} />
-                  <span>View Internship Report</span>
+                  <span className="font-1spaceGrotesk">View Internship Report</span>
                 </a>
               </div>
             </div>
