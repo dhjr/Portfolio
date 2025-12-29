@@ -4,20 +4,20 @@ import React, { useRef, useEffect, useState } from "react";
 
 export default function BackgroundWrapper() {
   const canvasRef = useRef(null);
-  const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
+  const mousePosRef = useRef({ x: -100, y: -100 });
   const gridSize = 40;
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      // Get relative coordinates in case the canvas isn't at 0,0 (though it is here)
-      const rect = canvasRef.current.getBoundingClientRect();
-      setMousePos({
+      const rect = canvasRef.current?.getBoundingClientRect();
+      if (!rect) return;
+      mousePosRef.current = {
         x: e.clientX - rect.left,
         y: e.clientY - rect.top,
-      });
+      };
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
@@ -120,9 +120,10 @@ export default function BackgroundWrapper() {
 
 
       // Draw Mouse Highlight
-      if (mousePos.x >= 0 && mousePos.y >= 0) {
-        const cellX = Math.floor(mousePos.x / gridSize);
-        const cellY = Math.floor(mousePos.y / gridSize);
+      const mPos = mousePosRef.current;
+      if (mPos.x >= 0 && mPos.y >= 0) {
+        const cellX = Math.floor(mPos.x / gridSize);
+        const cellY = Math.floor(mPos.y / gridSize);
         const drawX = cellX * gridSize;
         const drawY = cellY * gridSize;
 
@@ -136,7 +137,7 @@ export default function BackgroundWrapper() {
     render();
 
     return () => cancelAnimationFrame(animationFrameId);
-  }, [mousePos]);
+  }, []);
 
   return (
     <div className="absolute inset-0 -z-10 w-full h-full bg-zinc-100 dark:bg-black transition-colors duration-500 overflow-hidden">

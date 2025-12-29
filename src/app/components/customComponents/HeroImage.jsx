@@ -21,12 +21,12 @@ export default function HeroImage() {
   return (
     <div
       ref={containerRef}
-      className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] flex items-center justify-center opacity-0 invisible"
+      className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] flex items-center justify-center opacity-0 invisible will-change-[transform,opacity]"
     >
       {/* WRAPPER FOR UNIFIED FLOATING */}
-      <div className="relative w-full h-full flex items-center justify-center md:animate-[float_6s_ease-in-out_infinite]">
-        {/* SIMPLE PULSING BORDER - Fixed Visibility */}
-        <div className="absolute w-[262px] h-[262px] md:w-[382px] md:h-[382px] rounded-full border-2 border-emerald-500/50 animate-[pulse-opacity_5s_ease-in-out_infinite] z-40 blur-[2px]"></div>
+      <div className="relative w-full h-full flex items-center justify-center md:animate-[float_6s_ease-in-out_infinite] will-change-transform">
+        {/* SIMPLE PULSING BORDER - Soft & Natural */}
+        <div className="absolute w-[262px] h-[262px] md:w-[382px] md:h-[382px] rounded-full border-2 border-emerald-500/50 animate-[pulse-opacity_5s_ease-in-out_infinite] z-40 blur-[2px] will-change-[opacity,transform]"></div>
 
         {/* 4. THE CORE (Image Container) */}
         <div
@@ -51,7 +51,7 @@ export default function HeroImage() {
           <div className="absolute bottom-0 w-full h-1/2 bg-linear-to-t from-black/80 to-transparent z-0"></div>
 
           <Image
-            className="relative z-10 object-cover opacity-95  transition-all duration-700 hover:scale-105"
+            className="relative z-10 object-cover opacity-95"
             fill
             src="/profile1.png"
             alt="Profile"
