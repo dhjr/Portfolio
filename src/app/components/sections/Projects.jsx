@@ -181,6 +181,7 @@ export default function Projects() {
                     src={project.image} 
                     alt={project.heading}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Overlay on hover */}
@@ -229,6 +230,7 @@ export default function Projects() {
       href={project.ghLink}
       target="_blank"
       rel="noreferrer"
+      aria-label={`View source code for ${project.heading}`}
       className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-600 dark:hover:text-white transition-all duration-300 group/btn"
     >
       <Github size={18} className="group-hover/btn:scale-110 transition-transform" />
@@ -240,6 +242,7 @@ export default function Projects() {
                         href={project.demoLink}
                         target="_blank"
                         rel="noreferrer"
+                        aria-label={`View live demo of ${project.heading}`}
                         className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-emerald-100/50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-800/50 hover:bg-emerald-500 hover:text-white hover:border-emerald-500 dark:hover:bg-emerald-500 dark:hover:text-white transition-all duration-300 group/btn"
                       >
                         <ExternalLink size={18} className="group-hover/btn:scale-110 transition-transform" />

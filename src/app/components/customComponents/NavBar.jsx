@@ -2,27 +2,16 @@
 
 import { useState, useEffect,useRef,                 useCallback } from "react";
 import Link from "next/link";
-import {
-  Menu,
-  X,
-  Home,
-  Folder,
-  Cpu,
-  BookOpen,
-  Mail,
-  Briefcase,
-  User,
-} from "lucide-react";
 import ThemeToggle from "@/components/customComponents/ThemeToggle";
 
 const navLinks = [
-  { name: "Home", href: "#hero", icon: Home },
-  { name: "About", href: "#about", icon: User },
-  { name: "Projects", href: "#projects", icon: Folder },
-  { name: "Experience", href: "#experience", icon: Briefcase },
-  { name: "Skills", href: "#skills", icon: Cpu },
-  { name: "Education", href: "#education", icon: BookOpen },
-  { name: "Contact", href: "#contact", icon: Mail },
+  { name: "Home", href: "#hero" },
+  { name: "About", href: "#about" },
+  { name: "Projects", href: "#projects" },
+  { name: "Experience", href: "#experience" },
+  { name: "Skills", href: "#skills" },
+  { name: "Education", href: "#education" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
