@@ -3,6 +3,7 @@
 // Components
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
+import Videos from "@/components/sections/Videos";
 import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
 import Skills from "@/components/sections/Skills";
@@ -21,6 +22,7 @@ export default function Home() {
         <MeshBackground />
         
         <About />
+        <Videos />
         <Projects />
         <Experience />
         <Skills />

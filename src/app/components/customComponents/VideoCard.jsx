@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { Play } from "lucide-react";
+import { twMerge } from "tailwind-merge";
 
-export default function VideoCard({ video }) {
+export default function VideoCard({ video, className }) {
   return (
     <Link 
       href={video.url} 
       target="_blank"
-      className="group shrink-0 w-64 flex flex-col gap-3 cursor-pointer"
+      className={twMerge("group shrink-0 w-64 flex flex-col gap-3 cursor-pointer", className)}
     >
       {/* Thumbnail Container */}
       <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 group-hover:border-emerald-500/50 transition-colors shadow-sm">

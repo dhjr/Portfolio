@@ -59,7 +59,7 @@ export default function ProjectCard({
         </div>
 
         {/* Description */}
-        <p className="font-1spaceGrotesk text-sm leading-relaxed mb-6 flex-grow text-muted-foreground">
+        <p className="font-1spaceGrotesk text-sm leading-relaxed mb-6 grow text-muted-foreground">
           {description}
         </p>
 

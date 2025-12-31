@@ -206,7 +206,7 @@ export default function Projects() {
                       {project.heading}
                     </h3>
                   </div>
-                  <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed font-1spaceGrotesk text-lg">
+                  <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed font-1spaceGrotesk text-md">
                     {project.description}
                   </p>
                 </div>
@@ -217,7 +217,7 @@ export default function Projects() {
                     {project.tags.map((tag, i) => (
                       <span
                         key={i}
-                        className="text-xs font-mono font-medium px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700/50 bg-white dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 group-hover:border-emerald-500/30 transition-colors"
+                        className="text-xs font-mono font-medium px-3 py-1 rounded-lg border border-zinc-200 dark:border-zinc-700/50 bg-white dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 group-hover:border-emerald-500/30 transition-colors"
                       >
                         {tag}
                       </span>

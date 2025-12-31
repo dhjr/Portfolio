@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/customComponents/NavBar";
 import ScrollToTop from "@/components/customComponents/ScrollToTop";
 import { Analytics } from '@vercel/analytics/next';
+import SmoothScroll from "@/components/customComponents/SmoothScroll";
 
 import ThemeProvider from "@/components/customComponents/ThemeProvider";
 import {
@@ -108,7 +109,9 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning  
       className={`${boldonse.variable} ${spacegrotesk.variable} ${bricolage.variable}`}
     >
+
       <body className="antialiased z-10">
+        
         {/* 1. Place JSON-LD here, at the top of the body */}
         <script
           type="application/ld+json"
@@ -122,10 +125,12 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          <ScrollToTop />
-          {children}
-          <Analytics />
+          <SmoothScroll>
+            <Navbar />
+            <ScrollToTop />
+            {children}
+            <Analytics />
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

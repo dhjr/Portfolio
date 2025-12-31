@@ -66,7 +66,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="w-full min-h-dvh py-24 px-4 relative bg-transparent transition-colors duration-300 overflow-hidden"
+      className="w-full min-h-dvh py-10 md:py-24 px-4 relative bg-transparent transition-colors duration-300 overflow-hidden"
     >
 
       <div className="max-w-5xl mx-auto relative z-10">
@@ -84,7 +84,7 @@ export default function Contact() {
           {/* --- LEFT PANEL --- */}
           <div
             className="
-            lg:col-span-2 p-10 flex flex-col justify-between relative border-r
+            lg:col-span-2 p-6 md:p-10 flex flex-col justify-between relative border-r
             
             /* Light Mode */
             bg-white/95 border-zinc-200
@@ -94,7 +94,7 @@ export default function Contact() {
           "
           >
 
-            <div className="relative z-10 space-y-8">
+            <div className="relative z-10 space-y-6 md:space-y-8">
               <div>
                 <h3 className="text-2xl font-bold font-1boldonse tracking-wide mb-2 text-zinc-900 dark:text-white transition-colors">
                   Let's Connect
@@ -167,8 +167,8 @@ export default function Contact() {
           </div>
 
           {/* --- RIGHT PANEL (FORM) --- */}
-          <div className="lg:col-span-3 px-10 pb-10 md:py-10 bg-transparent">
-            <form ref={formRef} onSubmit={sendEmail} className="space-y-10">
+          <div className="lg:col-span-3 px-6 pb-8 md:px-10 md:pb-10 md:py-10 bg-transparent">
+            <form ref={formRef} onSubmit={sendEmail} className="space-y-6 md:space-y-10">
               {/* NAME INPUT */}
               <div className="group relative">
                 <label className="text-xs font-mono mb-2 block transition-colors text-zinc-500 group-focus-within:text-emerald-600 dark:group-focus-within:text-emerald-500">

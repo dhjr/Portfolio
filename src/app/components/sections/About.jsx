@@ -1,43 +1,13 @@
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/customComponents/SectionHeader";
-import { User, RefreshCw, BookOpen, Zap, ArrowUpRight, Play } from "lucide-react";
-import VideoCard from "@/components/customComponents/VideoCard";
-import { fetchLatestVideos } from "@/actions/getYouTubeVideos";
-
-const initialVideoData = [
-  { title: "Building a Portfolio with Next.js", views: "1.2k", color: "bg-blue-500", url: "https://youtube.com/@LetTheDevsCook" },
-  { title: "Mastering Tailwind CSS Grid", views: "850", color: "bg-teal-500", url: "https://youtube.com/@LetTheDevsCook" },
-  { title: "React Hooks Explained", views: "2.5k", color: "bg-indigo-500", url: "https://youtube.com/@LetTheDevsCook" },
-  { title: "Framer Motion Animations", views: "1.8k", color: "bg-purple-500", url: "https://youtube.com/@LetTheDevsCook" },
-  { title: "Full Stack Roadmap 2024", views: "3.2k", color: "bg-rose-500", url: "https://youtube.com/@LetTheDevsCook" },
-];
+import { User, RefreshCw, BookOpen, Zap, ArrowUpRight } from "lucide-react";
 
 export default function About() {
-  const [videos, setVideos] = useState(initialVideoData);
-
-  useEffect(() => {
-    async function loadVideos() {
-      const fetchedVideos = await fetchLatestVideos();
-      if (fetchedVideos && fetchedVideos.length > 0) {
-        // Assign random colors for fallback/placeholder effect if thumbnail fails (though we use thumbnails)
-        const colors = ["bg-blue-500", "bg-teal-500", "bg-indigo-500", "bg-purple-500", "bg-rose-500", "bg-green-500"];
-        
-        const processVideos = fetchedVideos.map((v, i) => ({
-            ...v,
-            color: colors[i % colors.length]
-        }));
-        setVideos(processVideos);
-      }
-    }
-    loadVideos();
-  }, []);
-
   return (
     <section
       id="about"
-      className="py-12 relative bg-transparent transition-colors duration-300"
+      className="pt-12 pb-2 relative bg-transparent transition-colors duration-300"
     >
       <div className="max-w-4xl mx-auto px-4">
         <div className="mb-12">
@@ -111,7 +81,7 @@ export default function About() {
 
 
         {/* YouTube Channel Promo */}
-        <div className="mt-6 group relative rounded-3xl bg-white/90 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 p-6 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-black/5 dark:shadow-md hover:shadow-2xl dark:hover:shadow-red-900/10 transition-all duration-300">
+        <div className="mt-20 group relative rounded-3xl bg-white/90 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 p-6 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-black/5 dark:shadow-md hover:shadow-2xl dark:hover:shadow-red-900/10 transition-all duration-300">
           <div className="flex items-center gap-5 w-full md:w-auto">
             <div className="relative w-16 h-16 shrink-0 rounded-full overflow-hidden border-2 border-zinc-100 dark:border-zinc-700 shadow-sm group-hover:scale-110 transition-transform duration-300">
              <Image
@@ -157,20 +127,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* Video Marquee */}
-        <div className="mt-6 w-full overflow-hidden"> 
-          {/* Mask for fade edges */}
-           <div 
-             className="relative flex w-full overflow-hidden" 
-             style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}
-           >
-            <div className="flex gap-4 animate-marquee w-max py-4">
-              {[...videos, ...videos].map((video, i) => (
-                <VideoCard key={i} video={video} />
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
