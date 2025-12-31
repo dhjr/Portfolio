@@ -188,7 +188,8 @@ export default function Projects() {
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-emerald-500/10 transition-colors duration-500"></div>
                   </>
                 ) : (
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 group-hover:scale-105 transition-transform duration-700">
+                  <div className="absolute inset-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
+                    <div className="absolute inset-0 bg-linear-to-br from-purple-500/0 via-purple-500/0 to-purple-500/5 dark:from-purple-500/0 dark:via-purple-500/0 dark:to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <FolderGit 
                       strokeWidth={1.5} 
                       className="w-16 h-16 text-zinc-300 dark:text-zinc-700 group-hover:text-emerald-500/50 transition-colors duration-500" 

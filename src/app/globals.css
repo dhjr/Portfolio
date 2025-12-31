@@ -174,6 +174,20 @@ html {
   animation: float 10s ease-in-out infinite;
 }
 
+
 .animate-float-delayed {
   animation: float 15s ease-in-out infinite reverse;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 50s linear infinite;
+}
+
+.animate-marquee:has(> *:hover) {
+  animation-play-state: paused;
 }

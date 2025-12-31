@@ -72,6 +72,15 @@ export const metadata = {
   alternates: {
     canonical: siteUrl,
   },
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+    other: {
+      rel: "apple-touch-icon-precomposed",
+      url: "/favicon.png",
+    },
+  },
 };
 export default function RootLayout({ children }) {
   // Define your JSON-LD data object outside for better readability
@@ -80,6 +89,7 @@ export default function RootLayout({ children }) {
     "@type": "Person",
     name: "Dhananjay R",
     url: siteUrl,
+    image: `${siteUrl}/profile1.png`,
     jobTitle: "Full Stack Developer",
     sameAs: [
       "https://github.com/dhjr", 
