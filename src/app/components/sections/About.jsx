@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/customComponents/SectionHeader";
-import { User, RefreshCw, BookOpen, Zap } from "lucide-react";
+import { User, RefreshCw, BookOpen, Zap, ArrowUpRight } from "lucide-react";
 
 export default function About() {
   return (
@@ -14,7 +16,7 @@ export default function About() {
           <Header name="About" />
         </div>
 
-        <div className="relative group rounded-3xl bg-zinc-50/50 dark:bg-zinc-900/80  border border-zinc-200 dark:border-zinc-800 p-8 md:p-12 overflow-hidden shadow-md hover:shadow-lg dark:hover:shadow-emerald-900/10 transition-all duration-500">
+        <div className="relative group rounded-3xl bg-white/90 dark:bg-zinc-900/80  border border-zinc-200 dark:border-zinc-800 p-8 md:p-12 overflow-hidden shadow-xl shadow-black/5 dark:shadow-md hover:shadow-2xl dark:hover:shadow-emerald-900/10 transition-all duration-500">
           {/* Background Decoration */}
           <div className="absolute -top-10 -right-10 md:top-0 md:right-0 p-8 md:p-12 opacity-5 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none">
             <User size={120} className="md:w-[200px] md:h-[200px]" />
@@ -76,6 +78,54 @@ export default function About() {
                 </span>
               </div>
             </div>
+          </div>
+        </div>
+
+
+        {/* YouTube Channel Promo */}
+        <div className="mt-6 group relative rounded-3xl bg-white/90 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 p-6 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-black/5 dark:shadow-md hover:shadow-2xl dark:hover:shadow-red-900/10 transition-all duration-300">
+          <div className="flex items-center gap-5 w-full md:w-auto">
+            <div className="relative w-16 h-16 shrink-0 rounded-full overflow-hidden border-2 border-zinc-100 dark:border-zinc-700 shadow-sm group-hover:scale-110 transition-transform duration-300">
+             <Image
+                src="/ltdc.webp"
+                alt="Let the Devs Cook Logo"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="flex flex-col">
+              <h4 className="text-xl font-bold font-1spaceGrotesk text-zinc-900 dark:text-white flex items-center gap-2">
+                Let the Devs Cook
+              </h4>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 font-1spaceGrotesk leading-relaxed">
+                Dishing out fresh front-end content to a global, organic community of developers.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full md:w-auto flex flex-col sm:flex-row items-center justify-between md:justify-end gap-4">
+             {/* Stats */}
+            <div className="hidden sm:flex items-center gap-4 px-5 py-3 rounded-2xl bg-white dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800">
+                <div className="flex flex-col">
+                  <span className="text-lg font-bold text-zinc-900 dark:text-white font-1spaceGrotesk leading-none">
+                    586
+                  </span>
+                  <span className="text-[10px] font-bold text-zinc-500 dark:text-zinc-500 uppercase tracking-wider">
+                    Subscribers
+                  </span>
+                </div>
+
+            </div>
+
+            {/* Visit Button */}
+            <Link
+              href="https://www.youtube.com/@LetTheDevsCook"
+              target="_blank"
+              className="flex items-center gap-2 px-5 py-3 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-sm tracking-wide shadow-lg shadow-zinc-200 dark:shadow-zinc-900/20 hover:scale-105 active:scale-95 transition-all duration-200 w-full sm:w-auto justify-center"
+            >
+              <span>Visit Channel</span>
+              <ArrowUpRight size={18} />
+            </Link>
           </div>
         </div>
       </div>

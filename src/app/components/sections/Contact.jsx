@@ -76,10 +76,10 @@ export default function Contact() {
 
         {/* MAIN CARD CONTAINER */}
 <div className="
-  grid grid-cols-1 lg:grid-cols-5 rounded-3xl overflow-hidden
-  border-t border-white/20 border-l border-white/10
-  shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff]
-  dark:shadow-[10px_10px_30px_#050505,-5px_-5px_30px_#1a1a1a] bg-zinc-50/50 dark:bg-zinc-900/50
+  grid grid-cols-1 lg:grid-cols-5 rounded-3xl overflow-hidden 
+  border border-zinc-200 dark:border-zinc-800
+  shadow-2xl shadow-black/5
+  dark:shadow-[10px_10px_30px_#050505,-5px_-5px_30px_#1a1a1a] bg-zinc-50/95 dark:bg-zinc-900/50
 ">
           {/* --- LEFT PANEL --- */}
           <div
@@ -87,15 +87,12 @@ export default function Contact() {
             lg:col-span-2 p-10 flex flex-col justify-between relative border-r
             
             /* Light Mode */
-            bg-white/40 border-zinc-200/50
+            bg-white/95 border-zinc-200
             
             /* Dark Mode */
             dark:bg-zinc-900/60 dark:border-zinc-800/50 
           "
           >
-            {/* Glowing Orbs - Moving animation */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-500/60 dark:bg-purple-500/40 rounded-full blur-[100px] mix-blend-multiply dark:mix-blend-normal pointer-events-none animate-float" />
-   
 
             <div className="relative z-10 space-y-8">
               <div>
