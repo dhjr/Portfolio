@@ -26,8 +26,8 @@ export default function Education() {
   ];
 
   return (
-    <section id="education" className="relative z-10 w-full transition-colors duration-300 py-12 bg-transparent">
-      <div className="w-full max-w-5xl mx-auto px-4">
+    <section id="education" className="relative z-10 w-full transition-colors duration-300 py-12 px-4 bg-transparent">
+      <div className="w-full max-w-5xl mx-auto">
         <Header name="Education" />
         
         <div className="flex flex-col mt-12">

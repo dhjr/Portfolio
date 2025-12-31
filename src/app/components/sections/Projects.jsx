@@ -155,13 +155,13 @@ export default function Projects() {
       // EXPLICIT COLORS:
       // Light: Zinc-50 (Paper-like)
       // Dark: Zinc-950 (Deep Space)
-      className="py-12 md:py-20 relative bg-transparent transition-colors duration-300 overflow-hidden"
+      className="py-12 md:py-20 px-4 relative bg-transparent transition-colors duration-300 overflow-hidden"
     >
 
 
       
       {/* CONTENT LAYER */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-12">
+      <div className="relative z-10 max-w-5xl mx-auto">
         <div className="mb-16">
           <Header name="Projects" />
         </div>

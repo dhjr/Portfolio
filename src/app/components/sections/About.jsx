@@ -7,9 +7,9 @@ export default function About() {
   return (
     <section
       id="about"
-      className="pt-12 pb-2 relative bg-transparent transition-colors duration-300"
+      className="pt-12 pb-2 px-4 relative bg-transparent transition-colors duration-300"
     >
-      <div className="max-w-5xl mx-auto px-4">
+      <div className="max-w-5xl mx-auto">
         <div className="mb-12">
           <Header name="About" />
         </div>

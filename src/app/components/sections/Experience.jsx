@@ -8,9 +8,9 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="py-12 relative bg-transparent transition-colors duration-300"
+      className="py-12 px-4 relative bg-transparent transition-colors duration-300"
     >
-      <div className="max-w-5xl mx-auto px-4">
+      <div className="max-w-5xl mx-auto">
         <div className="mb-12">
           <Header name="Experience" />
         </div>

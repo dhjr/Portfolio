@@ -171,6 +171,16 @@ export default function Navbar() {
   return (
     <>
       {/* --- DESKTOP NAVBAR --- */}
+      {/* Top Gradient for Desktop Visibility */}
+      <div 
+        className={`
+          fixed top-0 left-0 right-0 h-32 z-998 pointer-events-none
+          bg-linear-to-b from-black/50 to-transparent
+          dark:from-black/80 dark:via-black/50 dark:to-transparent
+          transition-opacity duration-300 hidden md:block
+          ${scrolled ? "opacity-100" : "opacity-0"}
+        `}
+      />
       <div
         className={`
           fixed top-6 left-1/2 -translate-x-1/2 
