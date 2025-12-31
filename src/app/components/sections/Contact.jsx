@@ -167,7 +167,7 @@ export default function Contact() {
           </div>
 
           {/* --- RIGHT PANEL (FORM) --- */}
-          <div className="lg:col-span-3 px-6 pb-8 md:px-10 md:pb-10 md:py-10 bg-transparent">
+          <div className="lg:col-span-3 px-6 py-3 md:px-10 md:pb-10 md:py-10 bg-transparent">
             <form ref={formRef} onSubmit={sendEmail} className="space-y-6 md:space-y-10">
               {/* NAME INPUT */}
               <div className="group relative">

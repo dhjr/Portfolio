@@ -161,7 +161,7 @@ export default function Projects() {
 
       
       {/* CONTENT LAYER */}
-      <div className="relative z-10 container mx-auto px-6 md:px-12">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-12">
         <div className="mb-16">
           <Header name="Projects" />
         </div>
