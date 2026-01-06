@@ -7,7 +7,6 @@ import {
   Instagram, // <--- Imported Instagram
   Mail,
   Youtube,
-  ArrowUp,
 } from "lucide-react";
 
 export default function Footer() {
@@ -101,7 +100,12 @@ export default function Footer() {
                   label: "Instagram",
                   Icon: Instagram,
                   url: "https://www.instagram.com/dhananjayr_/",
-                }, // <--- Added Here
+                }, 
+                {
+                  label: "Email",
+                  Icon: Mail,
+                  url: "mailto:dhjr.dev@gmail.com",
+                },
                 { label: "YouTube", Icon: Youtube, url: "https://www.youtube.com/@letthedevscook" },
               ].map((social) => {
                 const isYouTube = social.label === "YouTube";

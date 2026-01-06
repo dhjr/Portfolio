@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect,useRef,                 useCallback } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import ThemeToggle from "@/components/customComponents/ThemeToggle";
 
@@ -31,77 +31,44 @@ export default function Navbar() {
     };
   }, [isMobileMenuOpen]);
 
-  // --- IMPROVED SCROLL SPY LOGIC ---
+  // --- OPTIMIZED SCROLL SPY WITH INTERSECTION OBSERVER ---
   useEffect(() => {
+    // 1. Lightweight scroll handler for navbar background only
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+    };
 
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-      // Special case: Bottom of page -> Contact
-      if (window.innerHeight + scrollY >= document.body.offsetHeight - 20) {
-        setActiveSection("contact");
-        return;
-      }
+    // 2. IntersectionObserver for Active Section Tracking
+    const observerOptions = {
+      root: null,
+      rootMargin: "-45% 0px -45% 0px", // Active when element is in the middle 10% of screen
+      threshold: 0,
+    };
 
-      // Special case for hero section
-      if (scrollY < windowHeight * 0.5) {
-        setActiveSection("hero");
-        return;
-      }
-
-      let currentSection = null;
-      let maxVisibility = 0;
-
-      for (const link of navLinks) {
-        const id = link.href.substring(1);
-        if (id === "hero") continue;
-
-        const element = document.getElementById(id);
-        if (!element) continue;
-
-        const rect = element.getBoundingClientRect();
-        const sectionHeight = rect.height;
-
-        // Calculate visibility
-        const visibleTop = Math.max(rect.top, 0);
-        const visibleBottom = Math.min(rect.bottom, windowHeight);
-        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
-        const visibilityRatio =
-          visibleHeight / Math.min(sectionHeight, windowHeight);
-
-        // Track the most visible section
-        if (visibilityRatio > maxVisibility) {
-          maxVisibility = visibilityRatio;
-          currentSection = id;
+    const handleIntersect = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
         }
-      }
-
-      if (currentSection) {
-        setActiveSection(currentSection);
-      }
+      });
     };
 
-    // Throttle scroll for better performance
-    let ticking = false;
-    const throttledScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
 
-    window.addEventListener("scroll", throttledScroll);
-    window.addEventListener("resize", throttledScroll);
+    // Observe all sections
+    navLinks.forEach((link) => {
+      const id = link.href.substring(1);
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
     handleScroll(); // Initial check
 
     return () => {
-      window.removeEventListener("scroll", throttledScroll);
-      window.removeEventListener("resize", throttledScroll);
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
     };
   }, []);
 
@@ -174,8 +141,8 @@ export default function Navbar() {
       {/* Top Gradient for Desktop Visibility */}
       <div 
         className={`
-          fixed top-0 left-0 right-0 h-32 z-998 pointer-events-none
-          bg-linear-to-b from-black/50 to-transparent
+          fixed top-0 left-0 right-0 h-20 z-998 pointer-events-none
+          bg-linear-to-b from-black/40 to-transparent
           dark:from-black/80 dark:via-black/50 dark:to-transparent
           transition-opacity duration-300 hidden md:block
           ${scrolled ? "opacity-100" : "opacity-0"}

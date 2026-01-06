@@ -14,7 +14,6 @@ import {
   Instagram,
   Youtube,
 } from "lucide-react";
-import Header from "@/components/customComponents/SectionHeader";
 
 export default function Contact() {
   const formRef = useRef();

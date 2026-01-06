@@ -26,7 +26,7 @@ export default function HeroImage() {
       {/* WRAPPER FOR UNIFIED FLOATING */}
       <div className="relative w-full h-full flex items-center justify-center md:animate-[float_6s_ease-in-out_infinite] will-change-transform">
         {/* SIMPLE PULSING BORDER - Soft & Natural */}
-        <div className="absolute w-[262px] h-[262px] md:w-[382px] md:h-[382px] rounded-full border-2 border-emerald-500/50 animate-[pulse-opacity_5s_ease-in-out_infinite] z-40 blur-[2px] will-change-[opacity,transform]"></div>
+        <div className="absolute w-[262px] h-[262px] md:w-[382px] md:h-[382px] rounded-full border-2 border-emerald-600/30 dark:border-emerald-500/50 animate-[pulse-opacity_5s_ease-in-out_infinite] z-40 blur-[2px] will-change-[opacity,transform]"></div>
 
         {/* 4. THE CORE (Image Container) */}
         <div
@@ -34,13 +34,13 @@ export default function HeroImage() {
             relative 
             w-[260px] h-[260px] md:w-[380px] md:h-[380px] 
             rounded-full overflow-hidden 
-            bg-zinc-900
+            bg-zinc-200 dark:bg-zinc-900
             shadow-2xl
             z-30
           "
         >
           {/* Background Layers */}
-          <div className="absolute inset-0 bg-zinc-900"></div>
+          <div className="absolute inset-0 bg-zinc-200 dark:bg-zinc-900"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(59,130,246,0.25),transparent_70%)]"></div>
           <div
             className="absolute inset-0 opacity-20 mix-blend-overlay"
@@ -48,7 +48,7 @@ export default function HeroImage() {
               backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
             }}
           ></div>
-          <div className="absolute bottom-0 w-full h-1/2 bg-linear-to-t from-black/80 to-transparent z-0"></div>
+          <div className="absolute bottom-0 w-full h-1/2 bg-linear-to-t from-zinc-400/50 dark:from-black/80 to-transparent z-0"></div>
 
           <Image
             className="relative z-10 object-cover opacity-95"
