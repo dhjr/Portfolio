@@ -32,7 +32,7 @@ export default function Projects() {
       tags: ["Astro.js", "Swiper","MUX API","Tailwind"],
       ghLink: null,
       demoLink: "https://victoriafilm.in",
-      image: "/projects/victoria.png",
+      image: "/projects/victoria.webp",
     },
     {
       id: "02",
@@ -52,7 +52,7 @@ export default function Projects() {
       tags: ["PWA", "SEO", "Javascript"],
       ghLink: "https://github.com/dhjr/goblin-ledger/",
       demoLink: "https://dhjr.github.io/goblin-ledger/",
-      image: "/projects/coc2.png",
+      image: "/projects/coc2.webp",
     },
     {
       id: "04",
@@ -62,7 +62,7 @@ export default function Projects() {
       tags: ["Next.js", "Express.js", "PostgreSQL"],
       ghLink: "https://github.com/dhjr/pakkaran-app",
       demoLink: "https://pakkaran-app.vercel.app/",
-      image: "/projects/serviceWorker.png",
+      image: "/projects/serviceWorker.webp",
     },
   
     {
@@ -83,7 +83,7 @@ export default function Projects() {
       tags: ["Phaser.js", "JavaScript", "Game Dev"],
       ghLink: "#",
       demoLink: "https://dhjr.github.io/Useless_project/",
-      image: "/projects/rageRoll.png",
+      image: "/projects/rageRoll.webp",
     },
     {
       id: "07",
@@ -93,7 +93,7 @@ export default function Projects() {
       tags: ["Astro.js", "Tailwind", "Freelance"],
       ghLink: "#",
       demoLink: "https://littlehouselondon.netlify.app/",
-      image: "/projects/lhl.png",
+      image: "/projects/lhl.webp",
     },
     {
       id: "08",
@@ -103,7 +103,7 @@ export default function Projects() {
       tags: ["Browser Ext", "JavaScript", "Local Storage"],
       ghLink: "https://github.com/dhjr/quicksave",
       demoLink: null,
-      image: "/projects/quicksave.png",
+      image: "/projects/quicksave.webp",
     },
     {
       id: "09",
@@ -113,7 +113,7 @@ export default function Projects() {
       tags: ["Next.js", "Vercel", "Webmaster"],
       ghLink: "#",
       demoLink: "https://www.techfuse20.ieeesbrit.com",
-      image: "/projects/techfuse.png",
+      image: "/projects/techfuse.webp",
     },
     {
       id: "10",
@@ -123,7 +123,7 @@ export default function Projects() {
       tags: ["Next.js", "Typescript", "Three.js"],
       ghLink: "#",
       demoLink: "https://www.roboignite.ieeesbrit.com",
-      image: "/projects/roboignite.png",
+      image: "/projects/roboignite.webp",
     },
     {
       id: "11",
@@ -133,7 +133,7 @@ export default function Projects() {
       tags: ["HTML", "CSS", "Javascript"],
       ghLink: "#",
       demoLink: "https://rex.ieeesbrit.com/",
-      image: "/projects/rex.png",
+      image: "/projects/rex.webp",
     },
     {
       id: "12",
@@ -143,7 +143,7 @@ export default function Projects() {
       tags: ["Next.js", "Tailwind", "Swiper.js"],
       ghLink: "#",
       demoLink: "https://www.ritu25.live/",
-      image: "/projects/ritu.png",
+      image: "/projects/ritu.webp",
     },
   ];
 
@@ -217,7 +217,7 @@ export default function Projects() {
                     {project.tags.map((tag, i) => (
                       <span
                         key={i}
-                        className="text-[10px] font-mono font-medium px-3 py-1 rounded-lg border border-zinc-200 dark:border-zinc-700/50 bg-white dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 group-hover:border-emerald-500/30 transition-colors"
+                        className="text-xs font-mono font-medium px-3 py-1 rounded-lg border border-zinc-200 dark:border-zinc-700/50 bg-white dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 group-hover:border-emerald-500/30 transition-colors"
                       >
                         {tag}
                       </span>
@@ -232,7 +232,7 @@ export default function Projects() {
       target="_blank"
       rel="noreferrer"
       aria-label={`View source code for ${project.heading}`}
-      className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-600 dark:hover:text-white hover:border-emerald-500 dark:hover:border-emerald-600 transition-all duration-300 group/btn"
+      className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-600 dark:hover:text-white transition-all duration-300 group/btn"
     >
       <Github size={18} className="group-hover/btn:scale-110 transition-transform" />
       <span>Source</span>

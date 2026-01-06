@@ -53,7 +53,7 @@ export default function HeroImage() {
           <Image
             className="relative z-10 object-cover opacity-95"
             fill
-            src="/profile1.png"
+            src="/profile1.webp"
             alt="Profile"
             priority
           />
