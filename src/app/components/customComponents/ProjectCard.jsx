@@ -39,7 +39,7 @@ export default function ProjectCard({
       )}
 
       {/* 2. CONTENT SECTION */}
-      <div className="p-6 flex flex-col flex-grow relative z-10">
+      <div className="p-6 flex flex-col grow relative z-10">
         
         {/* Header */}
         <div className="flex justify-between items-start mb-4">
@@ -53,7 +53,7 @@ export default function ProjectCard({
             </h3>
           </div>
           <ArrowUpRight
-            className="text-muted-foreground group-hover:text-emerald-500 transition-colors duration-300 flex-shrink-0"
+            className="text-muted-foreground group-hover:text-emerald-500 transition-colors duration-300 shrink-0"
             size={20}
           />
         </div>

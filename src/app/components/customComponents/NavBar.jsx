@@ -142,7 +142,7 @@ export default function Navbar() {
   return (
     <>
       {/* 0. SCROLL SENTINEL - Tracks when page is scrolled */}
-      <div id="navbar-sentinel" className="absolute top-0 w-full h-[1px] pointer-events-none bg-transparent" />
+      <div id="navbar-sentinel" className="absolute top-0 w-full h-1px pointer-events-none bg-transparent" />
 
       {/* --- DESKTOP NAVBAR --- */}
       {/* Top Gradient for Desktop Visibility */}
@@ -158,7 +158,7 @@ export default function Navbar() {
       <div
         className={`
           fixed top-6 left-1/2 -translate-x-1/2 
-          z-[999] pointer-events-auto
+          z-999 pointer-events-auto
           hidden md:flex items-center gap-4 
           transition-all duration-300
         `}
@@ -223,7 +223,7 @@ export default function Navbar() {
       </div>
 
       {/* --- MOBILE NAVBAR --- */}
-      <div className="fixed top-0 left-0 right-0 z-[1010] md:hidden flex justify-between items-center px-6 py-4">
+      <div className="fixed top-0 left-0 right-0 z-1010 md:hidden flex justify-between items-center px-6 py-4">
         {/* Background Layer */}
         <div
           className={`
@@ -286,7 +286,7 @@ export default function Navbar() {
 {/* --- MOBILE OVERLAY MENU --- */}
 <div
   className={`
-    fixed inset-0 z-[1000] flex flex-col
+    fixed inset-0 z-1000 flex flex-col
     transition-all duration-500 ease-in-out
     ${
       isMobileMenuOpen
@@ -305,7 +305,7 @@ export default function Navbar() {
     
     <div className="relative flex flex-col items-start gap-4 sm:gap-8">
       {/* The Vertical Timeline Line */}
-      <div className="absolute -left-2 sm:-left-6 top-0 bottom-0 w-[1px] bg-zinc-200 dark:bg-zinc-800">
+      <div className="absolute -left-2 sm:-left-6 top-0 bottom-0 w-1px bg-zinc-200 dark:bg-zinc-800">
         {/* Animated Glowing Node */}
         {/* Animated Glowing Node */}
         <div
