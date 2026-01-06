@@ -3,8 +3,6 @@ import "./globals.css";
 import Navbar from "@/components/customComponents/NavBar";
 import ScrollToTop from "@/components/customComponents/ScrollToTop";
 import { Analytics } from '@vercel/analytics/next';
-import SmoothScroll from "@/components/customComponents/SmoothScroll";
-
 import ThemeProvider from "@/components/customComponents/ThemeProvider";
 import {
   boldonse,
@@ -21,7 +19,7 @@ export const metadata = {
     template: "%s | Dhananjay R",
   },
   description:
-    "Portfolio of Dhananjay R, an aspiring Full Stack Developer passionate about building accessible, pixel-perfect, and performant web applications.",
+    "Hey! I'm Dhananjay R, an aspiring Full Stack Developer passionate about building accessible, pixel-perfect, and performant web applications.",
   keywords: [
     "Dhananjay R",
     "Full Stack Developer",
@@ -40,7 +38,7 @@ export const metadata = {
     url: siteUrl,
     title: "Dhananjay R | Full Stack Developer",
     description:
-      "Portfolio of Dhananjay R, an aspiring Full Stack Developer passionate about building accessible, pixel-perfect, and performant web applications.",
+      "Hey! I'm Dhananjay R, an aspiring Full Stack Developer passionate about building accessible, pixel-perfect, and performant web applications.",
     siteName: "Dhananjay R Portfolio",
     images: [
       {
@@ -55,7 +53,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Dhananjay R | Full Stack Developer",
     description:
-      "Portfolio of Dhananjay R, an aspiring Full Stack Developer passionate about building accessible, pixel-perfect, and performant web applications.",
+      "Hey! I'm Dhananjay R, an aspiring Full Stack Developer passionate about building accessible, pixel-perfect, and performant web applications.",
     images: ["/profile1.png"],
     creator: "@dhananjayr", // Update with actual twitter handle if known
   },
@@ -72,15 +70,6 @@ export const metadata = {
   },
   alternates: {
     canonical: siteUrl,
-  },
-  icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
-    other: {
-      rel: "apple-touch-icon-precomposed",
-      url: "/favicon.png",
-    },
   },
 };
 export default function RootLayout({ children }) {
@@ -125,12 +114,12 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <SmoothScroll>
+         
             <Navbar />
             <ScrollToTop />
             {children}
             <Analytics />
-          </SmoothScroll>
+         
         </ThemeProvider>
       </body>
     </html>

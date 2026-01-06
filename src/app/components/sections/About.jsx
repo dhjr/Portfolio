@@ -72,7 +72,7 @@ export default function About() {
                   <Zap size={20} />
                 </span>
                 <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300 font-1spaceGrotesk">
-                  Exploring Tech
+                  Exploring Backend Development 
                 </span>
               </div>
             </div>
