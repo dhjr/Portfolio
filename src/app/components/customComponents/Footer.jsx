@@ -117,7 +117,7 @@ export default function Footer() {
                     key={social.label}
                     href={social.url}
                     target="_blank"
-                    className="group relative flex w-fit items-center justify-center overflow-hidden rounded-full p-1px mt-2 transition-transform duration-300 hover:scale-[1.02] focus:outline-none bg-linear-to-r from-amber-500 via-orange-500 to-red-500 h-14"
+                    className="group relative flex w-fit items-center justify-center overflow-hidden rounded-full p-[1px] mt-2 transition-transform duration-300 hover:scale-[1.02] focus:outline-none bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 h-14"
                   >
                     <span className="inline-flex h-full w-full items-center justify-center gap-2 rounded-full bg-zinc-50 dark:bg-zinc-950 px-5 text-sm font-bold text-zinc-700 dark:text-zinc-200 transition-all group-hover:bg-white dark:group-hover:bg-zinc-900 group-hover:text-amber-600 dark:group-hover:text-amber-500">
                       <Image
