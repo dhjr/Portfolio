@@ -217,7 +217,7 @@ export default function Projects() {
                     {project.tags.map((tag, i) => (
                       <span
                         key={i}
-                        className="text-xs font-mono font-medium px-3 py-1 rounded-lg border border-zinc-200 dark:border-zinc-700/50 bg-white dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 group-hover:border-emerald-500/30 transition-colors"
+                        className="text-[10px] font-mono font-medium px-3 py-1 rounded-lg border border-zinc-200 dark:border-zinc-700/50 bg-white dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 group-hover:border-emerald-500/30 transition-colors"
                       >
                         {tag}
                       </span>
@@ -232,7 +232,7 @@ export default function Projects() {
       target="_blank"
       rel="noreferrer"
       aria-label={`View source code for ${project.heading}`}
-      className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-600 dark:hover:text-white transition-all duration-300 group/btn"
+      className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-600 dark:hover:text-white hover:border-emerald-500 dark:hover:border-emerald-600 transition-all duration-300 group/btn"
     >
       <Github size={18} className="group-hover/btn:scale-110 transition-transform" />
       <span>Source</span>

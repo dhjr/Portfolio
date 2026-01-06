@@ -9,7 +9,7 @@ export default function Popup({ message, showPopup }) {
         rounded-r-lg rounded-l-sm 
         
         /* Glass & Colors */
-        bg-zinc-50 dark:bg-zinc-950/80 backdrop-blur-xl
+        bg-zinc-50 dark:bg-zinc-950/80
         border border-white/5 border-l-4 border-l-emerald-500
         shadow-[0_8px_30px_rgb(0,0,0,0.5)] 
 

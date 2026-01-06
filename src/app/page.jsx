@@ -21,14 +21,16 @@ export default function Home() {
         {/* Global Mesh Background for all sections below Hero */}
         <MeshBackground />
         
-        <About />
-        <Videos />
-        <Projects />
-        <Experience />
-        <Skills />
-        <Education />
-        <Contact />
-        <Footer />
+        <div className="content-visibility-auto">
+          <About />
+          <Videos />
+          <Projects />
+          <Experience />
+          <Skills />
+          <Education />
+          <Contact />
+          <Footer />
+        </div>
       </div>
     </main>
   );

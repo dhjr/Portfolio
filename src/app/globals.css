@@ -19,132 +19,6 @@
 
 
 
-/* Kept your existing ball animations */
-.ball {
-  --delay: 0s;
-  --size: 0.4;
-  --speed: 20s;
-
-  aspect-ratio: 1;
-  width: calc(150% * var(--size));
-
-  background: linear-gradient(259.53deg, #0a3fff 6.53%, #f55f0a 95.34%);
-  filter: blur(10vw);
-
-  border-radius: 50%;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  animation: loop var(--speed) infinite linear;
-  animation-delay: var(--delay);
-  transform-origin: 50% 50%;
-
-  opacity: 0.6;
-}
-
-@keyframes loop {
-  0% {
-    transform: translate3D(0%, 51%, 0) rotate(0deg);
-  }
-  5% {
-    transform: translate3D(8%, 31%, 0) rotate(18deg);
-  }
-  10% {
-    transform: translate3D(22%, 13%, 0) rotate(36deg);
-  }
-  15% {
-    transform: translate3D(40%, 2%, 0) rotate(54deg);
-  }
-  20% {
-    transform: translate3D(46%, 21%, 0) rotate(72deg);
-  }
-  25% {
-    transform: translate3D(50%, 47%, 0) rotate(90deg);
-  }
-  30% {
-    transform: translate3D(53%, 80%, 0) rotate(108deg);
-  }
-  35% {
-    transform: translate3D(59%, 98%, 0) rotate(125deg);
-  }
-  40% {
-    transform: translate3D(84%, 89%, 0) rotate(144deg);
-  }
-  45% {
-    transform: translate3D(92%, 68%, 0) rotate(162deg);
-  }
-  50% {
-    transform: translate3D(99%, 47%, 0) rotate(180deg);
-  }
-  55% {
-    transform: translate3D(97%, 21%, 0) rotate(198deg);
-  }
-  60% {
-    transform: translate3D(80%, 7%, 0) rotate(216deg);
-  }
-  65% {
-    transform: translate3D(68%, 25%, 0) rotate(234deg);
-  }
-  70% {
-    transform: translate3D(59%, 41%, 0) rotate(251deg);
-  }
-  75% {
-    transform: translate3D(50%, 63%, 0) rotate(270deg);
-  }
-  80% {
-    transform: translate3D(38%, 78%, 0) rotate(288deg);
-  }
-  85% {
-    transform: translate3D(21%, 92%, 0) rotate(306deg);
-  }
-  90% {
-    transform: translate3D(3%, 79%, 0) rotate(324deg);
-  }
-  100% {
-    transform: translate3D(0%, 51%, 0) rotate(360deg);
-  }
-}
-
-.glow-container {
-  overflow-x: hidden;
-  overflow-y: hidden;
-  position: fixed;
-  width: 100%;
-  min-height: 100dvh;
-}
-
-@keyframes spin-reverse {
-  to {
-    transform: rotate(-360deg);
-  }
-}
-
-@keyframes drift-spin {
-  0% {
-    transform: translateX(-20vw) rotate(0deg);
-  }
-  100% {
-    transform: translateX(120vw) rotate(360deg);
-  }
-}
-
-.button-border-draw {
-  position: relative;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  background: conic-gradient(#10b981 0% 0%, transparent 0% 100%) top/0% 2px
-      no-repeat,
-    conic-gradient(#10b981 0% 0%, transparent 0% 100%) right/2px 0% no-repeat,
-    conic-gradient(#10b981 0% 0%, transparent 0% 100%) bottom/0% 2px no-repeat,
-    conic-gradient(#10b981 0% 0%, transparent 0% 100%) left/2px 0% no-repeat;
-  transition: background-size 1s linear;
-}
-
-.button-border-draw:hover {
-  background-size: 100% 2px, 2px 100%, 100% 2px, 2px 100%;
-}
 
 @keyframes grid-pan {
   0% {
@@ -188,4 +62,10 @@
 
 .animate-marquee:has(> *:hover) {
   animation-play-state: paused;
+}
+
+/* UTILITIES */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 1000px; /* Estimates height to prevent scroll jumps */
 }

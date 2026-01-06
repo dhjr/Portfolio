@@ -32,7 +32,7 @@ export default function Experience() {
               <div className="absolute -inset-[200%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0deg,transparent_60deg,#10b981_90deg,transparent_120deg,transparent_360deg)] will-change-transform opacity-100" />
             </div>
             
-            <div className="relative h-full bg-white/95 backdrop-blur-md dark:bg-zinc-900/90 rounded-[23px] p-8 border border-zinc-200 dark:border-transparent">
+            <div className="relative h-full bg-white/95 dark:bg-zinc-900/90 rounded-[23px] p-8 border border-zinc-200 dark:border-transparent">
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
               <Cpu size={120} />
             </div>
@@ -137,7 +137,7 @@ AI-powered Chrome extension to bridge the gap between watching tutorials and act
                 <div className="absolute -inset-[200%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0deg,transparent_60deg,#3b82f6_90deg,transparent_120deg,transparent_360deg)] will-change-transform opacity-100" />
               </div>
              
-            <div className="relative h-full rounded-[23px] bg-white/95 backdrop-blur-md dark:bg-zinc-900/90 p-8 border border-zinc-200 dark:border-transparent">
+            <div className="relative h-full rounded-[23px] bg-white/95 dark:bg-zinc-900/90 p-8 border border-zinc-200 dark:border-transparent">
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
               <Globe size={120} />
             </div>
@@ -216,7 +216,7 @@ AI-powered Chrome extension to bridge the gap between watching tutorials and act
                 <div className="absolute -inset-[200%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0deg,transparent_60deg,#f97316_90deg,transparent_120deg,transparent_360deg)] will-change-transform opacity-100" />
               </div>
              
-            <div className="relative h-full rounded-[23px] bg-linear-to-br from-white to-zinc-50 backdrop-blur-md dark:from-zinc-900/90 dark:to-zinc-900/50 p-8 flex flex-col justify-center border border-zinc-200 dark:border-transparent">
+            <div className="relative h-full rounded-[23px] bg-linear-to-br from-white to-zinc-50 dark:from-zinc-900/90 dark:to-zinc-900/50 p-8 flex flex-col justify-center border border-zinc-200 dark:border-transparent">
             <div className="flex items-center gap-3 mb-4">
               <span className="p-2 rounded-lg bg-orange-100 text-orange-600 dark:bg-orange-500/20 dark:text-orange-400">
                 <Users size={20} />

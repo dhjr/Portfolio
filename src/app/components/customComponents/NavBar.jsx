@@ -31,17 +31,20 @@ export default function Navbar() {
     };
   }, [isMobileMenuOpen]);
 
-  // --- OPTIMIZED SCROLL SPY WITH INTERSECTION OBSERVER ---
+  // --- OPTIMIZED SCROLL & ACTIVE SECTION SPY ---
   useEffect(() => {
-    // 1. Lightweight scroll handler for navbar background only
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    // 1. Sentinel Observer for Navbar Background (Replaces scroll event)
+    const sentinelEl = document.getElementById("navbar-sentinel");
+    const sentinelObserver = new IntersectionObserver(
+      ([entry]) => {
+        setScrolled(!entry.isIntersecting);
+      },
+      { root: null, threshold: 0 }
+    );
+    if (sentinelEl) sentinelObserver.observe(sentinelEl);
 
     // 2. IntersectionObserver for Active Section Tracking
-    const observerOptions = {
+    const sectionObserverOptions = {
       root: null,
       rootMargin: "-45% 0px -45% 0px", // Active when element is in the middle 10% of screen
       threshold: 0,
@@ -55,20 +58,21 @@ export default function Navbar() {
       });
     };
 
-    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+    const sectionObserver = new IntersectionObserver(
+      handleIntersect,
+      sectionObserverOptions
+    );
 
     // Observe all sections
     navLinks.forEach((link) => {
       const id = link.href.substring(1);
       const element = document.getElementById(id);
-      if (element) observer.observe(element);
+      if (element) sectionObserver.observe(element);
     });
 
-    handleScroll(); // Initial check
-
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      observer.disconnect();
+      if (sentinelEl) sentinelObserver.disconnect();
+      sectionObserver.disconnect();
     };
   }, []);
 
@@ -137,6 +141,9 @@ export default function Navbar() {
 
   return (
     <>
+      {/* 0. SCROLL SENTINEL - Tracks when page is scrolled */}
+      <div id="navbar-sentinel" className="absolute top-0 w-full h-[1px] pointer-events-none bg-transparent" />
+
       {/* --- DESKTOP NAVBAR --- */}
       {/* Top Gradient for Desktop Visibility */}
       <div 
