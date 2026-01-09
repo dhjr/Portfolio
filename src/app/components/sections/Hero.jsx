@@ -85,7 +85,7 @@ export default function Hero() {
           </button>
 
           <a
-            href="/resume.pdf"
+            href="https://drive.google.com/file/d/13UrN3RUdDW07Dl5i4YZB4nEqMwGuadMe/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="

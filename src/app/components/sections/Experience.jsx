@@ -60,7 +60,7 @@ export default function Experience() {
 </p>
 
                 <a 
-                  href="/IIIT_Report.pdf" 
+                  href="https://drive.google.com/file/d/1WckhjFNDy4Fx0t84xtC9ATofwGcOtQ2n/view?usp=sharing" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-medium text-sm hover:bg-emerald-100 dark:hover:bg-emerald-500/20 transition-colors w-fit"
