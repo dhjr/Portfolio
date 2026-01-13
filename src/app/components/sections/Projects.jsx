@@ -121,7 +121,7 @@ const ProjectCard = ({ project }) => {
                     animate="center"
                     exit="exit"
                     transition={{
-                        x: { type: "spring", stiffness: 300, damping: 30 },
+                        x: { type: "spring", stiffness: 150, damping: 30 },
                         opacity: { duration: 0.2 }
                     }}
                     className="absolute inset-0 w-full h-full"
@@ -271,8 +271,8 @@ export default function Projects() {
       tags: ["Astro.js", "Swiper", "MUX API", "Tailwind"],
       ghLink: null,
       demoLink: "https://victoriafilm.in",
-      image: "/projects/victoria1.png",
-      images: ["/projects/victoria1.png", "/projects/victoria2.png"],
+      image: "/projects/victoria1.webp",
+      images: ["/projects/victoria1.webp", "/projects/victoria2.webp"],
       status: "Completed",
     },
     {
@@ -283,7 +283,7 @@ export default function Projects() {
       tags: ["Youtube Transcript", "Express.js", "Chrome Extension"],
       ghLink: "https://github.com/dhjr/mentora.ai",
       demoLink: null,
-      images: ["/projects/mentora1-v2.png", "/projects/mentora2-v2.png"],
+      images: ["/projects/mentora1-v2.webp", "/projects/mentora2-v2.webp"],
       status: "Completed",
     },
     {
@@ -294,7 +294,7 @@ export default function Projects() {
       tags: ["PWA", "SEO", "Javascript"],
       ghLink: "https://github.com/dhjr/goblin-ledger/",
       demoLink: "https://dhjr.github.io/goblin-ledger/",
-      images: ["/projects/gl.png", "/projects/goblinLedger2.png"],
+      images: ["/projects/gl.png", "/projects/goblinLedger2.webp"],
       status: "Completed",
     },
     {
@@ -305,7 +305,7 @@ export default function Projects() {
       tags: ["Next.js", "Express.js", "PostgreSQL"],
       ghLink: "https://github.com/dhjr/pakkaran-app",
       demoLink: "https://pakkaran-app.vercel.app/",
-      image: "/projects/serviceWorker.png",
+      image: "/projects/serviceWorker.webp",
       status: "Completed",
     },
 
@@ -339,7 +339,7 @@ export default function Projects() {
       tags: ["Astro.js", "Tailwind", "Freelance"],
       ghLink: "#",
       demoLink: "https://littlehouselondon.netlify.app/",
-      images: ["/projects/lhl.png", "/projects/lhl.webp"],
+      images: ["/projects/lhl.webp", "/projects/lhl.webp"],
       status: "Completed",
     },
     {
@@ -372,7 +372,7 @@ export default function Projects() {
       tags: ["Next.js", "Typescript", "Three.js"],
       ghLink: "#",
       demoLink: "https://www.roboignite.ieeesbrit.com",
-      image: "/projects/roboignite.png",
+      image: "/projects/roboignite.webp",
       status: "Completed",
     },
     {
@@ -383,7 +383,7 @@ export default function Projects() {
       tags: ["HTML", "CSS", "Javascript"],
       ghLink: "#",
       demoLink: "https://rex.ieeesbrit.com/",
-      image: "/projects/rex.png",
+      image: "/projects/rex.webp",
       status: "Completed",
     },
     {
@@ -394,7 +394,7 @@ export default function Projects() {
       tags: ["Next.js", "Tailwind", "Swiper.js"],
       ghLink: "#",
       demoLink: "https://www.ritu25.live/",
-      image: "/projects/ritu.png",
+      image: "/projects/ritu.webp",
       status: "Completed",
     },
   ];
