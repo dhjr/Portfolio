@@ -67,10 +67,10 @@ export default function Hero() {
         </div>
 
         {/* Updated Badge for Light/Dark Mode */}
-        <div className="mb-5 md:mt-4 md:mb-6 px-4 py-1.5 md:py-2 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-full shadow-sm flex items-center justify-center min-w-[280px]">
+        <div className="mb-5 md:mt-4 md:mb-6 px-4 py-1.5 md:py-2 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-full shadow-sm flex items-center justify-center min-w-56">
           <p className="font-1spaceGrotesk text-xs sm:text-sm md:text-lg text-emerald-600 dark:text-emerald-400 flex items-center gap-2">
             <span>&lt;</span>
-            <span className="relative h-[24px] w-[200px] overflow-hidden flex items-center justify-center">
+            <span className="relative h-[24px] w-52 overflow-hidden flex items-center justify-center">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={roleIndex}
