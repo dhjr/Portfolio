@@ -77,7 +77,7 @@ export default function Education() {
                       </span>
                     </div>
 
-                    <div className="text-sm mb-3 font-mono text-zinc-500 dark:text-zinc-400">
+                    <div className="text-sm mb-3 font-mono text-zinc-600 dark:text-zinc-400">
                       {item.institution} • {item.score}
                     </div>
 
@@ -91,7 +91,7 @@ export default function Education() {
                       </div>
                     )}
 
-                    <p className="text-xs  text-zinc-600 dark:text-zinc-400 leading-relaxed font-1spaceGrotesk">
+                    <p className="text-xs  text-zinc-700 dark:text-zinc-400 leading-relaxed font-1spaceGrotesk">
                       {item.description}
                     </p>
                   </div>

@@ -28,7 +28,7 @@ export default function About() {
             </h3>
 
             {/* Split into multiple <p> tags with bold highlights */}
-            <div className="flex flex-col gap-5 text-zinc-600 dark:text-zinc-400 font-1spaceGrotesk leading-relaxed text-base md:text-md">
+            <div className="flex flex-col gap-5 text-zinc-700 dark:text-zinc-300 font-1spaceGrotesk leading-relaxed text-base md:text-md">
               <p>
                 Hey, I&apos;m <span className="text-zinc-900 dark:text-zinc-100 font-semibold">Dhananjay</span>. 
                 I’m a Computer Science student and an aspiring <span className="text-zinc-900 dark:text-zinc-100 font-semibold">Full Stack Developer</span> with a passion for building applications that are as accessible and performant as they are visually striking.
@@ -55,7 +55,7 @@ export default function About() {
                 <span className="p-2 rounded-lg bg-emerald-100 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400">
                   <RefreshCw size={20} />
                 </span>
-                <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300 font-1spaceGrotesk">
+                <span className="text-sm font-bold text-zinc-800 dark:text-zinc-200 font-1spaceGrotesk">
                   Unlearn & Relearn
                 </span>
               </div>
@@ -63,7 +63,7 @@ export default function About() {
                 <span className="p-2 rounded-lg bg-purple-100 text-purple-600 dark:bg-purple-500/10 dark:text-purple-400">
                   <BookOpen size={20} />
                 </span>
-                <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300 font-1spaceGrotesk">
+                <span className="text-sm font-bold text-zinc-800 dark:text-zinc-200 font-1spaceGrotesk">
                   Lifelong Learning
                 </span>
               </div>
@@ -71,7 +71,7 @@ export default function About() {
                 <span className="p-2 rounded-lg bg-blue-100 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400">
                   <Zap size={20} />
                 </span>
-                <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300 font-1spaceGrotesk">
+                <span className="text-sm font-bold text-zinc-800 dark:text-zinc-200 font-1spaceGrotesk">
                   Exploring Backend Development 
                 </span>
               </div>
@@ -95,7 +95,7 @@ export default function About() {
               <h4 className="text-xl font-bold font-1spaceGrotesk text-zinc-900 dark:text-white flex items-center gap-2">
                 Let the Devs Cook
               </h4>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 font-1spaceGrotesk leading-relaxed">
+              <p className="text-sm text-zinc-700 dark:text-zinc-400 font-1spaceGrotesk leading-relaxed">
                Just me and my brother documenting our dev journey. We share what we learn, from exploring simple experiments to new tech.
               </p>
             </div>
@@ -108,7 +108,7 @@ export default function About() {
                   <span className="text-lg font-bold text-zinc-900 dark:text-white font-1spaceGrotesk leading-none">
                     586
                   </span>
-                  <span className="text-[10px] font-bold text-zinc-500 dark:text-zinc-500 uppercase tracking-wider">
+                  <span className="text-[10px] font-bold text-zinc-600 dark:text-zinc-400 uppercase tracking-wider">
                     Subscribers
                   </span>
                 </div>

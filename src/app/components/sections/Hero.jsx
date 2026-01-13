@@ -74,7 +74,7 @@ export default function Hero() {
           >
             <p
               ref={textRef}
-              className="font-1spaceGrotesk text-sm md:text-lg text-zinc-600 dark:text-zinc-300 group-hover:text-black dark:group-hover:text-white truncate max-w-[200px] sm:max-w-none transition-colors"
+              className="font-1spaceGrotesk text-sm md:text-lg text-zinc-700 dark:text-zinc-300 group-hover:text-black dark:group-hover:text-white truncate max-w-[200px] sm:max-w-none transition-colors"
             >
               dhjr.dev@gmail.com
             </p>
@@ -94,7 +94,7 @@ export default function Hero() {
                 bg-white/90 dark:bg-white/5 border border-zinc-300 dark:border-white/10 hover:border-emerald-500 dark:hover:border-emerald-500
               "
           >
-            <p className="font-1spaceGrotesk text-sm md:text-lg text-zinc-600 dark:text-zinc-300 group-hover:text-black dark:group-hover:text-white transition-colors">
+            <p className="font-1spaceGrotesk text-sm md:text-lg text-zinc-700 dark:text-zinc-300 group-hover:text-black dark:group-hover:text-white transition-colors">
               View Resume
             </p>
             <FileText
@@ -114,7 +114,7 @@ export default function Hero() {
       <div
         className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce opacity-50 z-20 select-none pointer-events-none"
       >
-        <span className="text-xs sm:text-sm font-thin font-1spaceGrotesk uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+        <span className="text-xs sm:text-sm font-thin font-1spaceGrotesk uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
           Scroll Down
         </span>
         <ChevronDown className="text-emerald-500" size={24} />

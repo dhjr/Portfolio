@@ -98,7 +98,7 @@ export default function Contact() {
                 <h3 className="text-2xl font-bold font-1boldonse tracking-wide mb-2 text-zinc-900 dark:text-white transition-colors">
                   Let's Connect
                 </h3>
-                <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400 font-1spaceGrotesk">
+                <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-1spaceGrotesk">
                   Got an idea? Let's get in touch :)
                 </p>
               </div>
@@ -111,7 +111,7 @@ export default function Contact() {
                   </label>
                   <a
                     href="mailto:dhjr.dev@gmail.com"
-                    className="flex items-center gap-3 transition-colors text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white"
+                    className="flex items-center gap-3 transition-colors text-zinc-800 hover:text-black dark:text-zinc-300 dark:hover:text-white"
                   >
                     <Mail size={18} />
                     <span className="font-1spaceGrotesk text-lg">dhjr.dev@gmail.com</span>
@@ -170,7 +170,7 @@ export default function Contact() {
             <form ref={formRef} onSubmit={sendEmail} className="space-y-6 md:space-y-10">
               {/* NAME INPUT */}
               <div className="group relative">
-                <label className="text-xs font-mono mb-2 block transition-colors text-zinc-500 group-focus-within:text-emerald-600 dark:group-focus-within:text-emerald-500">
+                <label className="text-xs font-mono mb-2 block transition-colors text-zinc-600 group-focus-within:text-emerald-600 dark:text-zinc-400 dark:group-focus-within:text-emerald-500">
                    ENTER_NAME <span className="text-rose-500">*</span>
                 </label>
                 <input
@@ -180,7 +180,7 @@ export default function Contact() {
                   placeholder="John Doe"
                   className="
                     w-full bg-transparent border-b py-3 transition-all focus:outline-none 
-                    border-zinc-300 text-zinc-900 placeholder:text-zinc-400 focus:border-emerald-500
+                    border-zinc-300 text-zinc-900 placeholder:text-zinc-500 focus:border-emerald-500
                     dark:border-zinc-800 dark:text-white dark:placeholder:text-zinc-700/50 dark:focus:border-emerald-500
                   "
                 />
@@ -188,7 +188,7 @@ export default function Contact() {
 
               {/* EMAIL INPUT */}
               <div className="group relative">
-                <label className="text-xs font-mono mb-2 block transition-colors text-zinc-500 group-focus-within:text-emerald-600 dark:group-focus-within:text-emerald-500">
+                <label className="text-xs font-mono mb-2 block transition-colors text-zinc-600 group-focus-within:text-emerald-600 dark:text-zinc-400 dark:group-focus-within:text-emerald-500">
                    ENTER_EMAIL <span className="text-rose-500">*</span>
                 </label>
                 <input
@@ -198,7 +198,7 @@ export default function Contact() {
                   placeholder="john@example.com"
                   className="
                     w-full bg-transparent border-b py-3 transition-all focus:outline-none 
-                    border-zinc-300 text-zinc-900 placeholder:text-zinc-400 focus:border-emerald-500
+                    border-zinc-300 text-zinc-900 placeholder:text-zinc-500 focus:border-emerald-500
                     dark:border-zinc-800 dark:text-white dark:placeholder:text-zinc-700/50 dark:focus:border-emerald-500
                   "
                 />
@@ -206,7 +206,7 @@ export default function Contact() {
 
               {/* MESSAGE INPUT */}
               <div className="group relative">
-                <label className="text-xs font-mono mb-2 block transition-colors text-zinc-500 group-focus-within:text-emerald-600 dark:group-focus-within:text-emerald-500">
+                <label className="text-xs font-mono mb-2 block transition-colors text-zinc-600 group-focus-within:text-emerald-600 dark:text-zinc-400 dark:group-focus-within:text-emerald-500">
                    EXECUTE_MESSAGE <span className="text-rose-500">*</span>
                 </label>
                 <textarea
@@ -216,7 +216,7 @@ export default function Contact() {
                   placeholder="Tell me about your project..."
                   className="
                     w-full bg-transparent border-b py-3 transition-all focus:outline-none resize-none
-                    border-zinc-300 text-zinc-900 placeholder:text-zinc-400 focus:border-emerald-500
+                    border-zinc-300 text-zinc-900 placeholder:text-zinc-500 focus:border-emerald-500
                     dark:border-zinc-800 dark:text-white dark:placeholder:text-zinc-700/50 dark:focus:border-emerald-500
                   "
                 />

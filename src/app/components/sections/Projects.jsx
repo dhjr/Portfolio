@@ -148,6 +148,9 @@ const ProjectCard = ({ project }) => {
                 </motion.div>
             </AnimatePresence>
             
+            {/* Overlay to prevent interaction/download */}
+            <div className="absolute inset-0 z-10 w-full h-full bg-transparent" onContextMenu={(e) => e.preventDefault()} />
+            
             {/* Slider Controls */}
             {images.length > 1 && (
               <>
@@ -210,7 +213,7 @@ const ProjectCard = ({ project }) => {
           <h3 className="text-2xl lg:text-3xl font-1bricolage font-bold text-zinc-800 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
             {project.heading}
           </h3>
-          <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed font-1spaceGrotesk text-sm lg:text-base">
+          <p className="text-zinc-700 dark:text-zinc-400 leading-relaxed font-1spaceGrotesk text-sm lg:text-base">
             {project.description}
           </p>
         </div>
@@ -221,7 +224,7 @@ const ProjectCard = ({ project }) => {
             {project.tags.map((tag, i) => (
               <span
                 key={i}
-                className="text-xs font-mono font-medium px-3 py-1 rounded-lg border border-zinc-200 dark:border-zinc-700/50 bg-zinc-50 dark:bg-zinc-800/50 text-zinc-500 dark:text-zinc-400"
+                className="text-xs font-mono font-medium px-3 py-1 rounded-lg border border-zinc-200 dark:border-zinc-700/50 bg-zinc-50 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400"
               >
                 {tag}
               </span>
@@ -234,7 +237,7 @@ const ProjectCard = ({ project }) => {
                 href={project.ghLink}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-600 dark:hover:text-white transition-colors"
+                className="p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-400 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-600 dark:hover:text-white transition-colors"
                 aria-label="Source Code"
               >
                 <Github size={20} />

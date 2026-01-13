@@ -52,7 +52,7 @@ const categories = [
     name: "Backend",
     items: [
       { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
-      { name: "Express", icon: SiExpress, color: "text-zinc-500" },
+      { name: "Express", icon: SiExpress, color: "text-zinc-600" },
       { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-400" },
       { name: "MySQL", icon: SiMysql, color: "text-blue-500" },
       { name: "MongoDB", icon: SiMongodb, color: "text-green-500" },
@@ -86,7 +86,7 @@ export default function Skills() {
               {/* Category Label */}
               <div className="flex items-center gap-2 mb-6">
                 <div className="w-1 h-4 bg-emerald-500 rounded-full"></div>
-                <h3 className="text-sm font-1bricolage uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500">
+                <h3 className="text-sm font-1bricolage uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-500">
                   {category.name}
                 </h3>
               </div>
@@ -111,7 +111,7 @@ export default function Skills() {
                       />
                     </div>
 
-                    <span className="text-sm font-1spaceGrotesk font-semibold text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-200 transition-colors text-center px-1 leading-tight">
+                    <span className="text-sm font-1spaceGrotesk font-semibold text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-200 transition-colors text-center px-1 leading-tight">
                       {tech.name}
                     </span>
                   </div>

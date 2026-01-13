@@ -55,7 +55,7 @@ export default function Experience() {
                   IIIT Kottayam • May - Aug 2025
                 </p>
 
-             <p className="font-1spaceGrotesk text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-lg mb-6">
+             <p className="font-1spaceGrotesk text-zinc-700 dark:text-zinc-300 leading-relaxed max-w-lg mb-6">
   Architected a <span className="text-zinc-900 dark:text-zinc-100 font-medium">2D CNN-based model</span> to classify cardiac arrhythmia with high precision. Integrated <span className="text-emerald-500 font-medium">Grad-CAM</span> to visualize decision-making regions, enhancing model transparency for clinical use cases.
 </p>
 
@@ -105,7 +105,7 @@ export default function Experience() {
                   <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
                     Winner - Useless Projects
                   </h4>
-                  <p className="font-1spaceGrotesk text-xs text-zinc-500 mt-1">
+                  <p className="font-1spaceGrotesk text-xs text-zinc-600 dark:text-zinc-400 mt-1">
                     Built a Phaser.js game. Won for creativity.
                   </p>
                 </li>
@@ -113,7 +113,7 @@ export default function Experience() {
                   <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
                     Code-RECET 2.0
                   </h4>
-                  <p className="font-1spaceGrotesk text-xs text-zinc-500 mt-1">
+                  <p className="font-1spaceGrotesk text-xs text-zinc-600 dark:text-zinc-400 mt-1">
 AI-powered Chrome extension to bridge the gap between watching tutorials and active coding.</p>
                 </li>
               </ul>
@@ -165,10 +165,10 @@ AI-powered Chrome extension to bridge the gap between watching tutorials and act
                     </div>
                     IEEE SB RIT
                   </h3>
-                  <p className="text-sm font-mono text-zinc-500 mb-3">
+                  <p className="text-sm font-mono text-zinc-600 dark:text-zinc-400 mb-3">
                     Webmaster • Current
                   </p>
-                  <p className="font-1spaceGrotesk text-sm text-zinc-600 dark:text-zinc-300 mb-4">
+                  <p className="font-1spaceGrotesk text-sm text-zinc-700 dark:text-zinc-300 mb-4">
                     Lead the web team, overseeing the complete web development process, including design, development, and deployment of various websites.
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -187,12 +187,12 @@ AI-powered Chrome extension to bridge the gap between watching tutorials and act
                   <h3 className="text-xl font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
                     RITU Fest
                   </h3>
-                  <p className="text-sm font-mono text-zinc-500 mb-3">
+                  <p className="text-sm font-mono text-zinc-600 dark:text-zinc-400 mb-3">
                     Contributor• 2025
                   </p>
-                  <p className="font-1spaceGrotesk text-sm text-zinc-600 dark:text-zinc-300">
-                    Contributed in the development of the official website for the college's
-                    main techno-cultural fest.
+                  <p className="font-1spaceGrotesk text-sm text-zinc-700 dark:text-zinc-300">
+                     Contributed in the development of the official website for the college's
+                     main techno-cultural fest.
                   </p>
                 </div>
               </div>
@@ -253,7 +253,7 @@ AI-powered Chrome extension to bridge the gap between watching tutorials and act
                       <span className="text-[10px] uppercase tracking-wider font-bold text-zinc-500">
                         Contributor
                       </span>
-                      <span className="text-xs font-1spaceGrotesk text-zinc-600 dark:text-zinc-400">
+                      <span className="text-xs font-1spaceGrotesk text-zinc-700 dark:text-zinc-400">
                         AEB, LKA & Computer Vision
                       </span>
                     </div>
@@ -274,7 +274,7 @@ AI-powered Chrome extension to bridge the gap between watching tutorials and act
                   <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
                     Tinkerhub RIT
                   </h4>
-                  <p className="font-1spaceGrotesk text-xs text-zinc-500">
+                  <p className="font-1spaceGrotesk text-xs text-zinc-600 dark:text-zinc-400">
                     Community Volunteer
                   </p>
                 </div>
