@@ -9,7 +9,7 @@ export default function About() {
       id="about"
       className="pt-12 pb-2 px-4 relative bg-transparent transition-colors duration-300"
     >
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="mb-12">
           <Header name="About" />
         </div>

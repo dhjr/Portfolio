@@ -75,7 +75,7 @@ export default function Skills() {
       id="skills"
       className="py-16 px-4 relative transition-colors duration-300 bg-transparent"
     >
-      <div className="max-w-5xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
         <Header name="Stack" />
 

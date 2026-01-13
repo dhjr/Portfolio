@@ -34,7 +34,7 @@ export default function Videos() {
 
   return (
     <section className="w-full pt-2 pb-12 px-4 relative bg-transparent">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Video Marquee */}
         <div className="w-full overflow-hidden"> 
           {/* Mask for fade edges */}

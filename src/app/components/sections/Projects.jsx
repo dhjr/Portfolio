@@ -124,7 +124,18 @@ const ProjectCard = ({ project }) => {
                         x: { type: "spring", stiffness: 150, damping: 30 },
                         opacity: { duration: 0.2 }
                     }}
-                    className="absolute inset-0 w-full h-full"
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={1}
+                    onDragEnd={(e, { offset, velocity }) => {
+                      const swipe = Math.abs(offset.x) * velocity.x;
+                      if (swipe < -10000) {
+                        setPage(([prevPage, _]) => [prevPage + 1, 1]);
+                      } else if (swipe > 10000) {
+                        setPage(([prevPage, _]) => [prevPage - 1, -1]);
+                      }
+                    }}
+                    className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing"
                 >
                     <Image
                     src={images[imageIndex]}
@@ -263,8 +274,19 @@ export default function Projects() {
   };
 
   const projectsData = [
+
     {
       id: "01",
+      heading: "Mentora.ai",
+      description:
+        "A Chrome extension that fights 'tutorial hell' by assessing your knowledge in real-time.Made as part of the Code-RECET 2.0 Hackathon Hosted by TinkerHub CET",
+      tags: ["Youtube Transcript", "Express.js", "Chrome Extension"],
+      ghLink: "https://github.com/dhjr/mentora.ai",
+      demoLink: null,
+      images: ["/projects/mentora1-v2.webp", "/projects/mentora2-v2.webp"],
+      status: "Completed",
+    },    {
+      id: "02",
       heading: "Victoria Film Official Website",
       description:
         "Portfolio site for Victoria(വിക്ടോറിയ). A KSFDC initiative and IEFFK winner feature film",
@@ -276,17 +298,6 @@ export default function Projects() {
       status: "Completed",
     },
     {
-      id: "02",
-      heading: "Mentora.ai",
-      description:
-        "A Chrome extension that fights 'tutorial hell' by assessing your knowledge in real-time.Made as part of the Code-RECET 2.0 Hackathon Hosted by TinkerHub CET",
-      tags: ["Youtube Transcript", "Express.js", "Chrome Extension"],
-      ghLink: "https://github.com/dhjr/mentora.ai",
-      demoLink: null,
-      images: ["/projects/mentora1-v2.webp", "/projects/mentora2-v2.webp"],
-      status: "Completed",
-    },
-    {
       id: "03",
       heading: "Goblin Ledger",
       description:
@@ -294,7 +305,7 @@ export default function Projects() {
       tags: ["PWA", "SEO", "Javascript"],
       ghLink: "https://github.com/dhjr/goblin-ledger/",
       demoLink: "https://dhjr.github.io/goblin-ledger/",
-      images: ["/projects/gl.png", "/projects/goblinLedger2.webp"],
+      images: ["/projects/goblinLedger1.webp", "/projects/goblinLedger2.webp"],
       status: "Completed",
     },
     {
@@ -317,7 +328,7 @@ export default function Projects() {
       tags: ["Next.js", "Socket.io", "Prisma ORM", "OpenStreetMap"],
       ghLink: "https://github.com/dhjr/groupMapper",
       demoLink: null,
-      image: null,
+      image: "/projects/tripSync.webp",
       status: "In Progress",
     },
     {
@@ -406,7 +417,7 @@ export default function Projects() {
       id="projects"
       className="py-12 md:py-20 px-4 relative bg-transparent transition-colors duration-300"
     >
-      <div className="relative z-10 max-w-5xl mx-auto">
+      <div className="relative z-10 max-w-6xl mx-auto">
         <div className="mb-16">
           <Header name="Projects" />
         </div>

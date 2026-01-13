@@ -68,7 +68,7 @@ export default function Contact() {
       className="w-full min-h-dvh py-10 md:py-24 px-4 relative bg-transparent transition-colors duration-300 overflow-hidden"
     >
 
-      <div className="max-w-5xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* <div className="mb-10">
           <Header name="Contact" />
         </div> */}
