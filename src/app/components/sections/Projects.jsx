@@ -10,11 +10,15 @@ const ProjectCard = ({ project }) => {
   const divRef = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [direction, setDirection] = useState(0); // -1 for left, 1 for right
+  
+  // Use a strictly increasing/decreasing page index to handle infinite pagination
+  const [[page, direction], setPage] = useState([0, 0]);
 
   // Normalize images: accept single `image` or `images` array
   const images = project.images || (project.image ? [project.image] : []);
+
+  // Derive the current image index from the page number
+  const imageIndex = Math.abs(page % images.length);
 
   const handleMouseMove = (e) => {
     if (!divRef.current) return;
@@ -31,8 +35,7 @@ const ProjectCard = ({ project }) => {
     if (images.length <= 1) return;
     
     const interval = setInterval(() => {
-      setDirection(1);
-      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+      setPage(([prevPage, _]) => [prevPage + 1, 1]);
     }, 5000);
 
     return () => clearInterval(interval);
@@ -40,19 +43,17 @@ const ProjectCard = ({ project }) => {
 
   const nextImage = (e) => {
     e?.stopPropagation();
-    setDirection(1);
-    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    setPage(([prevPage, _]) => [prevPage + 1, 1]);
   };
 
   const prevImage = (e) => {
     e?.stopPropagation();
-    setDirection(-1);
-    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+    setPage(([prevPage, _]) => [prevPage - 1, -1]);
   };
   
   const variants = {
     enter: (direction) => ({
-      x: direction > 0 ? 100 : -100,
+      x: direction > 0 ? "100%" : "-100%",
       opacity: 0,
     }),
     center: {
@@ -62,7 +63,7 @@ const ProjectCard = ({ project }) => {
     },
     exit: (direction) => ({
       zIndex: 0,
-      x: direction < 0 ? 100 : -100,
+      x: direction < 0 ? "100%" : "-100%",
       opacity: 0,
     }),
   };
@@ -96,13 +97,24 @@ const ProjectCard = ({ project }) => {
         }}
       />
 
+      {/* STATUS BANNER */}
+      {project.status && (
+        <div className={`absolute top-6 -right-14 z-30 w-52 transform rotate-45 text-center py-1.5 text-[10px] font-bold uppercase tracking-widest shadow-sm ${
+          project.status === 'Completed' 
+            ? 'bg-yellow-400 text-yellow-950' 
+            : 'bg-emerald-500 text-white'
+        }`}>
+          {project.status}
+        </div>
+      )}
+
       {/* IMAGE THUMBNAIL - Full Bleed with Slider */}
       <div className="relative z-10 w-full lg:w-[450px] aspect-video shrink-0 bg-zinc-100 dark:bg-zinc-800/50 border-b lg:border-b-0 lg:border-r border-zinc-200 dark:border-zinc-800 group/image overflow-hidden">
         {images.length > 0 ? (
           <>
-            <AnimatePresence initial={false} custom={direction}>
+            <AnimatePresence initial={false} custom={direction} mode="popLayout">
                 <motion.div 
-                    key={currentImageIndex}
+                    key={page}
                     custom={direction}
                     variants={variants}
                     initial="enter"
@@ -115,12 +127,12 @@ const ProjectCard = ({ project }) => {
                     className="absolute inset-0 w-full h-full"
                 >
                     <Image
-                    src={images[currentImageIndex]}
+                    src={images[imageIndex]}
                     alt={project.heading}
                     fill
                     sizes="(max-width: 768px) 100vw, 450px"
-                    className="object-contain"
-                    priority={currentImageIndex === 0}
+                    className="object-cover"
+                    priority={imageIndex === 0}
                     />
                 </motion.div>
             </AnimatePresence>
@@ -152,11 +164,16 @@ const ProjectCard = ({ project }) => {
                       key={idx}
                       onClick={(e) => {
                           e.stopPropagation();
-                          setDirection(idx > currentImageIndex ? 1 : -1);
-                          setCurrentImageIndex(idx);
+                          // Calculate direction based on difference
+                          const newDir = idx > imageIndex ? 1 : -1;
+                          // Update page to match index but keep monotonic direction loosely
+                          // Actually for dots, just jumping to that index is fine, but we need to update page to be consistent
+                          // Simple trick: update page to be close to current but with correct modulo
+                          const diff = idx - imageIndex;
+                          setPage([page + diff, newDir]);
                       }}
                       className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                        idx === currentImageIndex 
+                        idx === imageIndex 
                           ? "bg-white scale-125 hover:scale-150" 
                           : "bg-white/40 hover:bg-white/80"
                       }`}
@@ -178,7 +195,7 @@ const ProjectCard = ({ project }) => {
 
       {/* CONTENT SECTION */}
       <div className="relative z-10 flex-1 flex flex-col justify-between gap-6 p-6 lg:p-8">
-        <div className="space-y-4">
+        <div className="space-y-4 lg:pr-28">
           <h3 className="text-2xl lg:text-3xl font-1bricolage font-bold text-zinc-800 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
             {project.heading}
           </h3>
@@ -256,6 +273,7 @@ export default function Projects() {
       demoLink: "https://victoriafilm.in",
       image: "/projects/victoria1.png",
       images: ["/projects/victoria1.png", "/projects/victoria2.png"],
+      status: "Completed",
     },
     {
       id: "02",
@@ -265,7 +283,8 @@ export default function Projects() {
       tags: ["Youtube Transcript", "Express.js", "Chrome Extension"],
       ghLink: "https://github.com/dhjr/mentora.ai",
       demoLink: null,
-      image: null,
+      images: ["/projects/mentora1-v2.png", "/projects/mentora2-v2.png"],
+      status: "Completed",
     },
     {
       id: "03",
@@ -275,8 +294,8 @@ export default function Projects() {
       tags: ["PWA", "SEO", "Javascript"],
       ghLink: "https://github.com/dhjr/goblin-ledger/",
       demoLink: "https://dhjr.github.io/goblin-ledger/",
-      images: ["/projects/goblinLedger1.png", "/projects/goblinLedger2.webp"],
-      
+      images: ["/projects/gl.png", "/projects/goblinLedger2.png"],
+      status: "Completed",
     },
     {
       id: "04",
@@ -286,7 +305,8 @@ export default function Projects() {
       tags: ["Next.js", "Express.js", "PostgreSQL"],
       ghLink: "https://github.com/dhjr/pakkaran-app",
       demoLink: "https://pakkaran-app.vercel.app/",
-      image: "/projects/serviceWorker.webp",
+      image: "/projects/serviceWorker.png",
+      status: "Completed",
     },
 
     {
@@ -298,6 +318,7 @@ export default function Projects() {
       ghLink: "https://github.com/dhjr/groupMapper",
       demoLink: null,
       image: null,
+      status: "In Progress",
     },
     {
       id: "06",
@@ -308,6 +329,7 @@ export default function Projects() {
       ghLink: "#",
       demoLink: "https://dhjr.github.io/Useless_project/",
       image: "/projects/rageRoll.webp",
+      status: "Completed",
     },
     {
       id: "07",
@@ -317,7 +339,8 @@ export default function Projects() {
       tags: ["Astro.js", "Tailwind", "Freelance"],
       ghLink: "#",
       demoLink: "https://littlehouselondon.netlify.app/",
-      image: "/projects/lhl.webp",
+      images: ["/projects/lhl.png", "/projects/lhl.webp"],
+      status: "Completed",
     },
     {
       id: "08",
@@ -328,6 +351,7 @@ export default function Projects() {
       ghLink: "https://github.com/dhjr/quicksave",
       demoLink: null,
       image: "/projects/quicksave.webp",
+      status: "Completed",
     },
     {
       id: "09",
@@ -338,6 +362,7 @@ export default function Projects() {
       ghLink: "#",
       demoLink: "https://www.techfuse20.ieeesbrit.com",
       image: "/projects/techfuse.webp",
+      status: "Completed",
     },
     {
       id: "10",
@@ -347,7 +372,8 @@ export default function Projects() {
       tags: ["Next.js", "Typescript", "Three.js"],
       ghLink: "#",
       demoLink: "https://www.roboignite.ieeesbrit.com",
-      image: "/projects/roboignite.webp",
+      image: "/projects/roboignite.png",
+      status: "Completed",
     },
     {
       id: "11",
@@ -357,7 +383,8 @@ export default function Projects() {
       tags: ["HTML", "CSS", "Javascript"],
       ghLink: "#",
       demoLink: "https://rex.ieeesbrit.com/",
-      image: "/projects/rex.webp",
+      image: "/projects/rex.png",
+      status: "Completed",
     },
     {
       id: "12",
@@ -367,7 +394,8 @@ export default function Projects() {
       tags: ["Next.js", "Tailwind", "Swiper.js"],
       ghLink: "#",
       demoLink: "https://www.ritu25.live/",
-      image: "/projects/ritu.webp",
+      image: "/projects/ritu.png",
+      status: "Completed",
     },
   ];
 
