@@ -4,13 +4,29 @@ import HeroImage from "@/components/customComponents/HeroImage";
 import BackgroundWrapper from "@/components/customComponents/BackgroundWrapper";
 import Button from "@/components/customComponents/MacButton";
 import Popup from "@/components/customComponents/Popup";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Hero() {
   const [popup, setPopup] = useState(false);
   const textRef = useRef();
   let timer = null;
+
+  const [roleIndex, setRoleIndex] = useState(0);
+  const roles = [
+    "Full_Stack_Developer",
+    "Frontend_Developer",
+    "FOSS_Enthusiast",
+  ];
+
+  useEffect(() => {
+    const roleTimer = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 3000);
+
+    return () => clearInterval(roleTimer);
+  }, []);
 
   const handleMailClick = () => {
     const mail = textRef.current.textContent;
@@ -51,9 +67,24 @@ export default function Hero() {
         </div>
 
         {/* Updated Badge for Light/Dark Mode */}
-        <div className="mb-5 md:mt-4 md:mb-6 px-4 py-1.5 md:py-2 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-full shadow-sm">
-          <p className="font-1spaceGrotesk text-xs sm:text-sm md:text-xl text-emerald-600 dark:text-emerald-400">
-            &lt; Full_Stack_Developer /&gt;
+        <div className="mb-5 md:mt-4 md:mb-6 px-4 py-1.5 md:py-2 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-full shadow-sm flex items-center justify-center min-w-[280px]">
+          <p className="font-1spaceGrotesk text-xs sm:text-sm md:text-lg text-emerald-600 dark:text-emerald-400 flex items-center gap-2">
+            <span>&lt;</span>
+            <span className="relative h-[24px] w-[200px] overflow-hidden flex items-center justify-center">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={roleIndex}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute"
+                >
+                   {roles[roleIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
+            <span>/&gt;</span>
           </p>
         </div>
 

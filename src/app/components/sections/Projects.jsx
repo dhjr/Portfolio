@@ -3,22 +3,24 @@
 import { Github, ExternalLink, FolderGit, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Header from "@/components/customComponents/SectionHeader";
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+
+import { useState, useRef } from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation, Autoplay, EffectFade } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-fade';
+
+
+
 
 const ProjectCard = ({ project }) => {
   const divRef = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [opacity, setOpacity] = useState(0);
   
-  // Use a strictly increasing/decreasing page index to handle infinite pagination
-  const [[page, direction], setPage] = useState([0, 0]);
-
   // Normalize images: accept single `image` or `images` array
   const images = project.images || (project.image ? [project.image] : []);
-
-  // Derive the current image index from the page number
-  const imageIndex = Math.abs(page % images.length);
 
   const handleMouseMove = (e) => {
     if (!divRef.current) return;
@@ -27,53 +29,10 @@ const ProjectCard = ({ project }) => {
     setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   };
 
-  const handleMouseEnter = () => setOpacity(1);
-  const handleMouseLeave = () => setOpacity(0);
-
-  // Auto-switch images every 5 seconds
-  useEffect(() => {
-    if (images.length <= 1) return;
-    
-    const interval = setInterval(() => {
-      setPage(([prevPage, _]) => [prevPage + 1, 1]);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [images.length]);
-
-  const nextImage = (e) => {
-    e?.stopPropagation();
-    setPage(([prevPage, _]) => [prevPage + 1, 1]);
-  };
-
-  const prevImage = (e) => {
-    e?.stopPropagation();
-    setPage(([prevPage, _]) => [prevPage - 1, -1]);
-  };
-  
-  const variants = {
-    enter: (direction) => ({
-      x: direction > 0 ? "100%" : "-100%",
-      opacity: 0,
-    }),
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction) => ({
-      zIndex: 0,
-      x: direction < 0 ? "100%" : "-100%",
-      opacity: 0,
-    }),
-  };
-
   return (
     <div
       ref={divRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       className="group relative flex flex-col lg:flex-row gap-0 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 overflow-hidden transition-all duration-300 hover:shadow-xl dark:hover:shadow-emerald-900/10"
     >
       {/* GLOW EFFECT LAYER */}
@@ -108,94 +67,59 @@ const ProjectCard = ({ project }) => {
         </div>
       )}
 
-      {/* IMAGE THUMBNAIL - Full Bleed with Slider */}
+      {/* IMAGE THUMBNAIL - Full Bleed with Swiper */}
       <div className="relative z-10 w-full lg:w-[450px] aspect-video shrink-0 bg-zinc-100 dark:bg-zinc-800/50 border-b lg:border-b-0 lg:border-r border-zinc-200 dark:border-zinc-800 group/image overflow-hidden">
         {images.length > 0 ? (
           <>
-            <AnimatePresence initial={false} custom={direction} mode="popLayout">
-                <motion.div 
-                    key={page}
-                    custom={direction}
-                    variants={variants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    transition={{
-                        x: { type: "spring", stiffness: 150, damping: 30 },
-                        opacity: { duration: 0.2 }
-                    }}
-                    drag="x"
-                    dragConstraints={{ left: 0, right: 0 }}
-                    dragElastic={1}
-                    onDragEnd={(e, { offset, velocity }) => {
-                      const swipe = Math.abs(offset.x) * velocity.x;
-                      if (swipe < -10000) {
-                        setPage(([prevPage, _]) => [prevPage + 1, 1]);
-                      } else if (swipe > 10000) {
-                        setPage(([prevPage, _]) => [prevPage - 1, -1]);
-                      }
-                    }}
-                    className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing"
-                >
-                    <Image
-                    src={images[imageIndex]}
-                    alt={project.heading}
+            <Swiper
+              modules={[Pagination, Navigation, Autoplay, EffectFade]}
+              effect={'fade'}
+              spaceBetween={0}
+              slidesPerView={1}
+              loop={images.length > 1}
+              allowTouchMove={images.length > 1}
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+                stopOnLastSlide: images.length === 1,
+              }}
+              pagination={{ 
+                clickable: true,
+                dynamicBullets: true,
+              }}
+              navigation={{
+                nextEl: `.swiper-button-next-${project.id}`,
+                prevEl: `.swiper-button-prev-${project.id}`,
+              }}
+              className="w-full h-full"
+            >
+              {images.map((img, idx) => (
+                <SwiperSlide key={idx} className="relative w-full h-full">
+                  <Image
+                    src={img}
+                    alt={`${project.heading} - Image ${idx + 1}`}
                     fill
                     sizes="(max-width: 768px) 100vw, 450px"
                     className="object-cover"
-                    priority={imageIndex === 0}
-                    />
-                </motion.div>
-            </AnimatePresence>
-            
-            {/* Overlay to prevent interaction/download */}
-            <div className="absolute inset-0 z-10 w-full h-full bg-transparent" onContextMenu={(e) => e.preventDefault()} />
-            
-            {/* Slider Controls */}
-            {images.length > 1 && (
-              <>
-                {/* Arrows - Visible on hover */}
-                <button 
-                  onClick={prevImage}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/20 hover:bg-black/40 text-white opacity-0 group-hover/image:opacity-100 transition-all duration-300 backdrop-blur-sm z-20"
-                  aria-label="Previous image"
-                >
-                  <ChevronLeft size={16} />
-                </button>
-                
-                <button 
-                  onClick={nextImage}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/20 hover:bg-black/40 text-white opacity-0 group-hover/image:opacity-100 transition-all duration-300 backdrop-blur-sm z-20"
-                  aria-label="Next image"
-                >
-                  <ChevronRight size={16} />
-                </button>
-
-                {/* Pagination Dots */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-                  {images.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={(e) => {
-                          e.stopPropagation();
-                          // Calculate direction based on difference
-                          const newDir = idx > imageIndex ? 1 : -1;
-                          // Update page to match index but keep monotonic direction loosely
-                          // Actually for dots, just jumping to that index is fine, but we need to update page to be consistent
-                          // Simple trick: update page to be close to current but with correct modulo
-                          const diff = idx - imageIndex;
-                          setPage([page + diff, newDir]);
-                      }}
-                      className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                        idx === imageIndex 
-                          ? "bg-white scale-125 hover:scale-150" 
-                          : "bg-white/40 hover:bg-white/80"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
+                    priority={idx === 0}
+                  />
+                   {/* Overlay inside slide to protect image from interaction/download */}
+                   <div className="absolute inset-0 z-10 w-full h-full bg-transparent" onContextMenu={(e) => e.preventDefault()} />
+                </SwiperSlide>
+              ))}
+              
+              {/* Custom Navigation Buttons (Visible on Hover) */}
+              {images.length > 1 && (
+                <>
+                   <div className={`swiper-button-prev-${project.id} select-none absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-zinc-800 text-white z-20 cursor-pointer opacity-0 group-hover/image:opacity-100 transition-all duration-300 flex items-center justify-center hover:bg-zinc-700`}>
+                     <ChevronLeft size={16} />
+                   </div>
+                   <div className={`swiper-button-next-${project.id} select-none absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-zinc-800 text-white z-20 cursor-pointer opacity-0 group-hover/image:opacity-100 transition-all duration-300 flex items-center justify-center hover:bg-zinc-700`}>
+                     <ChevronRight size={16} />
+                   </div>
+                </>
+              )}
+            </Swiper>
           </>
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
@@ -210,7 +134,7 @@ const ProjectCard = ({ project }) => {
       {/* CONTENT SECTION */}
       <div className="relative z-10 flex-1 flex flex-col justify-between gap-6 p-6 lg:p-8">
         <div className="space-y-4 lg:pr-28">
-          <h3 className="text-2xl lg:text-3xl font-1bricolage font-bold text-zinc-800 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+          <h3 className="select-none text-2xl lg:text-3xl font-1bricolage font-bold text-zinc-800 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
             {project.heading}
           </h3>
           <p className="text-zinc-700 dark:text-zinc-400 leading-relaxed font-1spaceGrotesk text-sm lg:text-base">
@@ -282,8 +206,8 @@ export default function Projects() {
       id: "01",
       heading: "Mentora.ai",
       description:
-        "A Chrome extension that fights 'tutorial hell' by assessing your knowledge in real-time.Made as part of the Code-RECET 2.0 Hackathon Hosted by TinkerHub CET",
-      tags: ["Youtube Transcript", "Express.js", "Chrome Extension"],
+        "A Chrome extension that fights 'tutorial hell' by assessing your knowledge in fixed intervals. Made as part of the Code-RECET 2.0 hackathon hosted by TinkerHub CET",
+      tags: ["API Integration", "Express.js", "Chrome Extension"],
       ghLink: "https://github.com/dhjr/mentora.ai",
       demoLink: null,
       images: ["/projects/mentora1-v2.webp", "/projects/mentora2-v2.webp"],
@@ -292,7 +216,7 @@ export default function Projects() {
       id: "02",
       heading: "Victoria Film Official Website",
       description:
-        "Portfolio site for Victoria(വിക്ടോറിയ). A KSFDC initiative and IEFFK winner feature film",
+        "Official website for Victoria(വിക്ടോറിയ) feature film. A KSFDC initiative and IEFFK winner movie",
       tags: ["Astro.js", "Swiper", "MUX API", "Tailwind"],
       ghLink: null,
       demoLink: "https://victoriafilm.in",
@@ -315,9 +239,9 @@ export default function Projects() {
       id: "04",
       heading: "Service Dashboard",
       description:
-        "A full-stack service provider application with features like user authentication, service listing, booking.",
+        "A full-stack service provider application with features like user authentication, service listing and booking.",
       tags: ["Next.js", "Express.js", "PostgreSQL"],
-      ghLink: "https://github.com/dhjr/pakkaran-app",
+      ghLink: "https://github.com/dhjr/         karan-app",
       demoLink: "https://pakkaran-app.vercel.app/",
       image: "/projects/serviceWorker.webp",
       status: "Completed",
@@ -327,7 +251,7 @@ export default function Projects() {
       id: "05",
       heading: "TripSync",
       description:
-        "Collaborative travel planning application allowing groups to coordinate itineraries in real-time.",
+        "A real-time collaborative travel planner enabling multi-user location sharing and live updates via WebSockets and OpenStreetMap integration.",
       tags: ["Next.js", "Socket.io", "Prisma ORM", "OpenStreetMap"],
       ghLink: "https://github.com/dhjr/groupMapper",
       demoLink: null,
@@ -338,8 +262,8 @@ export default function Projects() {
       id: "06",
       heading: "Rage Roll",
       description:
-        "Physics-based browser game built with Phaser.js for the 'Useless Projects' hackathon hosted by Tinkerhub.",
-      tags: ["Phaser.js", "JavaScript", "Game Dev"],
+        "A physics-driven web game developed with Phaser.js. Built for the Tinkerhub RIT 'Useless Projects' hackathon, focusing on complex collision logic and browser-based rendering.",
+      tags: ["Phaser.js", "JavaScript", "Game Development"],
       ghLink: "#",
       demoLink: "https://dhjr.github.io/Useless_project/",
       image: "/projects/rageRoll.webp",
@@ -349,8 +273,8 @@ export default function Projects() {
       id: "07",
       heading: "Little House London",
       description:
-        "Website designed for a UK based client, who runs a miniature model business.Responsive and elegant design with focus on SEO and performance.",
-      tags: ["Astro.js", "Tailwind", "Freelance"],
+        "A freelance commercial project for a UK-based client. Delivered a responsive, SEO-optimized landing page with high Core Web Vitals scores to enhance business visibility.",
+      tags: ["Astro.js", "Tailwind", "SEO","UI/UX"],
       ghLink: "#",
       demoLink: "https://littlehouselondon.netlify.app/",
       images: ["/projects/lhl.webp", "/projects/lhl.webp"],
@@ -360,7 +284,7 @@ export default function Projects() {
       id: "08",
       heading: "Quicksave",
       description:
-        "A lightweight browser utility for saving and organizing snippets and links efficiently.",
+        "A productivity-focused browser utility that streamlines workflow by allowing instant image downloads in multiple formats, bypassing standard conversion steps.",
       tags: ["Browser Ext", "JavaScript", "Local Storage"],
       ghLink: "https://github.com/dhjr/quicksave",
       demoLink: null,
@@ -371,8 +295,8 @@ export default function Projects() {
       id: "09",
       heading: "Techfuse 2.0",
       description:
-        "Official website for IEEE SPS SBC RIT flagship event. Led the team on timely updation and deployment.",
-      tags: ["Next.js", "Vercel", "Webmaster"],
+        "Led the development and deployment of the flagship event website for IEEE SPS SBC RIT, ensuring timely updates.",
+      tags: ["Next.js", "Vercel", "IEEE"],
       ghLink: "#",
       demoLink: "https://www.techfuse20.ieeesbrit.com",
       image: "/projects/techfuse.webp",
@@ -382,7 +306,7 @@ export default function Projects() {
       id: "10",
       heading: "Roboignite",
       description:
-        "Lead developer of official website for IEEE RAS SBC RIT in collaboration with IEEE RAS Kerala Chapter.",
+        "Developed the Roboignite official website hosted by IEEE RAS SBC RIT. Integrated 3D elements using Three.js to provide an immersive user experience.",
       tags: ["Next.js", "Typescript", "Three.js"],
       ghLink: "#",
       demoLink: "https://www.roboignite.ieeesbrit.com",

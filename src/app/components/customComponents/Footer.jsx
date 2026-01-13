@@ -163,7 +163,7 @@ export default function Footer() {
           dark:border-zinc-800 dark:text-zinc-600
         "
         >
-          <p>© 2025 Dhananjay R.</p>
+          <p>© {new Date().getFullYear()} Dhananjay R.</p>
           <p>Designed & Built with React & Tailwind</p>
         </div>
       </div>
