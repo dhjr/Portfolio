@@ -83,12 +83,12 @@ export default function About() {
         {/* YouTube Channel Promo */}
         <div className="mt-20 group relative rounded-3xl bg-white/90 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 p-6 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-black/5 dark:shadow-md hover:shadow-2xl dark:hover:shadow-red-900/10 transition-all duration-300">
           <div className="flex items-center gap-5 w-full md:w-auto">
-            <div className="relative w-16 h-16 shrink-0 rounded-full overflow-hidden border-2 border-zinc-100 dark:border-zinc-700 shadow-sm group-hover:scale-110 transition-transform duration-300">
+            <div className="relative w-16 h-16 shrink-0 rounded-full overflow-hidden border-2 border-black dark:border-white shadow-sm group-hover:scale-110 transition-transform duration-300">
              <Image
                 src="/ltdc.webp"
                 alt="Let the Devs Cook Logo"
                 fill
-                className="object-cover"
+                className="object-cover "
               />
             </div>
             <div className="flex flex-col">
@@ -96,14 +96,14 @@ export default function About() {
                 Let the Devs Cook
               </h4>
               <p className="text-sm text-zinc-600 dark:text-zinc-400 font-1spaceGrotesk leading-relaxed">
-                Dishing out fresh front-end content to a global, organic community of developers.
+               Just me and my brother documenting our dev journey. We share what we learn, from exploring simple experiments to new tech.
               </p>
             </div>
           </div>
 
           <div className="w-full md:w-auto flex flex-col sm:flex-row items-center justify-between md:justify-end gap-4">
              {/* Stats */}
-            <div className="hidden sm:flex items-center gap-4 px-5 py-3 rounded-2xl bg-white dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800">
+            <div className="hidden sm:flex items-center gap-4 px-5 py-3 rounded-2xl bg-white dark:bg-zinc-900/50 border border-zinc-300 dark:border-zinc-500">
                 <div className="flex flex-col">
                   <span className="text-lg font-bold text-zinc-900 dark:text-white font-1spaceGrotesk leading-none">
                     586

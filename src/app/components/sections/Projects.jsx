@@ -1,9 +1,234 @@
 "use client";
 
-import { Github, ExternalLink, FolderGit } from "lucide-react";
+import { Github, ExternalLink, FolderGit, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Header from "@/components/customComponents/SectionHeader";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const ProjectCard = ({ project }) => {
+  const divRef = useRef(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [opacity, setOpacity] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [direction, setDirection] = useState(0); // -1 for left, 1 for right
+
+  // Normalize images: accept single `image` or `images` array
+  const images = project.images || (project.image ? [project.image] : []);
+
+  const handleMouseMove = (e) => {
+    if (!divRef.current) return;
+    const div = divRef.current;
+    const rect = div.getBoundingClientRect();
+    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  const handleMouseEnter = () => setOpacity(1);
+  const handleMouseLeave = () => setOpacity(0);
+
+  // Auto-switch images every 5 seconds
+  useEffect(() => {
+    if (images.length <= 1) return;
+    
+    const interval = setInterval(() => {
+      setDirection(1);
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  const nextImage = (e) => {
+    e?.stopPropagation();
+    setDirection(1);
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = (e) => {
+    e?.stopPropagation();
+    setDirection(-1);
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+  
+  const variants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 100 : -100,
+      opacity: 0,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction) => ({
+      zIndex: 0,
+      x: direction < 0 ? 100 : -100,
+      opacity: 0,
+    }),
+  };
+
+  return (
+    <div
+      ref={divRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="group relative flex flex-col lg:flex-row gap-0 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 overflow-hidden transition-all duration-300 hover:shadow-xl dark:hover:shadow-emerald-900/10"
+    >
+      {/* GLOW EFFECT LAYER */}
+      <div
+        className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100 z-0"
+        style={{
+          background: `radial-gradient(800px circle at ${position.x}px ${position.y}px, rgba(16, 185, 129, 0.04), transparent 40%)`,
+          filter: 'blur(20px)',
+        }}
+      />
+      
+      {/* BORDER GLOW */}
+       <div
+        className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100 z-0"
+        style={{
+          background: `radial-gradient(500px circle at ${position.x}px ${position.y}px, rgba(16, 185, 129, 0.15), transparent 40%)`,
+          maskImage: 'linear-gradient(black, black), content-box',
+          WebkitMaskComposite: 'xor',
+          maskComposite: 'exclude',
+             padding: '1px'
+        }}
+      />
+
+      {/* IMAGE THUMBNAIL - Full Bleed with Slider */}
+      <div className="relative z-10 w-full lg:w-[450px] aspect-video shrink-0 bg-zinc-100 dark:bg-zinc-800/50 border-b lg:border-b-0 lg:border-r border-zinc-200 dark:border-zinc-800 group/image overflow-hidden">
+        {images.length > 0 ? (
+          <>
+            <AnimatePresence initial={false} custom={direction}>
+                <motion.div 
+                    key={currentImageIndex}
+                    custom={direction}
+                    variants={variants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{
+                        x: { type: "spring", stiffness: 300, damping: 30 },
+                        opacity: { duration: 0.2 }
+                    }}
+                    className="absolute inset-0 w-full h-full"
+                >
+                    <Image
+                    src={images[currentImageIndex]}
+                    alt={project.heading}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 450px"
+                    className="object-contain"
+                    priority={currentImageIndex === 0}
+                    />
+                </motion.div>
+            </AnimatePresence>
+            
+            {/* Slider Controls */}
+            {images.length > 1 && (
+              <>
+                {/* Arrows - Visible on hover */}
+                <button 
+                  onClick={prevImage}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/20 hover:bg-black/40 text-white opacity-0 group-hover/image:opacity-100 transition-all duration-300 backdrop-blur-sm z-20"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft size={16} />
+                </button>
+                
+                <button 
+                  onClick={nextImage}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/20 hover:bg-black/40 text-white opacity-0 group-hover/image:opacity-100 transition-all duration-300 backdrop-blur-sm z-20"
+                  aria-label="Next image"
+                >
+                  <ChevronRight size={16} />
+                </button>
+
+                {/* Pagination Dots */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                  {images.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={(e) => {
+                          e.stopPropagation();
+                          setDirection(idx > currentImageIndex ? 1 : -1);
+                          setCurrentImageIndex(idx);
+                      }}
+                      className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                        idx === currentImageIndex 
+                          ? "bg-white scale-125 hover:scale-150" 
+                          : "bg-white/40 hover:bg-white/80"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </>
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <FolderGit
+              strokeWidth={1.5}
+              className="w-16 h-16 text-zinc-300 dark:text-zinc-700 group-hover:text-emerald-500 transition-colors duration-500"
+            />
+          </div>
+        )}
+      </div>
+
+      {/* CONTENT SECTION */}
+      <div className="relative z-10 flex-1 flex flex-col justify-between gap-6 p-6 lg:p-8">
+        <div className="space-y-4">
+          <h3 className="text-2xl lg:text-3xl font-1bricolage font-bold text-zinc-800 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+            {project.heading}
+          </h3>
+          <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed font-1spaceGrotesk text-sm lg:text-base">
+            {project.description}
+          </p>
+        </div>
+
+        {/* Footer: Tags & Action */}
+        <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-6 mt-auto">
+          <div className="flex flex-wrap gap-2">
+            {project.tags.map((tag, i) => (
+              <span
+                key={i}
+                className="text-xs font-mono font-medium px-3 py-1 rounded-lg border border-zinc-200 dark:border-zinc-700/50 bg-zinc-50 dark:bg-zinc-800/50 text-zinc-500 dark:text-zinc-400"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-3 shrink-0">
+            {project.ghLink && project.ghLink !== "#" && (
+              <a
+                href={project.ghLink}
+                target="_blank"
+                rel="noreferrer"
+                className="p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-600 dark:hover:text-white transition-colors"
+                aria-label="Source Code"
+              >
+                <Github size={20} />
+              </a>
+            )}
+            {project.demoLink && (
+              <a
+                href={project.demoLink}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 shadow-md hover:scale-105 active:scale-95 transition-all"
+              >
+                <span>Live Demo</span>
+                <ExternalLink size={16} />
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default function Projects() {
   const buttonWrapperRef = useRef(null);
@@ -11,28 +236,26 @@ export default function Projects() {
 
   const toggleProjects = () => {
     if (showAll) {
-      // We are collapsing (showing less)
       setShowAll(false);
-      // Wait for re-render then scroll
       setTimeout(() => {
         buttonWrapperRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
       }, 100);
     } else {
-      // We are expanding
       setShowAll(true);
     }
   };
 
   const projectsData = [
-        {
+    {
       id: "01",
       heading: "Victoria Film Official Website",
       description:
         "Portfolio site for Victoria(വിക്ടോറിയ). A KSFDC initiative and IEFFK winner feature film",
-      tags: ["Astro.js", "Swiper","MUX API","Tailwind"],
+      tags: ["Astro.js", "Swiper", "MUX API", "Tailwind"],
       ghLink: null,
       demoLink: "https://victoriafilm.in",
-      image: "/projects/victoria.webp",
+      image: "/projects/victoria1.png",
+      images: ["/projects/victoria1.png", "/projects/victoria2.png"],
     },
     {
       id: "02",
@@ -52,7 +275,8 @@ export default function Projects() {
       tags: ["PWA", "SEO", "Javascript"],
       ghLink: "https://github.com/dhjr/goblin-ledger/",
       demoLink: "https://dhjr.github.io/goblin-ledger/",
-      image: "/projects/coc2.webp",
+      images: ["/projects/goblinLedger1.png", "/projects/goblinLedger2.webp"],
+      
     },
     {
       id: "04",
@@ -64,18 +288,18 @@ export default function Projects() {
       demoLink: "https://pakkaran-app.vercel.app/",
       image: "/projects/serviceWorker.webp",
     },
-  
+
     {
       id: "05",
       heading: "TripSync",
       description:
         "Collaborative travel planning application allowing groups to coordinate itineraries in real-time.",
-      tags: ["Next.js", "Socket.io","Prisma ORM", "OpenStreetMap"],
+      tags: ["Next.js", "Socket.io", "Prisma ORM", "OpenStreetMap"],
       ghLink: "https://github.com/dhjr/groupMapper",
       demoLink: null,
       image: null,
     },
-  {
+    {
       id: "06",
       heading: "Rage Roll",
       description:
@@ -152,134 +376,38 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      // EXPLICIT COLORS:
-      // Light: Zinc-50 (Paper-like)
-      // Dark: Zinc-950 (Deep Space)
-      className="py-12 md:py-20 px-4 relative bg-transparent transition-colors duration-300 overflow-hidden"
+      className="py-12 md:py-20 px-4 relative bg-transparent transition-colors duration-300"
     >
-
-
-      
-      {/* CONTENT LAYER */}
       <div className="relative z-10 max-w-5xl mx-auto">
         <div className="mb-16">
           <Header name="Projects" />
         </div>
 
-
-        <div className="flex flex-col w-full gap-6">
+        <div className="flex flex-col w-full gap-8">
           {visibleProjects.map((project, index) => (
-            <div
-              key={index}
-              className="group flex flex-col lg:flex-row gap-8 lg:items-center p-6 lg:p-8 rounded-3xl bg-white/95 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 transition-all duration-300 shadow-xl shadow-black/5 dark:shadow-md hover:shadow-2xl hover:border-emerald-500/30 hover:-translate-y-1"
-            >
-              {/* IMAGE THUMBNAIL */}
-              <div className="relative w-full lg:w-md aspect-video rounded-2xl overflow-hidden shrink-0 border border-zinc-200 dark:border-zinc-800 shadow-sm transition-all duration-500 group-hover:shadow-md group-hover:border-emerald-500/30 bg-zinc-100 dark:bg-zinc-800/50">
-                {project.image ? (
-                  <>
-                  <Image 
-                    src={project.image} 
-                    alt={project.heading}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-emerald-500/10 transition-colors duration-500"></div>
-                  </>
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
-                    <div className="absolute inset-0 bg-linear-to-br from-purple-500/0 via-purple-500/0 to-purple-500/5 dark:from-purple-500/0 dark:via-purple-500/0 dark:to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <FolderGit 
-                      strokeWidth={1.5} 
-                      className="w-16 h-16 text-zinc-300 dark:text-zinc-700 group-hover:text-emerald-500/50 transition-colors duration-500" 
-                    />
-                  </div>
-                )}
-              </div>
-
-              {/* CONTENT SECTION */}
-              <div className="flex-1 flex flex-col justify-between gap-6">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <h3 className="text-3xl lg:text-4xl font-1bricolage font-bold text-zinc-800 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                      {project.heading}
-                    </h3>
-                  </div>
-                  <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed font-1spaceGrotesk text-md">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Footer: Tags & Action */}
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mt-auto">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className="text-xs font-mono font-medium px-3 py-1 rounded-lg border border-zinc-200 dark:border-zinc-700/50 bg-white dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 group-hover:border-emerald-500/30 transition-colors"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className="flex items-center gap-4 shrink-0">
-         {/* Logic: Only show if ghLink exists AND is not just a hash/placeholder */}
-{project.ghLink && project.ghLink !== "#" && (
-    <a
-      href={project.ghLink}
-      target="_blank"
-      rel="noreferrer"
-      aria-label={`View source code for ${project.heading}`}
-      className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-600 dark:hover:text-white transition-all duration-300 group/btn"
-    >
-      <Github size={18} className="group-hover/btn:scale-110 transition-transform" />
-      <span>Source</span>
-    </a>
-)}
-                    {project.demoLink && (
-                      <a
-                        href={project.demoLink}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`View live demo of ${project.heading}`}
-                        className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-emerald-100/50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-800/50 hover:bg-emerald-500 hover:text-white hover:border-emerald-500 dark:hover:bg-emerald-500 dark:hover:text-white transition-all duration-300 group/btn"
-                      >
-                        <ExternalLink size={18} className="group-hover/btn:scale-110 transition-transform" />
-                        <span>Live Demo</span>
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ProjectCard key={index} project={project} />
           ))}
         </div>
 
         {/* --- VIEW MORE BUTTON --- */}
-        <div 
-            className="mt-16 flex justify-center"
-            ref={buttonWrapperRef}
-        >
-            <button
-                onClick={toggleProjects}
-                className="
-                    px-8 py-3 rounded-full 
-                    bg-white dark:bg-zinc-900 
-                    border border-zinc-300 dark:border-zinc-700 
-                    text-zinc-700 dark:text-zinc-300 
-                    font-bold uppercase tracking-wider text-sm
-                    hover:bg-emerald-500 hover:text-white hover:border-emerald-500
-                    dark:hover:bg-emerald-600 dark:hover:text-white dark:hover:border-emerald-600
-                    transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1
-                "
-            >
-                {showAll ? "Show Less" : "View More"}
-            </button>
+        <div className="mt-16 flex justify-center" ref={buttonWrapperRef}>
+          <button
+            onClick={toggleProjects}
+            className="
+                px-8 py-3 rounded-full 
+                bg-white dark:bg-zinc-900 
+                border border-zinc-300 dark:border-zinc-700 
+                text-zinc-700 dark:text-zinc-300 
+                font-bold uppercase tracking-wider text-sm
+                hover:bg-emerald-500 hover:text-white hover:border-emerald-500
+                dark:hover:bg-emerald-600 dark:hover:text-white dark:hover:border-emerald-600
+                transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1
+            "
+          >
+            {showAll ? "Show Less" : "View More"}
+          </button>
         </div>
       </div>
-
     </section>
   );
 }
