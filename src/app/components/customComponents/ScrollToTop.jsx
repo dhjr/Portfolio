@@ -25,9 +25,9 @@ export default function ScrollToTop() {
 
   const scrollToTop = () => {
     if (lenis) {
-        lenis.scrollTo(0);
+      lenis.scrollTo(0);
     } else {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -43,7 +43,11 @@ export default function ScrollToTop() {
         dark:bg-zinc-900 dark:border-zinc-800 dark:text-zinc-400
         hover:bg-emerald-500 hover:text-white hover:border-emerald-500
         dark:hover:bg-emerald-600 dark:hover:text-white dark:hover:border-emerald-600
-        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"}
+        ${
+          isVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10 pointer-events-none"
+        }
       `}
       aria-label="Scroll to top"
     >

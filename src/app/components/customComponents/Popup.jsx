@@ -9,9 +9,9 @@ export default function Popup({ message, showPopup }) {
         rounded-r-lg rounded-l-sm 
         
         /* Glass & Colors */
-        bg-zinc-50 dark:bg-zinc-950/80
-        border border-white/5 border-l-4 border-l-emerald-500
-        shadow-[0_8px_30px_rgb(0,0,0,0.5)] 
+        bg-white dark:bg-zinc-900
+        border border-zinc-300 dark:border-zinc-800 border-l-4 border-l-emerald-500
+        shadow-2xl shadow-zinc-400/20 dark:shadow-black/50 
 
         /* Animation State */
         transition-all duration-500 cubic-bezier(0.175, 0.885, 0.32, 1.275)

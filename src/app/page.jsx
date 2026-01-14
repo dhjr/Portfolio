@@ -20,7 +20,7 @@ export default function Home() {
       <div className="relative z-10 transition-colors duration-300">
         {/* Global Mesh Background for all sections below Hero */}
         <MeshBackground />
-        
+
         <div className="content-visibility-auto">
           <About />
           <Videos />

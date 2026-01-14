@@ -152,8 +152,6 @@ export default function NameReveal() {
         duration: 0.8,
         ease: "power1.inOut",
       });
-
-
     }, containerRef);
 
     return () => ctx.revert();
@@ -163,23 +161,23 @@ export default function NameReveal() {
   useEffect(() => {
     const letters = nameRef.current;
 
-      // 3. Periodic Wave Animation
-      // Plays every few seconds automatically
-      const periodicTl = gsap.timeline({ repeat: -1, repeatDelay: 3, delay: 2 });
-      
-      periodicTl.to(letters, {
-        y: -5,
-        color: "#34d399",
-        textShadow: "0 0 8px rgba(52, 211, 153, 0.3)", // Reduced intensity
-        scale: 1.05,
-        duration: 0.4,
-        ease: "power2.out",
-        stagger: {
-          each: 0.1,
-          yoyo: true, // Go back to start value
-          repeat: 1,  // Run once forward, once backward per letter
-        },
-      });
+    // 3. Periodic Wave Animation
+    // Plays every few seconds automatically
+    const periodicTl = gsap.timeline({ repeat: -1, repeatDelay: 3, delay: 2 });
+
+    periodicTl.to(letters, {
+      y: -5,
+      color: "#34d399",
+      textShadow: "0 0 8px rgba(52, 211, 153, 0.3)", // Reduced intensity
+      scale: 1.05,
+      duration: 0.4,
+      ease: "power2.out",
+      stagger: {
+        each: 0.1,
+        yoyo: true, // Go back to start value
+        repeat: 1, // Run once forward, once backward per letter
+      },
+    });
   }, []);
 
   const name = "Dhananjay".split("");

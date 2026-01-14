@@ -36,10 +36,10 @@ export default function Footer() {
               <p className="text-zinc-500 text-sm mt-2">Full Stack Developer</p>
             </div>
             <div className="mt-8 flex flex-col gap-1">
-              <span className="text-[10px] font-mono text-zinc-400 dark:text-zinc-600 uppercase tracking-widest">
+              <span className="text-xs font-mono text-zinc-400 dark:text-zinc-600 uppercase tracking-widest">
                 Local Time // Kozhikode, IN
               </span>
-              <span className="text-sm font-mono font-medium tabular-nums text-zinc-600 dark:text-zinc-400 min-h-[20px]">
+              <span className="text-xs font-mono font-medium tabular-nums text-zinc-600 dark:text-zinc-400 min-h-[20px]">
                 {time ? (
                   time.toLocaleTimeString("en-US", {
                     hour12: true,
@@ -60,21 +60,26 @@ export default function Footer() {
               Sitemap
             </span>
             <nav className="flex flex-col gap-3">
-              {["Projects", "About", "Experience", "Skills", "Education", "Contact"].map(
-                (link) => (
-                  <a
-                    key={link}
-                    href={`#${link.toLowerCase()}`}
-                    className="
-                    text-zinc-600 font-1spaceGrotesk hover:text-zinc-900 hover:translate-x-2 
-                    dark:text-zinc-300 dark:hover:text-white 
+              {[
+                "Projects",
+                "About",
+                "Experience",
+                "Skills",
+                "Education",
+                "Contact",
+              ].map((link) => (
+                <a
+                  key={link}
+                  href={`#${link.toLowerCase()}`}
+                  className="
+                    text-sm text-zinc-500 font-1spaceGrotesk hover:text-zinc-900 hover:translate-x-2 
+                    dark:text-zinc-400 dark:hover:text-white 
                     transition-all duration-200 w-fit
                   "
-                  >
-                    {link}
-                  </a>
-                )
-              )}
+                >
+                  {link}
+                </a>
+              ))}
             </nav>
           </div>
 
@@ -95,18 +100,26 @@ export default function Footer() {
                   Icon: Linkedin,
                   url: "https://linkedin.com/in/dhananjayr",
                 },
-                { label: "Twitter", Icon: Twitter, url: "https://x.com/dhananjayr_" },
+                {
+                  label: "Twitter",
+                  Icon: Twitter,
+                  url: "https://x.com/dhananjayr_",
+                },
                 {
                   label: "Instagram",
                   Icon: Instagram,
                   url: "https://www.instagram.com/dhananjayr_/",
-                }, 
+                },
                 {
                   label: "Email",
                   Icon: Mail,
                   url: "mailto:dhjr.dev@gmail.com",
                 },
-                { label: "YouTube", Icon: Youtube, url: "https://www.youtube.com/@letthedevscook" },
+                {
+                  label: "YouTube",
+                  Icon: Youtube,
+                  url: "https://www.youtube.com/@letthedevscook",
+                },
               ].map((social) => {
                 const isYouTube = social.label === "YouTube";
                 return isYouTube ? (

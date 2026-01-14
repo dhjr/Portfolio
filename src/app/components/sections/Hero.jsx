@@ -55,8 +55,6 @@ export default function Hero() {
 
       {/* LEFT COLUMN */}
       <div className="mt-5 flex flex-col justify-center items-center md:items-start text-center md:text-left z-10 w-full md:w-auto px-4 md:px-0">
-
-
         {/* Updated for Light/Dark Mode */}
         <p className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-1spaceGrotesk text-zinc-900 dark:text-white">
           Hey, I'm
@@ -67,10 +65,11 @@ export default function Hero() {
         </div>
 
         {/* Updated Badge for Light/Dark Mode */}
-        <div className="mb-5 md:mt-4 md:mb-6 px-4 py-1.5 md:py-2 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-full shadow-sm flex items-center justify-center min-w-56">
+        <div className="mb-5 md:mt-4 md:mb-6 px-4 py-1.5 md:py-2 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-full shadow-sm flex items-center justify-center">
           <p className="font-1spaceGrotesk text-xs sm:text-sm md:text-lg text-emerald-600 dark:text-emerald-400 flex items-center gap-2">
             <span>&lt;</span>
-            <span className="relative h-[24px] w-52 overflow-hidden flex items-center justify-center">
+            <span className="relative h-[24px] overflow-hidden flex items-center justify-center">
+              <span className="invisible">Full_Stack_Developer</span>
               <AnimatePresence mode="wait">
                 <motion.span
                   key={roleIndex}
@@ -80,7 +79,7 @@ export default function Hero() {
                   transition={{ duration: 0.3 }}
                   className="absolute"
                 >
-                   {roles[roleIndex]}
+                  {roles[roleIndex]}
                 </motion.span>
               </AnimatePresence>
             </span>
@@ -142,9 +141,7 @@ export default function Hero() {
       </div>
 
       {/* SCROLL INDICATOR */}
-      <div
-        className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce opacity-50 z-20 select-none pointer-events-none"
-      >
+      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce opacity-50 z-20 select-none pointer-events-none">
         <span className="text-xs sm:text-sm font-thin font-1spaceGrotesk uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
           Scroll Down
         </span>

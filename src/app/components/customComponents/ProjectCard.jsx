@@ -14,7 +14,8 @@ export default function ProjectCard({
   image,
 }) {
   return (
-    <div className="
+    <div
+      className="
       group relative w-full flex flex-col h-full rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2
       
       /* FIX: Use semantic variables from global.css */
@@ -22,8 +23,8 @@ export default function ProjectCard({
       
       /* HOVER: Keep Emerald accent */
       hover:border-emerald-500/50
-    ">
-      
+    "
+    >
       {/* 1. SCREENSHOT SECTION */}
       {image && (
         <div className="relative w-full h-52 border-b border-border bg-muted overflow-hidden">
@@ -40,7 +41,6 @@ export default function ProjectCard({
 
       {/* 2. CONTENT SECTION */}
       <div className="p-6 flex flex-col grow relative z-10">
-        
         {/* Header */}
         <div className="flex justify-between items-start mb-4">
           <div>
@@ -68,7 +68,6 @@ export default function ProjectCard({
 
         {/* Footer Section */}
         <div className="flex flex-col gap-4 mt-auto">
-          
           {/* Tags */}
           <div className="flex flex-wrap gap-2">
             {tags &&
@@ -92,7 +91,10 @@ export default function ProjectCard({
               className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg transition-all text-sm font-1spaceGrotesk group/btn
               bg-muted border border-border text-muted-foreground hover:bg-emerald-500/10 hover:text-emerald-500 hover:border-emerald-500/20"
             >
-              <Github size={16} className="group-hover/btn:scale-110 transition-transform"/>
+              <Github
+                size={16}
+                className="group-hover/btn:scale-110 transition-transform"
+              />
               <span>Source</span>
             </Link>
 
@@ -104,7 +106,10 @@ export default function ProjectCard({
                 className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg transition-all text-sm font-1spaceGrotesk group/btn
                 bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/20"
               >
-                <ExternalLink size={16} className="group-hover/btn:scale-110 transition-transform" />
+                <ExternalLink
+                  size={16}
+                  className="group-hover/btn:scale-110 transition-transform"
+                />
                 <span>Demo</span>
               </Link>
             )}

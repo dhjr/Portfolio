@@ -2,13 +2,9 @@
 import "./globals.css";
 import Navbar from "@/components/customComponents/NavBar";
 import ScrollToTop from "@/components/customComponents/ScrollToTop";
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from "@vercel/analytics/next";
 import ThemeProvider from "@/components/customComponents/ThemeProvider";
-import {
-  boldonse,
-  spacegrotesk,
-  bricolage,
-} from "./fonts";
+import { boldonse, spacegrotesk, bricolage } from "./fonts";
 
 const siteUrl = "https://dhananjayr.com"; // Update this with your actual production URL
 
@@ -82,25 +78,24 @@ export default function RootLayout({ children }) {
     image: `${siteUrl}/profile1.png`,
     jobTitle: "Full Stack Developer",
     sameAs: [
-      "https://github.com/dhjr", 
+      "https://github.com/dhjr",
       "https://linkedin.com/in/dhananjayr", // Update with your actual URL
     ],
     alumniOf: {
       "@type": "CollegeOrUniversity",
-      "name": "Government Engineering College, Kottayam"
+      name: "Government Engineering College, Kottayam",
     },
-    description: "Aspiring Full Stack Developer and Machine Learning enthusiast focusing on performant web applications.",
+    description:
+      "Aspiring Full Stack Developer and Machine Learning enthusiast focusing on performant web applications.",
   };
 
   return (
     <html
       lang="en"
-      suppressHydrationWarning  
+      suppressHydrationWarning
       className={`${boldonse.variable} ${spacegrotesk.variable} ${bricolage.variable}`}
     >
-
       <body className="antialiased z-10">
-        
         {/* 1. Place JSON-LD here, at the top of the body */}
         <script
           type="application/ld+json"
@@ -114,12 +109,10 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-         
-            <Navbar />
-            <ScrollToTop />
-            {children}
-            <Analytics />
-         
+          <Navbar />
+          <ScrollToTop />
+          {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

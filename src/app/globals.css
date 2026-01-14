@@ -7,7 +7,6 @@
     --font-1spaceGrotesk: var(--font-spacegrotesk);
     --font-1bricolage: var(--font-bricolage);
   }
-
 }
 
 @theme {
@@ -16,7 +15,9 @@
   --font-1bricolage: var(--font-bricolage);
 }
 
-
+body {
+  font-family: var(--font-1spaceGrotesk);
+}
 
 @keyframes loop {
   0% {
@@ -136,24 +137,35 @@
 }
 
 @keyframes float {
-  0% { transform: translate(0px, 0px) scale(1); }
-  33% { transform: translate(30px, -50px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
-  100% { transform: translate(0px, 0px) scale(1); }
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
 }
 
 .animate-float {
   animation: float 10s ease-in-out infinite;
 }
 
-
 .animate-float-delayed {
   animation: float 15s ease-in-out infinite reverse;
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
@@ -168,4 +180,33 @@
 .content-visibility-auto {
   content-visibility: auto;
   contain-intrinsic-size: 1px 1000px; /* Estimates height to prevent scroll jumps */
+}
+
+/* Swiper Pagination Overrides */
+.swiper-pagination {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  padding: 4px 8px !important;
+  border-radius: 9999px;
+  width: auto !important;
+  left: 50% !important;
+  transform: translateX(-50%);
+  bottom: 16px !important;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease;
+  margin: 0 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #10b981 !important; /* emerald-500 */
+  transform: scale(1.2);
+  opacity: 1 !important;
 }

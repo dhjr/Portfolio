@@ -77,18 +77,20 @@ export default function BackgroundWrapper() {
       if (Math.random() < 0.25) {
         const col = Math.floor(Math.random() * (canvas.width / gridSize));
         const row = Math.floor(Math.random() * (canvas.height / gridSize));
-        
+
         // Add if not already active
-        const exists = sparklesRef.current.some(s => s.col === col && s.row === row);
+        const exists = sparklesRef.current.some(
+          (s) => s.col === col && s.row === row
+        );
         if (!exists) {
-            sparklesRef.current.push({
-                col, 
-                row, 
-                opacity: 0, 
-                phase: 0, // 0 to PI
-                speed: 0.02 + Math.random() * 0.03, // Random speed
-                maxOpacity: Math.random() * 0.15 // Random max opacity
-            });
+          sparklesRef.current.push({
+            col,
+            row,
+            opacity: 0,
+            phase: 0, // 0 to PI
+            speed: 0.02 + Math.random() * 0.03, // Random speed
+            maxOpacity: Math.random() * 0.15, // Random max opacity
+          });
         }
       }
 
@@ -96,28 +98,27 @@ export default function BackgroundWrapper() {
       // Filter out completed sparkles in proper way to mutate or replace arrays
       // We will mutate and filter in-place or rebuild
       const activeSparkles = [];
-      
+
       for (let sparkle of sparklesRef.current) {
         // Increment phase (0 -> PI)
         sparkle.phase += sparkle.speed;
-        
+
         // Calculate smooth opacity using Sine
         // sin(0) = 0, sin(PI/2) = 1, sin(PI) = 0
         sparkle.opacity = Math.sin(sparkle.phase) * sparkle.maxOpacity;
 
         if (sparkle.phase < Math.PI) {
-           // Draw Tile
-           const drawX = sparkle.col * gridSize;
-           const drawY = sparkle.row * gridSize;
-           
-           ctx.fillStyle = `rgba(${sparkleBaseColor}, ${sparkle.opacity})`;
-           ctx.fillRect(drawX, drawY, gridSize, gridSize);
-           
-           activeSparkles.push(sparkle);
+          // Draw Tile
+          const drawX = sparkle.col * gridSize;
+          const drawY = sparkle.row * gridSize;
+
+          ctx.fillStyle = `rgba(${sparkleBaseColor}, ${sparkle.opacity})`;
+          ctx.fillRect(drawX, drawY, gridSize, gridSize);
+
+          activeSparkles.push(sparkle);
         }
       }
       sparklesRef.current = activeSparkles;
-
 
       // Draw Mouse Highlight
       const mPos = mousePosRef.current;
@@ -141,14 +142,16 @@ export default function BackgroundWrapper() {
 
   return (
     <div className="absolute inset-0 -z-10 w-full h-full bg-zinc-100 dark:bg-black transition-colors duration-500 overflow-hidden">
-        <canvas
-            ref={canvasRef}
-            className="block w-full h-full"
-            style={{
-                maskImage: "radial-gradient(ellipse at center, black 60%, transparent 100%)",
-                WebkitMaskImage: "radial-gradient(ellipse at center, black 60%, transparent 100%)",
-            }}
-        />
+      <canvas
+        ref={canvasRef}
+        className="block w-full h-full"
+        style={{
+          maskImage:
+            "radial-gradient(ellipse at center, black 60%, transparent 100%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at center, black 60%, transparent 100%)",
+        }}
+      />
     </div>
   );
 }

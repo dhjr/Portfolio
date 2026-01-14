@@ -65,34 +65,34 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="w-full min-h-dvh py-10 md:py-24 px-4 relative bg-transparent transition-colors duration-300 overflow-hidden"
+      className="w-full min-h-dvh py-10 md:py-12 px-4 relative bg-transparent transition-colors duration-300 overflow-hidden"
     >
-
       <div className="max-w-6xl mx-auto relative z-10">
         {/* <div className="mb-10">
           <Header name="Contact" />
         </div> */}
 
         {/* MAIN CARD CONTAINER */}
-<div className="
+        <div
+          className="
   grid grid-cols-1 lg:grid-cols-5 rounded-3xl overflow-hidden 
   border border-zinc-200 dark:border-zinc-800
   shadow-2xl shadow-black/5
   dark:shadow-[10px_10px_30px_#050505,-5px_-5px_30px_#1a1a1a] bg-zinc-50/95 dark:bg-zinc-900/50
-">
+"
+        >
           {/* --- LEFT PANEL --- */}
           <div
             className="
             lg:col-span-2 p-6 md:p-10 flex flex-col justify-between relative border-r
             
             /* Light Mode */
-            bg-white/95 border-zinc-200
+            bg-zinc-300/70 border-zinc-200
             
             /* Dark Mode */
             dark:bg-zinc-900/60 dark:border-zinc-800/50 
           "
           >
-
             <div className="relative z-10 space-y-6 md:space-y-8">
               <div>
                 <h3 className="text-2xl font-bold font-1boldonse tracking-wide mb-2 text-zinc-900 dark:text-white transition-colors">
@@ -107,21 +107,23 @@ export default function Contact() {
                 {/* MAIL SECTION */}
                 <div className="group cursor-pointer">
                   <label className="text-xs font-mono text-emerald-600 dark:text-emerald-500 mb-2 block uppercase tracking-wider">
-                     MAIL_TO
+                    MAIL_TO
                   </label>
                   <a
                     href="mailto:dhjr.dev@gmail.com"
                     className="flex items-center gap-3 transition-colors text-zinc-800 hover:text-black dark:text-zinc-300 dark:hover:text-white"
                   >
                     <Mail size={18} />
-                    <span className="font-1spaceGrotesk text-lg">dhjr.dev@gmail.com</span>
+                    <span className="font-1spaceGrotesk text-lg">
+                      dhjr.dev@gmail.com
+                    </span>
                   </a>
                 </div>
 
                 {/* SOCIALS SECTION */}
                 <div>
                   <label className="text-xs font-mono text-emerald-600 dark:text-emerald-500 mb-3 block uppercase tracking-wider">
-                     SOCIAL_NETWORKS
+                    SOCIAL_NETWORKS
                   </label>
                   <div className="flex flex-wrap gap-3">
                     {socialLinks.map((social) => (
@@ -151,7 +153,7 @@ export default function Contact() {
 
             <div
               className="
-              relative z-10 mt-10 p-4 rounded-lg border flex items-center gap-3
+              relative z-10 mt-4 py-2 px-3 rounded-lg border hidden lg:flex items-center gap-3
               bg-white/50 border-zinc-200
               dark:bg-black/40 dark:border-zinc-800/50
             "
@@ -166,12 +168,16 @@ export default function Contact() {
           </div>
 
           {/* --- RIGHT PANEL (FORM) --- */}
-          <div className="lg:col-span-3 px-6 py-3 md:px-10 md:pb-10 md:py-10 bg-transparent">
-            <form ref={formRef} onSubmit={sendEmail} className="space-y-6 md:space-y-10">
+          <div className="lg:col-span-3 px-6 py-3 md:px-10 md:pb-10 md:py-10 dark:bg-black">
+            <form
+              ref={formRef}
+              onSubmit={sendEmail}
+              className="space-y-6 md:space-y-10"
+            >
               {/* NAME INPUT */}
               <div className="group relative">
                 <label className="text-xs font-mono mb-2 block transition-colors text-zinc-600 group-focus-within:text-emerald-600 dark:text-zinc-400 dark:group-focus-within:text-emerald-500">
-                   ENTER_NAME <span className="text-rose-500">*</span>
+                  ENTER_NAME <span className="text-rose-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -189,7 +195,7 @@ export default function Contact() {
               {/* EMAIL INPUT */}
               <div className="group relative">
                 <label className="text-xs font-mono mb-2 block transition-colors text-zinc-600 group-focus-within:text-emerald-600 dark:text-zinc-400 dark:group-focus-within:text-emerald-500">
-                   ENTER_EMAIL <span className="text-rose-500">*</span>
+                  ENTER_EMAIL <span className="text-rose-500">*</span>
                 </label>
                 <input
                   type="email"
@@ -207,7 +213,7 @@ export default function Contact() {
               {/* MESSAGE INPUT */}
               <div className="group relative">
                 <label className="text-xs font-mono mb-2 block transition-colors text-zinc-600 group-focus-within:text-emerald-600 dark:text-zinc-400 dark:group-focus-within:text-emerald-500">
-                   EXECUTE_MESSAGE <span className="text-rose-500">*</span>
+                  EXECUTE_MESSAGE <span className="text-rose-500">*</span>
                 </label>
                 <textarea
                   name="message"

@@ -91,8 +91,8 @@ export default function Navbar() {
 
     if (activeEl && indicator) {
       // Find the text element (2nd child) to center the dot relative to the TEXT, not the whole block
-      const textEl = activeEl.children[1]; 
-      
+      const textEl = activeEl.children[1];
+
       let top;
       if (textEl) {
         // Calculate center of the text element
@@ -142,11 +142,14 @@ export default function Navbar() {
   return (
     <>
       {/* 0. SCROLL SENTINEL - Tracks when page is scrolled */}
-      <div id="navbar-sentinel" className="absolute top-0 w-full h-1px pointer-events-none bg-transparent" />
+      <div
+        id="navbar-sentinel"
+        className="absolute top-0 w-full h-1px pointer-events-none bg-transparent"
+      />
 
       {/* --- DESKTOP NAVBAR --- */}
       {/* Top Gradient for Desktop Visibility */}
-      <div 
+      <div
         className={`
           fixed top-0 left-0 right-0 h-20 z-998 pointer-events-none
           bg-linear-to-b from-black/40 to-transparent
@@ -232,9 +235,7 @@ export default function Navbar() {
           
             ${scrolled ? "opacity-100" : "opacity-0"}
           `}
-        >
-          
-        </div>
+        ></div>
 
         {/* Logo */}
         <Link
@@ -242,7 +243,9 @@ export default function Navbar() {
           onClick={(e) => handleLinkClick(e, "#hero")}
           className="flex items-center gap-2 relative z-10"
         >
-          <span className="text-zinc-800 dark:text-white  text-2xl font-1boldonse">DR.</span>
+          <span className="text-zinc-800 dark:text-white  text-2xl font-1boldonse">
+            DR.
+          </span>
         </Link>
 
         {/* Right Controls */}
@@ -259,19 +262,19 @@ export default function Navbar() {
           >
             {/* Animated Hamburger Icon */}
             <div className="relative flex flex-col justify-between w-5 h-4">
-              <span 
+              <span
                 className={`
                   w-full h-0.5 bg-current rounded-full transition-all duration-300 ease-in-out
                   ${isMobileMenuOpen ? "rotate-45 translate-y-[7px]" : ""}
                 `}
               />
-              <span 
+              <span
                 className={`
                   w-full h-0.5 bg-current rounded-full transition-all duration-300 ease-in-out
                   ${isMobileMenuOpen ? "opacity-0" : ""}
                 `}
               />
-              <span 
+              <span
                 className={`
                   w-full h-0.5 bg-current rounded-full transition-all duration-300 ease-in-out
                   ${isMobileMenuOpen ? "-rotate-45 -translate-y-[7px]" : ""}
@@ -283,9 +286,9 @@ export default function Navbar() {
       </div>
 
       {/* --- MOBILE OVERLAY MENU --- */}
-{/* --- MOBILE OVERLAY MENU --- */}
-<div
-  className={`
+      {/* --- MOBILE OVERLAY MENU --- */}
+      <div
+        className={`
     fixed inset-0 z-1000 flex flex-col
     transition-all duration-500 ease-in-out
     ${
@@ -294,67 +297,74 @@ export default function Navbar() {
         : "opacity-0 invisible pointer-events-none"
     }
   `}
->
-  {/* Spacer for sticky icon visibility */}
-  <div className="flex justify-end p-6 pointer-events-none opacity-0">
-     <div className="p-3 w-10 h-10"></div>
-  </div>
+      >
+        {/* Spacer for sticky icon visibility */}
+        <div className="flex justify-end p-6 pointer-events-none opacity-0">
+          <div className="p-3 w-10 h-10"></div>
+        </div>
 
-  {/* Main Content Area - Preventing overflow for short screens */}
-  <div className="relative flex-1 overflow-hidden flex flex-col justify-center px-6 sm:px-12 pb-8">
-    
-    <div className="relative flex flex-col items-start gap-4 sm:gap-8">
-      {/* The Vertical Timeline Line */}
-      <div className="absolute -left-2 sm:-left-6 top-0 bottom-0 w-1px bg-zinc-200 dark:bg-zinc-800">
-        {/* Animated Glowing Node */}
-        {/* Animated Glowing Node */}
-        <div
-          ref={indicatorRef}
-          className="absolute w-3 h-3 -left-[5.5px] bg-emerald-500 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.5)] transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]"
-          style={{ top: "0px" }} // Initial fallback
-        />
-      </div>
+        {/* Main Content Area - Preventing overflow for short screens */}
+        <div className="relative flex-1 overflow-hidden flex flex-col justify-center px-6 sm:px-12 pb-8">
+          <div className="relative flex flex-col items-start gap-4 sm:gap-8">
+            {/* The Vertical Timeline Line */}
+            <div className="absolute -left-2 sm:-left-6 top-0 bottom-0 w-1px bg-zinc-200 dark:bg-zinc-800">
+              {/* Animated Glowing Node */}
+              {/* Animated Glowing Node */}
+              <div
+                ref={indicatorRef}
+                className="absolute w-3 h-3 -left-[5.5px] bg-emerald-500 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.5)] transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]"
+                style={{ top: "0px" }} // Initial fallback
+              />
+            </div>
 
-      {navLinks.map((link, index) => {
-        const isActive = activeSection === link.href.substring(1);
-        return (
-          <Link
-            key={link.name}
-            href={link.href}
-            ref={(el) => (itemRefs.current[index] = el)}
-            onClick={(e) => handleLinkClick(e, link.href)}
-            className="group relative flex flex-col w-full"
-          >
-            {/* Index Number */}
-            <span className={`
+            {navLinks.map((link, index) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  ref={(el) => (itemRefs.current[index] = el)}
+                  onClick={(e) => handleLinkClick(e, link.href)}
+                  className="group relative flex flex-col w-full"
+                >
+                  {/* Index Number */}
+                  <span
+                    className={`
               font-mono text-[10px] sm:text-xs mb-1 transition-colors duration-300
-              ${isActive ? "text-emerald-500" : "text-zinc-400 dark:text-zinc-600"}
-            `}>
-              0{index + 1} 
-            </span>
+              ${
+                isActive
+                  ? "text-emerald-500"
+                  : "text-zinc-400 dark:text-zinc-600"
+              }
+            `}
+                  >
+                    0{index + 1}
+                  </span>
 
-            {/* Large Typography Stack - Reduced for better mobile fit */}
-            <span className={`
+                  {/* Large Typography Stack - Reduced for better mobile fit */}
+                  <span
+                    className={`
               text-[8vw] sm:text-5xl font-1bricolage font-black tracking-tighter leading-none transition-all duration-300
-              ${isActive 
-                ? "text-zinc-900 dark:text-white translate-x-2 sm:translate-x-4" 
-                : "text-zinc-300 dark:text-zinc-800 group-hover:text-zinc-400 dark:group-hover:text-zinc-700"}
-            `}>
-              {link.name}
-            </span>
+              ${
+                isActive
+                  ? "text-zinc-900 dark:text-white translate-x-2 sm:translate-x-4"
+                  : "text-zinc-300 dark:text-zinc-800 group-hover:text-zinc-400 dark:group-hover:text-zinc-700"
+              }
+            `}
+                  >
+                    {link.name}
+                  </span>
 
-            {/* Subtle indicator for active section on small screens */}
-            {isActive && (
-              <div className="mt-1 h-0.5 w-8 bg-emerald-500 rounded-full sm:hidden" />
-            )}
-          </Link>
-        );
-      })}
-    </div>
-
-
-  </div>
-</div>
+                  {/* Subtle indicator for active section on small screens */}
+                  {isActive && (
+                    <div className="mt-1 h-0.5 w-8 bg-emerald-500 rounded-full sm:hidden" />
+                  )}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </div>
     </>
   );
 }

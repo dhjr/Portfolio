@@ -1,9 +1,5 @@
 // src/app/fonts.js
-import {
-  Boldonse,
-  Bricolage_Grotesque,
-  Space_Grotesk,
-} from "next/font/google";
+import { Boldonse, Bricolage_Grotesque, Space_Grotesk } from "next/font/google";
 
 export const boldonse = Boldonse({
   subsets: ["latin"],
