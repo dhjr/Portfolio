@@ -98,8 +98,8 @@ export default function Skills() {
                     key={tech.name}
                     className="group relative aspect-square flex flex-col items-center justify-center gap-2 sm:gap-3 p-2 sm:p-4 
                                rounded-xl sm:rounded-2xl transition-all duration-300
-                               bg-white/90 dark:bg-zinc-900/60 
-                               border border-zinc-200 dark:border-white/5
+                               bg-white/90 dark:bg-zinc-900/70 
+                               
                                shadow-md shadow-black/5
                                hover:shadow-lg hover:border-emerald-500/30 dark:hover:border-emerald-500/30
                                hover:-translate-y-1"

@@ -8,6 +8,7 @@ import {
   Cpu,
   Globe,
   FileText,
+  ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
 import Header from "@/components/customComponents/SectionHeader";
@@ -205,13 +206,37 @@ export default function Experience() {
                       </li>
                     </ul>
                     <div className="flex flex-wrap gap-2">
-                      {["Techfuse 2.0", "Roboignite", "ReX 5.0"].map((site) => (
-                        <span
-                          key={site}
-                          className="text-[10px] px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700"
+                      {[
+                        {
+                          name: "Techfuse 2.0",
+                          url: "https://techfuse20.ieeesbrit.com",
+                        },
+                        {
+                          name: "Roboignite",
+                          url: "https://roboignite.ieeesbrit.com",
+                        },
+                        { name: "ReX 5.0", url: "https://rex.ieeesbrit.com" },
+                      ].map((site) => (
+                        <a
+                          key={site.name}
+                          href={site.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="
+                            group/tag flex items-center gap-1.5 text-[10px] px-2.5 py-1.5 rounded-md transition-all duration-300
+                            bg-zinc-100 border border-zinc-200 text-zinc-600
+                            dark:bg-zinc-800/50 dark:border-zinc-700/50 dark:text-zinc-400
+                            
+                            hover:scale-105 hover:bg-emerald-50 hover:border-emerald-200 hover:text-emerald-700 hover:shadow-sm
+                            dark:hover:bg-emerald-500/10 dark:hover:border-emerald-500/30 dark:hover:text-emerald-400
+                          "
                         >
-                          {site}
-                        </span>
+                          {site.name}
+                          <ExternalLink
+                            size={10}
+                            className="opacity-50 group-hover/tag:opacity-100 transition-opacity"
+                          />
+                        </a>
                       ))}
                     </div>
                   </div>

@@ -83,10 +83,10 @@ export default function Contact() {
             lg:col-span-2 p-6 md:p-10 flex flex-col justify-between relative border-r
             
             /* Light Mode */
-            bg-emerald-200/40 border-zinc-200
+            bg-emerald-100/40 border-zinc-200
             
             /* Dark Mode */
-            dark:bg-cyan-950/40 dark:border-zinc-800/50 
+            dark:bg-cyan-950/20 dark:border-zinc-800/50 
           "
           >
             <div className="relative z-10 space-y-6 md:space-y-8">
