@@ -56,6 +56,7 @@ export default function HeroImage() {
             src="/profile1.webp"
             alt="Profile"
             priority
+            sizes="(max-width: 768px) 260px, 380px"
           />
 
           <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(0,0,0,0.6)] z-20 pointer-events-none"></div>

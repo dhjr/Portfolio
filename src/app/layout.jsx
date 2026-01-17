@@ -38,7 +38,7 @@ export const metadata = {
     siteName: "Dhananjay R Portfolio",
     images: [
       {
-        url: "/profile1.png",
+        url: "/profile1.webp",
         width: 1200,
         height: 630,
         alt: "Dhananjay R - Full Stack Developer",
@@ -50,7 +50,7 @@ export const metadata = {
     title: "Dhananjay R | Full Stack Developer",
     description:
       "Hey! I'm Dhananjay R, an aspiring Full Stack Developer passionate about building accessible, pixel-perfect, and performant web applications.",
-    images: ["/profile1.png"],
+    images: ["/profile1.webp"],
     creator: "@dhananjayr", // Update with actual twitter handle if known
   },
   robots: {
@@ -75,7 +75,7 @@ export default function RootLayout({ children }) {
     "@type": "Person",
     name: "Dhananjay R",
     url: siteUrl,
-    image: `${siteUrl}/profile1.png`,
+    image: `${siteUrl}/profile1.webp`,
     jobTitle: "Full Stack Developer",
     sameAs: [
       "https://github.com/dhjr",

@@ -1,16 +1,19 @@
 "use client";
 
 // Components
+// Components
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
-import Videos from "@/components/sections/Videos";
-import Projects from "@/components/sections/Projects";
-import Contact from "@/components/sections/Contact";
-import Skills from "@/components/sections/Skills";
-import Education from "@/components/sections/Education";
-import Experience from "@/components/sections/Experience";
 import Footer from "@/components/customComponents/Footer";
 import MeshBackground from "@/components/customComponents/MeshBackground";
+import dynamic from "next/dynamic";
+
+const Videos = dynamic(() => import("@/components/sections/Videos"));
+const Projects = dynamic(() => import("@/components/sections/Projects"));
+const Contact = dynamic(() => import("@/components/sections/Contact"));
+const Skills = dynamic(() => import("@/components/sections/Skills"));
+const Education = dynamic(() => import("@/components/sections/Education"));
+const Experience = dynamic(() => import("@/components/sections/Experience"));
 
 export default function Home() {
   return (

@@ -102,7 +102,8 @@ export default function About() {
                 src="/ltdc.webp"
                 alt="Let the Devs Cook Logo"
                 fill
-                className="object-cover "
+                className="object-cover"
+                sizes="64px"
               />
             </div>
             <div className="flex flex-col">

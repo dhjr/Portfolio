@@ -128,7 +128,7 @@ export default function Experience() {
                       Winner - Useless Projects
                     </h4>
                     <p className="font-1spaceGrotesk text-xs text-zinc-600 dark:text-zinc-400 mt-1">
-                      Built a Phaser.js game. Won for creativity.
+                      Built a physics based phaser.js game.
                     </p>
                   </li>
                   <li className="pt-4 border-t border-zinc-200 dark:border-zinc-800">
