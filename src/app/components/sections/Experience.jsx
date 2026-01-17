@@ -185,6 +185,7 @@ export default function Experience() {
                           src="/ieee.webp"
                           alt="IEEE"
                           fill
+                          sizes="32px"
                           className="object-cover p-1"
                         />
                       </div>
@@ -266,6 +267,7 @@ export default function Experience() {
                       src="/baja.webp"
                       alt="Baja"
                       fill
+                      sizes="48px"
                       className="object-cover"
                     />
                   </div>
@@ -300,6 +302,7 @@ export default function Experience() {
                       src="/tinkerhub.webp"
                       alt="Tinkerhub"
                       fill
+                      sizes="48px"
                       className="object-cover"
                     />
                   </div>

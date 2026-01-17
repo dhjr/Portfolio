@@ -65,20 +65,16 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="w-full min-h-dvh py-10 md:py-12 px-4 relative bg-transparent transition-colors duration-300 overflow-hidden"
+      className="w-full min-h-dvh py-10 md:py-12 px-4 relative  duration-300 overflow-hidden"
     >
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* <div className="mb-10">
-          <Header name="Contact" />
-        </div> */}
-
         {/* MAIN CARD CONTAINER */}
         <div
-          className="
+          className=" dark:bg-zinc-900 bg-white
   grid grid-cols-1 lg:grid-cols-5 rounded-3xl overflow-hidden 
   border border-zinc-200 dark:border-zinc-800
   shadow-2xl shadow-black/5
-  dark:shadow-[10px_10px_30px_#050505,-5px_-5px_30px_#1a1a1a] bg-zinc-50/95 dark:bg-zinc-900/50
+  dark:shadow-[10px_10px_30px_#050505,-5px_-5px_30px_#1a1a1a] 
 "
         >
           {/* --- LEFT PANEL --- */}
@@ -87,10 +83,10 @@ export default function Contact() {
             lg:col-span-2 p-6 md:p-10 flex flex-col justify-between relative border-r
             
             /* Light Mode */
-            bg-zinc-300/70 border-zinc-200
+            bg-emerald-200/40 border-zinc-200
             
             /* Dark Mode */
-            dark:bg-zinc-900/60 dark:border-zinc-800/50 
+            dark:bg-cyan-950/40 dark:border-zinc-800/50 
           "
           >
             <div className="relative z-10 space-y-6 md:space-y-8">
@@ -168,7 +164,7 @@ export default function Contact() {
           </div>
 
           {/* --- RIGHT PANEL (FORM) --- */}
-          <div className="lg:col-span-3 px-6 py-3 md:px-10 md:pb-10 md:py-10 dark:bg-black">
+          <div className="lg:col-span-3 px-6 py-3 md:px-10 md:pb-10 md:py-10 dark:bg-zinc-950">
             <form
               ref={formRef}
               onSubmit={sendEmail}

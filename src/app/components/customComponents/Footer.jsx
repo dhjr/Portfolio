@@ -37,7 +37,7 @@ export default function Footer() {
             </div>
             <div className="mt-8 flex flex-col gap-1">
               <span className="text-xs font-mono text-zinc-400 dark:text-zinc-600 uppercase tracking-widest">
-                Local Time // Kozhikode, IN
+                Local Time // Kerala, IN
               </span>
               <span className="text-xs font-mono font-medium tabular-nums text-zinc-600 dark:text-zinc-400 min-h-[20px]">
                 {time ? (
@@ -46,6 +46,7 @@ export default function Footer() {
                     hour: "2-digit",
                     minute: "2-digit",
                     second: "2-digit",
+                    timeZone: "Asia/Kolkata",
                   })
                 ) : (
                   <span className="opacity-0">00:00:00 AM</span>
