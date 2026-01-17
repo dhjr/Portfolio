@@ -184,18 +184,20 @@ body {
 
 /* Swiper Pagination Overrides */
 .swiper-pagination {
+  position: absolute !important;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(4px);
   padding: 4px 8px !important;
   border-radius: 9999px;
   width: auto !important;
   left: 50% !important;
-  transform: translateX(-50%);
+  transform: translateX(-50%) !important;
   bottom: 16px !important;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   gap: 4px;
+  z-index: 10;
 }
 
 .swiper-pagination-bullet {

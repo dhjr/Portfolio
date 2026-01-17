@@ -18,7 +18,6 @@ import "swiper/css/effect-fade";
 
 export default function ProjectCard({ project }) {
   const divRef = useRef(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
 
   // Normalize images: accept single `image` or `images` array
   const images = project.images || (project.image ? [project.image] : []);
@@ -27,7 +26,11 @@ export default function ProjectCard({ project }) {
     if (!divRef.current) return;
     const div = divRef.current;
     const rect = div.getBoundingClientRect();
-    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    div.style.setProperty("--x", `${x}px`);
+    div.style.setProperty("--y", `${y}px`);
   };
 
   return (
@@ -40,7 +43,7 @@ export default function ProjectCard({ project }) {
       <div
         className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100 z-0"
         style={{
-          background: `radial-gradient(800px circle at ${position.x}px ${position.y}px, rgba(16, 185, 129, 0.04), transparent 40%)`,
+          background: `radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(16, 185, 129, 0.04), transparent 40%)`,
           filter: "blur(20px)",
         }}
       />
@@ -49,7 +52,7 @@ export default function ProjectCard({ project }) {
       <div
         className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100 z-0"
         style={{
-          background: `radial-gradient(500px circle at ${position.x}px ${position.y}px, rgba(16, 185, 129, 0.15), transparent 40%)`,
+          background: `radial-gradient(500px circle at var(--x, 0px) var(--y, 0px), rgba(16, 185, 129, 0.15), transparent 40%)`,
           maskImage: "linear-gradient(black, black), content-box",
           WebkitMaskComposite: "xor",
           maskComposite: "exclude",
@@ -86,16 +89,19 @@ export default function ProjectCard({ project }) {
                 disableOnInteraction: false,
                 stopOnLastSlide: images.length === 1,
               }}
-              pagination={{
-                clickable: true,
-                // Fixing offset by ensuring centered text alignment for pagination container if needed
-                // Swiper default is usually centered, but custom class can reinforce it.
-              }}
+              pagination={
+                images.length > 1
+                  ? {
+                      clickable: true,
+                      dynamicBullets: true,
+                    }
+                  : false
+              }
               navigation={{
                 nextEl: `.swiper-button-next-${project.id}`,
                 prevEl: `.swiper-button-prev-${project.id}`,
               }}
-              className="w-full h-full [&>.swiper-pagination]:bottom-2! [&>.swiper-pagination]:left-1/2! [&>.swiper-pagination]:-translate-x-1/2! [&>.swiper-pagination]:w-fit! [&>.swiper-pagination]:flex! [&>.swiper-pagination]:justify-center!"
+              className="w-full h-full"
             >
               {images.map((img, idx) => (
                 <SwiperSlide key={idx} className="relative w-full h-full">
@@ -119,12 +125,12 @@ export default function ProjectCard({ project }) {
               {images.length > 1 && (
                 <>
                   <div
-                    className={`swiper-button-prev-${project.id} select-none absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-zinc-800 text-white z-50 cursor-pointer opacity-0 group-hover/image:opacity-100 transition-all duration-300 flex items-center justify-center hover:bg-zinc-700`}
+                    className={`swiper-button-prev-${project.id} select-none absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-zinc-800 text-white z-100 cursor-pointer opacity-0 group-hover/image:opacity-100 transition-all duration-300 flex items-center justify-center hover:bg-zinc-700`}
                   >
                     <ChevronLeft size={16} />
                   </div>
                   <div
-                    className={`swiper-button-next-${project.id} select-none absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-zinc-800 text-white z-50 cursor-pointer opacity-0 group-hover/image:opacity-100 transition-all duration-300 flex items-center justify-center hover:bg-zinc-700`}
+                    className={`swiper-button-next-${project.id} select-none absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-zinc-800 text-white z-100 cursor-pointer opacity-0 group-hover/image:opacity-100 transition-all duration-300 flex items-center justify-center hover:bg-zinc-700`}
                   >
                     <ChevronRight size={16} />
                   </div>

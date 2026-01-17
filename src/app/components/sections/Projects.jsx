@@ -95,15 +95,16 @@ export default function Projects() {
     },
     {
       id: "06",
-      heading: "Rage Roll",
+      heading: "Quicksave",
       description:
-        "A physics-driven web game developed with Phaser.js. Built for the Tinkerhub RIT 'Useless Projects' hackathon, focusing on collision logic and browser-based rendering.",
-      tags: ["Phaser.js", "JavaScript", "Game Development"],
-      ghLink: "#",
-      demoLink: "https://dhjr.github.io/Useless_project/",
-      image: "/projects/rageRoll.webp",
+        "A Manifest V3 Chrome Extension for instant image downloads. Features context-menu integration, on-the-fly format conversion (WebP, JPG, PNG) via Canvas API, and smart filename templating.",
+      tags: ["Chrome Extension", "Manifest V3", "Service Worker", "Canvas API"],
+      ghLink: "https://github.com/dhjr/quicksave",
+      demoLink: null,
+      image: "/projects/quicksave.webp",
       status: "Completed",
     },
+
     {
       id: "07",
       heading: "Little House London",
@@ -117,15 +118,16 @@ export default function Projects() {
     },
     {
       id: "08",
-      heading: "Quicksave",
+      heading: "Rage Roll",
       description:
-        "A Manifest V3 Chrome Extension for instant image downloads. Features context-menu integration, on-the-fly format conversion (WebP, JPG, PNG) via Canvas API, and smart filename templating.",
-      tags: ["Chrome Extension", "Manifest V3", "Service Worker", "Canvas API"],
-      ghLink: "https://github.com/dhjr/quicksave",
-      demoLink: null,
-      image: "/projects/quicksave.webp",
+        "A physics-driven web game developed with Phaser.js. Built for the Tinkerhub RIT 'Useless Projects' hackathon, focusing on collision logic and browser-based rendering.",
+      tags: ["Phaser.js", "JavaScript", "Game Development"],
+      ghLink: "#",
+      demoLink: "https://dhjr.github.io/Useless_project/",
+      image: "/projects/rageRoll.webp",
       status: "Completed",
     },
+
     {
       id: "09",
       heading: "RITU'25 College Techfest Website",
