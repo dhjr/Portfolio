@@ -109,8 +109,8 @@ body {
   position: relative;
   border-radius: 0.5rem;
   overflow: hidden;
-  background: conic-gradient(#10b981 0% 0%, transparent 0% 100%) top/0% 2px
-      no-repeat,
+  background:
+    conic-gradient(#10b981 0% 0%, transparent 0% 100%) top/0% 2px no-repeat,
     conic-gradient(#10b981 0% 0%, transparent 0% 100%) right/2px 0% no-repeat,
     conic-gradient(#10b981 0% 0%, transparent 0% 100%) bottom/0% 2px no-repeat,
     conic-gradient(#10b981 0% 0%, transparent 0% 100%) left/2px 0% no-repeat;
@@ -118,7 +118,11 @@ body {
 }
 
 .button-border-draw:hover {
-  background-size: 100% 2px, 2px 100%, 100% 2px, 2px 100%;
+  background-size:
+    100% 2px,
+    2px 100%,
+    100% 2px,
+    2px 100%;
 }
 
 @keyframes grid-pan {
@@ -185,8 +189,7 @@ body {
 /* Swiper Pagination Overrides */
 .swiper-pagination {
   position: absolute !important;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px);
+  background: rgba(63, 63, 70, 0.9);
   padding: 4px 8px !important;
   border-radius: 9999px;
   width: auto !important;

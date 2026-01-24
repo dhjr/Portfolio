@@ -127,7 +127,7 @@ export default function About() {
               </span>
               <div className="flex flex-col">
                 <span className="text-lg font-bold text-zinc-900 dark:text-white font-1spaceGrotesk leading-none">
-                  586
+                  590
                 </span>
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] font-bold text-zinc-600 dark:text-zinc-400 uppercase tracking-wider">

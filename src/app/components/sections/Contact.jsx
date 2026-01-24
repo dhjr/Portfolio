@@ -48,7 +48,7 @@ export default function Contact() {
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         formRef.current,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
       )
       .then(
         (result) => {
@@ -58,7 +58,7 @@ export default function Contact() {
         },
         (error) => {
           setStatus("error");
-        }
+        },
       );
   };
 
@@ -179,11 +179,11 @@ export default function Contact() {
                   type="text"
                   name="name"
                   required
-                  placeholder="John Doe"
+                  placeholder="Walter White"
                   className="
                     w-full bg-transparent border-b py-3 transition-all focus:outline-none 
                     border-zinc-300 text-zinc-900 placeholder:text-zinc-500 focus:border-emerald-500
-                    dark:border-zinc-800 dark:text-white dark:placeholder:text-zinc-700/50 dark:focus:border-emerald-500
+                    dark:border-zinc-800 dark:text-white dark:placeholder:text-zinc-500 dark:focus:border-emerald-500
                   "
                 />
               </div>
@@ -197,11 +197,11 @@ export default function Contact() {
                   type="email"
                   name="email"
                   required
-                  placeholder="john@example.com"
+                  placeholder="heisenberg@gmail.com"
                   className="
                     w-full bg-transparent border-b py-3 transition-all focus:outline-none 
                     border-zinc-300 text-zinc-900 placeholder:text-zinc-500 focus:border-emerald-500
-                    dark:border-zinc-800 dark:text-white dark:placeholder:text-zinc-700/50 dark:focus:border-emerald-500
+                    dark:border-zinc-800 dark:text-white dark:placeholder:text-zinc-500 dark:focus:border-emerald-500
                   "
                 />
               </div>
@@ -215,11 +215,11 @@ export default function Contact() {
                   name="message"
                   required
                   rows="4"
-                  placeholder="Tell me about your project..."
+                  placeholder="Say my name."
                   className="
                     w-full bg-transparent border-b py-3 transition-all focus:outline-none resize-none
                     border-zinc-300 text-zinc-900 placeholder:text-zinc-500 focus:border-emerald-500
-                    dark:border-zinc-800 dark:text-white dark:placeholder:text-zinc-700/50 dark:focus:border-emerald-500
+                    dark:border-zinc-800 dark:text-white dark:placeholder:text-zinc-500 dark:focus:border-emerald-500
                   "
                 />
               </div>

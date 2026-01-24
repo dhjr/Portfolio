@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import ThemeToggle from "@/components/customComponents/ThemeToggle";
 
 const navLinks = [
@@ -39,7 +40,7 @@ export default function Navbar() {
       ([entry]) => {
         setScrolled(!entry.isIntersecting);
       },
-      { root: null, threshold: 0 }
+      { root: null, threshold: 0 },
     );
     if (sentinelEl) sentinelObserver.observe(sentinelEl);
 
@@ -60,7 +61,7 @@ export default function Navbar() {
 
     const sectionObserver = new IntersectionObserver(
       handleIntersect,
-      sectionObserverOptions
+      sectionObserverOptions,
     );
 
     // Observe all sections
@@ -84,7 +85,7 @@ export default function Navbar() {
     if (!isMobileMenuOpen) return;
 
     const activeIndex = navLinks.findIndex(
-      (link) => link.href.substring(1) === activeSection
+      (link) => link.href.substring(1) === activeSection,
     );
     const activeEl = itemRefs.current[activeIndex];
     const indicator = indicatorRef.current;
@@ -243,9 +244,24 @@ export default function Navbar() {
           onClick={(e) => handleLinkClick(e, "#hero")}
           className="flex items-center gap-2 relative z-10"
         >
-          <span className="text-zinc-800 dark:text-white  text-2xl font-1boldonse">
-            DR.
-          </span>
+          <div className="relative w-10 h-10">
+            <Image
+              src="/favicon.webp"
+              alt="Logo"
+              fill
+              className="object-contain dark:hidden"
+              priority
+              sizes="40px"
+            />
+            <Image
+              src="/favicon_dark.webp"
+              alt="Logo"
+              fill
+              className="object-contain hidden dark:block"
+              priority
+              sizes="40px"
+            />
+          </div>
         </Link>
 
         {/* Right Controls */}

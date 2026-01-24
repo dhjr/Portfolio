@@ -23,18 +23,15 @@ export default function Projects() {
   const projectsData = [
     {
       id: "00",
-      heading: "LivePoll",
+      heading: "Victoria Film Official Website",
       description:
-        "A real-time polling application built with Next.js 16 & Socket.io. Users can create poll rooms, share codes for instant joining, and visualize live voting results via dynamic charts. Features IP-based voting logic and persisted data patterns.",
-      tags: ["Next.js", "Socket.io", "MongoDB", "Tailwind v4"],
-      ghLink: "#",
-      demoLink: null,
-      images: [
-        "/projects/livePoll1.webp",
-        "/projects/livePoll2.webp",
-        "/projects/livePoll3.webp",
-      ],
-      status: "In Progress",
+        "Official high-performance site for the award-winning film 'Victoria'. Built with Astro and Tailwind v4, featuring immersive vertical scrolling via Swiper.js and seamless video streaming with Mux Player.",
+      tags: ["Astro", "Tailwind v4", "Motion", "Swiper.js", "Mux Player"],
+      ghLink: null,
+      demoLink: "https://victoriafilm.in",
+      image: "/projects/victoria1.webp",
+      images: ["/projects/victoria2.webp", "/projects/victoria1.webp"],
+      status: "Completed",
     },
     {
       id: "01",
@@ -49,18 +46,6 @@ export default function Projects() {
     },
     {
       id: "02",
-      heading: "Victoria Film Official Website",
-      description:
-        "Official high-performance site for the award-winning film 'Victoria'. Built with Astro and Tailwind v4, featuring immersive vertical scrolling via Swiper.js and seamless video streaming with Mux Player.",
-      tags: ["Astro", "Tailwind v4", "Motion", "Swiper.js", "Mux Player"],
-      ghLink: null,
-      demoLink: "https://victoriafilm.in",
-      image: "/projects/victoria1.webp",
-      images: ["/projects/victoria1.webp", "/projects/victoria2.webp"],
-      status: "Completed",
-    },
-    {
-      id: "03",
       heading: "Goblin Ledger",
       description:
         "A lightweight PWA for Clash of Clans players. Features complex time-calculation logic for gem acquisition, custom game-specific assets, and offline functionality via Service Workers.",
@@ -71,19 +56,23 @@ export default function Projects() {
       status: "Completed",
     },
     {
-      id: "04",
-      heading: "Pakkaran",
+      id: "03",
+      heading: "LivePoll",
       description:
-        "A full-stack service provider application built with Next.js and a custom Express.js backend. Features secure authentication and a robust PostgreSQL database",
-      tags: ["Next.js", "PostgreSQL", "Express.js", "Tailwind v4"],
-      ghLink: "https://github.com/dhjr/pakkaran-app",
-      demoLink: "https://pakkaran-app.vercel.app/",
-      image: "/projects/serviceWorker.webp",
-      status: "Completed",
+        "A real-time polling application built with Next.js 16 & Socket.io. Users can create poll rooms, share codes for instant joining, and visualize live voting results via dynamic charts. Features IP-based voting logic and persisted data patterns.",
+      tags: ["Next.js", "Socket.io", "MongoDB", "Tailwind v4"],
+      ghLink: "#",
+      demoLink: null,
+      images: [
+        "/projects/livePoll1.webp",
+        "/projects/livePoll2.webp",
+        "/projects/livePoll3.webp",
+      ],
+      status: "In Progress",
     },
 
     {
-      id: "05",
+      id: "04",
       heading: "TripSync",
       description:
         "A real-time collaborative travel planner enabling multi-user location sharing and live updates via WebSockets and OpenStreetMap integration.",
@@ -94,7 +83,7 @@ export default function Projects() {
       status: "In Progress",
     },
     {
-      id: "06",
+      id: "05",
       heading: "Quicksave",
       description:
         "A Manifest V3 Chrome Extension for instant image downloads. Features context-menu integration, on-the-fly format conversion (WebP, JPG, PNG) via Canvas API, and smart filename templating.",
@@ -102,6 +91,17 @@ export default function Projects() {
       ghLink: "https://github.com/dhjr/quicksave",
       demoLink: null,
       image: "/projects/quicksave.webp",
+      status: "Completed",
+    },
+    {
+      id: "06",
+      heading: "Pakkaran",
+      description:
+        "A full-stack service provider application built with Next.js and a custom Express.js backend. Features secure authentication and a robust PostgreSQL database",
+      tags: ["Next.js", "PostgreSQL", "Express.js", "Tailwind v4"],
+      ghLink: "https://github.com/dhjr/pakkaran-app",
+      demoLink: "https://pakkaran-app.vercel.app/",
+      image: "/projects/serviceWorker.webp",
       status: "Completed",
     },
 
@@ -175,7 +175,7 @@ export default function Projects() {
     },
   ];
 
-  const visibleProjects = showAll ? projectsData : projectsData.slice(0, 5);
+  const visibleProjects = showAll ? projectsData : projectsData.slice(0, 6);
 
   return (
     <section

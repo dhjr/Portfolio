@@ -67,6 +67,12 @@ export const metadata = {
   alternates: {
     canonical: siteUrl,
   },
+  icons: {
+    icon: [
+      { url: "/favicon.webp", media: "(prefers-color-scheme: light)" },
+      { url: "/favicon_dark.webp", media: "(prefers-color-scheme: dark)" },
+    ],
+  },
 };
 export default function RootLayout({ children }) {
   // Define your JSON-LD data object outside for better readability

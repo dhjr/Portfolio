@@ -30,9 +30,22 @@ export default function Footer() {
           {/* Column 1: Brand & Status */}
           <div className="p-6 md:p-10 flex flex-col justify-between h-full min-h-[200px]">
             <div>
-              <h2 className="text-4xl font-bold font-1boldonse tracking-tighter text-zinc-900 dark:text-white transition-colors">
-                DR.
-              </h2>
+              <div className="relative w-16 h-16 mb-2">
+                <Image
+                  src="/favicon.webp"
+                  alt="Logo"
+                  fill
+                  className="object-contain dark:hidden"
+                  sizes="64px"
+                />
+                <Image
+                  src="/favicon_dark.webp"
+                  alt="Logo"
+                  fill
+                  className="object-contain hidden dark:block"
+                  sizes="64px"
+                />
+              </div>
               <p className="text-zinc-500 text-sm mt-2">Full Stack Developer</p>
             </div>
             <div className="mt-8 flex flex-col gap-1">

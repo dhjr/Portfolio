@@ -22,44 +22,11 @@ export default function ProjectCard({ project }) {
   // Normalize images: accept single `image` or `images` array
   const images = project.images || (project.image ? [project.image] : []);
 
-  const handleMouseMove = (e) => {
-    if (!divRef.current) return;
-    const div = divRef.current;
-    const rect = div.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    div.style.setProperty("--x", `${x}px`);
-    div.style.setProperty("--y", `${y}px`);
-  };
-
   return (
     <div
       ref={divRef}
-      onMouseMove={handleMouseMove}
       className="group relative flex flex-col lg:flex-row gap-0 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 overflow-hidden transition-all duration-300 hover:shadow-xl dark:hover:shadow-emerald-900/10"
     >
-      {/* GLOW EFFECT LAYER */}
-      <div
-        className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100 z-0"
-        style={{
-          background: `radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(16, 185, 129, 0.04), transparent 40%)`,
-          filter: "blur(20px)",
-        }}
-      />
-
-      {/* BORDER GLOW */}
-      <div
-        className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100 z-0"
-        style={{
-          background: `radial-gradient(500px circle at var(--x, 0px) var(--y, 0px), rgba(16, 185, 129, 0.15), transparent 40%)`,
-          maskImage: "linear-gradient(black, black), content-box",
-          WebkitMaskComposite: "xor",
-          maskComposite: "exclude",
-          padding: "1px",
-        }}
-      />
-
       {/* STATUS BANNER */}
       {project.status && (
         <div
@@ -125,12 +92,12 @@ export default function ProjectCard({ project }) {
               {images.length > 1 && (
                 <>
                   <div
-                    className={`swiper-button-prev-${project.id} select-none absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-zinc-800 text-white z-100 cursor-pointer opacity-0 group-hover/image:opacity-100 transition-all duration-300 flex items-center justify-center hover:bg-zinc-700`}
+                    className={`swiper-button-prev-${project.id} select-none absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-zinc-800 text-white z-[100] pointer-events-auto cursor-pointer opacity-0 group-hover/image:opacity-100 transition-all duration-300 flex items-center justify-center hover:bg-zinc-700`}
                   >
                     <ChevronLeft size={16} />
                   </div>
                   <div
-                    className={`swiper-button-next-${project.id} select-none absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-zinc-800 text-white z-100 cursor-pointer opacity-0 group-hover/image:opacity-100 transition-all duration-300 flex items-center justify-center hover:bg-zinc-700`}
+                    className={`swiper-button-next-${project.id} select-none absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-zinc-800 text-white z-[100] pointer-events-auto cursor-pointer opacity-0 group-hover/image:opacity-100 transition-all duration-300 flex items-center justify-center hover:bg-zinc-700`}
                   >
                     <ChevronRight size={16} />
                   </div>
