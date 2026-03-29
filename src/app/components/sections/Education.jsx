@@ -11,7 +11,7 @@ export default function Education() {
       period: "2023 – Present",
       score: "CGPA: 8.0/10",
       description:
-        "Focusing on core software engineering principles and fullstack development. Actively contributing to the campus technical ecosystem through IEEE, Tinkerhub, and SAE A-Baja teams.",
+        "Focusing on core software engineering principles - OOPS, DSA, DBMS and fullstack development. Actively contributing to the campus technical ecosystem through IEEE, Tinkerhub, and SAE A-Baja teams.",
     },
     {
       title: "Higher Secondary Education (Class 12)",

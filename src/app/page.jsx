@@ -15,6 +15,8 @@ const Skills = dynamic(() => import("@/components/sections/Skills"));
 const Education = dynamic(() => import("@/components/sections/Education"));
 const Experience = dynamic(() => import("@/components/sections/Experience"));
 
+import ViewportSection from "@/components/customComponents/ViewportSection";
+
 export default function Home() {
   return (
     <main className="selection:bg-emerald-500/30 w-full">
@@ -25,13 +27,34 @@ export default function Home() {
         <MeshBackground />
 
         <div className="content-visibility-auto">
-          <About />
-          <Videos />
-          <Projects />
-          <Experience />
-          <Skills />
-          <Education />
-          <Contact />
+          <ViewportSection threshold={0.05}>
+            <About />
+          </ViewportSection>
+          
+          <ViewportSection threshold={0.05}>
+            <Videos />
+          </ViewportSection>
+          
+          <ViewportSection threshold={0.05}>
+            <Projects />
+          </ViewportSection>
+          
+          <ViewportSection threshold={0.05}>
+            <Experience />
+          </ViewportSection>
+          
+          <ViewportSection threshold={0.05}>
+            <Skills />
+          </ViewportSection>
+          
+          <ViewportSection threshold={0.05}>
+            <Education />
+          </ViewportSection>
+          
+          <ViewportSection threshold={0.05}>
+            <Contact />
+          </ViewportSection>
+          
           <Footer />
         </div>
       </div>

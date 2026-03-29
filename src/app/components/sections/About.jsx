@@ -1,15 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/customComponents/SectionHeader";
-import { 
-  User, 
-  ArrowUpRight, 
-  Github, 
-  Linkedin, 
-  Mail, 
-  Instagram, 
+import {
+  User,
+  ArrowUpRight,
+  Github,
+  Linkedin,
+  Mail,
+  Instagram,
   Youtube,
-  Twitter
+  Twitter,
 } from "lucide-react";
 
 export default function About() {
@@ -50,12 +50,9 @@ export default function About() {
 
               <p>
                 I am genuinely excited about where technology is heading. The
-                growth of{" "}
-                <span className="text-emerald-500 font-medium">LLMs</span>,{" "}
-                <span className="text-emerald-500 font-medium">AI agents</span>,
-                and open-source tooling feels like one of those rare moments
-                where the ground is shifting fast enough to reward curiosity. I
-                lean into that.
+                growth of LLMs, AI agents, and open-source tooling feels like
+                one of those rare moments where the ground is shifting fast
+                enough to reward curiosity. I lean into that.
               </p>
 
               <p>
@@ -98,12 +95,36 @@ export default function About() {
             {/* Social Links */}
             <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 pt-6 border-t border-zinc-100 dark:border-zinc-800">
               {[
-                { icon: Github, href: "https://github.com/dhjr", label: "Github" },
-                { icon: Linkedin, href: "https://linkedin.com/in/dhananjayr", label: "LinkedIn" },
-                { icon: Mail, href: "mailto:dhjr.dev@gmail.com", label: "Mail" },
-                { icon: Twitter, href: "https://x.com/dhananjayr_", label: "Twitter" },
-                { icon: Youtube, href: "https://youtube.com/@letthedevscook", label: "YouTube" },
-                { icon: Instagram, href: "https://www.instagram.com/dhananjayr_/", label: "Instagram" },
+                {
+                  icon: Github,
+                  href: "https://github.com/dhjr",
+                  label: "Github",
+                },
+                {
+                  icon: Linkedin,
+                  href: "https://linkedin.com/in/dhananjayr",
+                  label: "LinkedIn",
+                },
+                {
+                  icon: Mail,
+                  href: "mailto:dhjr.dev@gmail.com",
+                  label: "Mail",
+                },
+                {
+                  icon: Twitter,
+                  href: "https://x.com/dhananjayr_",
+                  label: "Twitter",
+                },
+                {
+                  icon: Youtube,
+                  href: "https://youtube.com/@letthedevscook",
+                  label: "YouTube",
+                },
+                {
+                  icon: Instagram,
+                  href: "https://www.instagram.com/dhananjayr_/",
+                  label: "Instagram",
+                },
               ].map((social) => (
                 <Link
                   key={social.label}

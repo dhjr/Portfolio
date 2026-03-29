@@ -15,10 +15,21 @@ export default function MeshBackground() {
           className="absolute inset-0 opacity-[0.3] dark:opacity-[0.2] text-zinc-900 dark:text-zinc-200"
           style={{
             backgroundImage: `radial-gradient(circle, currentColor 1.2px, transparent 1.2px)`,
-            backgroundSize: "32px 32px",
+            backgroundSize: "var(--grid-size, 32px) var(--grid-size, 32px)",
           }}
         />
       </div>
+
+      <style jsx>{`
+        div {
+          --grid-size: 64px;
+        }
+        @media (min-width: 768px) {
+          div {
+            --grid-size: 32px;
+          }
+        }
+      `}</style>
 
       {/* Noise Texture */}
       <div

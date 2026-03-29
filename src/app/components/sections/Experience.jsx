@@ -427,14 +427,14 @@ export default function Experience() {
                   </div>
                   <div>
                     <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white mb-2">
-                      SAE A-Baja RIT
+                      SAE A-Baja 2025
                     </h4>
 
                     <div className="flex flex-col gap-1.5 border-l-2 border-orange-200 dark:border-orange-500/20 pl-3">
                       <div className="flex flex-col mb-1.5">
                         <span className="text-[10px] uppercase tracking-wider font-bold text-orange-600 dark:text-orange-400 flex items-center gap-1.5">
                           <Trophy size={10} />
-                          AIR 9 - SAE A-Baja 2025
+                          All India Rank - 9
                         </span>
                       </div>
                       <div className="flex flex-col">
