@@ -25,7 +25,7 @@ export default function Projects() {
       id: "00",
       heading: "Victoria Film Official Website",
       description:
-        "Official high-performance site for the award-winning film 'Victoria'. Built with Astro and Tailwind v4, featuring immersive vertical scrolling via Swiper.js and seamless video streaming with Mux Player.",
+        "Official high-performance site for the award-winning film 'Victoria'. Site achieved over 60k impressions. Built with Astro and Tailwind v4, featuring immersive vertical scrolling via Swiper.js and seamless video streaming with Mux Player.",
       tags: ["Astro", "Tailwind v4", "Motion", "Swiper.js", "Mux Player"],
       ghLink: null,
       demoLink: "https://victoriafilm.in",
@@ -61,8 +61,8 @@ export default function Projects() {
       description:
         "A real-time polling application built with Next.js 16 & Socket.io. Users can create poll rooms, share codes for instant joining, and visualize live voting results via dynamic charts. Features IP-based voting logic and persisted data patterns.",
       tags: ["Next.js", "Socket.io", "MongoDB", "Tailwind v4"],
-      ghLink: "#",
-      demoLink: null,
+      ghLink: "https://github.com/dhjr/LivePoll",
+      demoLink: "livepoll-web.vercel.app",
       images: [
         "/projects/livePoll1.webp",
         "/projects/livePoll2.webp",
@@ -93,17 +93,6 @@ export default function Projects() {
       image: "/projects/quicksave.webp",
       status: "Completed",
     },
-    {
-      id: "06",
-      heading: "Pakkaran",
-      description:
-        "A full-stack service provider application built with Next.js and a custom Express.js backend. Features secure authentication and a robust PostgreSQL database",
-      tags: ["Next.js", "PostgreSQL", "Express.js", "Tailwind v4"],
-      ghLink: "https://github.com/dhjr/pakkaran-app",
-      demoLink: "https://pakkaran-app.vercel.app/",
-      image: "/projects/serviceWorker.webp",
-      status: "Completed",
-    },
 
     {
       id: "07",
@@ -122,7 +111,7 @@ export default function Projects() {
       description:
         "A physics-driven web game developed with Phaser.js. Built for the Tinkerhub RIT 'Useless Projects' hackathon, focusing on collision logic and browser-based rendering.",
       tags: ["Phaser.js", "JavaScript", "Game Development"],
-      ghLink: "#",
+      ghLink: "https://github.com/dhjr/Rage-roll",
       demoLink: "https://dhjr.github.io/Useless_project/",
       image: "/projects/rageRoll.webp",
       status: "Completed",
@@ -134,7 +123,7 @@ export default function Projects() {
       description:
         "Contributed in development of RITU College Techfest official website.",
       tags: ["Next.js", "Tailwind", "Swiper.js"],
-      ghLink: "#",
+      ghLink: "https://github.com/dhjr/RITU-2025",
       demoLink: "https://www.ritu25.live/",
       image: "/projects/ritu.webp",
       status: "Completed",
@@ -145,7 +134,7 @@ export default function Projects() {
       description:
         "Led the development and deployment of the flagship event website for IEEE Signal Processing Society RIT, ensuring timely updates.",
       tags: ["Next.js", "Vercel", "IEEE"],
-      ghLink: "#",
+      ghLink: "https://github.com/dhjr/TechFuse-2.0",
       demoLink: "https://www.techfuse20.ieeesbrit.com",
       image: "/projects/techfuse.webp",
       status: "Completed",
@@ -156,7 +145,7 @@ export default function Projects() {
       description:
         "Developed the Roboignite official website hosted by IEEE Robotics and Automation Society RIT. Integrated 3D elements using Three.js to provide an immersive user experience.",
       tags: ["Next.js", "Typescript", "Three.js"],
-      ghLink: "#",
+      ghLink: "https://github.com/dhjr/Roboignite",
       demoLink: "https://www.roboignite.ieeesbrit.com",
       image: "/projects/roboignite.webp",
       status: "Completed",

@@ -89,9 +89,9 @@ export default function Hero() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
-          <Link href="#contact" className="hidden sm:block">
+          <a href="#about" className="hidden sm:block transition-all active:scale-95">
             <Button text={"Let's Connect!"} />
-          </Link>
+          </a>
 
           {/* Updated Copy Button for Light/Dark Mode */}
           <button

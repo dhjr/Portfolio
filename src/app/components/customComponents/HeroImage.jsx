@@ -26,7 +26,7 @@ export default function HeroImage() {
       {/* WRAPPER FOR UNIFIED FLOATING */}
       <div className="relative w-full h-full flex items-center justify-center md:animate-[float_6s_ease-in-out_infinite] will-change-transform">
         {/* SIMPLE PULSING BORDER - Soft & Natural */}
-        <div className="absolute w-[262px] h-[262px] md:w-[382px] md:h-[382px] rounded-full border-2 border-emerald-600/30 dark:border-emerald-500/50 animate-[pulse-opacity_5s_ease-in-out_infinite] z-40 blur-[2px] will-change-[opacity,transform]"></div>
+
 
         {/* 4. THE CORE (Image Container) */}
         <div
@@ -73,14 +73,7 @@ export default function HeroImage() {
             transform: translateY(-15px);
           }
         }
-        @keyframes pulse-opacity {
-          0%, 100% {
-            opacity: 0.15;
-          }
-          50% {
-            opacity: 0.8;
-          }
-        }
+
       `}</style>
     </div>
   );

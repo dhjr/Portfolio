@@ -1,7 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/customComponents/SectionHeader";
-import { User, RefreshCw, BookOpen, Zap, ArrowUpRight } from "lucide-react";
+import { 
+  User, 
+  ArrowUpRight, 
+  Github, 
+  Linkedin, 
+  Mail, 
+  Instagram, 
+  Youtube,
+  Twitter
+} from "lucide-react";
 
 export default function About() {
   return (
@@ -30,66 +39,82 @@ export default function About() {
             {/* Split into multiple <p> tags with bold highlights */}
             <div className="flex flex-col gap-5 text-zinc-700 dark:text-zinc-300 font-1spaceGrotesk leading-relaxed text-base md:text-md">
               <p>
-                Hey, I&apos;m{" "}
+                I build things, break them, figure out why, and build them
+                better. As a{" "}
                 <span className="text-zinc-900 dark:text-zinc-100 font-semibold">
-                  Dhananjay
+                  fullstack developer
                 </span>
-                . I’m a Computer Science student and an aspiring{" "}
-                <span className="text-zinc-900 dark:text-zinc-100 font-semibold">
-                  Full Stack Developer
-                </span>{" "}
-                with a passion for building applications that are as accessible
-                and performant as they are visually striking.
+                , I care about the whole picture. From how data flows on the
+                backend to how it feels when someone actually uses what I made.
               </p>
 
               <p>
-                While my core strength lies in{" "}
-                <span className="text-emerald-500 font-medium">
-                  frontend development
-                </span>
-                , I’m currently expanding my expertise into{" "}
-                <span className="text-zinc-900 dark:text-zinc-100 font-semibold">
-                  backend systems
-                </span>{" "}
-                to build robust, end-to-end solutions. I stay at the forefront
-                of the industry by constantly exploring the latest web standards
-                and emerging technologies.
+                I am genuinely excited about where technology is heading. The
+                growth of{" "}
+                <span className="text-emerald-500 font-medium">LLMs</span>,{" "}
+                <span className="text-emerald-500 font-medium">AI agents</span>,
+                and open-source tooling feels like one of those rare moments
+                where the ground is shifting fast enough to reward curiosity. I
+                lean into that.
               </p>
 
               <p>
-                Outside of my IDE, I dive into the worlds of{" "}
-                <span className="italic">personal finance</span> and{" "}
-                <span className="italic">standup comedy</span>. When I’m not
-                coding, you’ll likely find me catching a movie or discovering
-                new music to fuel my next build.
+                Open-source software is something I believe in, not just use.
+                There is something worth appreciating about software built
+                transparently, by people who care about it working well for
+                everyone.
+              </p>
+
+              <p>
+                Beyond my IDE, I have contributed to communities like{" "}
+                <span className="text-zinc-900 dark:text-zinc-100 font-semibold">
+                  IEEE
+                </span>
+                ,{" "}
+                <span className="text-zinc-900 dark:text-zinc-100 font-semibold">
+                  Tinkerhub
+                </span>{" "}
+                and{" "}
+                <span className="text-zinc-900 dark:text-zinc-100 font-semibold">
+                  SAE
+                </span>
+                . Spaces where people build things together and push each other
+                to think bigger. That kind of environment is what I look for in
+                a team too. I work well when the problems are hard and the
+                people around me take their craft seriously.
+              </p>
+
+              <p>
+                Outside of tech, I track personal finance, catch standup comedy
+                whenever I can, and have a healthy rotation of music and new
+                films going at all times. It balances out the screen time.
               </p>
 
               <p className="text-zinc-900 dark:text-zinc-100 font-medium">
-                I thrive on challenges and am currently looking for an
-                opportunity to contribute to a forward-thinking team. Let’s
-                connect!
+                Let’s connect :D
               </p>
             </div>
 
-            {/* Highlights / Stats */}
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 pt-6 border-t border-zinc-100 dark:border-zinc-800">
-              <div className="flex items-center gap-3">
-                <span className="p-2 rounded-lg bg-emerald-100 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400">
-                  <RefreshCw size={20} />
-                </span>
-                <span className="text-sm font-bold text-zinc-800 dark:text-zinc-200 font-1spaceGrotesk">
-                  Unlearn & Relearn
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <span className="p-2 rounded-lg bg-blue-100 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400">
-                  <Zap size={20} />
-                </span>
-                <span className="text-sm font-bold text-zinc-800 dark:text-zinc-200 font-1spaceGrotesk">
-                  Exploring Backend Development
-                </span>
-              </div>
+            {/* Social Links */}
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 pt-6 border-t border-zinc-100 dark:border-zinc-800">
+              {[
+                { icon: Github, href: "https://github.com/dhjr", label: "Github" },
+                { icon: Linkedin, href: "https://linkedin.com/in/dhananjayr", label: "LinkedIn" },
+                { icon: Mail, href: "mailto:dhjr.dev@gmail.com", label: "Mail" },
+                { icon: Twitter, href: "https://x.com/dhananjayr_", label: "Twitter" },
+                { icon: Youtube, href: "https://youtube.com/@letthedevscook", label: "YouTube" },
+                { icon: Instagram, href: "https://www.instagram.com/dhananjayr_/", label: "Instagram" },
+              ].map((social) => (
+                <Link
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  className="p-3 rounded-xl bg-zinc-100/50 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 hover:scale-110 transition-all duration-300"
+                  aria-label={social.label}
+                >
+                  <social.icon size={22} />
+                </Link>
+              ))}
             </div>
           </div>
         </div>

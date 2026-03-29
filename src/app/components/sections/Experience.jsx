@@ -9,6 +9,7 @@ import {
   Globe,
   FileText,
   ExternalLink,
+  Github,
 } from "lucide-react";
 import Image from "next/image";
 import Header from "@/components/customComponents/SectionHeader";
@@ -79,17 +80,31 @@ export default function Experience() {
                     transparency for clinical use cases.
                   </p>
 
-                  <a
-                    href="https://drive.google.com/file/d/1WckhjFNDy4Fx0t84xtC9ATofwGcOtQ2n/view?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-medium text-sm hover:bg-emerald-100 dark:hover:bg-emerald-500/20 transition-colors w-fit"
-                  >
-                    <FileText size={16} />
-                    <span className="font-1spaceGrotesk">
-                      View Internship Report
-                    </span>
-                  </a>
+                  <div className="flex flex-wrap gap-4">
+                    <a
+                      href="https://drive.google.com/file/d/1WckhjFNDy4Fx0t84xtC9ATofwGcOtQ2n/view?usp=sharing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-100 dark:border-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-medium text-sm hover:bg-emerald-100 dark:hover:bg-emerald-500/20 transition-colors w-fit"
+                    >
+                      <FileText size={16} />
+                      <span className="font-1spaceGrotesk">
+                        View Internship Report
+                      </span>
+                    </a>
+
+                    <a
+                      href="https://github.com/dhjr/IIIT-Internship"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium text-sm hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors w-fit"
+                    >
+                      <Github size={16} />
+                      <span className="font-1spaceGrotesk">
+                        View Source Code
+                      </span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -114,25 +129,59 @@ export default function Experience() {
 
             <div className="relative h-full rounded-[23px] bg-white/95  dark:bg-zinc-900/90 p-8 flex flex-col justify-between border border-zinc-200 dark:border-transparent">
               <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="p-2 rounded-lg bg-purple-100 text-purple-600 dark:bg-purple-500/20 dark:text-purple-400">
-                    <Trophy size={20} />
+                {/* <div className="flex items-center gap-3 mb-4">
+                  <span className="p-2 rounded-lg bg-orange-100 text-orange-600 dark:bg-orange-500/20 dark:text-orange-400">
+                    <Briefcase size={20} />
                   </span>
-                  <span className="text-xs font-mono uppercase tracking-wider text-purple-600 dark:text-purple-400">
-                    Hackathons
+                  <span className="text-xs font-mono uppercase tracking-wider text-orange-600 dark:text-orange-400">
+                    Freelance & Projects
                   </span>
-                </div>
+                </div> */}
 
                 <ul className="space-y-6">
                   <li>
+                    <span className="text-[10px] uppercase tracking-wider font-bold text-orange-600 dark:text-orange-400 mb-1 block">
+                      Freelance
+                    </span>
                     <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
-                      Winner - Useless Projects
+                      Victoria Film
                     </h4>
                     <p className="font-1spaceGrotesk text-xs text-zinc-600 dark:text-zinc-400 mt-1">
-                      Built a physics based phaser.js game.
+                      Developed the official website for the malayalam feature
+                      film{" "}
+                      <span className="text-zinc-900 dark:text-zinc-200 font-medium">
+                        Victoria
+                      </span>
+                      .<br></br>Site achieved over{" "}
+                      <span className="text-emerald-500 font-bold">
+                        60k+ impressions
+                      </span>
+                      .
                     </p>
+                    <a
+                      href="https://victoriafilm.in"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="
+                        group/tag inline-flex items-center gap-1.5 text-[10px] px-2.5 py-1.5 mt-3 rounded-md transition-all duration-300
+                        bg-zinc-100 border border-zinc-200 text-zinc-600
+                        dark:bg-zinc-800/50 dark:border-zinc-700/50 dark:text-zinc-400
+                        
+                        hover:scale-105 hover:bg-emerald-50 hover:border-emerald-200 hover:text-emerald-700 hover:shadow-sm
+                        dark:hover:bg-emerald-500/10 dark:hover:border-emerald-500/30 dark:hover:text-emerald-400
+                      "
+                    >
+                      victoriafilm.in
+                      <ExternalLink
+                        size={8}
+                        className="opacity-50 group-hover/tag:opacity-100 transition-opacity"
+                      />
+                    </a>
                   </li>
                   <li className="pt-4 border-t border-zinc-200 dark:border-zinc-800">
+                    <span className="text-[10px] uppercase tracking-wider font-bold text-purple-600 dark:text-purple-400 mb-1 block">
+                      Hackathon
+                    </span>
                     <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
                       Code-RECET 2.0
                     </h4>
@@ -140,6 +189,26 @@ export default function Experience() {
                       AI-powered Chrome extension to bridge the gap between
                       binge-watching tutorials and active learning.
                     </p>
+                    <a
+                      href="https://github.com/dhjr/Mentora.ai"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="
+                        group/tag inline-flex items-center gap-1.5 text-[10px] px-2.5 py-1.5 mt-3 rounded-md transition-all duration-300
+                        bg-zinc-100 border border-zinc-200 text-zinc-600
+                        dark:bg-zinc-800/50 dark:border-zinc-700/50 dark:text-zinc-400
+                        
+                        hover:scale-105 hover:bg-emerald-50 hover:border-emerald-200 hover:text-emerald-700 hover:shadow-sm
+                        dark:hover:bg-emerald-500/10 dark:hover:border-emerald-500/30 dark:hover:text-emerald-400
+                      "
+                    >
+                      <Github size={10} />
+                      Mentora.ai
+                      <ExternalLink
+                        size={8}
+                        className="opacity-50 group-hover/tag:opacity-100 transition-opacity"
+                      />
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -210,20 +279,78 @@ export default function Experience() {
                         {
                           name: "Techfuse 2.0",
                           url: "https://techfuse20.ieeesbrit.com",
+                          ghUrl: "https://github.com/dhjr/TechFuse-2.0",
                         },
                         {
                           name: "Roboignite",
                           url: "https://roboignite.ieeesbrit.com",
+                          ghUrl: "https://github.com/dhjr/Roboignite",
                         },
                         { name: "ReX 5.0", url: "https://rex.ieeesbrit.com" },
                       ].map((site) => (
-                        <a
+                        <div
                           key={site.name}
-                          href={site.url}
+                          className="flex items-center gap-1"
+                        >
+                          <a
+                            href={site.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="
+                              group/tag flex items-center gap-1.5 text-[10px] px-2.5 py-1.5 rounded-md transition-all duration-300
+                              bg-zinc-100 border border-zinc-200 text-zinc-600
+                              dark:bg-zinc-800/50 dark:border-zinc-700/50 dark:text-zinc-400
+                              
+                              hover:scale-105 hover:bg-emerald-50 hover:border-emerald-200 hover:text-emerald-700 hover:shadow-sm
+                              dark:hover:bg-emerald-500/10 dark:hover:border-emerald-500/30 dark:hover:text-emerald-400
+                            "
+                          >
+                            {site.name}
+                            <ExternalLink
+                              size={10}
+                              className="opacity-50 group-hover/tag:opacity-100 transition-opacity"
+                            />
+                          </a>
+                          {site.ghUrl && (
+                            <a
+                              href={site.ghUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="
+                                group/github p-1.5 rounded-md border transition-all duration-300
+                                bg-zinc-100 border-zinc-200 text-zinc-600
+                                dark:bg-zinc-800/50 dark:border-zinc-700/50 dark:text-zinc-400
+                                hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-emerald-600 dark:hover:text-emerald-400
+                              "
+                              aria-label={`${site.name} Source Code`}
+                            >
+                              <Github size={12} />
+                            </a>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="md:pl-8 md:border-l border-zinc-200 dark:border-zinc-800">
+                    <h3 className="text-xl font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
+                      RITU College Techfest
+                    </h3>
+                    <p className="text-sm font-mono text-zinc-600 dark:text-zinc-400 mb-3">
+                      Contributor • 2025
+                    </p>
+                    <div className="space-y-4">
+                      <p className="font-1spaceGrotesk text-sm text-zinc-700 dark:text-zinc-300">
+                        Contributed in the development of the official website
+                        for the college's main techno-cultural fest.
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <a
+                          href="https://ritu25.live"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="
-                            group/tag flex items-center gap-1.5 text-[10px] px-2.5 py-1.5 rounded-md transition-all duration-300
+                            group/tag inline-flex items-center gap-1.5 text-[10px] px-2.5 py-1.5 rounded-md transition-all duration-300
                             bg-zinc-100 border border-zinc-200 text-zinc-600
                             dark:bg-zinc-800/50 dark:border-zinc-700/50 dark:text-zinc-400
                             
@@ -231,27 +358,29 @@ export default function Experience() {
                             dark:hover:bg-emerald-500/10 dark:hover:border-emerald-500/30 dark:hover:text-emerald-400
                           "
                         >
-                          {site.name}
+                          RITU 25
                           <ExternalLink
                             size={10}
                             className="opacity-50 group-hover/tag:opacity-100 transition-opacity"
                           />
                         </a>
-                      ))}
-                    </div>
-                  </div>
 
-                  <div className="md:pl-8 md:border-l border-zinc-200 dark:border-zinc-800">
-                    <h3 className="text-xl font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
-                      RITU Fest
-                    </h3>
-                    <p className="text-sm font-mono text-zinc-600 dark:text-zinc-400 mb-3">
-                      Contributor• 2025
-                    </p>
-                    <p className="font-1spaceGrotesk text-sm text-zinc-700 dark:text-zinc-300">
-                      Contributed in the development of the official website for
-                      the college's main techno-cultural fest.
-                    </p>
+                        <a
+                          href="https://github.com/dhjr/RITU-2025"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="
+                            group/github inline-flex items-center gap-1.5 text-[10px] px-2.5 py-1.5 rounded-md transition-all duration-300
+                            bg-zinc-100 border border-zinc-200 text-zinc-600
+                            dark:bg-zinc-800/50 dark:border-zinc-700/50 dark:text-zinc-400
+                            hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-emerald-600 dark:hover:text-emerald-400
+                          "
+                        >
+                          <Github size={12} />
+                          Source Code
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -300,17 +429,40 @@ export default function Experience() {
                     <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white mb-2">
                       SAE A-Baja RIT
                     </h4>
+
                     <div className="flex flex-col gap-1.5 border-l-2 border-orange-200 dark:border-orange-500/20 pl-3">
-                      <div className="flex flex-col">
-                        <span className="text-[10px] uppercase tracking-wider font-bold text-orange-600 dark:text-orange-400">
-                          Module Lead
-                        </span>
-                        <span className="text-xs font-1spaceGrotesk text-zinc-700 dark:text-zinc-300">
-                          Adaptive Cruise Control (ACC)
+                      <div className="flex flex-col mb-1.5">
+                        <span className="text-[10px] uppercase tracking-wider font-bold text-orange-600 dark:text-orange-400 flex items-center gap-1.5">
+                          <Trophy size={10} />
+                          AIR 9 - SAE A-Baja 2025
                         </span>
                       </div>
                       <div className="flex flex-col">
                         <span className="text-[10px] uppercase tracking-wider font-bold text-zinc-500">
+                          Module Lead
+                        </span>
+                        <div className="flex flex-col gap-2">
+                          <span className="text-xs font-1spaceGrotesk text-zinc-700 dark:text-zinc-300">
+                            Adaptive Cruise Control (ACC)
+                          </span>
+                          <a
+                            href="https://github.com/dhjr/Adaptive-Cruise-Control/tree/main"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="
+                              group/github inline-flex items-center gap-1.5 text-[10px] px-2.5 py-1.5 rounded-md transition-all duration-300
+                              bg-zinc-50 border border-zinc-200 text-zinc-600 w-fit
+                              dark:bg-zinc-800/50 dark:border-zinc-700/50 dark:text-zinc-400
+                              hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-emerald-600 dark:hover:text-emerald-400
+                            "
+                          >
+                            <Github size={12} />
+                            Source
+                          </a>
+                        </div>
+                      </div>
+                      <div className="flex flex-col text-zinc-500">
+                        <span className="text-[10px] uppercase tracking-wider font-bold">
                           Contributor
                         </span>
                         <span className="text-xs font-1spaceGrotesk text-zinc-700 dark:text-zinc-400">
