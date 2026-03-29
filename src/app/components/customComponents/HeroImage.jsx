@@ -1,34 +1,17 @@
-"use client";
-
-import { useRef, useLayoutEffect } from "react";
-import gsap from "gsap";
 import Image from "next/image";
 
 export default function HeroImage() {
-  const containerRef = useRef(null);
-
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      gsap.fromTo(
-        containerRef.current,
-        { scale: 0.8, autoAlpha: 0 },
-        { scale: 1, autoAlpha: 1, duration: 1.5, ease: "power3.out" }
-      );
-    });
-    return () => ctx.revert();
-  }, []);
-
   return (
     <div
-      ref={containerRef}
-      className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] flex items-center justify-center opacity-0 invisible will-change-[transform,opacity]"
+      className="
+        relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] flex items-center justify-center 
+        animate-[hero-entrance_1.5s_ease-out_forwards]
+        will-change-[transform,opacity]
+      "
     >
       {/* WRAPPER FOR UNIFIED FLOATING */}
       <div className="relative w-full h-full flex items-center justify-center md:animate-[float_6s_ease-in-out_infinite] will-change-transform">
-        {/* SIMPLE PULSING BORDER - Soft & Natural */}
-
-
-        {/* 4. THE CORE (Image Container) */}
+        {/* THE CORE (Image Container) */}
         <div
           className="
             relative 
@@ -54,7 +37,7 @@ export default function HeroImage() {
             className="relative z-10 object-cover opacity-95"
             fill
             src="/profile1.webp"
-            alt="Profile"
+            alt="Profile photo of Dhananjay"
             priority
             sizes="(max-width: 768px) 260px, 380px"
           />
@@ -64,6 +47,16 @@ export default function HeroImage() {
       </div>
 
       <style>{`
+        @keyframes hero-entrance {
+          from {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
         @keyframes float {
           0%,
           100% {
@@ -73,7 +66,6 @@ export default function HeroImage() {
             transform: translateY(-15px);
           }
         }
-
       `}</style>
     </div>
   );

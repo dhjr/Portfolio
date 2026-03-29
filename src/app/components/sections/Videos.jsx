@@ -1,6 +1,3 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import VideoCard from "@/components/customComponents/VideoCard";
 import { fetchLatestVideos } from "@/actions/getYouTubeVideos";
 
@@ -37,39 +34,30 @@ const initialVideoData = [
   },
 ];
 
-export default function Videos() {
-  const [videos, setVideos] = useState(initialVideoData);
+export default async function Videos() {
+  const fetchedVideos = await fetchLatestVideos();
+  
+  let videos = initialVideoData;
+  if (fetchedVideos && fetchedVideos.length > 0) {
+    const colors = [
+      "bg-blue-500",
+      "bg-teal-500",
+      "bg-indigo-500",
+      "bg-purple-500",
+      "bg-rose-500",
+      "bg-green-500",
+    ];
 
-  useEffect(() => {
-    async function loadVideos() {
-      const fetchedVideos = await fetchLatestVideos();
-      if (fetchedVideos && fetchedVideos.length > 0) {
-        // Assign random colors for fallback/placeholder effect
-        const colors = [
-          "bg-blue-500",
-          "bg-teal-500",
-          "bg-indigo-500",
-          "bg-purple-500",
-          "bg-rose-500",
-          "bg-green-500",
-        ];
-
-        const processVideos = fetchedVideos.map((v, i) => ({
-          ...v,
-          color: colors[i % colors.length],
-        }));
-        setVideos(processVideos);
-      }
-    }
-    loadVideos();
-  }, []);
+    videos = fetchedVideos.map((v, i) => ({
+      ...v,
+      color: colors[i % colors.length],
+    }));
+  }
 
   return (
     <section className="w-full pt-2 pb-12 px-4 relative bg-transparent">
       <div className="max-w-6xl mx-auto">
-        {/* Video Marquee */}
         <div className="w-full overflow-hidden">
-          {/* Mask for fade edges */}
           <div
             className="relative flex w-full overflow-hidden"
             style={{

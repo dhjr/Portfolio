@@ -1,3 +1,5 @@
+"use client";
+
 import Header from "@/components/customComponents/SectionHeader";
 import ProjectCard from "@/components/customComponents/ProjectCard";
 import { useState, useRef } from "react";
