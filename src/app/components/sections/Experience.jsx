@@ -194,7 +194,7 @@ export default function Experience() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="
-                        group/tag inline-flex items-center gap-1.5 text-[10px] px-2.5 py-1.5 mt-3 rounded-md transition-all duration-300
+                        group/tag inline-flex items-center gap-2 text-[10px] px-3 py-2 mt-3 rounded-md transition-all duration-300
                         bg-zinc-100 border border-zinc-200 text-zinc-600
                         dark:bg-zinc-800/50 dark:border-zinc-700/50 dark:text-zinc-400
                         
@@ -202,10 +202,10 @@ export default function Experience() {
                         dark:hover:bg-emerald-500/10 dark:hover:border-emerald-500/30 dark:hover:text-emerald-400
                       "
                     >
-                      <Github size={10} />
+                      <Github size={14} />
                       Mentora.ai
                       <ExternalLink
-                        size={8}
+                        size={12}
                         className="opacity-50 group-hover/tag:opacity-100 transition-opacity"
                       />
                     </a>
@@ -286,7 +286,11 @@ export default function Experience() {
                           url: "https://roboignite.ieeesbrit.com",
                           ghUrl: "https://github.com/dhjr/Roboignite",
                         },
-                        { name: "ReX 5.0", url: "https://rex.ieeesbrit.com" },
+                        {
+                          name: "ReX 5.0",
+                          url: "https://rex.ieeesbrit.com",
+                          ghUrl: "https://github.com/dhjr/rex5",
+                        },
                       ].map((site) => (
                         <div
                           key={site.name}
@@ -317,14 +321,14 @@ export default function Experience() {
                               target="_blank"
                               rel="noopener noreferrer"
                               className="
-                                group/github p-1.5 rounded-md border transition-all duration-300
+                                group/github p-2 rounded-md border transition-all duration-300
                                 bg-zinc-100 border-zinc-200 text-zinc-600
                                 dark:bg-zinc-800/50 dark:border-zinc-700/50 dark:text-zinc-400
                                 hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-emerald-600 dark:hover:text-emerald-400
                               "
                               aria-label={`${site.name} Source Code`}
                             >
-                              <Github size={12} />
+                              <Github size={20} />
                             </a>
                           )}
                         </div>
@@ -370,13 +374,13 @@ export default function Experience() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="
-                            group/github inline-flex items-center gap-1.5 text-[10px] px-2.5 py-1.5 rounded-md transition-all duration-300
+                            group/github inline-flex items-center gap-2 text-[10px] px-3 py-2 rounded-md transition-all duration-300
                             bg-zinc-100 border border-zinc-200 text-zinc-600
                             dark:bg-zinc-800/50 dark:border-zinc-700/50 dark:text-zinc-400
                             hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-emerald-600 dark:hover:text-emerald-400
                           "
                         >
-                          <Github size={12} />
+                          <Github size={20} />
                           Source Code
                         </a>
                       </div>
@@ -450,13 +454,13 @@ export default function Experience() {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="
-                              group/github inline-flex items-center gap-1.5 text-[10px] px-2.5 py-1.5 rounded-md transition-all duration-300
+                              group/github inline-flex items-center gap-2 text-[10px] px-3 py-2 rounded-md transition-all duration-300
                               bg-zinc-50 border border-zinc-200 text-zinc-600 w-fit
                               dark:bg-zinc-800/50 dark:border-zinc-700/50 dark:text-zinc-400
                               hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-emerald-600 dark:hover:text-emerald-400
                             "
                           >
-                            <Github size={12} />
+                            <Github size={20} />
                             Source
                           </a>
                         </div>

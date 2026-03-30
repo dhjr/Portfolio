@@ -20,10 +20,8 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative flex items-center justify-center w-9 h-9 rounded-xl 
-                 bg-white dark:bg-zinc-900 
-                 border border-zinc-200 dark:border-zinc-800
-                 transition-all duration-300 hover:scale-110 active:scale-90
+      className="relative flex items-center justify-center w-11 h-11 
+                 transition-all duration-500 hover:scale-110 active:scale-90
                  group overflow-hidden perspective-[1000px]"
       aria-label="Toggle Theme"
     >
@@ -45,7 +43,7 @@ export default function ThemeToggle() {
       </div>
 
       {/* Subtle material hover overlay */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity bg-zinc-400 dark:bg-zinc-500" />
+      <div className="absolute inset-0 opacity-0 transition-opacity bg-zinc-400 dark:bg-zinc-500" />
     </button>
   );
 }

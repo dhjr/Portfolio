@@ -40,51 +40,34 @@ export default function About() {
             <div className="flex flex-col gap-5 text-zinc-700 dark:text-zinc-300 font-1spaceGrotesk leading-relaxed text-base md:text-md">
               <p>
                 I build things, break them, figure out why, and build them
-                better. As a{" "}
-                <span className="text-zinc-900 dark:text-zinc-100 font-semibold">
-                  fullstack developer
-                </span>
-                , I care about the whole picture. From how data flows on the
-                backend to how it feels when someone actually uses what I made.
+                better. As a fullstack developer, I care about the whole
+                picture.
               </p>
 
               <p>
-                I am genuinely excited about where technology is heading. The
-                growth of LLMs, AI agents, and open-source tooling feels like
-                one of those rare moments where the ground is shifting fast
-                enough to reward curiosity. I lean into that.
+                I&apos;m comfortable across the stack: Next.js, React,
+                TypeScript, Python, Node, Express, MongoDB and more, backed by
+                solid CS fundamentals in DSA, DBMS, and OOP.
               </p>
 
               <p>
-                Open-source software is something I believe in, not just use.
-                There is something worth appreciating about software built
-                transparently, by people who care about it working well for
-                everyone.
+                Beyond the code, I&apos;ve contributed to communities like IEEE,
+                Tinkerhub and SAE — spaces where people build together and push
+                each other to think bigger. That&apos;s the kind of team
+                environment I look for too.
               </p>
 
               <p>
-                Beyond my IDE, I have contributed to communities like{" "}
-                <span className="text-zinc-900 dark:text-zinc-100 font-semibold">
-                  IEEE
-                </span>
-                ,{" "}
-                <span className="text-zinc-900 dark:text-zinc-100 font-semibold">
-                  Tinkerhub
-                </span>{" "}
-                and{" "}
-                <span className="text-zinc-900 dark:text-zinc-100 font-semibold">
-                  SAE
-                </span>
-                . Spaces where people build things together and push each other
-                to think bigger. That kind of environment is what I look for in
-                a team too. I work well when the problems are hard and the
-                people around me take their craft seriously.
+                Right now, the growth of LLMs, AI agents, and open-source
+                tooling has my full attention. It feels like one of those rare
+                moments where curiosity actually pays off.
               </p>
 
               <p>
-                Outside of tech, I track personal finance, catch standup comedy
-                whenever I can, and have a healthy rotation of music and new
-                films going at all times. It balances out the screen time.
+                Outside of tech, I love learning about personal finance and
+                investing. I also binge standup comedy, instagram brainrot (we
+                all need a break, right :D ) and have a healthy rotation of
+                music and new films going at all times.
               </p>
 
               <p className="text-zinc-900 dark:text-zinc-100 font-medium">

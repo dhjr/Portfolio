@@ -193,7 +193,7 @@ export default function Footer() {
         "
         >
           <p>© {new Date().getFullYear()} Dhananjay R.</p>
-          <p>Designed & Built with React & Tailwind</p>
+          <p>Built with Next.js & Tailwind</p>
         </div>
       </div>
     </footer>

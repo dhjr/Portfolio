@@ -162,7 +162,7 @@ export default function Navbar() {
       <div
         className={`
           fixed top-6 left-1/2 -translate-x-1/2 
-          z-999 pointer-events-auto
+          z-999 pointer-events-none
           hidden md:flex items-center gap-4 
           transition-all duration-300
         `}
@@ -219,89 +219,95 @@ export default function Navbar() {
               </Link>
             );
           })}
-        </div>
 
-        <div className="pointer-events-auto">
-          <ThemeToggle />
+          <div className="pointer-events-auto ml-1 pl-3 py-1 border-l border-zinc-300 dark:border-zinc-700 flex items-center justify-center">
+            <ThemeToggle />
+          </div>
         </div>
       </div>
 
       {/* --- MOBILE NAVBAR --- */}
-      <div className="fixed top-0 left-0 right-0 z-1010 md:hidden flex justify-between items-center px-6 py-4">
-        {/* Background Layer */}
-        <div
-          className={`
-            absolute inset-0 -z-10 
-            transition-all duration-500 ease-in-out bg-linear-to-b from-black/70 to-transparent
-          
-            ${scrolled ? "opacity-100" : "opacity-0"}
-          `}
-        ></div>
-
-        {/* Logo */}
-        <Link
-          href="#hero"
-          onClick={(e) => handleLinkClick(e, "#hero")}
-          className="flex items-center gap-2 relative z-10"
-        >
-          <div className="relative w-10 h-10">
-            <Image
-              src="/favicon.webp"
-              alt="Logo"
-              fill
-              className="object-contain dark:hidden"
-              priority
-              sizes="40px"
-            />
-            <Image
-              src="/favicon_dark.webp"
-              alt="Logo"
-              fill
-              className="object-contain hidden dark:block"
-              priority
-              sizes="40px"
-            />
-          </div>
-        </Link>
-
-        {/* Right Controls */}
-        <div className="relative flex items-center gap-3 pointer-events-auto">
-          <ThemeToggle />
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="
-              p-2 rounded-lg transition-colors relative h-10 w-10 flex items-center justify-center
-              text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900
-              dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100
-            "
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+      {/* --- MOBILE NAVBAR (Floating Pill) --- */}
+      <div className="fixed top-4 left-1/2 -translate-x-1/2 z-1010 md:hidden w-[92%] max-w-lg pointer-events-none">
+        <div className="relative flex justify-between items-center px-4 py-2 rounded-full bg-white/70 dark:bg-zinc-900/80 backdrop-blur-xs border border-white/20 dark:border-zinc-800/50 shadow-2xl shadow-black/10 pointer-events-auto overflow-hidden">
+          {/* Logo */}
+          <Link
+            href="#hero"
+            onClick={(e) => handleLinkClick(e, "#hero")}
+            className="flex items-center gap-3 relative z-10 group/logo"
           >
-            {/* Animated Hamburger Icon */}
-            <div className="relative flex flex-col justify-between w-5 h-4">
-              <span
-                className={`
-                  w-full h-0.5 bg-current rounded-full transition-all duration-300 ease-in-out
-                  ${isMobileMenuOpen ? "rotate-45 translate-y-[7px]" : ""}
-                `}
-              />
-              <span
-                className={`
-                  w-full h-0.5 bg-current rounded-full transition-all duration-300 ease-in-out
-                  ${isMobileMenuOpen ? "opacity-0" : ""}
-                `}
-              />
-              <span
-                className={`
-                  w-full h-0.5 bg-current rounded-full transition-all duration-300 ease-in-out
-                  ${isMobileMenuOpen ? "-rotate-45 -translate-y-[7px]" : ""}
-                `}
-              />
+            <div className="relative p-1 transition-all duration-300 group-hover/logo:scale-110">
+              <div className="relative w-7 h-7">
+                <Image
+                  src="/favicon.webp"
+                  alt="Logo"
+                  fill
+                  className="object-contain dark:hidden"
+                  priority
+                  sizes="28px"
+                />
+                <Image
+                  src="/favicon_dark.webp"
+                  alt="Logo"
+                  fill
+                  className="object-contain hidden dark:block"
+                  priority
+                  sizes="28px"
+                />
+              </div>
             </div>
-          </button>
+          </Link>
+
+          {/* Right Controls */}
+          <div className="relative flex items-center gap-3">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="
+                relative group h-11 w-11 flex items-center justify-center
+                transition-all duration-500
+                hover:scale-110 active:scale-95
+              "
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {/* Unique Animated Icon */}
+              <div className="relative w-6 h-5 flex flex-col items-end justify-center">
+                {/* Top Bar */}
+                <span
+                  className={`
+                    h-0.5 bg-zinc-900 dark:bg-white rounded-full transition-all duration-500 ease-in-out
+                    ${
+                      isMobileMenuOpen
+                        ? "w-full absolute rotate-45"
+                        : "w-full mb-1.5 group-hover:w-4"
+                    }
+                  `}
+                />
+
+                {/* Accent Dot (Only Visible When Closed) */}
+                <span
+                  className={`
+                  absolute right-0 h-0.5 bg-emerald-500 rounded-full transition-all duration-500
+                  ${isMobileMenuOpen ? "w-0 opacity-0" : "w-1.5 translate-y-0"}
+                `}
+                />
+
+                {/* Bottom Bar */}
+                <span
+                  className={`
+                    h-0.5 bg-zinc-900 dark:bg-white rounded-full transition-all duration-500 ease-in-out
+                    ${
+                      isMobileMenuOpen
+                        ? "w-full absolute -rotate-45"
+                        : "w-4 mt-0 group-hover:w-full"
+                    }
+                  `}
+                />
+              </div>
+            </button>
+          </div>
         </div>
       </div>
-
-      {/* --- MOBILE OVERLAY MENU --- */}
       {/* --- MOBILE OVERLAY MENU --- */}
       <div
         className={`

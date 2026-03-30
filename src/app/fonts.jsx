@@ -4,6 +4,7 @@ import { Boldonse, Bricolage_Grotesque, Space_Grotesk } from "next/font/google";
 export const boldonse = Boldonse({
   subsets: ["latin"],
   variable: "--font-boldonse",
+  adjustFontFallback: false,
   weight: "400",
   display: "swap",
 });
