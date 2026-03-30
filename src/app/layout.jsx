@@ -99,7 +99,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${boldonse.variable} ${spacegrotesk.variable} ${bricolage.variable}`}
+      className={`${boldonse.variable} ${spacegrotesk.variable} ${bricolage.variable} scroll-smooth`}
     >
       <body className="antialiased z-10">
         {/* 1. Place JSON-LD here, at the top of the body */}
