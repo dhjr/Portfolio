@@ -2,11 +2,11 @@
 
 A modern, accessible, and performant personal portfolio website.
 
-**Live Demo:** [https://dhjr.vercel.app](https://dhjr.vercel.app)
+**Check it out at** [https://dhjr.vercel.app](https://dhjr.vercel.app)
 
 ## Tech Stack
 
-Built with the latest web technologies for optimal performance and user experience.
+Following libraries and frameworks were used in the development of the site
 
 - **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
 - **Library:** [React 19](https://react.dev/)
