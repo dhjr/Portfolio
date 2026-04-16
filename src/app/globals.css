@@ -9,6 +9,9 @@
   }
 }
 
+@theme {
+  --font-1boldonse: var(--font-boldonse);
+  --font-1spaceGrotesk: var(--font-spacegrotesk);
   --font-1bricolage: var(--font-bricolage);
 
   /* Grid Color Variables (accessible via var()) */
