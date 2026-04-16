@@ -6,6 +6,16 @@
     --font-1boldonse: var(--font-boldonse);
     --font-1spaceGrotesk: var(--font-spacegrotesk);
     --font-1bricolage: var(--font-bricolage);
+
+    /* Grid Color Variables (Defaults) */
+    --grid-dot-color: #18181b; /* zinc-900 */
+    --grid-line-color: rgba(212, 212, 216, 0.8); /* zinc-300 with opacity */
+  }
+
+  .dark {
+    /* Grid Color Overrides (Dark Mode) */
+    --grid-dot-color: #e4e4e7; /* zinc-200 */
+    --grid-line-color: rgba(63, 63, 70, 0.4); /* zinc-700 with opacity */
   }
 }
 
@@ -13,15 +23,6 @@
   --font-1boldonse: var(--font-boldonse);
   --font-1spaceGrotesk: var(--font-spacegrotesk);
   --font-1bricolage: var(--font-bricolage);
-
-  /* Grid Color Variables (accessible via var()) */
-  --grid-dot-color: #18181b; /* zinc-900 */
-  --grid-line-color: rgba(212, 212, 216, 0.8); /* zinc-300 with opacity */
-
-  @variant dark {
-    --grid-dot-color: #e4e4e7; /* zinc-200 */
-    --grid-line-color: rgba(63, 63, 70, 0.4); /* zinc-700 with opacity */
-  }
 }
 
 body {
