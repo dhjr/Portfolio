@@ -9,14 +9,16 @@
   }
 }
 
-@theme {
-  --font-1boldonse: var(--font-boldonse);
-  --font-1spaceGrotesk: var(--font-spacegrotesk);
   --font-1bricolage: var(--font-bricolage);
 
-  /* Color Tokens */
-  --color-grid-dots: #18181b; /* zinc-900 */
-  --color-grid-dots-dark: #e4e4e7; /* zinc-200 */
+  /* Grid Color Variables (accessible via var()) */
+  --grid-dot-color: #18181b; /* zinc-900 */
+  --grid-line-color: rgba(212, 212, 216, 0.8); /* zinc-300 with opacity */
+
+  @variant dark {
+    --grid-dot-color: #e4e4e7; /* zinc-200 */
+    --grid-line-color: rgba(63, 63, 70, 0.4); /* zinc-700 with opacity */
+  }
 }
 
 body {
@@ -231,5 +233,13 @@ body {
 }
 
 .perspective {
-  perspective: 1000px;
+  perspective: 1200px;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
 }

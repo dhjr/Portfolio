@@ -27,12 +27,9 @@ export default function ThemeToggle() {
     >
       {/* Icon Container with 3D Flip Animation */}
       <div
-        className={`relative w-5 h-5 transition-all duration-700 transform-3d ${
+        className={`relative w-5 h-5 transition-all duration-700 preserve-3d ${
           !isDark ? "rotate-y-180" : ""
         }`}
-        style={{
-          transform: !isDark ? "rotateY(180deg)" : "rotateY(0deg)",
-        }}
       >
         {/* Dark Mode Icon (Moon) - Front Side */}
         <div className="absolute inset-0 backface-hidden flex items-center justify-center">
@@ -40,10 +37,7 @@ export default function ThemeToggle() {
         </div>
 
         {/* Light Mode Icon (Sun) - Back Side (Flipped) */}
-        <div 
-          className="absolute inset-0 backface-hidden flex items-center justify-center"
-          style={{ transform: "rotateY(180deg)" }}
-        >
+        <div className="absolute inset-0 backface-hidden rotate-y-180 flex items-center justify-center">
           <Sun size={20} className="text-zinc-600" />
         </div>
       </div>

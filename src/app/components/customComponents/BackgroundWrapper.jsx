@@ -1,25 +1,22 @@
 "use client";
-/**
- * BackgroundWrapper.jsx
- * Implements a high-performance grid background with twinkling 'sparkles' 
- * and interactive hover/touch effects.
- * 
- * Fixes for Mobile Chrome:
- * 1. High DPI (devicePixelRatio) support for crisp rendering.
- * 2. Mask moved to a wrapper div for better browser compatibility.
- * 3. Touch event support for interactions on mobile.
- */
 
 import React, { useRef, useEffect } from "react";
-import { useTheme } from "next-themes";
 
+/**
+ * BackgroundWrapper.jsx
+ * High-performance interactive grid background.
+ * 
+ * Fixed for Theme Toggle Flickering (Brave):
+ * - Animation loop no longer restarts on theme change.
+ * - Theme detection is done synchronously inside the frame loop.
+ * - Improved grid visibility and High-DPI support.
+ */
 export default function BackgroundWrapper() {
   const canvasRef = useRef(null);
   const mousePosRef = useRef({ x: -100, y: -100 });
-  const { resolvedTheme } = useTheme();
   const gridSize = 40;
 
-  // Handle Input (Mouse & Touch)
+  // Track Input (Mouse & Touch)
   useEffect(() => {
     const handleInput = (e) => {
       const rect = canvasRef.current?.getBoundingClientRect();
@@ -51,7 +48,6 @@ export default function BackgroundWrapper() {
     };
   }, []);
 
-  // Store twinkling tiles
   const sparklesRef = useRef([]);
 
   useEffect(() => {
@@ -60,37 +56,48 @@ export default function BackgroundWrapper() {
     const ctx = canvas.getContext("2d", { alpha: true });
     let animationFrameId;
 
-    // Handle High DPI Resize
+    // Cache dimensions to avoid constant resizing on mobile scroll
+    let lastWidth = 0;
+    let lastHeight = 0;
+
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;
       const displayWidth = window.innerWidth;
       const displayHeight = window.innerHeight;
       
-      if (canvas.width !== displayWidth * dpr || canvas.height !== displayHeight * dpr) {
+      // Only resize if dimensions significantly change (avoiding navbar hiding/showing shifts)
+      if (Math.abs(lastWidth - displayWidth) > 5 || Math.abs(lastHeight - displayHeight) > 5) {
         canvas.width = displayWidth * dpr;
         canvas.height = displayHeight * dpr;
         canvas.style.width = `${displayWidth}px`;
         canvas.style.height = `${displayHeight}px`;
+        
         ctx.resetTransform();
         ctx.scale(dpr, dpr);
+        
+        lastWidth = displayWidth;
+        lastHeight = displayHeight;
       }
     };
 
     const render = () => {
       resize();
       
-      const width = window.innerWidth;
-      const height = window.innerHeight;
+      const width = lastWidth;
+      const height = lastHeight;
       
       // Clear Canvas
       ctx.clearRect(0, 0, width, height);
 
-      // Detect Theme State
-      const isDarkMode = resolvedTheme === "dark";
+      // --- THEME-BASED COLORS (Sourced directly from document to avoid React State delays) ---
+      const isDarkMode = document.documentElement.classList.contains("dark");
+      
+      // Lines: slightly more prominent than before
       const strokeColor = isDarkMode
-        ? "rgba(30, 41, 59, 0.5)"
-        : "rgba(226, 232, 240, 1)";
-      const highlightColor = "rgba(16, 185, 129, 0.2)";
+        ? "rgba(63, 63, 70, 0.4)"   // zinc-700
+        : "rgba(212, 212, 216, 0.8)"; // zinc-300
+
+      const highlightColor = "rgba(16, 185, 129, 0.2)"; // Emerald highlight
       const sparkleBaseColor = isDarkMode ? "148, 163, 184" : "100, 116, 139";
 
       ctx.strokeStyle = strokeColor;
@@ -110,7 +117,7 @@ export default function BackgroundWrapper() {
         ctx.stroke();
       }
 
-      // SPAWN SPARKLES
+      // Sparkles logic
       if (Math.random() < 0.25) {
         const col = Math.floor(Math.random() * (width / gridSize));
         const row = Math.floor(Math.random() * (height / gridSize));
@@ -125,7 +132,6 @@ export default function BackgroundWrapper() {
         }
       }
 
-      // UPDATE & DRAW SPARKLES
       sparklesRef.current = sparklesRef.current.filter(sparkle => {
         sparkle.phase += sparkle.speed;
         const opacity = Math.sin(sparkle.phase) * sparkle.maxOpacity;
@@ -138,7 +144,7 @@ export default function BackgroundWrapper() {
         return false;
       });
 
-      // Draw Interaction Highlight
+      // Mouse/Touch Highlight
       const mPos = mousePosRef.current;
       if (mPos.x >= 0 && mPos.y >= 0) {
         const cellX = Math.floor(mPos.x / gridSize);
@@ -152,7 +158,7 @@ export default function BackgroundWrapper() {
 
     render();
     return () => cancelAnimationFrame(animationFrameId);
-  }, [resolvedTheme]);
+  }, []); // Run ONCE on mount
 
   return (
     <div className="absolute inset-0 -z-10 w-full h-full bg-zinc-100 dark:bg-black transition-colors duration-500 overflow-hidden">
