@@ -12,9 +12,9 @@ export default function MeshBackground() {
       <div className="absolute inset-0">
         {/* Technical Dot Grid */}
         <div
-          className="absolute inset-0 opacity-[0.3] dark:opacity-[0.2] text-zinc-900 dark:text-zinc-200"
+          className="absolute inset-0 opacity-[0.3] dark:opacity-[0.2]"
           style={{
-            backgroundImage: `radial-gradient(circle, currentColor 1.2px, transparent 1.2px)`,
+            backgroundImage: `radial-gradient(circle, var(--grid-dot-color) 1.2px, transparent 1.2px)`,
             backgroundSize: "var(--grid-size, 32px) var(--grid-size, 32px)",
           }}
         />
@@ -23,6 +23,10 @@ export default function MeshBackground() {
       <style jsx>{`
         div {
           --grid-size: 64px;
+          --grid-dot-color: #18181b; /* zinc-900 */
+        }
+        :global(.dark) div {
+          --grid-dot-color: #e4e4e7; /* zinc-200 */
         }
         @media (min-width: 768px) {
           div {

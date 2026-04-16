@@ -13,6 +13,10 @@
   --font-1boldonse: var(--font-boldonse);
   --font-1spaceGrotesk: var(--font-spacegrotesk);
   --font-1bricolage: var(--font-bricolage);
+
+  /* Color Tokens */
+  --color-grid-dots: #18181b; /* zinc-900 */
+  --color-grid-dots-dark: #e4e4e7; /* zinc-200 */
 }
 
 body {
@@ -214,4 +218,18 @@ body {
   background-color: #10b981 !important; /* emerald-500 */
   transform: scale(1.2);
   opacity: 1 !important;
+}
+
+/* 3D TRANSFORMS */
+.transform-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.perspective {
+  perspective: 1000px;
 }
