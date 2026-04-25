@@ -16,7 +16,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full h-dvh flex flex-col-reverse md:flex-row justify-center md:justify-around items-center overflow-hidden md:pt-0 pb-20 md:pb-0 md:gap-0"
+      className="relative w-full h-svh flex flex-col-reverse md:flex-row justify-center md:justify-around items-center overflow-hidden md:pt-0 pb-20 md:pb-0 md:gap-0"
     >
       <BackgroundWrapper />
 

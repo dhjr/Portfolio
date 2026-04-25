@@ -64,7 +64,7 @@ export default function Contact() {
 
   return (
     <section
-      className="w-full min-h-dvh py-10 md:py-12 px-4 relative  duration-300 overflow-hidden"
+      className="w-full min-h-svh py-10 md:py-12 px-4 relative  duration-300 overflow-hidden"
     >
       <div className="max-w-6xl mx-auto relative z-10">
         {/* MAIN CARD CONTAINER */}
