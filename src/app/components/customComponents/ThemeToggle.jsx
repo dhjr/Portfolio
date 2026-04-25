@@ -22,23 +22,23 @@ export default function ThemeToggle() {
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className="relative flex items-center justify-center w-11 h-11 
                  transition-all duration-500 hover:scale-110 active:scale-90
-                 group overflow-hidden perspective-[1000px]"
+                 group overflow-hidden perspective"
       aria-label="Toggle Theme"
     >
       {/* Icon Container with 3D Flip Animation */}
       <div
-        className={`relative w-5 h-5 transition-all duration-500 transform-3d ${
-          !isDark ? "transform-[rotateY(180deg)]" : ""
+        className={`relative w-5 h-5 transition-all duration-700 preserve-3d ${
+          !isDark ? "rotate-y-180" : ""
         }`}
       >
         {/* Dark Mode Icon (Moon) - Front Side */}
         <div className="absolute inset-0 backface-hidden flex items-center justify-center">
-          <Moon size={20} className="text-white/50 " />
+          <Moon size={20} className="text-zinc-500 dark:text-zinc-400" />
         </div>
 
         {/* Light Mode Icon (Sun) - Back Side (Flipped) */}
-        <div className="absolute inset-0 backface-hidden transform-[rotateY(180deg)] flex items-center justify-center">
-          <Sun size={20} className="text-black/50" />
+        <div className="absolute inset-0 backface-hidden rotate-y-180 flex items-center justify-center">
+          <Sun size={20} className="text-zinc-600" />
         </div>
       </div>
 

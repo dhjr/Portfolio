@@ -6,6 +6,16 @@
     --font-1boldonse: var(--font-boldonse);
     --font-1spaceGrotesk: var(--font-spacegrotesk);
     --font-1bricolage: var(--font-bricolage);
+
+    /* Grid Color Variables (Defaults) */
+    --grid-dot-color: #18181b; /* zinc-900 */
+    --grid-line-color: rgba(212, 212, 216, 0.8); /* zinc-300 with opacity */
+  }
+
+  .dark {
+    /* Grid Color Overrides (Dark Mode) */
+    --grid-dot-color: #e4e4e7; /* zinc-200 */
+    --grid-line-color: rgba(63, 63, 70, 0.4); /* zinc-700 with opacity */
   }
 }
 
@@ -214,4 +224,26 @@ body {
   background-color: #10b981 !important; /* emerald-500 */
   transform: scale(1.2);
   opacity: 1 !important;
+}
+
+/* 3D TRANSFORMS */
+.transform-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.perspective {
+  perspective: 1200px;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
 }
