@@ -114,7 +114,7 @@ export default function Skills() {
                     {/* Glassmorphic Icon Container */}
                     <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-zinc-100/50 dark:bg-zinc-800/40 transition-colors group-hover:bg-white dark:group-hover:bg-zinc-700/30">
                       <tech.icon
-                        className={`text-3xl sm:text-5xl ${tech.color} transition-all duration-500`}
+                        className={`text-4xl sm:text-5xl ${tech.color} transition-all duration-500`}
                       />
                     </div>
 
