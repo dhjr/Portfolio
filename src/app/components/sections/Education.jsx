@@ -98,7 +98,7 @@ export default function Education() {
                       </div>
                     )}
 
-                    <p className="text-xs  text-zinc-700 dark:text-zinc-400 leading-relaxed font-1spaceGrotesk">
+                    <p className="text-sm  text-zinc-700 dark:text-zinc-400 leading-relaxed font-1spaceGrotesk">
                       {item.description}
                     </p>
                   </div>

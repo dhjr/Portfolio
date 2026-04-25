@@ -75,7 +75,7 @@ export default function About() {
             </div>
 
             {/* Social Links */}
-            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 pt-6 border-t border-zinc-100 dark:border-zinc-800">
+            <div className="grid grid-cols-3 md:flex md:flex-wrap items-center justify-center justify-items-center gap-4 md:gap-6 pt-6 border-t border-zinc-100 dark:border-zinc-800 w-fit mx-auto md:w-auto md:mx-0">
               {[
                 {
                   icon: Github,

@@ -24,7 +24,7 @@ export default function EmailCopyButton({ email }) {
 
   return (
     <>
-      <div className="fixed bottom-5 right-5 z-100 pointer-events-none">
+      <div className="fixed bottom-20 sm:bottom-5 right-5 z-[10000] pointer-events-none">
         <div className="pointer-events-auto">
           <Popup message={"Mail successfully copied!"} showPopup={popup} />
         </div>
