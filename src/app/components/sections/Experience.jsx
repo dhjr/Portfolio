@@ -65,7 +65,7 @@ export default function Experience() {
                     IIIT Kottayam • May - Aug 2025
                   </p>
 
-                  <p className="font-1spaceGrotesk text-zinc-700 dark:text-zinc-300 leading-relaxed max-w-lg mb-6">
+                  <p className="font-1spaceGrotesk text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed max-w-lg mb-6">
                     Architected a{" "}
                     <span className="text-zinc-900 dark:text-zinc-100 font-medium">
                       2D CNN-based model
@@ -145,7 +145,7 @@ export default function Experience() {
                     <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
                       Victoria Film
                     </h4>
-                    <p className="font-1spaceGrotesk text-xs text-zinc-600 dark:text-zinc-400 mt-1">
+                    <p className="font-1spaceGrotesk text-sm text-zinc-600 dark:text-zinc-400 mt-1">
                       Developed the official website for the malayalam feature
                       film{" "}
                       <span className="text-zinc-900 dark:text-zinc-200 font-medium">
@@ -184,7 +184,7 @@ export default function Experience() {
                     <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
                       Code-RECET 2.0
                     </h4>
-                    <p className="font-1spaceGrotesk text-xs text-zinc-600 dark:text-zinc-400 mt-1">
+                    <p className="font-1spaceGrotesk text-sm text-zinc-600 dark:text-zinc-400 mt-1">
                       AI-powered Chrome extension to bridge the gap between
                       binge-watching tutorials and active learning.
                     </p>
@@ -445,7 +445,7 @@ export default function Experience() {
                           Module Lead
                         </span>
                         <div className="flex flex-col gap-2">
-                          <span className="text-xs font-1spaceGrotesk text-zinc-700 dark:text-zinc-300">
+                          <span className="text-sm font-1spaceGrotesk text-zinc-700 dark:text-zinc-300">
                             Adaptive Cruise Control (ACC)
                           </span>
                           <a
@@ -468,7 +468,7 @@ export default function Experience() {
                         <span className="text-[10px] uppercase tracking-wider font-bold">
                           Contributor
                         </span>
-                        <span className="text-xs font-1spaceGrotesk text-zinc-700 dark:text-zinc-400">
+                        <span className="text-sm font-1spaceGrotesk text-zinc-700 dark:text-zinc-400">
                           AEB, LKA & Computer Vision
                         </span>
                       </div>
@@ -490,7 +490,7 @@ export default function Experience() {
                     <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
                       Tinkerhub RIT
                     </h4>
-                    <p className="font-1spaceGrotesk text-xs text-zinc-600 dark:text-zinc-400">
+                    <p className="font-1spaceGrotesk text-sm text-zinc-600 dark:text-zinc-400">
                       Community Volunteer
                     </p>
                   </div>
