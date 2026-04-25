@@ -170,7 +170,6 @@ export default function Projects() {
 
   return (
     <section
-      id="projects"
       className="py-12 md:py-20 px-4 relative bg-transparent transition-colors duration-300"
     >
       <div className="relative z-10 max-w-6xl mx-auto">

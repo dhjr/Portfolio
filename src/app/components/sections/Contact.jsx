@@ -64,7 +64,6 @@ export default function Contact() {
 
   return (
     <section
-      id="contact"
       className="w-full min-h-dvh py-10 md:py-12 px-4 relative  duration-300 overflow-hidden"
     >
       <div className="max-w-6xl mx-auto relative z-10">
