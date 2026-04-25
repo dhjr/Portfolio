@@ -82,7 +82,6 @@ const categories = [
 export default function Skills() {
   return (
     <section
-      id="skills"
       className="py-16 px-4 relative transition-colors duration-300 bg-transparent"
     >
       <div className="max-w-6xl mx-auto relative z-10">

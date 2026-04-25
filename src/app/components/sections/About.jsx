@@ -15,7 +15,6 @@ import {
 export default function About() {
   return (
     <section
-      id="about"
       className="pt-12 pb-2 px-4 relative bg-transparent transition-colors duration-300"
     >
       <div className="max-w-6xl mx-auto">

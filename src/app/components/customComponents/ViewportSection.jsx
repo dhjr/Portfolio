@@ -2,7 +2,12 @@
 
 import { useState, useEffect, useRef } from "react";
 
-export default function ViewportSection({ children, threshold = 0.1, className = "" }) {
+export default function ViewportSection({
+  children,
+  threshold = 0.1,
+  className = "",
+  id,
+}) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -20,7 +25,7 @@ export default function ViewportSection({ children, threshold = 0.1, className =
           observer.unobserve(entry.target);
         }
       },
-      { threshold, rootMargin: "200px" } // Load slightly before it enters
+      { threshold, rootMargin: "200px" }, // Load slightly before it enters
     );
 
     if (sectionRef.current) {
@@ -31,7 +36,11 @@ export default function ViewportSection({ children, threshold = 0.1, className =
   }, [threshold]);
 
   return (
-    <div ref={sectionRef} className={className}>
+    <div
+      ref={sectionRef}
+      id={id}
+      className={`${className} min-h-[1px]`} // Ensure it's detectable even when empty
+    >
       {isVisible ? children : <div className="h-40" />}
     </div>
   );

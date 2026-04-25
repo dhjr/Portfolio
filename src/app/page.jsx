@@ -27,31 +27,31 @@ export default function Home() {
         <MeshBackground />
 
         <div className="content-visibility-auto">
-          <ViewportSection threshold={0.05}>
+          <ViewportSection threshold={0.05} id="about">
             <About />
           </ViewportSection>
           
-          <ViewportSection threshold={0.05}>
+          <ViewportSection threshold={0.05} id="videos">
             <Videos />
           </ViewportSection>
           
-          <ViewportSection threshold={0.05}>
+          <ViewportSection threshold={0.05} id="projects">
             <Projects />
           </ViewportSection>
           
-          <ViewportSection threshold={0.05}>
+          <ViewportSection threshold={0.05} id="experience">
             <Experience />
           </ViewportSection>
           
-          <ViewportSection threshold={0.05}>
+          <ViewportSection threshold={0.05} id="skills">
             <Skills />
           </ViewportSection>
           
-          <ViewportSection threshold={0.05}>
+          <ViewportSection threshold={0.05} id="education">
             <Education />
           </ViewportSection>
           
-          <ViewportSection threshold={0.05}>
+          <ViewportSection threshold={0.05} id="contact">
             <Contact />
           </ViewportSection>
           

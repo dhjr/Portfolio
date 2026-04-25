@@ -17,7 +17,6 @@ import Header from "@/components/customComponents/SectionHeader";
 export default function Experience() {
   return (
     <section
-      id="experience"
       className="py-12 px-4 relative bg-transparent transition-colors duration-300"
     >
       <div className="max-w-6xl mx-auto">
