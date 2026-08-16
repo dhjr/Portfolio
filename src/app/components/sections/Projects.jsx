@@ -102,7 +102,7 @@ export default function Projects() {
       description:
         "A freelance commercial project for a UK-based client. Delivered a responsive, SEO-optimized landing page with high Core Web Vitals scores to enhance business visibility.",
       tags: ["Astro.js", "Tailwind", "SEO", "UI/UX"],
-      ghLink: "#",
+      ghLink: null,
       demoLink: "https://littlehouselondon.netlify.app/",
       image: "/projects/lhl.webp",
       status: "Completed",
@@ -159,7 +159,7 @@ export default function Projects() {
       description:
         "Contributed in the development of IEEE ReX 5.0 official website.Hosted by IEEE Robotics and Automation Society RIT",
       tags: ["HTML", "CSS", "Javascript"],
-      ghLink: "#",
+      ghLink: null,
       demoLink: "https://rex.ieeesbrit.com/",
       image: "/projects/rex.webp",
       status: "Completed",
