@@ -2,7 +2,7 @@
 
 A modern, accessible, and performant personal portfolio website.
 
-**Check it out at** [https://dhjr.vercel.app](https://dhjr.vercel.app)
+**Check it out at** [https://dhananjayr.com](https://dhananjayr.com)
 
 ## Tech Stack
 
