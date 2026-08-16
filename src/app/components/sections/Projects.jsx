@@ -64,7 +64,7 @@ export default function Projects() {
         "A real-time polling application built with Next.js 16 & Socket.io. Users can create poll rooms, share codes for instant joining, and visualize live voting results via dynamic charts. Features IP-based voting logic and persisted data patterns.",
       tags: ["Next.js", "Socket.io", "MongoDB", "Tailwind v4"],
       ghLink: "https://github.com/dhjr/LivePoll",
-      demoLink: "livepoll-web.vercel.app",
+      demoLink: "https://livepoll-web.vercel.app",
       images: [
         "/projects/livePoll1.webp",
         "/projects/livePoll2.webp",

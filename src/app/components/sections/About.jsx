@@ -38,6 +38,12 @@ export default function About() {
             {/* Split into multiple <p> tags with bold highlights */}
             <div className="flex flex-col gap-5 text-zinc-700 dark:text-zinc-300 font-1spaceGrotesk leading-relaxed text-base md:text-md">
               <p>
+                Currently working remotely as a{" "}
+                <span className="text-zinc-900 dark:text-zinc-100 font-semibold">
+                  Fullstack Intern
+                </span>{" "}
+                at{" "}
+                <span className="text-emerald-500 font-medium">mPowerO</span>.
                 I build things, break them, figure out why, and build them
                 better. As a fullstack developer, I care about the whole
                 picture.
