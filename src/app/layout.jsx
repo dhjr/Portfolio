@@ -51,7 +51,7 @@ export const metadata = {
     description:
       "Hey! I'm Dhananjay R, an aspiring Full Stack Developer passionate about building accessible, pixel-perfect, and performant web applications.",
     images: ["/profile1.webp"],
-    creator: "@dhananjayr", // Update with actual twitter handle if known
+    creator: "@dhananjayr_",
   },
   robots: {
     index: true,

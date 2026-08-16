@@ -81,7 +81,7 @@ export default function Navbar() {
   const itemRefs = useRef([]);
   const indicatorRef = useRef(null);
 
-  useEffect(() => {
+  const updateIndicator = useCallback(() => {
     if (!isMobileMenuOpen) return;
 
     const activeIndex = navLinks.findIndex(
@@ -108,6 +108,19 @@ export default function Navbar() {
       indicator.style.top = `${top}px`;
     }
   }, [activeSection, isMobileMenuOpen]);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    // Use double rAF to guarantee DOM layout has settled after overlay opens
+    const rafId = requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        updateIndicator();
+      });
+    });
+
+    return () => cancelAnimationFrame(rafId);
+  }, [activeSection, isMobileMenuOpen, updateIndicator]);
 
   // --- IMPROVED CLICK HANDLER ---
   const handleLinkClick = useCallback((e, href) => {

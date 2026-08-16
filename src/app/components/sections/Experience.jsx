@@ -23,10 +23,58 @@ export default function Experience() {
         <div className="mb-12">
           <Header name="Experience" />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(180px,auto)]">
-          {/* --- CARD 1: INTERNSHIP (Large) --- */}
-          <div className="md:col-span-2 relative group rounded-3xl p-[1.5px] overflow-hidden shadow-xl shadow-black/5 hover:shadow-2xl dark:hover:shadow-emerald-900/20 transition-all duration-300">
-            {/* Masked Border Animation: Strictly restricted to the perimeter */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* --- CARD 1: MPOWERO FULLSTACK INTERN (Equal Width 1 Col) --- */}
+          <div className="md:col-span-1 relative group rounded-3xl p-[1.5px] overflow-hidden shadow-xl shadow-black/5 hover:shadow-2xl dark:hover:shadow-emerald-900/20 transition-all duration-300">
+            {/* Masked Border Animation */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                padding: "1.5px",
+                borderRadius: "inherit",
+                maskImage:
+                  "linear-gradient(#fff, #fff), linear-gradient(#fff, #fff)",
+                maskClip: "content-box, border-box",
+                maskComposite: "exclude",
+                WebkitMaskComposite: "destination-out",
+              }}
+            >
+              <div className="absolute -inset-[200%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0deg,transparent_60deg,#10b981_90deg,transparent_120deg,transparent_360deg)] will-change-transform opacity-100" />
+            </div>
+
+            <div className="relative h-full bg-white/95 dark:bg-zinc-900/90 rounded-[23px] p-8 border border-zinc-200 dark:border-transparent">
+              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <Code2 size={120} />
+              </div>
+
+              <div className="relative z-10 h-full flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="p-2 rounded-lg bg-emerald-100 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400">
+                      <Briefcase size={20} />
+                    </span>
+                    <span className="text-xs font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-500">
+                      Internship
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl font-bold font-1spaceGrotesk text-zinc-900 dark:text-white mb-1">
+                    Fullstack Intern
+                  </h3>
+                  <p className="font-mono text-zinc-500 dark:text-zinc-400 text-sm mb-6">
+                    mPowerO • Apr 2026 – Present • Remote
+                  </p>
+
+                  <p className="font-1spaceGrotesk text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed mb-6">
+                    Developing and optimizing end-to-end web applications, designing RESTful APIs, and implementing responsive UI components. Working remotely across the full stack to build scalable features.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* --- CARD 2: ML INTERNSHIP (IIIT Kottayam - Equal Width 1 Col) --- */}
+          <div className="md:col-span-1 relative group rounded-3xl p-[1.5px] overflow-hidden shadow-xl shadow-black/5 hover:shadow-2xl dark:hover:shadow-emerald-900/20 transition-all duration-300">
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
@@ -65,7 +113,7 @@ export default function Experience() {
                     IIIT Kottayam • May - Aug 2025
                   </p>
 
-                  <p className="font-1spaceGrotesk text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed max-w-lg mb-6">
+                  <p className="font-1spaceGrotesk text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed mb-6">
                     Architected a{" "}
                     <span className="text-zinc-900 dark:text-zinc-100 font-medium">
                       2D CNN-based model
@@ -88,7 +136,7 @@ export default function Experience() {
                     >
                       <FileText size={16} />
                       <span className="font-1spaceGrotesk">
-                        View Internship Report
+                        View Report
                       </span>
                     </a>
 
@@ -100,7 +148,7 @@ export default function Experience() {
                     >
                       <Github size={16} />
                       <span className="font-1spaceGrotesk">
-                        View Source Code
+                        Code
                       </span>
                     </a>
                   </div>
@@ -109,7 +157,7 @@ export default function Experience() {
             </div>
           </div>
 
-          {/* --- CARD 2: HACKATHONS (Compact) --- */}
+          {/* --- CARD 3: FREELANCE & HACKATHONS (Equal Width 1 Col) --- */}
           <div className="md:col-span-1 relative group rounded-3xl p-[1.5px] overflow-hidden shadow-xl shadow-black/5 hover:shadow-2xl transition-all duration-300">
             <div
               className="absolute inset-0 pointer-events-none"
@@ -128,15 +176,6 @@ export default function Experience() {
 
             <div className="relative h-full rounded-[23px] bg-white/95  dark:bg-zinc-900/90 p-8 flex flex-col justify-between border border-zinc-200 dark:border-transparent">
               <div>
-                {/* <div className="flex items-center gap-3 mb-4">
-                  <span className="p-2 rounded-lg bg-orange-100 text-orange-600 dark:bg-orange-500/20 dark:text-orange-400">
-                    <Briefcase size={20} />
-                  </span>
-                  <span className="text-xs font-mono uppercase tracking-wider text-orange-600 dark:text-orange-400">
-                    Freelance & Projects
-                  </span>
-                </div> */}
-
                 <ul className="space-y-6">
                   <li>
                     <span className="text-[10px] uppercase tracking-wider font-bold text-orange-600 dark:text-orange-400 mb-1 block">
@@ -214,7 +253,116 @@ export default function Experience() {
             </div>
           </div>
 
-          {/* --- CARD 3: LEADERSHIP / WEBMASTER (Large/Wide) --- */}
+          {/* --- CARD 4: VOLUNTEERING (Equal Width 1 Col) --- */}
+          <div className="md:col-span-1 relative group rounded-3xl p-[1.5px] overflow-hidden shadow-xl shadow-black/5 hover:shadow-2xl transition-all duration-300">
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                padding: "1.5px",
+                borderRadius: "inherit",
+                maskImage:
+                  "linear-gradient(#fff, #fff), linear-gradient(#fff, #fff)",
+                maskClip: "content-box, border-box",
+                maskComposite: "exclude",
+                WebkitMaskComposite: "destination-out",
+              }}
+            >
+              <div className="absolute -inset-[200%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0deg,transparent_60deg,#f97316_90deg,transparent_120deg,transparent_360deg)] will-change-transform opacity-100" />
+            </div>
+
+            <div className="relative h-full rounded-[23px] bg-linear-to-br from-white to-zinc-50 dark:from-zinc-900/90 dark:to-zinc-900/50 p-8 flex flex-col justify-center border border-zinc-200 dark:border-transparent">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="p-2 rounded-lg bg-orange-100 text-orange-600 dark:bg-orange-500/20 dark:text-orange-400">
+                  <Users size={20} />
+                </span>
+                <span className="text-xs font-mono uppercase tracking-wider text-orange-600 dark:text-orange-400">
+                  Volunteering
+                </span>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden bg-white shadow-sm border border-zinc-100 dark:border-zinc-800">
+                    <Image
+                      src="/baja.webp"
+                      alt="Baja"
+                      fill
+                      sizes="48px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white mb-2">
+                      SAE A-Baja 2025
+                    </h4>
+
+                    <div className="flex flex-col gap-1.5 border-l-2 border-orange-200 dark:border-orange-500/20 pl-3">
+                      <div className="flex flex-col mb-1.5">
+                        <span className="text-[10px] uppercase tracking-wider font-bold text-orange-600 dark:text-orange-400 flex items-center gap-1.5">
+                          <Trophy size={10} />
+                          All India Rank - 9
+                        </span>
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-[10px] uppercase tracking-wider font-bold text-zinc-500">
+                          Module Lead
+                        </span>
+                        <div className="flex flex-col gap-2">
+                          <span className="text-sm font-1spaceGrotesk text-zinc-700 dark:text-zinc-300">
+                            Adaptive Cruise Control (ACC)
+                          </span>
+                          <a
+                            href="https://github.com/dhjr/Adaptive-Cruise-Control/tree/main"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="
+                              group/github inline-flex items-center gap-2 text-[10px] px-3 py-2 rounded-md transition-all duration-300
+                              bg-zinc-50 border border-zinc-200 text-zinc-600 w-fit
+                              dark:bg-zinc-800/50 dark:border-zinc-700/50 dark:text-zinc-400
+                              hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-emerald-600 dark:hover:text-emerald-400
+                            "
+                          >
+                            <Github size={20} />
+                            Source
+                          </a>
+                        </div>
+                      </div>
+                      <div className="flex flex-col text-zinc-500">
+                        <span className="text-[10px] uppercase tracking-wider font-bold">
+                          Contributor
+                        </span>
+                        <span className="text-sm font-1spaceGrotesk text-zinc-700 dark:text-zinc-400">
+                          AEB, LKA & Computer Vision
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden bg-white shadow-sm border border-zinc-100 dark:border-zinc-800">
+                    <Image
+                      src="/tinkerhub.webp"
+                      alt="Tinkerhub"
+                      fill
+                      sizes="48px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
+                      Tinkerhub RIT
+                    </h4>
+                    <p className="font-1spaceGrotesk text-sm text-zinc-600 dark:text-zinc-400">
+                      Community Volunteer
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* --- CARD 5: LEADERSHIP / WEBMASTER (Full Width 2 Cols) --- */}
           <div className="md:col-span-2 relative group rounded-3xl p-[1.5px] overflow-hidden shadow-xl shadow-black/5 hover:shadow-2xl transition-all duration-300">
             <div
               className="absolute inset-0 pointer-events-none"
@@ -384,115 +532,6 @@ export default function Experience() {
                         </a>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* --- CARD 4: VOLUNTEERING (Compact) --- */}
-          <div className="md:col-span-1 relative group rounded-3xl p-[1.5px] overflow-hidden shadow-xl shadow-black/5 hover:shadow-2xl transition-all duration-300">
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                padding: "1.5px",
-                borderRadius: "inherit",
-                maskImage:
-                  "linear-gradient(#fff, #fff), linear-gradient(#fff, #fff)",
-                maskClip: "content-box, border-box",
-                maskComposite: "exclude",
-                WebkitMaskComposite: "destination-out",
-              }}
-            >
-              <div className="absolute -inset-[200%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0deg,transparent_60deg,#f97316_90deg,transparent_120deg,transparent_360deg)] will-change-transform opacity-100" />
-            </div>
-
-            <div className="relative h-full rounded-[23px] bg-linear-to-br from-white to-zinc-50 dark:from-zinc-900/90 dark:to-zinc-900/50 p-8 flex flex-col justify-center border border-zinc-200 dark:border-transparent">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="p-2 rounded-lg bg-orange-100 text-orange-600 dark:bg-orange-500/20 dark:text-orange-400">
-                  <Users size={20} />
-                </span>
-                <span className="text-xs font-mono uppercase tracking-wider text-orange-600 dark:text-orange-400">
-                  Volunteering
-                </span>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden bg-white shadow-sm border border-zinc-100 dark:border-zinc-800">
-                    <Image
-                      src="/baja.webp"
-                      alt="Baja"
-                      fill
-                      sizes="48px"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white mb-2">
-                      SAE A-Baja 2025
-                    </h4>
-
-                    <div className="flex flex-col gap-1.5 border-l-2 border-orange-200 dark:border-orange-500/20 pl-3">
-                      <div className="flex flex-col mb-1.5">
-                        <span className="text-[10px] uppercase tracking-wider font-bold text-orange-600 dark:text-orange-400 flex items-center gap-1.5">
-                          <Trophy size={10} />
-                          All India Rank - 9
-                        </span>
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-[10px] uppercase tracking-wider font-bold text-zinc-500">
-                          Module Lead
-                        </span>
-                        <div className="flex flex-col gap-2">
-                          <span className="text-sm font-1spaceGrotesk text-zinc-700 dark:text-zinc-300">
-                            Adaptive Cruise Control (ACC)
-                          </span>
-                          <a
-                            href="https://github.com/dhjr/Adaptive-Cruise-Control/tree/main"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="
-                              group/github inline-flex items-center gap-2 text-[10px] px-3 py-2 rounded-md transition-all duration-300
-                              bg-zinc-50 border border-zinc-200 text-zinc-600 w-fit
-                              dark:bg-zinc-800/50 dark:border-zinc-700/50 dark:text-zinc-400
-                              hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-emerald-600 dark:hover:text-emerald-400
-                            "
-                          >
-                            <Github size={20} />
-                            Source
-                          </a>
-                        </div>
-                      </div>
-                      <div className="flex flex-col text-zinc-500">
-                        <span className="text-[10px] uppercase tracking-wider font-bold">
-                          Contributor
-                        </span>
-                        <span className="text-sm font-1spaceGrotesk text-zinc-700 dark:text-zinc-400">
-                          AEB, LKA & Computer Vision
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden bg-white shadow-sm border border-zinc-100 dark:border-zinc-800">
-                    <Image
-                      src="/tinkerhub.webp"
-                      alt="Tinkerhub"
-                      fill
-                      sizes="48px"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="font-bold font-1spaceGrotesk text-zinc-900 dark:text-white">
-                      Tinkerhub RIT
-                    </h4>
-                    <p className="font-1spaceGrotesk text-sm text-zinc-600 dark:text-zinc-400">
-                      Community Volunteer
-                    </p>
                   </div>
                 </div>
               </div>

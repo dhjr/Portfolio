@@ -224,47 +224,61 @@ export default function Contact() {
               </div>
 
               {/* SUBMIT BUTTON */}
-              <button
-                type="submit"
-                disabled={status === "sending" || status === "success"}
-                className={`
-                        group relative px-8 py-4 font-bold font-mono uppercase tracking-wider overflow-hidden rounded-sm transition-all duration-300 w-full md:w-auto
-                        ${
-                          status === "success"
-                            ? "bg-emerald-500 text-black cursor-default"
-                            : "bg-zinc-900 text-white hover:bg-emerald-500 hover:text-white dark:bg-white dark:text-black dark:hover:bg-emerald-400"
-                        }
-                        ${
-                          status === "error"
-                            ? "bg-rose-500 hover:bg-rose-400 text-white"
-                            : ""
-                        }
-                    `}
-              >
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  {status === "idle" && (
-                    <>
-                      Send mail <ArrowUpRight size={16} />
-                    </>
-                  )}
-                  {status === "sending" && (
-                    <>
-                      Transmitting{" "}
-                      <Loader2 size={16} className="animate-spin" />
-                    </>
-                  )}
-                  {status === "success" && (
-                    <>
-                      Data_Received <CheckCircle size={16} />
-                    </>
-                  )}
-                  {status === "error" && (
-                    <>
-                      Transmission_Failed <AlertCircle size={16} />
-                    </>
-                  )}
-                </span>
-              </button>
+              <div className="flex flex-col gap-3 items-start">
+                <button
+                  type="submit"
+                  disabled={status === "sending" || status === "success"}
+                  className={`
+                          group relative px-8 py-4 font-bold font-mono uppercase tracking-wider overflow-hidden rounded-sm transition-all duration-300 w-full md:w-auto cursor-pointer
+                          ${
+                            status === "success"
+                              ? "bg-emerald-500 text-black cursor-default"
+                              : "bg-zinc-900 text-white hover:bg-emerald-500 hover:text-white dark:bg-white dark:text-black dark:hover:bg-emerald-400"
+                          }
+                          ${
+                            status === "error"
+                              ? "bg-rose-500 hover:bg-rose-600 text-white"
+                              : ""
+                          }
+                      `}
+                >
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    {status === "idle" && (
+                      <>
+                        Send mail <ArrowUpRight size={16} />
+                      </>
+                    )}
+                    {status === "sending" && (
+                      <>
+                        Transmitting{" "}
+                        <Loader2 size={16} className="animate-spin" />
+                      </>
+                    )}
+                    {status === "success" && (
+                      <>
+                        Data_Received <CheckCircle size={16} />
+                      </>
+                    )}
+                    {status === "error" && (
+                      <>
+                        Transmission_Failed <AlertCircle size={16} />
+                      </>
+                    )}
+                  </span>
+                </button>
+
+                {status === "error" && (
+                  <p className="text-xs font-mono text-rose-500 dark:text-rose-400 mt-1 flex items-center gap-1.5">
+                    <span>Transmission failed. Please email directly at</span>
+                    <a
+                      href="mailto:dhjr.dev@gmail.com"
+                      className="underline font-bold hover:text-emerald-500 transition-colors"
+                    >
+                      dhjr.dev@gmail.com
+                    </a>
+                  </p>
+                )}
+              </div>
             </form>
           </div>
         </div>

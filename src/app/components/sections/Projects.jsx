@@ -64,7 +64,7 @@ export default function Projects() {
         "A real-time polling application built with Next.js 16 & Socket.io. Users can create poll rooms, share codes for instant joining, and visualize live voting results via dynamic charts. Features IP-based voting logic and persisted data patterns.",
       tags: ["Next.js", "Socket.io", "MongoDB", "Tailwind v4"],
       ghLink: "https://github.com/dhjr/LivePoll",
-      demoLink: "livepoll-web.vercel.app",
+      demoLink: "https://livepoll-web.vercel.app",
       images: [
         "/projects/livePoll1.webp",
         "/projects/livePoll2.webp",
@@ -102,7 +102,7 @@ export default function Projects() {
       description:
         "A freelance commercial project for a UK-based client. Delivered a responsive, SEO-optimized landing page with high Core Web Vitals scores to enhance business visibility.",
       tags: ["Astro.js", "Tailwind", "SEO", "UI/UX"],
-      ghLink: "#",
+      ghLink: null,
       demoLink: "https://littlehouselondon.netlify.app/",
       image: "/projects/lhl.webp",
       status: "Completed",
@@ -159,7 +159,7 @@ export default function Projects() {
       description:
         "Contributed in the development of IEEE ReX 5.0 official website.Hosted by IEEE Robotics and Automation Society RIT",
       tags: ["HTML", "CSS", "Javascript"],
-      ghLink: "#",
+      ghLink: null,
       demoLink: "https://rex.ieeesbrit.com/",
       image: "/projects/rex.webp",
       status: "Completed",
